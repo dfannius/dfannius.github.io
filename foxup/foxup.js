@@ -122,9 +122,12 @@ function calculateGrid(rank, recentChars) {
                 for (let w2 = w + 1; w2 <= windowSize - l; w2++) {
                     grid.delete(`${w2},${l}`);
                 }
-                // Set waiting cells (fewer wins, same losses)
+                // Set waiting cells (only cells that are currently single rank up)
                 for (let w2 = 0; w2 < w; w2++) {
-                    grid.set(`${w2},${l}`, 12);
+                    const key2 = `${w2},${l}`;
+                    if (grid.get(key2) === 1) {
+                        grid.set(key2, 12);
+                    }
                 }
                 break;
             }
@@ -140,9 +143,12 @@ function calculateGrid(rank, recentChars) {
                 for (let l2 = l + 1; l2 <= windowSize - w; l2++) {
                     grid.delete(`${w},${l2}`);
                 }
-                // Set waiting cells (fewer losses, same wins)
+                // Set waiting cells (only cells that are currently single rank down)
                 for (let l2 = 0; l2 < l; l2++) {
-                    grid.set(`${w},${l2}`, -12);
+                    const key2 = `${w},${l2}`;
+                    if (grid.get(key2) === -1) {
+                        grid.set(key2, -12);
+                    }
                 }
                 break;
             }
@@ -248,14 +254,7 @@ function calculate() {
     const gridContainer = document.getElementById('grid-container');
     
     try {
-        // Validate input
-        if (!results) {
-            outputDiv.textContent = 'Please enter recent results (O for wins, X for losses)';
-            gridContainer.innerHTML = '';
-            return;
-        }
-        
-        // Validate results string
+        // Validate results string (empty string is allowed)
         for (let char of results) {
             if (char !== 'O' && char !== 'X') {
                 outputDiv.textContent = `Invalid character '${char}' in results. Use only 'O' for wins and 'X' for losses.`;
