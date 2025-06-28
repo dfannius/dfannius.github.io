@@ -156,6 +156,38 @@
             height: 15px;
             border: 1px solid #ddd;
         }
+        
+        /* Mobile responsive design */
+        @media (max-width: 768px) {
+            .input-section {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+            }
+            
+            .input-section > * {
+                width: 100%;
+                box-sizing: border-box;
+            }
+            
+            select, input[type="text"], button {
+                width: 100%;
+                max-width: none;
+                min-width: 0;
+                box-sizing: border-box;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .grid-table th, .grid-table td {
+                padding: 4px;
+                font-size: 11px;
+                min-width: 25px;
+                height: 20px;
+            }
+        }
         .help {
             margin-top: 20px;
             padding: 15px;

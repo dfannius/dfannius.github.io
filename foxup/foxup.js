@@ -208,7 +208,7 @@ function generateGrid(grid, rank) {
             
             // Special case for upper left cell
             if (lossIndex === 0 && winIndex === 0) {
-                html += '<td style="font-weight: bold;">W-L</td>';
+                html += '<td style="font-weight: bold; white-space: nowrap;">W-L</td>';
                 continue;
             }
             
