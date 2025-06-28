@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fox Rank Change Calculator</title>
+    <style>
+        body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .input-section {
+            margin-bottom: 30px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: nowrap;
+        }
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+        select, input[type="text"] {
+            padding: 8px 12px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        select {
+            min-width: 80px;
+        }
+        input[type="text"] {
+            min-width: 150px;
+            font-family: 'Courier New', monospace;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .options {
+            margin-top: 15px;
+        }
+        .options label {
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        #output {
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 20px;
+            margin-top: 20px;
+            white-space: pre;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.4;
+            min-height: 100px;
+            overflow-x: auto;
+        }
+        #grid-container {
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+        .grid-table {
+            border-collapse: collapse;
+            margin: 0 auto;
+            background-color: white;
+        }
+        .grid-table th, .grid-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+            font-size: 16px;
+            min-width: 30px;
+            height: 24px;
+        }
+        .grid-table th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+        }
+        .rank-double-up {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .rank-single-up {
+            background-color: #8BC34A;
+            color: white;
+        }
+        .rank-stay {
+            background-color: #FFC107;
+            color: black;
+        }
+        .rank-single-down {
+            background-color: #FF9800;
+            color: white;
+        }
+        .rank-double-down {
+            background-color: #F44336;
+            color: white;
+        }
+        .rank-impossible {
+            background-color: #9E9E9E;
+            color: white;
+        }
+        .rank-waiting-up {
+            background-color: #66BB6A;
+            color: white;
+            font-style: italic;
+        }
+        .rank-waiting-down {
+            background-color: #FF7043;
+            color: white;
+            font-style: italic;
+        }
+        .legend {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+            width: 200px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 15px;
+            border: 1px solid #ddd;
+        }
+        .help {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e8f4fd;
+            border-left: 4px solid #2196F3;
+            border-radius: 0 4px 4px 0;
+        }
+        .help h3 {
+            margin-top: 0;
+            color: #1976D2;
+        }
+        .help ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fox Go Rank Calculator</h1>
+        
+        <div class="input-section">
+            <label for="rank">Current Rank:</label>
+            <select id="rank">
+                <option value="18k">18k</option>
+                <option value="17k">17k</option>
+                <option value="16k">16k</option>
+                <option value="15k">15k</option>
+                <option value="14k">14k</option>
+                <option value="13k">13k</option>
+                <option value="12k">12k</option>
+                <option value="11k">11k</option>
+                <option value="10k">10k</option>
+                <option value="9k">9k</option>
+                <option value="8k">8k</option>
+                <option value="7k">7k</option>
+                <option value="6k">6k</option>
+                <option value="5k">5k</option>
+                <option value="4k">4k</option>
+                <option value="3k">3k</option>
+                <option value="2k">2k</option>
+                <option value="1k">1k</option>
+                <option value="1d" selected>1d</option>
+                <option value="2d">2d</option>
+                <option value="3d">3d</option>
+                <option value="4d">4d</option>
+                <option value="5d">5d</option>
+                <option value="6d">6d</option>
+                <option value="7d">7d</option>
+                <option value="8d">8d</option>
+                <option value="9d">9d</option>
+            </select>
+            
+            <label for="results">Recent Results:</label>
+            <input type="text" id="results" placeholder="XOXXOXOXOOOOXO" value="XOXXOXOXOOOOXO">
+            <button onclick="calculate()">Go</button>
+        </div>
+        
+        <div id="grid-container"></div>
+        <div id="output"></div>
+        
+    </div>
+    
+    <script src="foxup.js"></script>
+</body>
+</html>
