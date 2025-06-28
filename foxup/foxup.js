@@ -249,7 +249,7 @@ function generateGrid(grid, rank) {
 
 function calculate() {
     const rank = document.getElementById('rank').value;
-    const results = document.getElementById('results').value.trim();
+    const results = document.getElementById('results').value.trim().toUpperCase();
     const outputDiv = document.getElementById('output');
     const gridContainer = document.getElementById('grid-container');
     
