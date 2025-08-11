@@ -28,7 +28,7 @@ const RULES = {
     "6d":  [20, 15, 20, 13, 17],
     "7d":  [20, 15, 20, 13, 17],
     "8d":  [20, 15, null, 13, 17],
-    "9d":  [20, 18, null, 13, null]
+    "9d":  [20, null, null, 13, 17]
 };
 
 function charToResult(c) {
