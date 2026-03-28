@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Go Translation</title>
+<style>
+body {
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Georgia, serif;
+    line-height: 1.4;
+    background-color: #fff8f0;
+}
+.headers {
+    font-weight: bold;
+    line-height: 1.4;
+}
+hr.file { border: none; border-top: 1px solid #bbb; margin: 1.2em 0; }
+hr.page { border: none; border-top: 4px double #444; margin: 1.5em 0; }
+.page-number { text-align: center; color: #888; font-size: 0.85em; margin: 0.2em 0 1em; }
+.meta-title { font-size: 1.6em; font-weight: bold; line-height: 1.4; text-align: center; }
+.meta-volume { font-size: 1.1em; font-weight: bold; line-height: 1.4; text-align: center; margin-top: 0.4em; }
+.meta-author { font-size: 1.2em; font-weight: bold; line-height: 1.4; text-align: right; margin-top: 0.4em; }
+.meta-isbn { font-size: 1.0em; line-height: 1.4; text-align: right; margin-top: 0.4em; }
+</style>
+</head>
+<body>
+<div class="page-number">2</div>
+<div class="headers">Preface</div>
+<p>As you play games of Go, localized battles break out all over the board. Whichever side reads more accurately will come out ahead. In particular, when capturing races arise, being weak at reading often leads to losing those local battles and suffering fatal damage that costs you the game.</p>
+<p>Beginners who are just starting out with Go make many mistakes in capturing races and find them daunting. To get stronger at Go, one must practice reading extensively, especially in capturing races and life-and-death situations. By studying this book, readers will come to know the key moves and vital points of capturing races precisely, and gain the confidence to win their games.</p>
+<p>Readers will have learned simple external liberty-filling in the introductory volume. Broadly speaking, capturing races involve two main approaches: increasing your own liberties, and reducing your opponent&#8217;s liberties.</p>
+
+<hr class="page">
+<div class="page-number">3</div>
+<p>This book categorizes the key moves of capturing races. After learning the basic examples and problems, readers revisit similar positions through the comprehensive problems in the latter portion of the book.</p>
+<p>For convenience in solving problems, all problems are set with Black to move. In the comprehensive problems section, positions that frequently arise in actual games have been formulated as problems for practice.</p>
+<p>I hope that all beginners who study with this book will improve their strength, grasp the subtleties of Go, and enjoy the pleasure of accumulating wins game by game. I would also like to express my gratitude to President Yangji of Hyeonhyeongak Publishing and all the staff who made this book possible.</p>
+<p>Pro 9-dan Seo Neung-wuk
+徐能旭</p>
+
+<hr class="page">
+<div class="page-number">4</div>
+<div class="headers">Table of Contents</div>
+<ol>
+<li>Liberty Counting ············································ 6</li>
+<li>Reducing Liberties from the Outside ························ 16</li>
+<li>Reducing Liberties from the Inside ························· 26</li>
+<li>Reducing Liberties on the First Line ······················· 36</li>
+<li>Reducing Liberties from the Key Point ······················ 44</li>
+<li>Snapback ··················································· 50</li>
+<li>Shortage of Liberties ······································ 60</li>
+<li>Sacrifice ·················································· 74</li>
+<li>False Eye ·················································· 88</li>
+<li>Looping Capture ··········································· 98</li>
+<li>Cutting ·················································· 108</li>
+<li>Vital Point ·············································· 116</li>
+<li>Ko in Capturing Races ···································· 126</li>
+<li>Comprehensive Practice Problems ·························· 134</li>
+</ol>
+<p>Glossary of Go Terms ········································· 132</p>
+
+<hr class="page">
+<div class="page-number">5</div>
+<div class="headers">Essentials of Capturing Race Technique</div>
+
+<hr class="page">
+<div class="page-number">6</div>
+<p>This is a capturing race between Black and White.
+How many liberties does each side have?</p>
+
+<hr class="page">
+<div class="page-number">7</div>
+<div class="headers">Example 1</div>
+<p>White has 3 liberties.
+Black has 3 liberties.
+Since both sides have 3 liberties, whoever plays first wins.</p>
+
+<hr class="file">
+<div class="headers">Example 2</div>
+<p>Playing at <em>a</em> reduces your own liberties, so it should be played last.
+Therefore Black must fill from 1, and has 3 liberties.
+White also must fill from 1, and has 3 liberties.</p>
+
+<hr class="page">
+<div class="page-number">8</div>
+<p>This is a capturing race between Black and White.
+How many moves does it take to capture White?</p>
+
+<hr class="page">
+<div class="page-number">9</div>
+<p>This is a capturing race between Black and White.
+How many moves does it take to capture White?</p>
+
+<hr class="page">
+<div class="page-number">10</div>
+<p>This is a capturing race between Black and White.
+How many moves does it take to capture White?</p>
+
+<hr class="page">
+<div class="page-number">11</div>
+<p>This is a capturing race between Black and White.
+How many moves does it take to capture White?</p>
+
+<hr class="page">
+<div class="page-number">12</div>
+<p>This is a capturing race between Black and White.
+How many moves does it take to capture White?</p>
+
+<hr class="page">
+<div class="page-number">13</div>
+<p>This is a capturing race between Black and White.
+How many moves does it take to capture White?</p>
+
+<hr class="page">
+<div class="page-number">14</div>
+<p>This is a capturing race between Black and White.
+How many moves does it take to capture White?</p>
+
+<hr class="page">
+<div class="page-number">15</div>
+<p>This is a capturing race between Black and White.
+How many moves does it take to capture White?</p>
+
+<hr class="page">
+<div class="page-number">16</div>
+<p>This is a capturing race between Black and White.
+Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">17</div>
+<div class="headers">Example 1</div>
+<p>Giving atari with Black 1 is the correct move.
+Even if White plays 2, Black can capture White with 3.
+If Black gives atari with 1, White plays 2 and Black ends up being captured instead.</p>
+
+<hr class="file">
+<div class="headers">Example 2</div>
+<p>Giving atari with Black 1 is the correct move.
+Even if White plays 2, Black can capture White with 3.
+If Black gives atari with 1, White plays 2 and Black ends up being captured instead.</p>
+
+<hr class="page">
+<div class="page-number">18</div>
+<p>This is the position after White △ has been played.
+Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">19</div>
+<p>This is the position after White △ has been played.
+Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">20</div>
+<p>This is the position after White △ has been played.
+Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">21</div>
+<p>This is the position after White △ has been played.
+Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">22</div>
+<p>This is the position after White △ has been played.
+Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">23</div>
+<p>This is the position after White △ has been played.
+Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">24</div>
+<p>This is the position after White △ has been played.
+Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">25</div>
+<p>This is the position after White △ has been played.
+Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">26</div>
+<p>This is a capturing race between Black and White.
+Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">27</div>
+<div class="headers">Example 1</div>
+<p>Giving atari with Black 1 is the correct move.
+Even if White plays 2, Black can capture White with 3.
+If Black gives atari with 1, White plays 2 and Black ends up being captured instead.</p>
+
+<hr class="file">
+<div class="headers">Example 2</div>
+<p>Giving atari with Black 1 is the correct move.
+Even if White plays 2, Black can capture White with 3.
+If Black gives atari with 1, White plays 2 and Black ends up being captured instead.</p>
+
+<hr class="page">
+<div class="page-number">28</div>
+<p>This is the position after White △ has been played.
+Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">29</div>
+<p>This is the position after White △ has been played.
+Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">30</div>
+<p>This is the position after White △ has been played.
+Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">31</div>
+<p>This is the position after White △ has been played.
+Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">32</div>
+<p>This is the position after White △ has been played.
+Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">33</div>
+<p>This is the position after White △ has been played.
+Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">34</div>
+<p>This is the position after White △ has been played.
+Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">35</div>
+<p>This is the position after White △ has been played.
+Where is Black&#8217;s next move?</p>
+
+</body>
+</html>
