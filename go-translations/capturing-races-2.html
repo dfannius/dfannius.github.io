@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Capturing Races (수상전)</title>
+<style>
+body {
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Georgia, serif;
+    line-height: 1.4;
+    background-color: #fff8f0;
+}
+.headers {
+    font-weight: bold;
+    line-height: 1.4;
+}
+hr.file { border: none; border-top: 1px solid #bbb; margin: 1.2em 0; }
+hr.page { border: none; border-top: 4px double #444; margin: 1.5em 0; }
+.page-number { text-align: center; color: #888; font-size: 0.85em; margin: 0.2em 0 1em; }
+.meta-title { font-size: 1.6em; font-weight: bold; line-height: 1.4; text-align: center; }
+.meta-volume { font-size: 1.1em; font-weight: bold; line-height: 1.4; text-align: center; margin-top: 0.4em; }
+.meta-author { font-size: 1.2em; font-weight: bold; line-height: 1.4; text-align: right; margin-top: 0.4em; }
+.meta-isbn { font-size: 1.0em; line-height: 1.4; text-align: right; margin-top: 0.4em; }
+</style>
+</head>
+<body>
+<div class="meta-title">Capturing Races (수상전)</div>
+<div class="meta-volume">Volume 2</div>
+<div class="meta-author">Seo Neung-wuk</div>
+<div class="meta-isbn">979-11-91482-25-6</div>
+<hr class="page">
+<div class="page-number">4</div>
+<div class="headers">Table of Contents</div>
+<ol>
+<li>Liberty Counting ····· 6</li>
+<li>First-Line Knight&#8217;s Move ····· 16</li>
+<li>First-Line Descent ····· 26</li>
+<li>Hane ····· 36</li>
+<li>Increasing Liberties ····· 48</li>
+<li>Self-Atari ····· 60</li>
+<li>Connection ····· 72</li>
+<li>Wedge ····· 78</li>
+<li>Attachment ····· 86</li>
+<li>Clamp ····· 96</li>
+<li>Having Liberties vs. Not Having Liberties ····· 106</li>
+<li>Bent-Four Capturing Race ····· 114</li>
+<li>Responding and Tenuki ····· 124</li>
+<li>Comprehensive Practice Problems ····· 136
+Let&#8217;s Learn — How to Improve at Go ····· 134</li>
+</ol>
+
+<hr class="page">
+<div class="page-number">5</div>
+<div class="headers">Key Techniques in Capturing Races</div>
+
+<hr class="page">
+<div class="page-number">6</div>
+<div class="headers">1. Liberty Counting</div>
+<p>This is a capturing race between Black and White.
+How many liberties does each of Black and White have?</p>
+
+<hr class="page">
+<div class="page-number">7</div>
+<div class="headers">Example 1</div>
+<p>If Black ataris at 1, White must connect at 2.</p>
+<p>Therefore White has 3 liberties.</p>
+<p>Black has 3 liberties.</p>
+
+<hr class="file">
+<div class="headers">Example 2</div>
+<p>In response to the atari of Black 1, White does not connect but plays at 2 instead.</p>
+<p>Therefore White has 3 liberties.</p>
+<p>Black has 2 liberties.</p>
+
+<hr class="page">
+<div class="page-number">16</div>
+<div class="headers">2. First-Line Diagonal</div>
+<p>This is a capturing race between Black and White.</p>
+<p>Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">17</div>
+<div class="headers">Example 1</div>
+<p>Playing the diagonal at Black 1 is the correct move.</p>
+<p>When White plays at 2, Black can capture White by atariing at 3.</p>
+<p>If Black plays 1 as an atari, White 2 ataris in return and Black ends up being captured instead.</p>
+
+<hr class="file">
+<div class="headers">Example 2</div>
+<p>Playing the diagonal at Black 1 is the correct move.</p>
+<p>When White plays at 2, Black can capture White through move 7.</p>
+<p>If Black plays atari at 1, after White connects at 2, when Black plays 3, White 4 captures Black.</p>
+
+<hr class="page">
+<div class="page-number">18</div>
+<p>This is the position after White plays at △.
+Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">26</div>
+<div class="headers">3. First-Line Descent</div>
+<p>This is a capturing race between Black and White.</p>
+<p>Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">27</div>
+<div class="headers">Example 1</div>
+<p>Descending at Black 1 is the correct move; after White 2 and Black 3,</p>
+<p>if White connects at 4, Black 5 can capture White.</p>
+<p>If Black descends at 1 elsewhere, Black ends up being captured instead through White 4.</p>
+
+<hr class="file">
+<div class="headers">Example 2</div>
+<p>Descending at Black 1 is the correct move; after White 2 and Black 3,</p>
+<p>when White plays 4, Black ataris at 5 and can capture White.</p>
+<p>If Black plays at 1 elsewhere, Black ends up being captured instead through White 4.</p>
+
+<hr class="page">
+<div class="page-number">28</div>
+<p>This is the position after White plays at △.
+Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">36</div>
+<div class="headers">4. Hane</div>
+<p>This is a capturing race between Black and White.</p>
+<p>Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">37</div>
+<div class="headers">Example 1</div>
+<p>Haneing at Black 1 is the correct move.</p>
+<p>If White blocks at 2, Black can capture White through move 5.</p>
+<p>Playing at 1 elsewhere fails through White 4.</p>
+
+<hr class="file">
+<div class="headers">Example 2</div>
+<p>Haneing at Black 1 is the correct move.</p>
+<p>Even if White hanes at 2, Black can capture White through move 5.</p>
+<p>Playing at 1 elsewhere leaves Black short of liberties through White 6.</p>
+
+<hr class="page">
+<div class="page-number">38</div>
+<p>This is the position after White plays at △.
+Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">48</div>
+<div class="headers">5. Adding Liberties</div>
+<p>This is a capturing race between Black and White.</p>
+<p>Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">49</div>
+<div class="headers">Example 1</div>
+<p>Playing at Black 1 is the good move.</p>
+<p>After White 2, Black can capture White through move 5.</p>
+<p>If Black goes directly to capture at 1, White ataris at 2 and Black dies through White 4.</p>
+
+<hr class="file">
+<div class="headers">Example 2</div>
+<p>Playing at Black 1 is the good move.</p>
+<p>After White captures at 2, Black can capture White through move 5.</p>
+<p>Playing Black 1 elsewhere allows White to atari at 2, resulting in failure.</p>
+
+<hr class="page">
+<div class="page-number">50</div>
+<p>This is the position after White plays at △.
+Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">60</div>
+<div class="headers">6. Self-filling</div>
+<p>This is a capturing race between Black and White.</p>
+<p>Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">61</div>
+<div class="headers">Example 1</div>
+<p>Black 1 is the correct move.</p>
+<p>Since White cannot play at <em>a</em> or <em>b</em>, Black can capture these White stones.</p>
+<p>Playing Black 1 elsewhere leads to White 2 capturing Black.</p>
+
+<hr class="file">
+<div class="headers">Example 2</div>
+<p>If Black first cuts at 1 and White captures at 2,</p>
+<p>Black 3, White 4, and Black 5 can capture White.</p>
+<p>Simply playing at Black 1 without the cut leads to White 2 capturing Black.</p>
+
+<hr class="page">
+<div class="page-number">62</div>
+<p>This is the position after White plays at △.
+Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">72</div>
+<div class="headers">7. Connecting</div>
+<p>This is a capturing race between Black and White.</p>
+<p>Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">73</div>
+<div class="headers">Example 1</div>
+<p>Connecting at Black 1 is the correct move.</p>
+<p>After White 2, Black can capture White through move 5.</p>
+<p>Playing Black 1 elsewhere fails — White throws in at 2, and through White 6 it is a failure.</p>
+
+<hr class="file">
+<div class="headers">Example 2</div>
+<p>Connecting at Black 1 is the correct move.</p>
+<p>After White 2, Black can capture White through move 5.</p>
+<p>Playing Black 1 elsewhere fails — White throws in at 2, and through White 6 it is a failure.</p>
+
+<hr class="page">
+<div class="page-number">74</div>
+<p>This is the position after White plays at △.
+Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">78</div>
+<div class="headers">8. Wedge</div>
+<p>This is a capturing race between Black and White.</p>
+<p>Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">79</div>
+<div class="headers">Example 1</div>
+<p>Wedging at Black 1 is the correct move.</p>
+<p>If White plays at 2, Black can atari at 3 and capture White.</p>
+<p>Playing Black 1 elsewhere results in seki through White 4.</p>
+
+<hr class="file">
+<div class="headers">Example 2</div>
+<p>Wedging at Black 1 is the correct move.</p>
+<p>If White plays at 2, Black can atari at 3 and capture White.</p>
+<p>Playing Black 1 elsewhere leads to Black being captured through White 6.</p>
+
+<hr class="page">
+<div class="page-number">80</div>
+<p>This is the position after White plays at △.
+Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">86</div>
+<div class="headers">9. Attach</div>
+<p>This is a capturing race between Black and White.</p>
+<p>Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">87</div>
+<div class="headers">Example 1</div>
+<p>Attaching at Black 1 is the correct move.</p>
+<p>If White plays at 2, Black can atari at 3 and capture White.</p>
+<p>Playing Black 1 elsewhere leads to Black being captured through White 4.</p>
+
+<hr class="file">
+<div class="headers">Example 2</div>
+<p>Attaching at Black 1 is the correct move.</p>
+<p>After White 2, Black ataris at 3 and through Black 5 can capture White.</p>
+<p>Playing Black 1 elsewhere leads to Black being captured through White 4.</p>
+
+<hr class="page">
+<div class="page-number">88</div>
+<p>This is the position after White plays at △.
+Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">96</div>
+<div class="headers">10. Clamp</div>
+<p>This is a capturing race between Black and White.</p>
+<p>Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">97</div>
+<div class="headers">Example 1</div>
+<p>Atariing at Black 1 is the correct move.</p>
+<p>When White plays at 2, Black can atari at 3 and capture White.</p>
+<p>Playing Black 1 elsewhere leads to ko through White 4, which is a failure for Black.</p>
+
+<hr class="file">
+<div class="headers">Example 2</div>
+<p>Playing Black 1 is the correct move.</p>
+<p>When White plays at 2, Black can atari at 3 and capture White.</p>
+<p>Playing Black 1 elsewhere leads to Black being captured by White 2.</p>
+
+<hr class="page">
+<div class="page-number">98</div>
+<p>This is the position after White plays at △.
+Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">106</div>
+<div class="headers">11. Eye Versus No Eye</div>
+<p>This is a capturing race between Black and White.</p>
+<p>Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">107</div>
+<div class="headers">Example 1</div>
+<p>Making an eye at Black 1 is the correct move.</p>
+<p>Since White cannot play at <em>a</em>, Black can capture White.</p>
+<p>Playing Black 1 elsewhere leads to seki after White 2.</p>
+
+<hr class="file">
+<div class="headers">Example 2</div>
+<p>Making an eye at Black 1 is the correct move.</p>
+<p>Since White cannot play at <em>a</em>, Black can capture White.</p>
+<p>Playing Black 1 elsewhere leads to seki after White 2.</p>
+
+<hr class="page">
+<div class="page-number">108</div>
+<p>This is the position after White plays at △.
+Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">114</div>
+<div class="headers">12. Capturing Race with Eye Space</div>
+
+<hr class="file">
+<div class="headers">Example 1</div>
+<p>A 1-point eye space counts as 1 liberty.</p>
+<p>A 2-point eye space counts as 2 liberties.</p>
+<p>A 3-point eye space counts as 3 liberties.</p>
+
+<hr class="file">
+<div class="headers">Example 2</div>
+<p>A 2-point eye space with 1 White stone inside counts as 1 liberty.</p>
+<p>A 3-point eye space with 1 White stone inside counts as 2 liberties.</p>
+<p>A 3-point eye space with 2 White stones inside counts as 1 liberty.</p>
+
+<hr class="page">
+<div class="page-number">115</div>
+<div class="headers">Example 3</div>
+<p>How many liberties does a 4-point eye space have?</p>
+<p>If White ataris with ◎, Black must capture with △.</p>
+<p>Therefore, 2 liberties (from diagram 2) + 3 liberties (from diagram 4) = 5 liberties. In the end, a 4-point eye space has 5 liberties.</p>
+<p>White plays 2 moves at 1 and 2. Continuing,</p>
+<p>this results in the shape below, and a 3-point eye space has 3 liberties.</p>
+
+<hr class="file">
+<div class="headers">Eye Space Liberty Formula</div>
+<p>1-point = 1 liberty  2-point = 2 liberties
+3-point = 3 liberties  4-point = 5 liberties
+When the opponent&#8217;s stones are inside the eye space, subtract the number of opponent stones from the above values to find the eye space liberties.</p>
+
+<hr class="page">
+<div class="page-number">116</div>
+<p>How many liberties does Black have?</p>
+
+<hr class="page">
+<div class="page-number">119</div>
+<p>This is the position after White plays at △.
+Where is Black&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">124</div>
+<div class="headers">13. Responding and Tenuki</div>
+<p>Responding: something you must answer when the opponent plays a move.
+Tenuki: ignoring the opponent&#8217;s move and playing elsewhere.
+When White plays at △, should Black respond? Or can Black play tenuki?</p>
+
+<hr class="page">
+<div class="page-number">125</div>
+<div class="headers">Example 1</div>
+<p>When White plays at △, Black has 2 liberties and White also has 2 liberties.</p>
+<p>Therefore, Black must respond at 1.</p>
+<p>If Black plays tenuki, White 1 captures Black.</p>
+
+<hr class="file">
+<div class="headers">Example 2</div>
+<p>When White plays at △, Black has 4 liberties and White has 3 liberties.</p>
+<p>Therefore, Black can play tenuki; when White plays at 1, Black can respond at 2.</p>
+<p>White △ is a gote move that Black can answer with tenuki.</p>
+
+<hr class="page">
+<div class="page-number">126</div>
+<p>This is the position after White plays at △.
+If Black must respond, mark ○; if Black can play tenuki, mark △.</p>
+
+<hr class="page">
+<div class="page-number">134</div>
+<div class="headers">Did You Know</div>
+
+<hr class="file">
+<div class="headers">How to Improve Your Go Strength</div>
+<ol>
+<li>
+<p>Always do a post-game review after each game.
+By reviewing, you can reflect on your moves and receive guidance from stronger players on where you went wrong and where you played well. You can also go through your own game record quietly to identify and address your weaknesses.
+No one has ever improved their Go strength without doing post-game reviews.</p>
+</li>
+<li>
+<p>Replay games by professional players.
+Professional game records can easily be found in newspapers and Go magazines. As you replay the professionals&#8217; moves one by one, thinking about the meaning of each move, you will find your strength improving significantly before you know it. As you continue replaying game records, you will eventually be able to memorize an entire game — there are players who say they reached 1-kyu by memorizing 10 professional game records. If replaying an entire game is too difficult, studying model fuseki is a great help in improving your strength.</p>
+</li>
+</ol>
+
+<hr class="page">
+<div class="page-number">135</div>
+<div class="headers">Capturing Races<br>
+Comprehensive Review Problems</div>
+
+<hr class="page">
+<div class="page-number">136</div>
+<div class="headers">Comprehensive Review Problems</div>
+<p>This is the position after White plays at △.
+Where is Black&#8217;s next move?</p>
+
+</body>
+</html>
