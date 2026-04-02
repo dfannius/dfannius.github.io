@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Capturing Races (수상전)</title>
+<style>
+body {
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Georgia, serif;
+    line-height: 1.4;
+    background-color: #fff8f0;
+}
+.headers {
+    font-weight: bold;
+    line-height: 1.4;
+}
+hr.file { border: none; border-top: 1px solid #bbb; margin: 1.2em 0; }
+hr.page { border: none; border-top: 4px double #444; margin: 1.5em 0; }
+.page-number { text-align: center; color: #888; font-size: 0.85em; margin: 0.2em 0 1em; }
+.meta-title { font-size: 1.6em; font-weight: bold; line-height: 1.4; text-align: center; }
+.meta-volume { font-size: 1.1em; font-weight: bold; line-height: 1.4; text-align: center; margin-top: 0.4em; }
+.meta-author { font-size: 1.2em; font-weight: bold; line-height: 1.4; text-align: right; margin-top: 0.4em; }
+.meta-isbn { font-size: 1.0em; line-height: 1.4; text-align: right; margin-top: 0.4em; }
+</style>
+</head>
+<body>
+<div class="meta-title">Capturing Races (수상전)</div>
+<div class="meta-volume">Volume 3</div>
+<div class="meta-author">Seo Neung-wuk</div>
+<div class="meta-isbn">979-11-91482-25-6</div>
+<hr class="page">
+<div class="page-number">4</div>
+<div class="headers">Table of Contents</div>
+<ol>
+<li>Liberty Counting ············································ 6</li>
+<li>Growing Liberties ··········································· 16</li>
+<li>Self-Atari ·················································· 28</li>
+<li>First-Line Moves ············································ 38</li>
+<li>Staying Alive ··············································· 48</li>
+<li>Key Points and Vital Points in Capturing Races ·············· 58</li>
+<li>Special Properties of the Corner ···························· 68</li>
+<li>Corner Three Liberties ······································ 78</li>
+<li>One Eye vs. No Eye ·········································· 86</li>
+<li>Ko in Capturing Races ······································ 98</li>
+<li>Under the Stones ····························· 106</li>
+<li>Eye Shape in Capturing Races ································· 112</li>
+<li>Comprehensive Practice Problems ··························· 124</li>
+</ol>
+
+<hr class="page">
+<div class="page-number">5</div>
+<div class="headers">Essentials of Capturing Race Technique</div>
+
+<hr class="page">
+<div class="page-number">6</div>
+<div class="headers">1. Liberty Counting</div>
+<p>This is a capturing race between Black and White.
+How many liberties does each side have?</p>
+
+<hr class="page">
+<div class="page-number">7</div>
+<div class="headers">Example 1</div>
+<p>The point <em>a</em> is a self-atari for both Black and White, so it must be played last.</p>
+<p>Black has 4 liberties.</p>
+<p>White has 3 liberties.</p>
+
+<hr class="file">
+<div class="headers">Example 2</div>
+<p>Black has 4 liberties.</p>
+<p>After Black captures with 1, Black must fill at 2, 3, and 4, so White has 4 liberties.</p>
+
+<hr class="page">
+<div class="page-number">8</div>
+<p>This is a capturing race between Black and White.
+Write down the liberty count for each side.</p>
+
+<hr class="page">
+<div class="page-number">16</div>
+<p>This is a capturing race between Black and White.
+Where should Black play next?</p>
+
+<hr class="page">
+<div class="page-number">17</div>
+<div class="headers">Example 1</div>
+<p>Growing the marked Black stone with Black 1 is the correct play.</p>
+<p>If White plays 2, Black can put White in atari with 3 and capture.</p>
+<p>If Black 1 is played at the other point, after White captures with 2, Black gets captured up to White 4.</p>
+
+<hr class="file">
+<div class="headers">Example 2</div>
+<p>Growing the marked Black stone with Black 1 is the correct play. If White captures with 2, Black puts White in atari with 3, and with White 4 and Black 5, Black captures White.</p>
+<p>If Black plays atari with 1, White lives with 2 and Black gets captured.</p>
+
+<hr class="page">
+<div class="page-number">18</div>
+<p>It is Black&#8217;s turn to play.
+Where should Black play next?</p>
+
+<hr class="page">
+<div class="page-number">28</div>
+<ol start="3">
+<li>Self-Atari</li>
+</ol>
+
+<hr class="file">
+<p>This is a capturing race between Black and White.
+Where should Black play next?</p>
+
+<hr class="page">
+<div class="page-number">29</div>
+<div class="headers">Example 1</div>
+<p>Playing Black 1 is the correct play.</p>
+<p>If White plays 2, Black can capture White with 3.</p>
+<p>Playing at Black 1 leads to ko after White 2, which is a failure.</p>
+
+<hr class="file">
+<div class="headers">Example 2</div>
+<p>Playing Black 1 is the correct play.</p>
+<p>When White captures with 2, Black can capture White with 3.</p>
+<p>If Black captures a stone with 1, White 2 results in ko.</p>
+
+<hr class="page">
+<div class="page-number">30</div>
+<p>It is Black&#8217;s turn to play.
+Where should Black play next?</p>
+
+<hr class="page">
+<div class="page-number">38</div>
+<ol start="4">
+<li>First-Line Moves</li>
+</ol>
+
+<hr class="file">
+<p>This is a capturing race between Black and White.
+Where should Black play next?</p>
+
+<hr class="page">
+<div class="page-number">39</div>
+<div class="headers">Example 1</div>
+<p>Playing Black 1 on the first line is the correct play.</p>
+<p>Even if White plays atari with 2, Black can capture White up to Black 5.</p>
+<p>Playing Black 1 at the other point allows White 2 as a good response, and Black gets captured up to White 6.</p>
+
+<hr class="file">
+<div class="headers">Example 2</div>
+<p>Playing Black 1 on the first line is the correct play.</p>
+<p>If White extends with 2, Black plays atari with 3 and can capture White up to Black 7.</p>
+<p>Playing Black 1 at the other point results in Black being captured up to White 4.</p>
+
+<hr class="page">
+<div class="page-number">40</div>
+<p>It is Black&#8217;s turn to play.
+Where should Black play next?</p>
+
+<hr class="page">
+<div class="page-number">48</div>
+<ol start="5">
+<li>Staying Alive</li>
+</ol>
+
+<hr class="file">
+<p>This is a capturing race between Black and White.
+Where should Black play next?</p>
+
+<hr class="page">
+<div class="page-number">49</div>
+<div class="headers">Example 1</div>
+<p>Playing Black 1 is the correct play.</p>
+<p>If White plays 2, Black can connect with 3 and capture White.</p>
+<p>Playing Black 1 at the other point results in Black being captured after White 2.</p>
+
+<hr class="file">
+<div class="headers">Example 2</div>
+<p>Playing Black 1 is the correct play.</p>
+<p>If White plays 2, Black can connect with 3 and capture White.</p>
+<p>Playing Black 1 at the other point results in Black being captured up to White 6.</p>
+
+<hr class="page">
+<div class="page-number">50</div>
+<p>It is Black&#8217;s turn to play.
+Where should Black play next?</p>
+
+<hr class="page">
+<div class="page-number">58</div>
+<ol start="6">
+<li>Key Points and Vital Points in Capturing Races</li>
+</ol>
+
+<hr class="file">
+<p>This is a capturing race between Black and White.
+Where should Black play next?</p>
+
+<hr class="page">
+<div class="page-number">59</div>
+<div class="headers">Example 1</div>
+<p>Playing Black 1 is the correct play.</p>
+<p>If White plays 2, Black 3 is a snapback.</p>
+<p>Playing Black 1 at the other point leads to a one-eye vs. no-eye situation, and Black dies up to White 6.</p>
+
+<hr class="file">
+<div class="headers">Example 2</div>
+<p>Black 1 is the key point of a double hane, gaining one liberty.</p>
+<p>If White plays 2, Black can capture White up to Black 7.</p>
+<p>Playing Black 1 at the other point results in Black dying short of liberties after White 2.</p>
+
+<hr class="page">
+<div class="page-number">60</div>
+<p>It is Black&#8217;s turn to play.
+Where should Black play next?</p>
+
+<hr class="page">
+<div class="page-number">68</div>
+<ol start="7">
+<li>Special Properties of the Corner</li>
+</ol>
+
+<hr class="file">
+<p>This is a capturing race between Black and White.
+Where should Black play next?</p>
+
+<hr class="page">
+<div class="page-number">69</div>
+<div class="headers">Example 1</div>
+<p>Playing at Black 1 is the correct play.</p>
+<p>If White plays 2, Black can capture White with 3.</p>
+<p>Playing Black 1 at the other point results in Black being captured after White 2.</p>
+
+<hr class="file">
+<div class="headers">Example 2</div>
+<p>Playing at Black 1 is the correct play.</p>
+<p>When White plays atari with 2, Black captures with 3 and can capture White.</p>
+<p>Capturing with Black 1 at the other point allows White to play 2, resulting in a one-eye vs. no-eye situation where Black is captured.</p>
+
+<hr class="page">
+<div class="page-number">70</div>
+<p>It is Black&#8217;s turn to play.
+Where should Black play next?</p>
+
+<hr class="page">
+<div class="page-number">78</div>
+<ol start="8">
+<li>Corner Three Liberties</li>
+</ol>
+
+<hr class="file">
+<p>This is a capturing race between Black and White.
+Where should Black play next?</p>
+
+<hr class="page">
+<div class="page-number">79</div>
+<div class="headers">Example 1</div>
+<p>The sequence of Black 1, 3, and 7 is important. After White 10, Black 11 is the throw-in — this is the correct sequence. White has 3 liberties, which is an instance of corner three liberties.</p>
+<p>If Black retreats with 3 when White plays 2, Black gets captured after White 4.</p>
+
+<hr class="file">
+<div class="headers">Example 2</div>
+<p>The sequence of Black 1, 3, and 5 is important. After White 8, Black 9 is the throw-in — this is the correct sequence. White has 3 liberties, which is an instance of corner three liberties.</p>
+<p>Playing Black 3 when White plays 2 results in Black being captured after White 4.</p>
+
+<hr class="page">
+<div class="page-number">80</div>
+<p>It is Black&#8217;s turn to play.
+Where should Black play next? (Show 7 or more moves)</p>
+
+<hr class="page">
+<div class="page-number">86</div>
+<ol start="9">
+<li>One Eye vs. No Eye</li>
+</ol>
+
+<hr class="file">
+<p>This is a capturing race between Black and White.
+Where should Black play next?</p>
+
+<hr class="page">
+<div class="page-number">87</div>
+<div class="headers">Example 1</div>
+<p>Playing Black 1 is the correct play.</p>
+<p>After White 2 and Black 3, it becomes a one-eye vs. no-eye situation and Black can capture White.</p>
+<p>Playing atari with Black 1 at the other point results in ko after White 2.</p>
+
+<hr class="file">
+<div class="headers">Example 2</div>
+<p>Black 1 is a good move that creates a one-eye vs. no-eye situation. When White captures with 2, Black captures back with 3, and Black can capture White in a one-eye vs. no-eye situation.</p>
+<p>If Black plays atari with 1 at the other point, it becomes seki up to White 4.</p>
+
+<hr class="page">
+<div class="page-number">88</div>
+<p>It is Black&#8217;s turn to play.
+Where should Black play next?</p>
+
+<hr class="page">
+<div class="page-number">98</div>
+<ol start="10">
+<li>Ko in Capturing Races</li>
+</ol>
+
+<hr class="file">
+<p>This is a capturing race between Black and White.
+Where should Black play next?</p>
+
+<hr class="page">
+<div class="page-number">99</div>
+<div class="headers">Example 1</div>
+<p>Playing Black 1 is the good move.</p>
+<p>When White captures with 2, Black 3 results in ko.</p>
+<p>Playing Black 1 at the other point results in a one-eye vs. no-eye situation after White 2.</p>
+
+<hr class="file">
+<div class="headers">Example 2</div>
+<p>Black squeezes with 1, and when White plays 2, the vital-point play of Black 3 is the correct sequence.</p>
+<p>White captures with 4 and Black plays atari with 5, resulting in ko.</p>
+<p>Playing the vital point at Black 1 at the other point fails: after White 2 and Black 3, White 4 results in self-atari for Black.</p>
+
+<hr class="page">
+<div class="page-number">100</div>
+<p>Success means creating ko.
+Where should Black play next?</p>
+
+<hr class="page">
+<div class="page-number">106</div>
+<ol start="11">
+<li>Under the Stones</li>
+</ol>
+
+<hr class="file">
+<p>It is Black&#8217;s turn to play.
+Where should Black play next?</p>
+
+<hr class="page">
+<div class="page-number">107</div>
+<div class="headers">Example 1</div>
+<p>After Black plays atari at 1 and White captures at 2, Black can capture White with 3.</p>
+<p>Playing Black 1 at the other point allows White to capture at 2, and Black gets captured.</p>
+
+<hr class="file">
+<div class="headers">Example 2</div>
+<p>After Black plays atari at 1 and White captures at 2, Black can capture White with 3.</p>
+<p>Playing Black 1 at the other point allows White to capture at 2, and Black gets captured.</p>
+
+<hr class="page">
+<div class="page-number">112</div>
+<ol start="12">
+<li>Eye Shape in Capturing Races</li>
+</ol>
+
+<hr class="file">
+<div class="headers">Example 1</div>
+<p>How many liberties does a 5-space eye have?</p>
+<p>White plays 1, 2, and 3, filling 3 liberties. Continuing, when White ◎ plays atari, Black △ must capture. This results in the shape below, where a 4-space eye has 5 liberties.</p>
+<p>Therefore, the 3 liberties of Diagram 2 plus the 5 liberties of Diagram 4 equals 8 liberties. A 5-space eye has 8 liberties. The 5-space eye of the right-side shape also has 8 liberties.</p>
+
+<hr class="page">
+<div class="page-number">113</div>
+<div class="headers">Example 2</div>
+<p>How many liberties does a 6-space eye have?</p>
+<p>White plays 1, 2, 3, and 4, filling 4 liberties. Continuing, when White ◎ plays atari, Black △ must capture. This results in the shape below, where a 5-space eye has 8 liberties.</p>
+<p>Therefore, the 4 liberties of Diagram 2 plus the 8 liberties of Diagram 4 equals 12 liberties. A 6-space eye has 12 liberties.</p>
+
+<hr class="file">
+<div class="headers">Eye Shape Liberty Count</div>
+<p>1-space = 1 liberty · 2-space = 2 liberties
+3-space = 3 liberties · 4-space = 5 liberties
+5-space = 8 liberties · 6-space = 12 liberties</p>
+<p>When enemy stones are inside the eye shape, subtract the number of enemy stones from the above count to get the liberty count.</p>
+
+<hr class="page">
+<div class="page-number">114</div>
+<p>How many liberties does Black have?</p>
+
+<hr class="page">
+<div class="page-number">123</div>
+<p>Capturing Race Comprehensive Practice Problems</p>
+
+<hr class="page">
+<div class="page-number">124</div>
+<p>Comprehensive Practice Problems</p>
+
+<hr class="file">
+<p>It is Black&#8217;s turn to play.
+Where should Black play next?</p>
+
+</body>
+</html>
