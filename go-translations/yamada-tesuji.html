@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Developing Tesuji Intuition</title>
+<style>
+body {
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Georgia, serif;
+    line-height: 1.4;
+    background-color: #fff8f0;
+}
+.headers {
+    font-weight: bold;
+    line-height: 1.4;
+}
+hr.file { border: none; border-top: 1px solid #bbb; margin: 1.2em 0; }
+hr.page { border: none; border-top: 4px double #444; margin: 1.5em 0; }
+.page-number { text-align: center; color: #888; font-size: 0.85em; margin: 0.2em 0 1em; }
+.meta-title { font-size: 1.6em; font-weight: bold; line-height: 1.4; text-align: center; }
+.meta-volume { font-size: 1.1em; font-weight: bold; line-height: 1.4; text-align: center; margin-top: 0.4em; }
+.meta-author { font-size: 1.2em; font-weight: bold; line-height: 1.4; text-align: right; margin-top: 0.4em; }
+.meta-isbn { font-size: 1.0em; line-height: 1.4; text-align: right; margin-top: 0.4em; }
+</style>
+</head>
+<body>
+<div class="meta-title">Developing Tesuji Intuition</div>
+<div class="meta-author">Yamada Kimio</div>
+<div class="meta-isbn">978-4-8399-6263-0</div>
+<hr class="page">
+<div class="page-number">3</div>
+<div class="headers">Preface</div>
+<p>Studying tesuji is essential for improving at Go, but simply working through problem collections builds only fragmentary knowledge and is not efficient. I myself have worked on many problem collections, and while thinking about whether there was a more efficient way to learn, I noticed something.</p>
+<p>The fact is, the tesuji that are used frequently are largely fixed. Not only professionals, but also AI — which is rapidly becoming stronger — selects appropriate moves from the representative tesuji it has mastered and uses them in combination in actual games.</p>
+<p>Take the cut or the attach, for example. If you master the patterns in which they are used, the right move will flash to mind instantly — not only when capturing stones, but in every situation: sabaki, connection, and more.</p>
+<p>In this book, you will study the representative tesuji intensively, organized by pattern. Some problems may feel difficult, but every one of them appears in actual games, so please review them repeatedly until they are memorized.</p>
+<p>After that, when you tackle the actual-game problems in the final chapter, the answers should come to you instantly.</p>
+<p>Nothing would make me happier than if this book contributes even a little to your improvement at Go.</p>
+<p>March 2017</p>
+<p>Yamada Kimio, 9-dan</p>
+
+<hr class="page">
+<div class="page-number">7</div>
+<div class="headers">Chapter 1</div>
+
+<hr class="file">
+<div class="headers">The Cut</div>
+
+<hr class="page">
+<div class="page-number">8</div>
+<div class="headers">Theme Diagram 1</div>
+<p>When it comes to tesuji, the first things that come to mind are the cut of this chapter and the attach of Chapter 2. They are highly effective not only when capturing stones, but also for connecting stones and taking sente.</p>
+<p>First, let&#8217;s look at the cut used to capture stones. White has one more liberty, so the four Black stones will be captured as is. A tesuji is needed here.</p>
+
+<hr class="file">
+<div class="headers">Diagram 1 (Cut)</div>
+<p>Black 1, the cut, is the tesuji that extends Black&#8217;s liberties. &quot;A single cut&quot; often appears in actual games.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2 (Capturing Race: Black Wins)</div>
+<p>White has no choice but to capture at 1, but after Black fills liberties with 2 through 6, White can play neither at <em>a</em> nor <em>b</em>.</p>
+
+<hr class="page">
+<div class="page-number">9</div>
+<div class="headers">Diagram 3 (Capturing Race: Black Loses)</div>
+<p>Black 1, the descent, is also a tesuji often used in capturing races. However, in this case, if White fills liberties in order with 2 through 6, Black loses the capturing race.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4 (Reference)</div>
+<p>When Black plays 1, White can resist with the kosumi at 2. Through White 4 it is ko, but the burden falls heavily on White.</p>
+
+<hr class="file">
+<div class="headers">Theme Diagram 2</div>
+<p>It is also common not just to cut directly, but to play one move elsewhere first and then cut. The attach-and-cut and the cross-cut are the most representative examples.</p>
+<p>This is a position where Black wants to connect their divided stones. How should Black play?</p>
+
+<hr class="page">
+<div class="page-number">10</div>
+<div class="headers">Diagram 1 (Attach First)</div>
+<p>In most cases, it is better not to give atari immediately, except when you can capture. So first, Black attaches at 1. When White hanes at 2 —</p>
+
+<hr class="file">
+<div class="headers">Diagram 2 (Too Soon)</div>
+<p>It is tempting to give atari at Black 1, but it is too soon. If White connects at 2, Black has no choice but to give atari at 3, but after White 4 through 8, the marked stones are captured.</p>
+
+<hr class="file">
+<div class="headers">Diagram 3 (Cross-Cut)</div>
+<p>After Black 1 and White 2, the cross-cut at Black 3 is a stone-capturing technique that often arises in actual games.</p>
+
+<hr class="page">
+<div class="page-number">11</div>
+<div class="headers">Diagram 4 (Connection Succeeds)</div>
+<p>After White 1, if Black cuts at 2, White cannot connect the lone stone, and Black successfully connects.</p>
+
+<hr class="file">
+<div class="headers">Diagram 5 (Black Connects Again)</div>
+<p>Even if White approaches from this side at 1, if Black cuts at 2, Black captures the lone White stone with 4 in response to White 3, and connects just the same.</p>
+
+<hr class="file">
+<div class="headers">Theme Diagram 3</div>
+<p>If you don&#8217;t know the tesuji, it is understandable to immediately give atari wherever you can. But once you become aware of tesuji starting with the cut, you will develop the habit of considering moves other than atari first.</p>
+<p>So, what about this position?</p>
+
+<hr class="page">
+<div class="page-number">12</div>
+<div class="headers">Diagram 1 (White Escapes)</div>
+<p>If you don&#8217;t know the cut tesuji, you have no choice but to give atari at Black 1. But when White connects at 2, even if Black gives further atari starting with 3, White cannot be captured in a ladder through White 6.</p>
+<p>If Black 5 is at 6 instead, White plays at 5, and again Black cannot do anything. Also, if Black plays atari at 2 instead of 1, White escapes at 1, which is of course a failure.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2 (Cut)</div>
+<p>Black 1, the cut, is the tesuji for capturing the White stones. After White&#8217;s atari at 2, if Black plays at 3, White cannot escape.</p>
+
+<hr class="file">
+<div class="headers">Diagram 3 (Also Captured)</div>
+<p>After Black 1, even if White connects at 2, Black can capture through 3.</p>
+
+<hr class="page">
+<div class="page-number">13</div>
+<div class="headers">Problem 1<br>
+Black to Play</div>
+<p>To connect the six Black stones in the center with the Black stones in the corner, Black must play into White&#8217;s territory.</p>
+
+<hr class="file">
+<div class="headers">Problem 2<br>
+Black to Play</div>
+<p>To save the six Black stones on the upper side, capture the four White stones.</p>
+
+<hr class="page">
+<div class="page-number">14</div>
+<div class="headers">Problem 1 Solution</div>
+
+<hr class="file">
+<div class="headers">Correct Answer (Cut)</div>
+<p>By cutting here at Black 1, Black opens up the position. After White 2, Black cuts at 3, gives atari at 5 in response to White 4, and through White 6, ko is the correct result. If Black 3 is at <em>a</em>, then White 4, Black <em>b</em>, White connects at 1, which is a failure.</p>
+
+<hr class="file">
+<div class="headers">Failure (Wrong Order)</div>
+<p>If Black cuts at 1 first, White descends at 2, and through White 4 in response to Black 3, Black gets nowhere.</p>
+
+<hr class="file">
+<div class="headers">Problem 2 Solution</div>
+
+<hr class="file">
+<div class="headers">Correct Answer (Cut)</div>
+<p>Before giving atari, first insert the cut at Black 1. White has no choice but to play at 2, and then throwing in at Black 3 is the correct sequence. After Black 5, White cannot connect at 7, so White plays at 6, and Black captures the five White stones through 7.</p>
+
+<hr class="file">
+<div class="headers">Failure (Capturing Race: Black Loses)</div>
+<p>Black&#8217;s hane at 1 is met by White connecting at 2. Even if Black extends at 3, after White 4 through 6 the capturing race is lost for Black.</p>
+
+<hr class="page">
+<div class="page-number">15</div>
+<div class="headers">Problem 3 Solution</div>
+<p>To capture the two White stones in the corner, tesuji is required.</p>
+
+<hr class="file">
+<div class="headers">Problem 4 Solution</div>
+<p>After Black&#8217;s attach at 1, White responds at 2. How does Black settle the shape?</p>
+
+<hr class="page">
+<div class="page-number">16</div>
+<div class="headers">Correct Answer (Extending Liberties with a Cut)</div>
+<p>First, Black pushes through at 1, and cutting at 3 in response to White 2 is the good move. White has no choice but to capture at 4, and haneing into the corner at Black 5 is the correct sequence. If Black connects at 7 in response to White 6, White cannot play at <em>a</em>.</p>
+
+<hr class="file">
+<div class="headers">Failure (Captured)</div>
+<p>After Black 1 and White 2, if Black plays 3 without making the cut at 5, Black is captured by White 4. After Black 5, White 6 finishes it.</p>
+
+<hr class="file">
+<div class="headers">Problem 4 Solution</div>
+
+<hr class="file">
+<div class="headers">Correct Answer (Cut)</div>
+<p>Black 1, the cut, is a move that exploits White&#8217;s shortage of liberties. If White plays 2, Black captures the two White stones with 3 through 5 and can settle. If Black 1 is at 3 instead, White connects at 1, and Black fails.</p>
+
+<hr class="file">
+<div class="headers">Correct Answer Variation (Settling in the Corner)</div>
+<p>If White plays 2 in response to Black 1, Black settles in the corner through 5.</p>
+
+<hr class="page">
+<div class="page-number">17</div>
+<div class="headers">Problem 5<br>
+Black to Play</div>
+<p>Prevent the three White stones on the right side from connecting, in sente.</p>
+
+<hr class="file">
+<div class="headers">Problem 6<br>
+Black to Play</div>
+<p>This is a position where Black wants to secure one eye in sente and advance into the center.</p>
+
+<hr class="page">
+<div class="page-number">18</div>
+<div class="headers">Problem 5 Solution</div>
+
+<hr class="file">
+<div class="headers">Correct Answer (A Single Cut)</div>
+<p>With a single cut at Black 1, Black can prevent the three White stones from connecting. After Black 3 in response to White 2, Black can control the three White stones. If White then plays at <em>a</em>, Black can divide them at <em>b</em>.</p>
+
+<hr class="file">
+<div class="headers">Failure (Gote)</div>
+<p>Black can divide White with 1 and 3 as well, but since this is gote, White escapes at 4.</p>
+
+<hr class="file">
+<div class="headers">Problem 6 Solution</div>
+
+<hr class="file">
+<div class="headers">Correct Answer (A Single Cut)</div>
+<p>With a single cut at Black 1, White can no longer connect at <em>a</em>. White has no choice but to play at 2, and Black secures one eye in sente and advances into the center at 3.</p>
+
+<hr class="file">
+<div class="headers">Correct Answer Variation (Black Lives)</div>
+<p>If White blocks the center at 2 in response to Black 1, Black connects at 3 and is already alive.</p>
+
+<hr class="page">
+<div class="page-number">19</div>
+<div class="headers">Problem 7<br>
+Black to Play</div>
+<p>Use tesuji to rescue the two Black stones.</p>
+
+<hr class="file">
+<div class="headers">Problem 8<br>
+Black to Play</div>
+<p>Connect the four Black stones on the right side with the Black stones in the corner.</p>
+
+<hr class="page">
+<div class="page-number">20</div>
+<div class="headers">Problem 7 Solution</div>
+
+<hr class="file">
+<div class="headers">Correct Answer (Cut)</div>
+<p>First, insert the cut at Black 1. White has no choice but to capture at 2, so Black escapes cleanly with the atari at 3 through 5. If White 2 is at 5 instead, Black plays at 2 and wins the capturing race.</p>
+
+<hr class="file">
+<div class="headers">Failure (Capturing Race: White Wins)</div>
+<p>If Black plays 1 without cutting, White wins the capturing race with the placement of 4 following White 2.</p>
+
+<hr class="file">
+<div class="headers">Problem 8 Solution</div>
+
+<hr class="file">
+<div class="headers">Correct Answer (Cut)</div>
+<p>Black 1, the cut, is the tesuji. When White plays 2, Black attaches at 3, and through Black 5 in response to White 4, Black successfully connects. If Black simply attaches at 3 instead of Black 1, after White 5, Black <em>a</em>, White 4, Black <em>b</em>, White <em>c</em>, Black is divided.</p>
+
+<hr class="file">
+<div class="headers">Correct Answer Variation (Connects Again)</div>
+<p>If White plays 1 in this diagram instead of White 4 in the previous diagram, Black can still connect with 2 through 4. If White 1 is at 2, Black plays at <em>a</em>.</p>
+
+<hr class="page">
+<div class="page-number">21</div>
+<div class="headers">Problem 9<br>
+Black to Play</div>
+<p>The move is a cut without giving atari first, but the order of moves matters.</p>
+
+<hr class="file">
+<div class="headers">Problem 10<br>
+Black to Play</div>
+<p>A seemingly crude tesuji works here.</p>
+
+<hr class="page">
+<div class="page-number">22</div>
+<div class="headers">Problem 9 Solution</div>
+
+<hr class="file">
+<div class="headers">Correct Answer (Peep then Cut)</div>
+<p>First, Black peeps at the vital point at 1. When White connects at 2, cutting at Black 3 is the tesuji. After Black extends at 5 in response to White 4 —</p>
+
+<hr class="file">
+<div class="headers">Correct Answer Continued (Eight White Stones Captured)</div>
+<p>After White connects at 1, Black can capture the eight White stones with 2 through 6.</p>
+
+<hr class="file">
+<div class="headers">Problem 10 Solution</div>
+
+<hr class="file">
+<div class="headers">Correct Answer (Attach-and-Cut)</div>
+<p>Attaching at Black 1 and cutting at 3 in response to White 2 — this seemingly crude tesuji works. After White 4, Black plays 5, sacrificing the two stones, and succeeds in capturing White through 9.</p>
+
+<hr class="file">
+<div class="headers">Correct Answer Variation (Still Captured)</div>
+<p>If White plays 1 in this diagram instead of White 4 in the previous diagram, Black cuts at 2, and through Black 4 in response to White 3, White still cannot escape.</p>
+
+<hr class="page">
+<div class="page-number">23</div>
+<div class="headers">Chapter 2</div>
+
+<hr class="file">
+<div class="headers">The Attach</div>
+
+<hr class="page">
+<div class="page-number">24</div>
+<div class="headers">Theme Diagram 1</div>
+<p>The most representative tesuji are the cut and the attach, the subject of this chapter. Among these, Theme Diagram 1 shows a particularly representative tesuji using the attach. It might be fair to say that mastering this will put you within sight of shodan. How can Black capture the two White stones?</p>
+
+<hr class="file">
+<div class="headers">Diagram 1<br>
+The Hane Fails</div>
+<p>Kyu players tend to be drawn to the hane of Black 1. However, after White plays 2 through 4 and Black attaches at 5&#8230;</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+Black Loses the Capturing Race</div>
+<p>White&#8217;s hane at 1 is the clever move. After Black 2, White fills a liberty at 3, and Black cannot enter at <em>a</em>, so Black loses the capturing race by one move.</p>
+
+<hr class="page">
+<div class="page-number">25</div>
+<div class="headers">Diagram 3<br>
+The Weasel-Belly Attach</div>
+<p>The attach of Black 1 is a tesuji called the &quot;weasel-belly attach.&quot; With this, the two White stones are rendered immobile.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+Black Wins the Capturing Race</div>
+<p>Even if White escapes with 2 in response to Black 1, Black can connect underneath with 3. White has 2 liberties while Black has 3, so Black wins the capturing race.</p>
+
+<hr class="file">
+<div class="headers">Theme Diagram 2</div>
+<p>The attach is played not only in capturing races but also frequently in shinogi and sabaki situations. In this diagram, Black has attached to invade and disrupt White&#8217;s star-point enclosure. Find the tesuji for Black&#8217;s sabaki.</p>
+
+<hr class="page">
+<div class="page-number">26</div>
+<div class="headers">Diagram 1<br>
+Cannot Make Two Eyes</div>
+<p>If Black mundanely bends at 1, White descends at 2, and after Black 3 and White 4, there is clearly no space for Black to live. Alternatively, cutting at <em>a</em> is met by White atari at <em>b</em>, and Black has no follow-up.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+The Attach</div>
+<p>It may seem like there is no move to expand the space, but the attach of Black 1 is an excellent move. It is a tesuji that treats living in the corner and making sabaki through a trade as miai.</p>
+
+<hr class="file">
+<div class="headers">Diagram 3<br>
+Black Lives</div>
+<p>If White connects at 2 in response to Black 1, Black connects with 3 and obtains sufficient space to live.</p>
+
+<hr class="page">
+<div class="page-number">27</div>
+<div class="headers">Diagram 4<br>
+White Resists</div>
+<p>What happens if White blocks at 2 in response to the attach of Black 1? Black cannot easily live, but by cutting at 3, Black can break open the position. After White 4, Black escapes with 5.</p>
+
+<hr class="file">
+<div class="headers">Diagram 5<br>
+Sabaki Succeeds</div>
+<p>White&#8217;s best is to enclose the lone Black stone with 1. The key is that Black can then force with the atari at 2 and the atari at 4. After White 5, if Black pincers at 6, Black cedes the corner territory to White but settles on the side, and Black has no complaints.</p>
+
+<hr class="file">
+<div class="headers">Theme Diagram 3</div>
+<p>The attach is also highly effective for taking sente. How can Black prevent the connection of the White groups on the left and right, in sente?</p>
+
+<hr class="page">
+<div class="page-number">28</div>
+<div class="headers">Diagram 1<br>
+White Lives</div>
+<p>If Black connects at 1, White descends at 2. This leaves White with the option of connecting along the first line, so Black has not prevented the connection in sente.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+The Attach</div>
+<p>The attach of Black 1 is a tesuji for taking sente by threatening the life and death of the White group. White has no choice but to connect at 2, and the fact that White must play 4 after Black attaches at 3 is what makes this powerful. If White does not play 4, the White stones in the corner are dead.</p>
+
+<hr class="file">
+<div class="headers">Diagram 3<br>
+White Is Crushed</div>
+<p>If White attaches at 2 in response to Black 1, it appears that White has connected. However, the cut of Black 3 works, and <em>a</em> and <em>b</em> are miai, leaving White crushed. Starting on the next page, let&#8217;s practice the attach in various situations.</p>
+
+<hr class="page">
+<div class="page-number">29</div>
+<div class="headers">Problem 1<br>
+Black to Play</div>
+<p>A warm-up to start. How can Black save the four isolated Black stones on the top edge?</p>
+
+<hr class="file">
+<div class="headers">Problem 2<br>
+Black to Play</div>
+<p>Save the four Black stones on the top edge. Judging which stones to capture is key.</p>
+
+<hr class="page">
+<div class="page-number">30</div>
+<div class="headers">Problem 1 Answer</div>
+
+<hr class="file">
+<div class="headers">Correct Answer<br>
+Capturing the Two White Stones</div>
+<p>The attach of Black 1 is a tesuji that frequently appears in actual games. After White 2, Black can capture the four White stones through 3.</p>
+
+<hr class="file">
+<div class="headers">Failure<br>
+The Wedge Lets White Escape</div>
+<p>The wedge of Black 1 allows White to capture with 2 through 4. After Black plays 5 and 7, it may seem like Black can capture in a ladder, but after White 8, Black has no move.</p>
+
+<hr class="file">
+<div class="headers">Problem 2 Answer</div>
+
+<hr class="file">
+<div class="headers">Correct Answer<br>
+Attaching to the Two White Stones</div>
+<p>Black 1 is an application of the weasel-belly attach tesuji. If White plays 2, Black fills in a White liberty at 3, and after White 4, Black can capture the five White stones through 5.</p>
+
+<hr class="file">
+<div class="headers">Failure<br>
+Ko</div>
+<p>If Black pushes through and cuts with 1 and 3, Black can capture one White stone, but White fights back with ko with 4 through 6.</p>
+
+<hr class="page">
+<div class="page-number">31</div>
+<div class="headers">Problem 3<br>
+Black to Play</div>
+<p>The four Black stones in the center have 3 liberties, and the four White stones on the top edge also have 3 liberties. So that means&#8230;</p>
+
+<hr class="file">
+<div class="headers">Problem 4<br>
+Black to Play</div>
+<p>The only way to connect the seven Black stones in the center to the corner is to capture the White stones.</p>
+
+<hr class="page">
+<div class="page-number">32</div>
+<div class="headers">Problem 3 Answer</div>
+
+<hr class="file">
+<div class="headers">Correct Answer<br>
+Black Wins by One Move</div>
+<p>The attach of Black 1 is a sharp tesuji that fills White&#8217;s liberties. After White 2, Black blocks at 3, and after White 4, Black fills liberties with 5 through 7, winning the capturing race.</p>
+
+<hr class="file">
+<div class="headers">Failure<br>
+Ko</div>
+<p>With the cut of Black 1, when White plays atari at 2, Black has no choice but to make ko with 3, which is inferior to the correct answer.</p>
+
+<hr class="file">
+<div class="headers">Problem 4 Answer</div>
+
+<hr class="file">
+<div class="headers">Correct Answer<br>
+The Attach</div>
+<p>Attaching here with Black 1 is the correct answer. The hane of Black 3 after White 2 is skillful, and Black 5 in response to White 4 is sente, so Black can capture the five White stones through 7.</p>
+
+<hr class="file">
+<div class="headers">Failure<br>
+Looks Like a Tesuji, But&#8230;</div>
+<p>The peep of Black 1 also looks like a tesuji at first glance, but if White connects at 2, the three Black stones are captured instead.</p>
+
+<hr class="page">
+<div class="page-number">33</div>
+<div class="headers">Problem 5<br>
+Black to Play</div>
+<p>Capturing the three White stones requires a tesuji.</p>
+
+<hr class="file">
+<div class="headers">Problem 6<br>
+Black to Play</div>
+<p>You may be able to figure out where to attach, but you will need to read out what follows.</p>
+
+<hr class="page">
+<div class="page-number">34</div>
+<div class="headers">Problem 5 Answer</div>
+
+<hr class="file">
+<div class="headers">Correct Answer<br>
+The Attach to the Second Line</div>
+<p>In positions like this, attaching to the second line with Black 1 is common. After White 2, Black plays 3 through 7, finishing off in an oiotoshi.</p>
+
+<hr class="file">
+<div class="headers">Failure<br>
+This One Doesn&#8217;t Work</div>
+<p>The attach of Black 1 is also a sharp tesuji, but after White plays 2 through 8, it fails.</p>
+
+<hr class="file">
+<div class="headers">Problem 6 Answer</div>
+
+<hr class="file">
+<div class="headers">Correct Answer<br>
+Preventing the Connection</div>
+<p>Did the attach of Black 1 catch your eye? If White plays 2, Black blocks at 3, and even when White hanes and connects at 4 and 6, Black can prevent the connection with 7.</p>
+
+<hr class="file">
+<div class="headers">Failure<br>
+White Connects</div>
+<p>The hane of Black 1 is tempting, but it allows White to connect with 2 through 6.</p>
+
+<hr class="page">
+<div class="page-number">35</div>
+<div class="headers">Problem 7<br>
+Black to Play</div>
+<p>Play a tesuji to establish a base in the corner.</p>
+
+<hr class="file">
+<div class="headers">Problem 8<br>
+Black to Play</div>
+<p>Can Black capture the two White stones in the corner?</p>
+
+<hr class="page">
+<div class="page-number">36</div>
+<div class="headers">Problem 7 Answer</div>
+
+<hr class="file">
+<div class="headers">Correct Answer<br>
+The Attach</div>
+<p>The aggressive attach of Black 1, pushing this deep into the position, frequently appears in actual games. If White plays 2, Black can capture the three White stones with 3 through 5; if White plays at 3 instead, Black plays 2.</p>
+
+<hr class="file">
+<div class="headers">Failure<br>
+Insufficient Aggression</div>
+<p>The hane of Black 1 is met by White&#8217;s block at 2, and after Black 3 and White 4, Black gains nothing.</p>
+
+<hr class="file">
+<div class="headers">Problem 8 Answer</div>
+
+<hr class="file">
+<div class="headers">Correct Answer<br>
+The Attach</div>
+<p>The attach of Black 1 is an excellent move that can capture the two White stones. If White plays 2, Black cuts White off with 3, and if Black descends at 5 in response to White 4, the White stones are rendered immobile.</p>
+
+<hr class="file">
+<div class="headers">Failure<br>
+Losing the Base</div>
+<p>The hane of Black 1 is met by White&#8217;s block at 2. If Black plays 3 to prevent the cut, White 4 captures the two Black stones.</p>
+
+<hr class="page">
+<div class="page-number">37</div>
+<div class="headers">Problem 9<br>
+Black to Play</div>
+<p>A basic principle of tesuji is to hold off on playing atari until the last moment.</p>
+
+<hr class="file">
+<div class="headers">Problem 10<br>
+Black to Play</div>
+<p>If you look carefully, this one won&#8217;t give you much trouble.</p>
+
+</body>
+</html>
