@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Good and Bad Middlegame Moves as Taught by Go AI</title>
+<style>
+body {
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Georgia, serif;
+    line-height: 1.4;
+    background-color: #fff8f0;
+}
+.headers {
+    font-weight: bold;
+    line-height: 1.4;
+}
+hr.file { border: none; border-top: 1px solid #bbb; margin: 1.2em 0; }
+hr.page { border: none; border-top: 4px double #444; margin: 1.5em 0; }
+.page-number { text-align: center; color: #888; font-size: 0.85em; margin: 0.2em 0 1em; }
+.meta-title { font-size: 1.6em; font-weight: bold; line-height: 1.4; text-align: center; }
+.meta-volume { font-size: 1.1em; font-weight: bold; line-height: 1.4; text-align: center; margin-top: 0.4em; }
+.meta-author { font-size: 1.2em; font-weight: bold; line-height: 1.4; text-align: right; margin-top: 0.4em; }
+.meta-isbn { font-size: 1.0em; line-height: 1.4; text-align: right; margin-top: 0.4em; }
+</style>
+</head>
+<body>
+<div class="meta-title">Good and Bad Middlegame Moves as Taught by Go AI</div>
+<div class="meta-author">Anzai Nobuaki</div>
+<hr class="page">
+<div class="page-number">2</div>
+<div class="headers">Foreword</div>
+<p>The advent of AI has dramatically changed how Go is played. In games between professionals, AI techniques are used almost without exception. New joseki variations such as early san-san invasions are particularly conspicuous, but that is not all — AI&#8217;s influence has also reached the middlegame. Unlike the opening, the middlegame never takes exactly the same shape, yet the way of thinking about it has been changing.</p>
+<p>AI only shows lines of play; it does not explain its thinking. Nevertheless, we can read certain things from its tendencies. In this book, I have extracted positions where AI&#8217;s moves differ from conventional intuition, and from those I have summarized what I&#8217;ve interpreted as AI&#8217;s characteristics. Since the book is in problem format, please read it while trying to predict what AI would do.</p>
+<p>AI is not perfect, but this is clearly an era in which it is stronger than humans. I believe that encountering the new world AI reveals and broadening one&#8217;s range of thinking is the surest path to improvement. It would make me very happy if this book can play some part in that.</p>
+<p>In writing this book, I primarily used Leelazero #254.</p>
+<p>February 2020</p>
+<p>Anzai Nobuaki</p>
+
+<hr class="page">
+<div class="page-number">5</div>
+<div class="headers">Chapter 1</div>
+
+<hr class="file">
+<div class="headers">Reduction and Invasion</div>
+
+<hr class="page">
+<div class="page-number">7</div>
+<div class="headers">Problem 1<br>
+White to Play</div>
+<p>A huge framework has appeared on the right side. There are various ways to play, but there is a reduction method at which AI excels.</p>
+
+<hr class="page">
+<div class="page-number">8</div>
+<div class="headers">Diagram 1<br>
+Correct Answer</div>
+<p>White peeps at 1 — this is the correct answer. White decides on a plan based on how Black responds. It may seem like a deep intrusion, but depending on Black&#8217;s response, White can treat it as a sacrifice.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+Connecting Is Kikashi</div>
+<p>If Black is made to respond by connecting at 2, it is kikashi. This will be a benefit when making sabaki on the right side, and if White plays elsewhere at 3, such as at <em>a</em>, there is still no loss.</p>
+
+<hr class="page">
+<div class="page-number">9</div>
+<div class="headers">Diagram 3<br>
+This Too Is Kikashi</div>
+<p>Black would prefer to respond with a move other than connecting. Black 3 appears to resist, but this too tends to be kikashi. White 4 through 8 is nimble sabaki.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+Black Goes Wrong</div>
+<p>A large attacking move like Black 1 is also attractive, but if White enters at 4, Black struggles to cope. If Black ends up being forced back to <em>a</em>, Black goes wrong.</p>
+
+<hr class="page">
+<div class="page-number">10</div>
+<div class="headers">Diagram 5<br>
+Bold Counterattack</div>
+<p>Black 1 is a powerful counterattack. If Black is confident about making contact on the right side to settle, this is the diagram to choose. Instead of White 2, White can also play elsewhere first, such as at <em>a</em>.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+Not the Simple Response</div>
+<p>Black 1 through 3 is also an approach recommended by AI. Since moving immediately would make White&#8217;s stones heavy, White plays elsewhere. Later, White has the option of escaping at <em>a</em> or similar.</p>
+
+<hr class="page">
+<div class="page-number">11</div>
+<div class="headers">Problem 2<br>
+White to Play</div>
+<p>This is a position where Black&#8217;s framework on the right side is a concern. Since White has already invaded the corner, it is fine to concede some territory on the side to Black.</p>
+
+<hr class="page">
+<div class="page-number">12</div>
+<div class="headers">Diagram 1<br>
+Correct Answer</div>
+<p>White attaches at 1 — this is the correct answer. Since it would be serious if White followed up with consecutive plays at <em>a</em> or similar, Black needs to respond somehow. Not allowing tenuki is the AI way.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+White Succeeds</div>
+<p>In response to Black 2, White hanes at 3 in good tempo. Since this is Black&#8217;s sphere of influence, White doesn&#8217;t mind losing half the stones. If White settles after White 13, White succeeds.</p>
+
+<hr class="page">
+<div class="page-number">13</div>
+<div class="headers">Diagram 3<br>
+Standard Result</div>
+<p>Black 1 is a well-reasoned move and also the AI&#8217;s recommended move. However, the result through White 10 is satisfactory for White. The Black stones in the lower right have become thin.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+This Is Not Enough</div>
+<p>Black 1 is a calm move, but it feels a bit like a kikashi for White. The right side becomes territory, but since the corner has already been invaded, this amount is not enough.</p>
+
+<hr class="page">
+<div class="page-number">14</div>
+<div class="headers">Diagram 5<br>
+A Move AI Doesn&#8217;t Play</div>
+<p>White&#8217;s cap at 1 is a conceivable move, but AI doesn&#8217;t play it. There is a follow-up nerai at <em>a</em>, but since it is not severe, there is a risk of Black playing tenuki.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+Complicated</div>
+<p>White&#8217;s peep at 1 is also a move AI favors, but in this position Black will not respond to it, making things complicated. The attachment in the correct answer is superior.</p>
+
+<hr class="page">
+<div class="page-number">15</div>
+<div class="headers">Problem 3<br>
+White to Play</div>
+<p>The focus is on reducing the right side. Since the position is not symmetrical, the options are wide open, but here too there is a point AI prefers.</p>
+
+<hr class="page">
+<div class="page-number">16</div>
+<div class="headers">Diagram 1<br>
+Correct Answer</div>
+<p>White 1 is the correct answer. When direct moves such as <em>a</em> or <em>b</em> are judged unlikely to work, a point two spaces away, like White 1, is often chosen.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+A Shape That Achieves Sabaki</div>
+<p>When Black caps at 2, White&#8217;s shoulder hit at 3 is just right. After White 7, there is also the nerai at <em>a</em>, and it is not a shape that can be attacked so easily.</p>
+
+<hr class="page">
+<div class="page-number">17</div>
+<div class="headers">Diagram 3<br>
+If Black Responds, It&#8217;s Kikashi</div>
+<p>If Black is made to respond with Black 1 or similar, it is kikashi for White 2. Black&#8217;s territory has consolidated, but it has lost its potential for expansion. This is a development White has no complaints about.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+The Lower Right Corner Is Big</div>
+<p>The shoulder hit also looks like a natural move, but AI is concerned about Black enclosing the lower right corner with Black 2. This judgment is quite difficult.</p>
+
+<hr class="page">
+<div class="page-number">18</div>
+<div class="headers">Diagram 5<br>
+The Territory Built from the Corner Is Large</div>
+<p>White 1 is not out of the question, but AI&#8217;s evaluation drops. It seems White must not allow the lower right corner to become three-dimensional Black territory.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+White Is Cramped</div>
+<p>White 1 also feels normal by human intuition, but it appears to be a slight overextension. Black 2 through 4 is good, and White is cramped. In this diagram too, the lower right corner has become large.</p>
+
+<hr class="page">
+<div class="page-number">19</div>
+<div class="headers">Problem 4<br>
+White to Play</div>
+<p>Black has just played at the marked point. There is a move White should play at this very moment.</p>
+
+<hr class="page">
+<div class="page-number">20</div>
+<div class="headers">Diagram 1<br>
+Correct Answer</div>
+<p>White 1 is the correct answer. Since White <em>a</em> next would be severe, Black needs to respond somehow. Facing a large knight&#8217;s move, playing at this position is the proper form.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+Kikashi</div>
+<p>Black is expected to respond at 2 or <em>a</em>, but White views it as kikashi and plays elsewhere. Since there is a risk that White 1 will not be kikashi if things get busy, playing it early is AI style.</p>
+
+<hr class="page">
+<div class="page-number">21</div>
+<div class="headers">Problem 5<br>
+Black to Play</div>
+<p>The focus is on how to reduce the left side. Any move would make for a game, but there is one definite move that AI chooses.</p>
+
+<hr class="page">
+<div class="page-number">22</div>
+<div class="headers">Diagram 1<br>
+Correct Answer</div>
+<p>The shoulder hit at Black 1 or <em>a</em> is the correct answer. It restricts White&#8217;s potential for expansion while extending Black&#8217;s framework on the right side. Black <em>b</em> next is a big move.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+Standard Progression</div>
+<p>White 2 is a natural response, but Black 3 successfully reduces the framework. The option of invading at <em>a</em> remains for later.</p>
+
+<hr class="page">
+<div class="page-number">23</div>
+<div class="headers">Diagram 3<br>
+A Move AI Doesn&#8217;t Play</div>
+<p>White&#8217;s crawl at 1 is also a natural response, but AI rarely chooses it. Black responds naturally, and it is a development Black has no complaints about.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+White&#8217;s Ingenuity</div>
+<p>White 1 is a move that prioritizes playing at a high position. Black can also tenuki instead of playing 2, but locally Black 2 through 6 is the standard. If White plays at <em>a</em> instead of White 5, Black can fight back with <em>b</em>.</p>
+
+<hr class="page">
+<div class="page-number">24</div>
+<div class="headers">Diagram 5<br>
+The Block Is Also Powerful</div>
+<p>Black 1 through 3 is an aggressive way of playing. It has somewhat poor shape, but Black goes for a large enclosure on the bottom. White fights back at 8, and a battle is likely to begin.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+The Attachment Misfires</div>
+<p>In this case, Black does not play at 1. The lower left corner looks likely to become large territory. The attachment is a way of playing when you have already invaded the corner first.</p>
+
+<hr class="page">
+<div class="page-number">25</div>
+<div class="headers">Problem 6<br>
+White to Play</div>
+<p>This is the position after Black has played at 1. There are also moves such as responding at <em>A</em> or <em>B</em>, but AI recommends a move to erase Black&#8217;s framework in the lower right at this very moment.</p>
+
+<hr class="page">
+<div class="page-number">26</div>
+<div class="headers">Diagram 1<br>
+Correct Answer</div>
+<p>White&#8217;s shoulder hit at 1 is the correct answer. A shoulder hit against a large knight&#8217;s move is considered a bad move by conventional intuition, but resistance to it has been fading under AI&#8217;s influence.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+The Corner Has Aji</div>
+<p>When Black plays at 2, responding normally with White 3 is fine. It may seem as though the large knight&#8217;s move has been solidified, but the option of invading at <em>a</em> remains.</p>
+
+<hr class="page">
+<div class="page-number">27</div>
+<div class="headers">Diagram 3<br>
+White on the Offensive</div>
+<p>White responds with White 3 to Black&#8217;s crawl at 2 as well. If the marked stones come under attack, Black is in trouble. The lower right corner cannot yet be called Black&#8217;s territory.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+An Even Fight</div>
+<p>Since White played tenuki, Black 1 is natural, but White fights confidently starting with 4, and it is an even contest. White <em>a</em> next is the vital point of the shape.</p>
+
+<hr class="page">
+<div class="page-number">28</div>
+<div class="headers">Diagram 5<br>
+An Alternative</div>
+<p>AI also considers White 1 promising. Grasping the feel of White 3 seems difficult, but it is worth keeping the idea of starting with White 1 in mind.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+Ko Favors Black</div>
+<p>Attaching at White 1 or similar to settle the shape is also one of AI&#8217;s specialties. However, in this position, being reduced to ko means White doesn&#8217;t fare well.</p>
+
+<hr class="page">
+<div class="page-number">29</div>
+<div class="headers">Problem 7<br>
+Black to Play</div>
+<p>This is a position where White&#8217;s framework on the left side is a concern. There are countless candidate moves, but there is a way of playing at which AI excels.</p>
+
+<hr class="page">
+<div class="page-number">30</div>
+<div class="headers">Diagram 1<br>
+Correct Answer</div>
+<p>Black&#8217;s peep at 1 is the correct answer. The strategy is to vary the sabaki approach based on how White responds. Stirring up the position with a peep is one of AI&#8217;s standard methods.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+If White Responds, It&#8217;s Kikashi</div>
+<p>If Black forces White to respond at 2, it is kikashi. It will be useful for sabaki on the left side. Black 5 and 7 are moves that work because Black 1 is there.</p>
+
+<hr class="page">
+<div class="page-number">31</div>
+<div class="headers">Diagram 3<br>
+Playing It Later Invites a Pushback</div>
+<p>If Black peeps at 3 later instead, White is not necessarily going to respond the same way. There is a risk of White fighting back with White 4 or similar. This development would be frightening for Black.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+Settle Boldly in Response to the Cover</div>
+<p>Black settles boldly at 5 in response to White&#8217;s cover at 2. It may seem a little scary, but once Black lives, the weakness at <em>a</em> remains, and White is also in a worrying shape.</p>
+
+<hr class="page">
+<div class="page-number">32</div>
+<div class="headers">Diagram 5<br>
+Wrong Order of Moves</div>
+<p>Black 1 through 3 is the wrong order of moves. Black is cramped, and moreover there are no follow-up threats after living. The method of creating an opportunity with a peep seems widely applicable.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+The Shoulder Hit Is Also Powerful</div>
+<p>The shoulder hit is also powerful here. It has fewer variations and is straightforward, but since it takes time to live, there is a sense that what follows becomes difficult.</p>
+
+<hr class="page">
+<div class="page-number">33</div>
+<div class="headers">Problem 8<br>
+Black to Play</div>
+<p>White has played a perfectly-timed hane at 1. In the old days this might have been called hopeless, but AI is not that pessimistic about it. Handling thickness is something at which AI excels.</p>
+
+<hr class="page">
+<div class="page-number">34</div>
+<div class="headers">Diagram 1<br>
+Correct Answer</div>
+<p>The attach of Black 1 is the correct answer. The strategy is to make an already thick formation even thicker, turning it into an overconcentrated shape. Depending on how White responds, Black can lightly sacrifice the stone.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+Standard Play</div>
+<p>White&#8217;s response from 2 through 6 is common. White has good shape, but since this was already a thick area, it feels less like gaining territory and more like being constrained.</p>
+
+<hr class="page">
+<div class="page-number">35</div>
+<div class="headers">Diagram 3<br>
+No Room to Expand</div>
+<p>White 1 is a move that denies Black a base. It is severe, but it also eliminates the potential in the lower-left corner, so it has pros and cons. The option to make sabaki starting with <em>a</em> remains.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+Black Moves Nimbly</div>
+<p>After White 1, Black plays 2 through 6 to force the sequence, then tenukis. In White&#8217;s strong area, forcing this many second-line moves is satisfying. If the stones are captured, Black moves to big points and plays nimbly.</p>
+
+<hr class="page">
+<div class="page-number">36</div>
+<div class="headers">Diagram 5<br>
+Forcing Move</div>
+<p>If White plays 1, it is treated as a forcing move and Black plays elsewhere. Whether this exchange is truly profitable is hard to judge, but it seems useful when having to survive on the left side.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+White Falls into a Trap</div>
+<p>White 1 is a stubborn move, but it has a weakness. The progression in the diagram is a textbook trap. However, copying Black&#8217;s play requires considerable skill.</p>
+
+<hr class="page">
+<div class="page-number">37</div>
+<div class="headers">Problem 9<br>
+Black to Play</div>
+<p>Black has just invaded the 3-3 point. From a human perspective, this is a move to reduce territory, but AI may see it as a move to take away White&#8217;s base. The difference shows in the next move.</p>
+
+<hr class="page">
+<div class="page-number">38</div>
+<div class="headers">Diagram 1<br>
+Correct Answer</div>
+<p>The knight&#8217;s move of Black 1 is the correct answer. Rather than simply living, Black avoids solidifying White. This is a severe move that eyes an attack on White.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+Planning to Close In</div>
+<p>The human feeling was that White 2 through 4 leaves Black cramped. AI judges that with the peep of Black 5, Black can close in on White.</p>
+
+<hr class="page">
+<div class="page-number">39</div>
+<div class="headers">Diagram 3<br>
+The Peep Remains</div>
+<p>White 2 through 4 looks like a tesuji at first glance, but after Black 7 it is answered naturally and White comes out poorly. The peeps at <em>a</em> and <em>b</em> are severe, and White ends up in a heavy shape.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+White Is Thick</div>
+<p>Starting with Black 1 and aiming to live has been considered good play. After White 10, Black was thought to be playing sharply, but AI judges it as favorable for White. White&#8217;s shape has no weaknesses.</p>
+
+<hr class="page">
+<div class="page-number">40</div>
+<div class="headers">Diagram 5<br>
+White Is Thick</div>
+<p>Black 1 is also possible, but after White connects at 2, White has the advantage. Compared to the correct answer diagram, White&#8217;s shape is cleaner. It is impressive that Black aims for an attack from a 3-3 invasion.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+White Is Favorable</div>
+<p>The progression through Black 7 has also been played frequently, but AI judges it as clearly favorable for White. The verdict is that Black solidifies White too much.</p>
+
+<hr class="page">
+<div class="page-number">41</div>
+<div class="headers">Problem 10<br>
+White to Play</div>
+<p>Black has a framework developing on the right side. White could consider building up at A or B, but if White wants to reduce the framework, where is best?</p>
+
+<hr class="page">
+<div class="page-number">42</div>
+<div class="headers">Diagram 1<br>
+Correct Answer</div>
+<p>The push-and-cut of White 1 through 3 is the correct answer. By exploiting Black&#8217;s weak points, White avoids being attacked one-sidedly. This seems to be the knack of framework reduction.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+Dissolves Naturally</div>
+<p>Black wants to attack the stones that cut in, but since the two stones on the top are also weak, the attack is not very effective. As the two sides compete, Black&#8217;s framework dissolves.</p>
+
+<hr class="page">
+<div class="page-number">43</div>
+<div class="headers">Diagram 3<br>
+The Cut Goes Through After All</div>
+<p>White can still cut through with 3 to 7 if Black blocks at 2. Since Black&#8217;s shape is more damaged than in the correct answer diagram, White can limit the framework more easily.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+Putting Black at Ease</div>
+<p>White&#8217;s erasure at 1 is slightly inferior to the correct answer. After Black 2, Black&#8217;s weak points disappear, leaving White in a position where they can only be attacked.</p>
+
+<hr class="page">
+<div class="page-number">44</div>
+<div class="headers">Diagram 5<br>
+Two Birds with One Stone</div>
+<p>If White plays elsewhere at a big point, around Black 2 is a good placement for Black. It defends the weakness at <em>a</em> while expanding the framework - two birds with one stone.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+Aji-Keshi</div>
+<p>Erasure via a peep is something AI excels at, but in this case it will not work. Eliminating the severe cut threat this way is a bad aji-keshi move.</p>
+
+<hr class="page">
+<div class="page-number">45</div>
+<div class="headers">Problem 11<br>
+Black to Play</div>
+<p>Starting with Black 1, this is a line that AI also employs. Black A after White 14 is also possible, but there is a powerful means to erase White&#8217;s thickness.</p>
+
+<hr class="page">
+<div class="page-number">46</div>
+<div class="headers">Diagram 1<br>
+Correct Answer</div>
+<p>The cut of Black 1 is the correct answer. The White stones on both sides are not particularly weak, but by cutting them apart, White&#8217;s framework becomes harder to expand.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+Dissolves Naturally</div>
+<p>White 2 is big. Being forced to play Black 3 is painful, but the cutting Black stones have a tenacious shape. While White defends on the right side, Black can erase the framework.</p>
+
+<hr class="page">
+<div class="page-number">47</div>
+<div class="headers">Diagram 3<br>
+The Jump Is Also Powerful</div>
+<p>Playing the jump at Black 1 is also possible. It applies pressure to the bottom and right sides and naturally erases the framework. The White framework on the top also becomes harder to expand.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+The Right Side Becomes Weak</div>
+<p>White is tempted to play at 2, but this falls into Black&#8217;s trap. If Black naturally runs out with 3 and 5, the White stones on the right become weak.</p>
+
+<hr class="page">
+<div class="page-number">48</div>
+<div class="headers">Diagram 5<br>
+Slightly Insufficient</div>
+<p>Black 1 through 3 is also natural play, but AI judges it as slightly worse. Erasing the White framework afterward may prove difficult.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+A Subtle Difference</div>
+<p>Without the exchange of White <em>a</em> for Black <em>b</em> in the problem diagram, this diagram would be standard play. That exchange is slightly good for White, but for those who do not mind it, White&#8217;s play in this diagram is more straightforward.</p>
+
+<hr class="page">
+<div class="page-number">49</div>
+<div class="headers">Problem 12<br>
+Black to Play</div>
+<p>This problem comes from one of my own games.</p>
+<p>White has made a tricky extension at 1. The lower area has taken on a White hue, but how should Black respond?</p>
+<p>AI seems to have one specific move in mind here.</p>
+
+<hr class="page">
+<div class="page-number">50</div>
+<div class="headers">Diagram 1<br>
+Correct Answer</div>
+<p>The invasion of Black 1 is the correct answer. During the game, I did not consider this move for even a moment. It looks like a terrible move, venturing close to White&#8217;s thickness.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+White Is Also Weak</div>
+<p>AI does not view the White stones in the lower-left corner as thickness. Since the White stones are also weak, an invasion there will not be attacked too heavily.</p>
+
+<hr class="page">
+<div class="page-number">51</div>
+<div class="headers">Diagram 3<br>
+Missing the Chance</div>
+<p>Black 1 is the natural idea, but after White inserts a core into the framework with 2, the chance is missed. If Black could play consecutive moves on the bottom, the marked stone and White 2 would be the ideal formation.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+Actual Game - Black Insufficient</div>
+<p>In the actual game, Black chose the method of erasure at 1. I thought AI might also play this way, but after White defends at 4, it proves insufficient.</p>
+
+<hr class="page">
+<div class="page-number">52</div>
+<div class="headers">Diagram 5<br>
+Black Insufficient</div>
+<p>Black 1 might have been considered in the past. But given that an invasion is available, it must be called a very insufficient move.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+Attacked One-Sidedly</div>
+<p>Black 1 is an invasion in the wrong place. This leads to an ideal development for White, who can attack while defending the bottom. Reading White&#8217;s weak points accurately is crucial.</p>
+
+<hr class="page">
+<div class="page-number">53</div>
+<div class="headers">Problem 13<br>
+Black to Play</div>
+<p>White has a spreading framework on the top.</p>
+<p>There is an open skirt, but should Black rush to reduce it immediately?</p>
+
+<hr class="page">
+<div class="page-number">54</div>
+<div class="headers">Diagram 1<br>
+Correct Answer</div>
+<p>The invasion of Black 1 is the correct answer. One might think there is no rush given the open skirt, but AI judges that the framework can actually be reduced quite easily.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+Reduction Succeeds</div>
+<p>A cap would be safe, but if Black crosses at 3, Black is comfortable. White can expect almost no territory on the top, and if things go this way, Black succeeds.</p>
+
+<hr class="page">
+<div class="page-number">55</div>
+<div class="headers">Diagram 3<br>
+White Is Also Weak</div>
+<p>If White attacks, they have no choice but to cut, but the White stones on the left cannot be called strong. A severe attack cannot be expected.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+Enclosing the Open Skirt</div>
+<p>Tenuki also looks natural, but White blatantly encloses with 2 through 4 and has no complaints. Enclosing the open skirt is a move that is easy to overlook.</p>
+
+<hr class="page">
+<div class="page-number">56</div>
+<div class="headers">Diagram 5<br>
+White&#8217;s Territory Solidifies</div>
+<p>Black 1 is also a good point, but after White defends at 2, it is insufficient. The top still has an open skirt, but compared to Diagram 2, White&#8217;s territory has increased considerably.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+White Overplays</div>
+<p>White 1 is a stubborn move, but it goes too far. With Black invading at 2, White is in trouble. White&#8217;s stones are weak and cannot hold off the attack.</p>
+
+<hr class="page">
+<div class="page-number">57</div>
+<div class="headers">Problem 14<br>
+White to Play</div>
+<p>This is a question about play after an invasion.</p>
+<p>Working toward life from White A on the bottom is the joseki, but AI shows us a completely different idea.</p>
+
+<hr class="page">
+<div class="page-number">58</div>
+<div class="headers">Diagram 1<br>
+Correct Answer</div>
+<p>The hane-through of White 1 is the correct answer. The strategy is to use the invaded stones as sacrifices. Judging that the bottom has low value, White aims to saddle Black with an overconcentrated shape.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+Giving Them Up Cleanly</div>
+<p>Black 1 through 5 is standard play. It seems like White gave up the stones rather easily, but White is satisfied. Black 5 could be tenuki, but it is a big move.</p>
+
+<hr class="page">
+<div class="page-number">59</div>
+<div class="headers">Diagram 3<br>
+Watch Out for the Ladder</div>
+<p>Black is tempted to fight hard at 1, but it will not work in this position. If the ladder at Black <em>a</em> does not work, Black falls apart.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+If the Ladder Is Unfavorable</div>
+<p>If the ladder in the previous diagram does work, White plays at 1 to block. It is inferior to Diagram 2, but White has no complaints in this diagram either.</p>
+
+<hr class="page">
+<div class="page-number">60</div>
+<div class="headers">Diagram 5<br>
+Joseki but Favorable for Black</div>
+<p>Living from White 1 is joseki, but AI judges it as favorable for Black. White appears to have gained territory, but takes gote and the White stones in the lower left become weak.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+A Powerful Variation</div>
+<p>White 1 is not joseki but it is a viable move. Playing White 5 to paint over the upper area is good, and AI&#8217;s evaluation is better than the joseki in the previous diagram.</p>
+
+<hr class="page">
+<div class="page-number">61</div>
+<div class="headers">Diagram 7<br>
+An Alternative</div>
+<p>For the invasion in the problem diagram, White 1 is also powerful. This is a typically AI-like way of creating opportunities from the opponent&#8217;s weak points. Playing at Black <em>a</em> would be playing into White&#8217;s hands, so tenuki is appropriate.</p>
+
+<hr class="file">
+<div class="headers">Diagram 8<br>
+Let Them Enclose If It&#8217;s Just the Edge</div>
+<p>There is also the approach of playing hane-and-connect first and then solidifying the bottom. AI tends to view territory on just the edge as small and prefers moves that let the opponent enclose it.</p>
+
+<hr class="page">
+<div class="page-number">62</div>
+<p>Erasure and reduction are areas where AI excels. I think this is where the difference from humans shows most clearly.</p>
+<p>As a characteristic, AI seems to prefer direct moves like the attach, shoulder hit, peep, and cut as its first candidates. When you are in a position of clear weakness, you have no choice but to take the attack. The idea is to create a shape that puts some burden on the opponent, and while they respond to it, build a formation that is hard to attack.</p>
+<p>When direct approaches do not work, AI creates contrast by spacing two or more points away. A cap placed one point away often seems halfhearted. It is also a way of responding to the opponent. As a competitive strategy, giving the opponent a wide range of viable options means there are often good moves among them. That said, between humans, offering a broad selection - moves that create difficult positions, attacking moves, tenuki - presents the opponent with many hard decisions.</p>
+
+<hr class="page">
+<div class="page-number">63</div>
+<div class="headers">Chapter 2<br>
+Fighting</div>
+
+<hr class="page">
+<div class="page-number">65</div>
+<div class="headers">Problem 1<br>
+Black to Play</div>
+<p>This problem comes from one of my own games.</p>
+<p>Black 1 is AI&#8217;s recommended move, but it felt like it was strengthening White, so I barely considered it during the game.</p>
+<p>The next move is a good move that pairs with Black 1.</p>
+
+<hr class="page">
+<div class="page-number">66</div>
+<div class="headers">Diagram 1<br>
+Correct Answer</div>
+<p>The cover of Black 1 is the correct answer. While leaning against the lower-left corner, Black eyes an attack on the bottom. Not minding some territorial loss for the sake of attacking is the AI way.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+White Falls into a Trap</div>
+<p>White 1 falls into Black&#8217;s trap. The left side has expanded, but the Black stones have been considerably strengthened. The White stones on the bottom are in danger.</p>
+
+<hr class="page">
+<div class="page-number">67</div>
+<div class="headers">Diagram 3<br>
+White Collapses</div>
+<p>After White 1, Black&#8217;s counterattack at 2 works. The progression in the diagram results in White collapsing. For White 3, the standard is to play at White 4, but Black cuts at 3 with no complaints.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+Black Is Satisfied</div>
+<p>After White 1, Black seals White in starting with 2. White can escape with 3 onward, but Black blocks at 10 with no complaints. The threat at <em>a</em> is severe.</p>
+
+<hr class="page">
+<div class="page-number">68</div>
+<div class="headers">Diagram 5<br>
+Different Sensibilities</div>
+<p>From a human perspective, if the left side solidifies, White would be comfortable, but AI judges it as even. AI seems to have no hesitation about solidifying even on the fourth line if it serves the purpose.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+Power Balance over Territory</div>
+<p>In response to White 1, Black calmly gives up territory starting with 2. Playing in a way that incurs early losses looks dangerous, but AI does not mind.</p>
+
+<hr class="page">
+<div class="page-number">69</div>
+<div class="headers">Diagram 7<br>
+Black Has Good Shape</div>
+<p>White 1 is also tempting, but Black 2 is prepared. The shape after Black blocks at 4 is good for Black. If White plays at <em>a</em> instead of 3, Black <em>b</em> gives Black the advantage.</p>
+
+<hr class="file">
+<div class="headers">Diagram 8<br>
+Near-Correct Answer</div>
+<p>Black 1 also leans against the left side to strengthen Black. AI judges it slightly inferior to the correct answer diagram, but since the idea is the same, it can be called a near-correct answer.</p>
+
+<hr class="page">
+<div class="page-number">70</div>
+<div class="headers">Diagram 9<br>
+Actual Game Progression</div>
+<p>Black 1 through 3 is the actual game progression. It looks similar to the correct answer diagram, but the absence of Black <em>a</em> and White <em>b</em> is a significant difference. White has ample eye shape.</p>
+
+<hr class="file">
+<div class="headers">Diagram 10<br>
+White&#8217;s Variation</div>
+<p>For White 2 in the problem diagram, the bump at 2 or <em>a</em> in this diagram is also conceivable. Either way, a difficult fight ensues starting with the attach of Black 3.</p>
+
+<hr class="page">
+<div class="page-number">71</div>
+<div class="headers">Problem 2<br>
+Black to Play</div>
+<p>There is a competition on the bottom.</p>
+<p>Black A would be normal, but there is a more severe move that eyes an attack on the bottom.</p>
+
+<hr class="page">
+<div class="page-number">72</div>
+<div class="headers">Diagram 1<br>
+Correct Answer</div>
+<p>The cover of Black 1 is the correct answer. Similar to the previous problem. The strategy is to gain the upper hand in the central power balance, in exchange for solidifying the White stones on the left side.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+Black on the Offensive</div>
+<p>If White pushes and cuts, Black sacrifices 1 stone and turns to attack the bottom. It feels like White is walking into an attack, which is not good.</p>
+
+<hr class="page">
+<div class="page-number">73</div>
+<div class="headers">Diagram 3<br>
+Prioritizing the Center</div>
+<p>White 1 is natural, but Black aims at the White stones on the bottom starting with 2. From a human perspective, the left side looks big, but AI judges that Black can play this way too.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+Almost Cuttable But Not Quite</div>
+<p>Black&#8217;s shape looks thin, but since the surrounding White stones are also thin, they cannot be cut easily. Forcing a cut would likely have a negative effect on the bottom.</p>
+
+<hr class="page">
+<div class="page-number">74</div>
+<div class="headers">Diagram 5<br>
+The Loss Is Large</div>
+<p>The attach of Black 1 follows the same idea as the correct answer, but it gives White substantial territory, making it slightly inferior. The attack is not very severe either.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+Solid</div>
+<p>The simple one-space jump is also powerful. It lacks the speed of the correct answer diagram, but it is a solid way to play that does not give White settled territory.</p>
+
+<hr class="page">
+<div class="page-number">75</div>
+<div class="headers">Problem 3<br>
+White to Play</div>
+<p>A joseki is in progress in the upper-right corner. However, AI does not have the concept of joseki.</p>
+<p>What is the AI-like next move?</p>
+
+<hr class="page">
+<div class="page-number">76</div>
+<div class="headers">Diagram 1<br>
+Correct Answer</div>
+<p>The push of White 1 is the correct answer. It is a natural idea to strengthen the White stones in order to attack the Black stones on the top. White gives up territory, but ignoring this for the sake of the objective is the AI way.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+Keep Pushing</div>
+<p>Keep pushing and then pincer - a simple approach. The right side becomes Black&#8217;s territory, but White&#8217;s shape has no weaknesses and the power balance on the top favors White.</p>
+
+<hr class="page">
+<div class="page-number">77</div>
+<div class="headers">Diagram 3<br>
+Joseki Not Chosen</div>
+<p>White 1 is joseki, but after Black 6 defends, the judgment is that it is slightly worse. It is rarely seen even in human games anymore. Being settled at <em>a</em> feels like being pushed around.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+White Has the Advantage</div>
+<p>Black 1 through 3 is also joseki, but White slips away at 4 and Black comes up short. White 4 is an easy move to miss, but how to respond to White 6 is difficult and it appears to be a powerful move.</p>
+
+<hr class="page">
+<div class="page-number">78</div>
+<div class="headers">Diagram 5<br>
+Play to Attack</div>
+<p>Responding with White 1 in joseki fashion also seems to leave White with no complaints. Rather than aiming for a settled shape, the preferred progression for White is to attack the Black stones on the top.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+The Push Is the Vital Point</div>
+<p>Simply pincering at White 1 is also powerful. However, as play progresses, the push at White 7 eventually comes up. This seems to be the vital point.</p>
+
+<hr class="page">
+<div class="page-number">79</div>
+<div class="headers">Problem 4<br>
+White to Play</div>
+<p>Black has approached tightly at 1.</p>
+<p>White wants to split the position and fight, but first there is some AI-like preparatory work to be done.</p>
+
+<hr class="page">
+<div class="page-number">80</div>
+<div class="headers">Diagram 1<br>
+Correct Answer</div>
+<p>The bend of White 1 is the correct answer. Black gains territory, but White does not mind if it serves the fight. There is a risk of it becoming ineffective when the game gets busy.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+Thicken First, Then Invade</div>
+<p>White completes the bend and push to thicken up, then invades. The left side is big, but it is also possible to accept solidifying living stones.</p>
+
+<hr class="page">
+<div class="page-number">81</div>
+<div class="headers">Diagram 3<br>
+Black Overplays</div>
+<p>The White stones on the top have a slight gap, but a direct invasion is not threatening. With a wall on the left side, it is a battle favorable for White.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+White Has the Advantage</div>
+<p>The hane of Black 1 is a fighting move, but White 2 is the vital cut. It is a difficult fight, but the White stones on the top are strong and White should have the easier game.</p>
+
+<hr class="page">
+<div class="page-number">82</div>
+<div class="headers">Diagram 5<br>
+Wrong Order</div>
+<p>Once the fight has started, White will not get a quiet response. If Black initiates the fight starting with 6, White 1 ends up off target.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+Black Has the Advantage</div>
+<p>White 1 is an aggressive move, but since the White stones on the left are weak, it is an overplay. Being countered at Black 2 causes trouble. The bend of the correct answer is surprising, but it is a move that makes logical sense.</p>
+
+<hr class="page">
+<div class="page-number">83</div>
+<div class="headers">Problem 5<br>
+White to Play</div>
+<p>In response to the invasion, Black 2 is an aggressive move. How should White play on the right side? The focus is on how to assess the open skirt.</p>
+
+<hr class="page">
+<div class="page-number">84</div>
+<div class="headers">Diagram 1<br>
+Correct Answer</div>
+<p>The knight&#8217;s move of White 1 is the correct answer. I seem to recall being taught that playing near an open skirt is small, but AI prioritizes connection and often plays close.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+Strengthened in One Move</div>
+<p>White has been considerably strengthened by staying connected. There is little fear of being caught in a coordinated attack, so White can boldly reduce the top.</p>
+
+<hr class="page">
+<div class="page-number">85</div>
+<div class="headers">Diagram 3<br>
+The Key to Having a Base</div>
+<p>White 1 looks natural, but being approached tightly by Black 2 is a failure. With the open skirt, Black also has no life, but Black has taken away White&#8217;s base and restricted White&#8217;s freedom of movement.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+Powerful but&#8230;</div>
+<p>White 1 is also a powerful move, but it is slightly inferior to the correct answer. Black responds busily with 2 through 4, making the timing for entering the top difficult.</p>
+
+<hr class="page">
+<div class="page-number">86</div>
+<div class="headers">Diagram 5<br>
+Prioritizing the Base</div>
+<p>For Black 2 in the problem diagram, AI recommends Black 1 here. AI values the plus of having a base and connection more highly than the minus of the open skirt making territory difficult to secure.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+Being Mindful of Connection</div>
+<p>For White 1 in the problem diagram, AI recommends White 1 or <em>a</em> in this diagram. Both moves prioritize connection. This way of thinking is easy to adopt.</p>
+
+<hr class="page">
+<div class="page-number">87</div>
+<div class="headers">Problem 6<br>
+Black to Play</div>
+<p>The competition on the bottom is the focus.</p>
+<p>It is a position where you might play without thinking, but please consider where the most important point is.</p>
+
+<hr class="page">
+<div class="page-number">88</div>
+<div class="headers">Diagram 1<br>
+Correct Answer</div>
+<p>Prioritizing the edge with Black 1 is the correct answer. AI does not particularly fear being sealed in the corner. This is an area where AI diverges greatly from human intuition.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+The Bottom Is Crucial</div>
+<p>Black&#8217;s claim is that the power balance on the bottom is most important. Using the corner as bait, Black plays consecutive moves on the urgent points on the bottom and left side. The lower-right corner retains aji at <em>a</em> and <em>b</em>.</p>
+
+<hr class="page">
+<div class="page-number">89</div>
+<div class="headers">Diagram 3<br>
+No Rush to Seal In</div>
+<p>AI judges that fighting with White 2 is better. If things develop this way, Black 1 is working much harder than if it were at <em>a</em>.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+Black in Trouble</div>
+<p>One might instinctively play at Black 1 without thinking, but being sealed in by White 2 puts Black in serious trouble. Even Black&#8217;s eye shape becomes a concern.</p>
+
+<hr class="page">
+<div class="page-number">90</div>
+<div class="headers">Diagram 5<br>
+The Bottom Is Urgent</div>
+<p>If White knows that White 2 in the problem diagram does not work, White would directly cut the bottom in two. This diagram is slightly favorable for White.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+Bottom Priority Above All</div>
+<p>For Black 1 in the problem diagram, AI recommends Black 1 through 3 in this diagram. This also shows AI&#8217;s characteristic of not fearing being sealed in the corner.</p>
+
+</body>
+</html>
