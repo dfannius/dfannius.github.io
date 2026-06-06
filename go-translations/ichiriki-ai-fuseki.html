@@ -1,0 +1,2004 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Fuseki Theory for the AI Era</title>
+<style>
+body {
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Georgia, serif;
+    line-height: 1.4;
+    background-color: #fff8f0;
+}
+.headers {
+    font-weight: bold;
+    line-height: 1.4;
+}
+hr.file { border: none; border-top: 1px solid #bbb; margin: 1.2em 0; }
+hr.page { border: none; border-top: 4px double #444; margin: 1.5em 0; }
+.page-number { text-align: center; color: #888; font-size: 0.85em; margin: 0.2em 0 1em; }
+.meta-title { font-size: 1.6em; font-weight: bold; line-height: 1.4; text-align: center; }
+.meta-volume { font-size: 1.1em; font-weight: bold; line-height: 1.4; text-align: center; margin-top: 0.4em; }
+.meta-author { font-size: 1.2em; font-weight: bold; line-height: 1.4; text-align: right; margin-top: 0.4em; }
+.meta-isbn { font-size: 1.0em; line-height: 1.4; text-align: right; margin-top: 0.4em; }
+</style>
+</head>
+<body>
+<div class="meta-title">Fuseki Theory for the AI Era</div>
+<div class="meta-author">Contemporary Go Research Institute</div>
+<hr class="page">
+<div class="page-number">3</div>
+<div class="headers">Foreword</div>
+<p>Hello, we are the Contemporary Go Research Institute. This is our sixth book, and we are grateful to our readers for the opportunity. In this volume, we introduce the basics of modern fuseki.</p>
+<p>Fuseki is often thought of as <em>any move can lead to a complete game</em>, but simply knowing the basic moves and ideas makes it much easier to realize your intended plans.</p>
+<p>For example, knowing that <em>an open skirt is a low-value area</em> gives you a hint for identifying the high-value points.</p>
+<p>In this book, we divide the material into three sections — <em>Large-Point Theory</em>, <em>Urgent-Point Theory</em>, and <em>Moyo Theory</em> — and explain the basic principles through lessons and problem formats. Essential practical knowledge is also selected and introduced, so working through the entire book should raise the quality of your fuseki by several levels. We hope this book will be of help to those who struggle with fuseki and wonder <em>where should I even start?</em></p>
+<p>December 2025</p>
+<p>Contemporary Go Research Institute</p>
+
+<hr class="page">
+<div class="page-number">4</div>
+<div class="headers">Fuseki Theory for the AI Era — Table of Contents</div>
+<p>Foreword / 3</p>
+<p><strong>Chapter 1: Large-Point Theory</strong> / 7</p>
+<p>Theme Diagram 1: Open-Skirt Sense / 8
+Theme Diagram 2: Sense of Stone Direction / 10
+Theme Diagram 3: Fuseki Reading / 12</p>
+<p>Problem 1: Basics of Large Points / 17
+Problem 2: Corner Enclosure Sense in Fuseki / 19
+Problem 3: Purposeful Large Points / 21
+Problem 4: Building a Moyo / 23
+Problem 5: Ladder Issues / 25
+Problem 6: Weakness of the Star Point / 27
+Problem 7: Choosing the 3-3 Invasion Joseki ① / 31
+Problem 8: Choosing the 3-3 Invasion Joseki ② / 33
+Problem 9: Choosing the 3-3 Invasion Joseki ③ / 37
+Problem 10: Safe Moyo Reduction / 43
+Problem 11: Assessing the Balance of Power / 47
+Problem 12: Value of Narrow Spaces / 49
+Problem 13: Large Points That Serve as Defense / 51
+Problem 14: Contested Large Points / 53
+Problem 15: Looking Ahead / 57
+Problem 16: Valuable Direction / 61
+Problem 17: Good Points After Joseki / 65
+Problem 18: Unexpected Good Points / 69
+Problem 19: Places That Easily Become Territory / 73
+Problem 20: Stone Formations / 75</p>
+<p><strong>Chapter 2: Urgent-Point Theory</strong> / 79</p>
+<p>Theme Diagram 1: Wall Attack Sense / 80
+Theme Diagram 2: Judging Which Stones to Defend / 82
+Theme Diagram 3: Practical Sense for Exceptions / 84</p>
+
+<hr class="page">
+<div class="page-number">5</div>
+<p>Problem 1: Basics of Urgent Points / 89
+Problem 2: Make Haste Slowly / 91
+Problem 3: Preparing for a Wall Attack / 93
+Problem 4: Pursuing the Two-Space Extension / 95
+Problem 5: Sensing Danger / 97
+Problem 6: Attack and Defense / 101
+Problem 7: Rhythm of Battle / 103
+Problem 8: The Concept of Sacrifice / 105
+Problem 9: Global Judgment / 107
+Problem 10: No Hesitation / 109
+Problem 11: Practical Defense / 111
+Problem 12: Resilience on the Fourth Line / 115
+Problem 13: Nimble Evasion / 119
+Problem 14: Sense of Balance / 121
+Problem 15: Identifying the Perfect Point / 123
+Problem 16: Whole-Board Stone Handling / 125
+Problem 17: Basics of Attacking / 129
+Problem 18: Tips for Wall Attack / 131
+Problem 19: Practical Judgment ① / 135
+Problem 20: Practical Judgment ② / 137</p>
+<p><strong>Chapter 3: Moyo Theory</strong> / 139</p>
+<p>Theme Diagram 1: Basic Use of Thickness / 140
+Theme Diagram 2: Distance Sense in Building a Moyo / 142
+Theme Diagram 3: Incompatible Formations / 144</p>
+<p>Problem 1: Blocking Moyo Formation / 149
+Problem 2: Using Thickness / 153
+Problem 3: Moyo Sense / 155
+Problem 4: Large Points to Rush To / 157
+Problem 5: How to Consolidate a Moyo / 161
+Problem 6: A Momentary Opening / 165
+Problem 7: Timing / 167
+Problem 8: Contested Points in the Sphere of Influence / 169
+Problem 9: Neutralizing Thickness / 171
+Problem 10: Testing Your Plan / 173
+Problem 11: How to Reduce a Moyo / 175
+Problem 12: The Danger of Thickness / 179
+Problem 13: A Solid Good Point / 183
+Problem 14: The Key Move / 185</p>
+
+<hr class="page">
+<div class="page-number">6</div>
+<p>Problem 15: Effective Expansion / 187
+Problem 16: Simple Expansion / 189
+Problem 17: Distance Sense of Thickness / 193
+Problem 18: Appropriate Reduction / 197
+Problem 19: How to View Enemy Territory / 201
+Problem 20: Straightforward Expansion / 205
+Problem 21: Assessing Development Potential / 209
+Problem 22: Places to Rush To / 211
+Problem 23: Sensing Crisis / 213
+Problem 24: The Difference of One Move / 215
+Problem 25: Adapting to Circumstances / 217</p>
+
+<hr class="file">
+<div class="headers">Columns</div>
+<p>Why Strength Differences Arise / 56
+Habits for Training Reading Ability / 78
+Games Lost on Time / 100
+Tips for AI Study / 128
+How to Handle Mistakes / 152
+Ways to Develop Your Own Strength in the AI Era / 178
+Afterword / 222</p>
+<p>Proofreading: Kawaguchi Kohei</p>
+
+<hr class="page">
+<div class="page-number">7</div>
+<div class="headers">Chapter 1<br>
+Large-Point Theory</div>
+<p>The key to good fuseki play is identifying the <em>large points of value</em>. In this chapter, in addition to the flow of practical large-point selection, we will learn fundamental ideas such as <em>playing toward open areas</em>.</p>
+
+<hr class="page">
+<div class="page-number">8</div>
+<div class="headers">Theme Diagram 1<br>
+Open-Skirt Sense</div>
+<p>The most immediately actionable way to identify high-value large points is to pay attention to the open skirt.</p>
+<p>An open skirt is a place where room for reduction remains. There are two principles for applying this idea to fuseki:
+① Lead the opponent&#8217;s stones to open-skirt areas.
+② Avoid playing in open-skirt areas yourself.</p>
+<p>For example, even if you expand your own position, if the means to reduce it remain, it becomes difficult to regard that area as a large piece of territory.</p>
+<p>Let us consider Theme Diagram 1 as a concrete example. White has just played at 1, trying to build a white framework on the bottom. How should Black approach this? Find the next move with the open-skirt concept in mind.</p>
+
+<hr class="page">
+<div class="page-number">9</div>
+<p>Expanding the right-side black framework with Black 1 through 5 in Diagram 1 is a brilliant fuseki conception for building an advantage. For example, even if White builds a moyo through White 7 in Diagram 2, Black retains the means to reduce the bottom at <em>a</em>, and with the good point of <em>b</em> to build a right-side moyo still in view, the game is favorable for Black.</p>
+<p>If White devises a different defense at 1 in Diagram 3, starting with Black 2, Black builds a right-side moyo while keeping <em>a</em> in reserve - Black succeeds. Black 1 in Diagram 4 intends to prevent White from building a moyo on the bottom, but after White gains territory starting with 2, there is no prospect of a large black territory on the bottom - a result with which Black cannot be satisfied.</p>
+
+<hr class="page">
+<div class="page-number">10</div>
+<div class="headers">Theme Diagram 2<br>
+Sense of Stone Direction</div>
+<p>The major branching factor in fuseki is joseki selection. What criterion should guide the choice? The key consideration, in large part, is the direction of stones.</p>
+<p>To put it plainly: what matters is expanding your sphere of influence (or moyo) in the direction where greater territory can be expected.</p>
+<p>Of course, knowledge of joseki and its application are required, and putting this into practice is not easy. However, with a proper sense of stone direction, you will rarely play a fuseki that misses the mark.</p>
+<p>Now, Theme Diagram 2 presents a position where the choice is between A and B. Which should Black choose? If the valuable direction is clear at a glance, you have a refined fuseki sense.</p>
+
+<hr class="page">
+<div class="page-number">11</div>
+<p>Stopping White&#8217;s advance toward the top with Black 1 and 3 in Diagram 1 is good judgment. If White responds at 4, starting with Black 5, Black keeps <em>a</em> and <em>b</em> in view, checking the expansion of White&#8217;s moyo on the left - Black is satisfied.</p>
+<p>Even if White responds at 1 in Diagram 2, Black can expand a sphere of influence on the top starting with Black 2 - no problem.</p>
+<p>If White resists at 1 in Diagram 3, starting with Black 2, Black sacrifices the left-side stones to build a moyo on the top - a development favorable to Black. (This diagram is one of the joseki sequences.)</p>
+<p>Black can defend solidly with Black 1 through 5 in Diagram 4, but there is no prospect of a large black territory on the left - Black is dissatisfied.</p>
+
+<hr class="page">
+<div class="page-number">12</div>
+<div class="headers">Theme Diagram 3<br>
+Reading in the Fuseki</div>
+<p>The common impression is that <em>fuseki is about intuition</em>, but the ability to read ahead and envision a plan several moves out is equally important.</p>
+<p>When this skill is developed, the quality of your fuseki improves dramatically. You will be able to judge correctly even when a narrower area turns out to be more valuable than a larger one.</p>
+<p>This is not something you can put into practice right away, so I recommend starting by studying typical patterns and gradually expanding your tactical repertoire.</p>
+<p>As one example, let&#8217;s look at Theme Diagram 3. Among many open areas on the board, there is an urgent key point.</p>
+<p>The key is to create a sequence that <em>lets the opponent build thickness while restricting their territorial expansion</em>.</p>
+
+<hr class="page">
+<div class="page-number">13</div>
+<div class="headers">Diagram 1</div>
+<p>Black 1, extending along the bottom, is the key point. If White extends toward the left with 2, Black plays 3 through 9, building a moyo on the bottom while occupying the left side - Black is doing well. Being able to aim at <em>a</em> or <em>b</em> later to expand Black&#8217;s sphere of influence is something Black can be proud of.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2</div>
+<p>If White takes the left side first with 1, Black can expand the bottom moyo starting with 2, giving Black a comfortable game. For example, if White tries to enclose the left side with <em>a</em>, Black can expand the moyo even further starting with <em>b</em> - Black succeeds.</p>
+
+<hr class="page">
+<div class="page-number">14</div>
+<div class="headers">Diagram 3</div>
+<p>Black 1, occupying the left side, shows a lack of ingenuity. White presses the Black stones in the upper right with 2 while building a white framework on the right side. The key difference from the previous page is that White can aim at <em>a</em> or <em>b</em>, making a large black territory on the bottom unlikely.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4</div>
+<p>For example, if Black extends along the bottom with 1, White restricts the bottom starting with 2 while expanding the white framework on the right side - Black is not quite satisfied. Choosing the open area does not necessarily lead to a good result.</p>
+
+<hr class="page">
+<div class="page-number">15</div>
+<div class="headers">Problems</div>
+
+<hr class="page">
+<div class="page-number">16</div>
+<div class="headers">A Practical Perspective</div>
+<p>Large-point selection is a difficult area with many ambiguous criteria and a heavy reliance on intuition.</p>
+<p>The basic fuseki principle taught is <em>play in open areas</em>, but in practice the downside is that areas that are too open are easily invaded, so it cannot always be said that <em>openness is justice</em>. Rather, there are cases where securing firm territory in a narrower area is better.</p>
+<p>While there are differences between basic principles and actual play, modern Go strongly tends to demand <em>identifying land that can become settled territory easily (or playing in a way that denies the opponent settled territory)</em>. The sense is that the lens of whether an investment will yield high returns has become sharper than in the past.</p>
+<p>Let&#8217;s work through the problems while encountering various theories, and develop a feel for selecting large points.</p>
+
+<hr class="page">
+<div class="page-number">17</div>
+<div class="headers">Problem 1<br>
+Large-Point Basics<br>
+Black to Play</div>
+<p>The basic principle of large-point selection is to <em>occupy open areas</em>.</p>
+<p>In this position, where should Black aim?</p>
+
+<hr class="page">
+<div class="page-number">18</div>
+<div class="headers">Correct Answer (Building a Moyo)</div>
+<p>Black 1, occupying the right side, is the key point. If White rushes to a large point with 2, Black can expand the right-side moyo with 3 - Black is satisfied.</p>
+
+<hr class="file">
+<div class="headers">Failure (Eliminating Prime Real Estate)</div>
+<p>If Black rushes to a large point with 1, White erases the right-side moyo with 2. A single move makes a world of difference - be careful.</p>
+
+<hr class="page">
+<div class="page-number">19</div>
+<div class="headers">Problem 2<br>
+Shimari Fuseki Sense<br>
+Black to Play</div>
+<p>After White plays 1, which large point should Black occupy?</p>
+<p>Pay attention to the one-space shimari in the lower left and find the spot that prevents the opponent from building a moyo.</p>
+
+<hr class="page">
+<div class="page-number">20</div>
+<div class="headers">Correct Answer (Two Birds with One Stone)</div>
+<p>Black 1 is the key point, checking the expansion of White&#8217;s bottom moyo while consolidating the lower right. Being able to aim at <em>a</em> or <em>b</em> later gives Black much to look forward to.</p>
+
+<hr class="file">
+<div class="headers">Failure (Lack of Ingenuity)</div>
+<p>Black 1, occupying the bottom, lets White earn territory with 2 through 6 while also leaving White able to aim at <em>a</em> or <em>b</em> - Black should be more inventive.</p>
+
+<hr class="page">
+<div class="page-number">21</div>
+<div class="headers">Problem 3<br>
+A Large Point with Meaning<br>
+Black to Play</div>
+<p>When you&#8217;re unsure which large point to choose, the trick is to look for <em>a spot with two or more purposes</em>.</p>
+
+<hr class="page">
+<div class="page-number">22</div>
+<div class="headers">Correct Answer (The Trick to Large-Point Selection)</div>
+<p>Black 1 is the key point, reinforcing the lower left while building a moyo on the bottom. The key was to look for a spot that not only earns territory but also affects the strength and weakness of the stones.</p>
+
+<hr class="file">
+<div class="headers">Failure (Missing the Chance)</div>
+<p>If Black rushes to a large point with 1, White attacks the lower left with 2 through 4 while preventing the bottom moyo - Black is dissatisfied.</p>
+
+<hr class="page">
+<div class="page-number">23</div>
+<div class="headers">Problem 4<br>
+Building a Moyo<br>
+Black to Play</div>
+<p>One key to seizing the initiative in the fuseki is <em>building a moyo</em>.</p>
+<p>In this position, where should Black aim to accomplish this?</p>
+
+<hr class="page">
+<div class="page-number">24</div>
+<div class="headers">Correct Answer (A Point Not to Miss)</div>
+<p>With the thickness in the upper left as a backdrop, Black 1, positioning on the left side, is the key point. Black has the option to expand further starting with <em>a</em>, giving Black a favorable development.</p>
+
+<hr class="file">
+<div class="headers">Failure (One Move Makes the Difference)</div>
+<p>Black 1, positioning on the right side, is careless. White attacks the lower-left Black stones with 2 while preventing the left side from becoming a moyo - Black is not quite satisfied.</p>
+
+<hr class="page">
+<div class="page-number">25</div>
+<div class="headers">Problem 5<br>
+A Ladder Problem<br>
+Black to Play</div>
+<p>At this point, White A does not work in this position, but it is a very uncomfortable shape.</p>
+<p>When ladder-related elements arise in the fuseki, there is a basic principle to follow.</p>
+
+<hr class="page">
+<div class="page-number">26</div>
+<div class="headers">Correct Answer (An Urgent Resolution)</div>
+<p>Neutralizing the threat of <em>a</em> with Black 1 is the basic fuseki principle. Even in the early stages of the fuseki, this is something that needs to be resolved immediately.</p>
+
+<hr class="file">
+<div class="headers">Failure (A Source of Trouble)</div>
+<p>If Black rushes to a large point with 1, White plays 2 with an eye on <em>a</em>&#8216;s escape while pressing the Black stones in the upper left - leaving Black in a difficult position regarding how to respond.</p>
+
+<hr class="page">
+<div class="page-number">27</div>
+<div class="headers">Problem 6<br>
+The Weakness of the Star Point<br>
+Black to Play</div>
+<p>Building a moyo around a star-point stone while the corner has a weakness is a development to avoid.</p>
+<p>In this problem, find the move that exploits the weakness of the star point.</p>
+
+<hr class="page">
+<div class="page-number">28</div>
+<div class="headers">Correct Answer (A Clear-Cut Strategy)</div>
+<p>Black 1, entering the 3-3 point, is the move that exploits the weakness of the star point. If White defends with 2, Black can safely invade the bottom moyo starting with 3 - Black is satisfied.</p>
+
+<hr class="file">
+<div class="headers">Variation 1 (A Solid Resolution)</div>
+<p>If White resists with 1 and 3 at White 4 in the previous diagram, Black plays 4 and following to secure safety while keeping in view the option of attacking the White stones on the bottom with <em>a</em> or aiming at the key point <em>b</em> - a progression where Black can play freely.</p>
+
+<hr class="page">
+<div class="page-number">29</div>
+<div class="headers">Variation 2 (Much the Same)</div>
+<p>If White changes the direction of the response with 2, the left-side moyo shrinks starting with Black 3 - a satisfactory outcome for Black.</p>
+
+<hr class="file">
+<div class="headers">Variation 3 (A Lingering Threat)</div>
+<p>If White responds with 1 and 3 at White 4 in the previous diagram, Black plays 4 and following to stabilize. Being able to aim at invading with <em>a</em> later means there is no need to rush.</p>
+
+<hr class="page">
+<div class="page-number">30</div>
+<div class="headers">Failure 1 (A Dangerous Plunge ①)</div>
+<p>If Black plunges in with 1, White attacks starting with 2, forcing Black into an unfavorable fight. If Black plays <em>a</em>, White presses with <em>b</em>.</p>
+
+<hr class="file">
+<div class="headers">Failure 2 (A Dangerous Plunge ②)</div>
+<p>Black 1 also lets White deprive Black of a base starting with 2 while consolidating the lower left. Plunging in recklessly gives the opponent an attack target and damages the position.</p>
+
+<hr class="page">
+<div class="page-number">31</div>
+<div class="headers">Problem 7<br>
+Choosing the 3-3 Joseki ①<br>
+White to Play</div>
+<p>Black 1, entering the 3-3 point, is one of the most common formations in practice.</p>
+<p>Pay attention to the stone arrangement in the upper left and choose the appropriate joseki.</p>
+
+<hr class="page">
+<div class="page-number">32</div>
+<div class="headers">Correct Answer (Pay Attention to the Stone Arrangement)</div>
+<p>White 1 through 5, capturing the lower-left Black stones, is the right choice. Through White 11, the marked Black stone is in a low position with no prospect of large Black territory, and White has earned territory - White is satisfied.</p>
+
+<hr class="file">
+<div class="headers">Failure (The Price of a Mistake)</div>
+<p>White 1 and 3, thickening toward the left side, is a serious blunder. With a strong Black stone at the marked point in reserve, it is difficult to build a moyo on the left side - White is dissatisfied.</p>
+
+<hr class="page">
+<div class="page-number">33</div>
+<div class="headers">Problem 8<br>
+Choosing the 3-3 Joseki ②<br>
+White to Play</div>
+<p>The stone arrangement differs from the previous problem. Devise a plan that makes use of the White stones on the bottom.</p>
+
+<hr class="page">
+<div class="page-number">34</div>
+<div class="headers">Correct Answer (The Move Order to Prioritize)</div>
+<p>White 1 and 3, thickening toward the bottom, is the right judgment. Black cannot omit the defensive move at 4, and building a moyo on the bottom with White 5 is the whole plan.</p>
+
+<hr class="file">
+<div class="headers">Correct Answer Continued (Nimble Stone Play)</div>
+<p>If Black responds with 6 and 8, White builds a moyo on the bottom with 9 through 15 while keeping <em>a</em> and <em>b</em> in view to prevent a right-side moyo - White is satisfied.</p>
+
+<hr class="page">
+<div class="page-number">35</div>
+<div class="headers">Failure 1 (One Move Behind)</div>
+<p>White 1 through 5, pressing the lower-left Black stones, lets Black check the expansion of the bottom moyo starting with 6 while expanding the lower-right Black framework - White is not quite satisfied.</p>
+
+<hr class="file">
+<div class="headers">Failure 2 (Much the Same)</div>
+<p>Defending with 1 and 3 at White 5 in the previous diagram also allows the key point at Black 4, restricting the White moyo on the bottom.</p>
+
+<hr class="page">
+<div class="page-number">36</div>
+<div class="headers">Failure 3 (The White Framework Disappears)</div>
+<p>Choosing the joseki of White 1 through 5 fails for White, as Black reinforces the lower-side Black stones starting with 6 while the White framework disappears.</p>
+
+<hr class="file">
+<div class="headers">Failure 4 (The Gears Go Wrong)</div>
+<p>Defending with 1 at White 3 in the previous diagram lets Black invade the bottom with 2. White struggles to build territory on the bottom, and losing the effectiveness of the marked stone is White&#8217;s cause for regret.</p>
+
+<hr class="page">
+<div class="page-number">37</div>
+<div class="headers">Problem 9<br>
+Choosing the 3-3 Joseki ③<br>
+Black to Play</div>
+<p>By older standards, either A or B was a viable game.</p>
+<p>However, in modern Go, one of the two is clearly preferred. This is a high-level topic, but it contains an important way of thinking worth keeping in mind.</p>
+
+<hr class="page">
+<div class="page-number">38</div>
+<div class="headers">Correct Answer (The Preferred Choice)</div>
+<p>When looking to build a moyo toward the right side, practical examples of choosing the joseki of Black 1 through 3 have been increasing. It looks like White can advance toward the right side starting with 4, but -</p>
+
+<hr class="file">
+<div class="headers">Correct Answer Continued</div>
+
+<hr class="file">
+<div class="headers">Correct Answer Continued (The Idea of Drawing In)</div>
+<p>Black 7 and 9, stopping the advance, is the tesuji. Black builds a moyo on the right side through 13 - a separation where Black is not doing badly. Drawing the opponent in to deepen the moyo is the mainstream thinking.</p>
+
+<hr class="page">
+<div class="page-number">39</div>
+<div class="headers">Variation 1 (Ladder Relations)</div>
+<p>If White resists with 1 at White 10 in the previous diagram, Black plays 2 and following to build thickness on the outside. This is a joseki where Black tends to come out well when White&#8217;s escape at <em>a</em> does not work.</p>
+
+<hr class="file">
+<div class="headers">Variation 2 (Forming a Deep Moyo)</div>
+<p>When the ladder is unfavorable, defend with Black 1 at Black 10 in the previous diagram. Even if White reinforces the lower right with 2, Black can build a deep moyo on the right side with 3 - a progression where Black can play comfortably.</p>
+
+<hr class="page">
+<div class="page-number">40</div>
+<div class="headers">Variation 3 (The Expected Progression)</div>
+<p>From the above, the expected course is for White to advance to the right side with 1 through 3 to prevent moyo expansion, while Black reduces the lower-right White framework starting with 4 and builds a moyo on the bottom - a balanced progression.</p>
+
+<hr class="file">
+<div class="headers">Reference 1 (Too Slow)</div>
+<p>If Black defends with 1, White prevents the bottom from becoming a moyo starting with 2. The lower right becomes a solid formation, of course, but Black is slightly behind in the territory count.</p>
+
+<hr class="page">
+<div class="page-number">41</div>
+<div class="headers">Reference 2 (An Uncertain Future)</div>
+<p>Black 1 through 5, building a moyo on the right side, is another possible progression. However, after White positions with 6, the drawback is that expanding the right-side moyo becomes problematic.</p>
+
+<hr class="file">
+<div class="headers">Reference 3 (A Simple Erasure)</div>
+<p>Following the previous diagram, if Black extends the right-side moyo with 1, White has the option of erasing it with 2. Developing the right-side moyo is not easy.</p>
+
+<hr class="page">
+<div class="page-number">42</div>
+<div class="headers">Reference 4 (Much the Same)</div>
+<p>Black 1 through 5, building a moyo, also has the drawback that after White positions with 6 through 8, White can aim at advancing with <em>a</em> or <em>b</em>.</p>
+
+<hr class="file">
+<div class="headers">Failure (The Vanishing Moyo)</div>
+<p>Instead of Black 1 in the previous diagram, trying to capture the lower-right White stones with 1 and 3 is careless. White prevents the right side from becoming a moyo starting with 4 - Black is dissatisfied.</p>
+
+<hr class="page">
+<div class="page-number">43</div>
+<div class="headers">Problem 10<br>
+Safe Moyo Reduction<br>
+Black to Play</div>
+<p>With moyos spreading across the left side and bottom, Black has a way to reduce safely.</p>
+<p>The key is to think <em>I only need to reduce one of the two - the left side or the bottom</em>.</p>
+
+<hr class="page">
+<div class="page-number">44</div>
+<div class="headers">Correct Answer (A Safe Entry)</div>
+<p>Black 1, entering the 3-3 point, is solid. If White defends with 2, Black plays 3 through 5 to prevent the left side from becoming a White moyo - Black is not doing badly.</p>
+
+<hr class="file">
+<div class="headers">Variation 1 (Swift Development)</div>
+<p>If instead of White 4 in the previous diagram, White presses with 1 and 3, Black gets to the large point first starting with 4. With the option of invading with <em>a</em> or <em>b</em>, there is no need to rush.</p>
+
+<hr class="page">
+<div class="page-number">45</div>
+<div class="headers">Variation 2 (Steady Reduction)</div>
+<p>Even if White blocks the left side with 1, Black reduces the bottom moyo starting with 2 - a result where Black is not doing badly. The idea is to earn territory starting with Black <em>b</em> in response to White <em>a</em>.</p>
+
+<hr class="file">
+<div class="headers">Variation 3 (Securing Safety)</div>
+<p>If instead of White 3 in the previous diagram, White resists with 1 and 3, Black plays starting with 4 to secure safety on the bottom while keeping in view the aim of pressing the White stones on the bottom with <em>a</em> - Black is not doing badly.</p>
+
+<hr class="page">
+<div class="page-number">46</div>
+<div class="headers">Reference (The Opponent&#8217;s Position Solidifies)</div>
+<p>Preventing the left side from becoming a White moyo with Black 1 is also an option. However, the drawback is that the lower-left White territory solidifies starting with White 2, letting White earn territory.</p>
+
+<hr class="file">
+<div class="headers">Failure (A One-Sided Fight)</div>
+<p>Plunging in with Black 1 is a dangerous choice. White attacks with 2 through 4, forcing Black into an unfavorable fight.</p>
+
+<hr class="page">
+<div class="page-number">47</div>
+<div class="headers">Problem 11<br>
+Reading the Balance of Power<br>
+Black to Play</div>
+<p>This is the position after White has defended the upper right with 1.</p>
+<p>Pay attention to the balance of power among the stones and find the large point to head for immediately.</p>
+
+<hr class="page">
+<div class="page-number">48</div>
+<div class="headers">Correct Answer (A Target for Attack)</div>
+<p>Black 1, occupying the right side, shows good sense. Being able to aim later at attacking the upper-right White stones with <em>a</em> while building a Black moyo on the top is something Black can be proud of.</p>
+
+<hr class="file">
+<div class="headers">Failure (Missing the Opportunity)</div>
+<p>Occupying a large point with Black 1 lets White expand toward the right side with 2 while simultaneously reinforcing the upper right - Black misses the chance.</p>
+
+<hr class="page">
+<div class="page-number">49</div>
+<div class="headers">Problem 12<br>
+The Value of a Narrow Area<br>
+Black to Play</div>
+<p>The value of a large point cannot be judged by openness alone. There are cases where high value can be found in a narrow area.</p>
+
+<hr class="page">
+<div class="page-number">50</div>
+<div class="headers">Correct Answer (Steady Stone Play)</div>
+<p>Black 1, extending the Black framework in the upper right, is a good point. The upper right becomes an area difficult to invade, and being able to aim at expanding the moyo with <em>a</em> afterward gives Black a favorable development.</p>
+
+<hr class="file">
+<div class="headers">Failure (The Landscape Changes)</div>
+<p>Black 1, occupying the left side, lets White expand the White framework on the right side with 2. The Black moyo on the top also shrinks - Black is not quite satisfied.</p>
+
+<hr class="page">
+<div class="page-number">51</div>
+<div class="headers">Problem 13<br>
+A Large Point That Defends<br>
+Black to Play</div>
+<p>By being aware of the balance of power among the stones, you can see where having a stone would be beneficial.</p>
+
+<hr class="page">
+<div class="page-number">52</div>
+<div class="headers">Correct Answer (Territory and Defense)</div>
+<p>Black 1, extending the left-side territory, is a good point. It also has the effect of easing pressure on the upper left, making it an immediate priority.</p>
+
+<hr class="file">
+<div class="headers">Failure (A Lingering Threat)</div>
+<p>Black 1, occupying the top, lets White expand the moyo toward the bottom with 2 while also aiming to attack the Black stones on the left side.</p>
+
+<hr class="page">
+<div class="page-number">53</div>
+<div class="headers">Problem 14<br>
+The Contested Large Point<br>
+Black to Play</div>
+<p>There are large points where playing there first or being played there makes a world of difference.</p>
+
+<hr class="page">
+<div class="page-number">54</div>
+<div class="headers">Correct Answer (A Large Point Not to Miss)</div>
+<p>Black 1, occupying the bottom, is the key point. With the thickness in the lower right as a backdrop, Black builds a moyo while also aiming to press the lower-left White stones.</p>
+
+<hr class="file">
+<div class="headers">Variation 1 (A Follow-Up)</div>
+<p>If White rushes to a large point with 1, Black can press toward the lower left starting with 2 while gaining the tempo to consolidate the lower-side Black framework.</p>
+
+<hr class="page">
+<div class="page-number">55</div>
+<div class="headers">Variation 2 (Moyo Expansion)</div>
+<p>If White defends the lower left with 1, Black puts pressure on the lower-right White stones with 2 while expanding the bottom moyo - a development at least equal for Black.</p>
+
+<hr class="file">
+<div class="headers">Failure (One Move Makes the Difference)</div>
+<p>If Black rushes to a large point with 1, White gets to the key point on the bottom first with 2 and also threatens the three Black stones in the lower right - Black is dissatisfied.</p>
+
+<hr class="page">
+<div class="page-number">56</div>
+<div class="headers">Column 1<br>
+Why Differences in Strength Arise</div>
+<p>In Go, the skills and knowledge required change gradually with each level. This is because as your strength increases, the range of what you can understand expands. As one example, let&#8217;s examine the basic fuseki principle of <em>playing in open areas</em>.</p>
+<p>For players from kyu level up through dan, choosing an open area earns a passing mark. This is because heading toward places that tend to be correct matters more than subtle technique.</p>
+<p>High-dan players and above, by contrast, factor in local reading and knowledge to ask: <em>How open can I play? Wouldn&#8217;t it be better to play more narrowly?</em></p>
+<p>The source of this difference in thinking is the <em>possibility of playing narrowly</em>. It runs counter to basic instinct, but there are many practical examples where playing narrowly is the superior approach. Understanding this way of thinking opens up even more options.</p>
+<p>This is the difference that arises from the range of what one can understand. Aiming for a higher level may seem daunting, but by learning one thing at a time through this book&#8217;s content and your own practical experience, the quality of your fuseki will improve - so build up steadily without rushing.</p>
+
+<hr class="page">
+<div class="page-number">57</div>
+<div class="headers">Problem 15<br>
+Looking Ahead<br>
+Black to Play</div>
+<p>One key to building a lead in the fuseki is to think about <em>the places where you don&#8217;t want the opponent to build a moyo</em>.</p>
+
+<hr class="page">
+<div class="page-number">58</div>
+<div class="headers">Correct Answer (An Urgent Large Point)</div>
+<p>Black 1, building a sphere of influence toward the bottom, shows good sense. If White consolidates the lower left with 2 and 4, Black establishes a fine formation with 5 - Black is not doing badly.</p>
+
+<hr class="file">
+<div class="headers">Reference 1 (A Solid Defense)</div>
+<p>If White presses into the upper-left Black framework with 1, Black can build thickness on the outside starting with 2 while confirming safety - no problem.</p>
+
+<hr class="page">
+<div class="page-number">59</div>
+<div class="headers">Reference 2 (Much the Same)</div>
+<p>If White invades low with 1, Black can handle it solidly starting with 2. Black has taken the lead in territory toward the bottom, so there is no need to rush.</p>
+
+<hr class="file">
+<div class="headers">Reference 3 (High Durability)</div>
+<p>If White attacks with 1, Black reinforces carefully with 2 through 6. After White <em>a</em>, Black can solidly consolidate the shape starting with <em>b</em>.</p>
+
+<hr class="page">
+<div class="page-number">60</div>
+<div class="headers">Failure 1 (The Opponent&#8217;s Position Spreads)</div>
+<p>Black 1, positioning on the right side, lets White build a wide moyo on the bottom starting with 2. Avoiding this diagram was the key to solving the problem.</p>
+
+<hr class="file">
+<div class="headers">Failure 2 (A Passive Retreat)</div>
+<p>Black 1, defending, lets White get to the large point first with 2, leaving Black behind in territory. To seize the advantage in the fuseki, aim for active play.</p>
+
+<hr class="page">
+<div class="page-number">61</div>
+<div class="headers">Problem 16<br>
+The Valuable Direction<br>
+Black to Play</div>
+<p>What joseki should Black choose?</p>
+<p>First, think about where the valuable area is.</p>
+
+<hr class="page">
+<div class="page-number">62</div>
+<div class="headers">Correct Answer<br>
+A Major Fork</div>
+<p>Playing Black 1 and 3 to block White&#8217;s advance on the left side is the fuseki concept to aim for. For Black, the bottom side has little prospect of becoming large territory, making it a low-value area.</p>
+
+<hr class="file">
+<div class="headers">Correct Answer (continued)<br>
+Rich Potential</div>
+<p>If White responds at 4, Black plays 5 through 7 to consolidate the shape in the lower left. The prospect of Black territory developing on the left expands, giving Black a fine result.</p>
+
+<hr class="page">
+<div class="page-number">63</div>
+<div class="headers">Variation 1<br>
+Small Avalanche Joseki</div>
+<p>If White responds at 1, Black defends actively from 2 onward. If White plays at <em>a</em>, Black can escape with the ladder starting at <em>b</em>, so Black succeeds.</p>
+
+<hr class="file">
+<div class="headers">Variation 1 (continued)<br>
+An Unyielding Plan</div>
+<p>White is forced to capture the two black stones in the lower left with 7, and Black can build a moyo on the left side from 8 onward, giving Black a good game. The idea is that if White plays at <em>a</em>, Black blocks at <em>b</em>.</p>
+
+<hr class="page">
+<div class="page-number">64</div>
+<div class="headers">Variation 2<br>
+Much the Same</div>
+<p>If White responds solidly at 1, Black plays from 2 to limit White&#8217;s expansion on the bottom while getting to the key point first, giving Black at least an equal result.</p>
+
+<hr class="file">
+<div class="headers">Failure<br>
+Lack of Ingenuity</div>
+<p>Playing Black 1 through 5 to defend follows standard joseki order. However, given the existing stone configuration, Black cannot build large territory on the bottom, and White gets to play first at key points like 6, leaving Black unsatisfied.</p>
+
+<hr class="page">
+<div class="page-number">65</div>
+<div class="headers">Problem 17<br>
+The Key Point After Joseki<br>
+Black to Play</div>
+<p>The formation in the lower left arises from the double-attach joseki on the star point. Even immediately after this joseki is played, there is a key point to head for right away.</p>
+
+<hr class="page">
+<div class="page-number">66</div>
+<div class="headers">Correct Answer<br>
+The Pivotal Key Point</div>
+<p>Black 1 (or <em>a</em>) to expand the moyo on the bottom is the perfect move. Not only does it check White&#8217;s moyo expansion on the left, but keeping the threat of attacking the white stones in the lower left is also a point of pride for Black.</p>
+
+<hr class="file">
+<div class="headers">Correct Answer (continued)<br>
+An Active Assault</div>
+<p>After White runs to a big point at 2, the plan is for Black 3 to press the white stones in the lower left while splitting White&#8217;s formation on the left. Through Black 5, Black can fight while aiming at the key points at <em>a</em> or <em>b</em>.</p>
+
+<hr class="page">
+<div class="page-number">67</div>
+<div class="headers">Variation 1<br>
+Powerful Stone Deployment</div>
+<p>If White counterattacks at 1 instead of 4 in the previous diagram, Black plays from 2 to reinforce the left side. If White plays at <em>a</em>, Black plays at <em>b</em> and following to isolate the white stones in the lower left, giving Black an advantageous fight.</p>
+
+<hr class="file">
+<div class="headers">Variation 2<br>
+Accelerating the Pace</div>
+<p>If White responds solidly at 1, Black plays first at a big point with 2, giving Black a playable game. The key is that Black has been able to build a large moyo on the bottom.</p>
+
+<hr class="page">
+<div class="page-number">68</div>
+<div class="headers">Failure 1<br>
+Gone in an Instant</div>
+<p>Simply playing Black 1 to take the big point allows White to erase Black&#8217;s moyo on the bottom with 2 through 4. One should aim for a fuseki where one&#8217;s own prime territory is not reduced.</p>
+
+<hr class="file">
+<div class="headers">Failure 2<br>
+The Double-Attach Joseki Sequence</div>
+<p>If Black resists at 1 instead of 3 in the previous diagram, White reduces the bottom from 2 onward while reinforcing the white stones in the lower left, leaving Black unsatisfied.</p>
+
+<hr class="page">
+<div class="page-number">69</div>
+<div class="headers">Problem 18<br>
+A Surprising Key Point<br>
+Black to Play</div>
+<p>A point that affects the life and death of stones carries more value than it appears. Where is that point in this position?</p>
+
+<hr class="page">
+<div class="page-number">70</div>
+<div class="headers">Correct Answer<br>
+A Solid Convergence</div>
+<p>Black 1 is the key point that blocks White&#8217;s advance on the right side. It also keeps the threat of working against the white stones in the upper right, making it a high-value point even in the early stages of the fuseki.</p>
+
+<hr class="file">
+<div class="headers">Correct Answer (continued)<br>
+A Significant Sente Play</div>
+<p>The moment White plays first on the bottom at 2, Black&#8217;s pride is that 3 through 5 become sente moves. White cannot omit 6, and Black attacks the bottom with 7, giving Black a sufficient game. If White plays at <em>a</em>, Black plays at <em>b</em>.</p>
+
+<hr class="page">
+<div class="page-number">71</div>
+<div class="headers">Variation<br>
+Expanding the Moyo</div>
+<p>If White defends at 1 and 3 instead of 2 in the previous diagram, Black wants to expand the moyo at 4. Black&#8217;s strength lies in blocking White&#8217;s advance on the right while promising large territory.</p>
+
+<hr class="file">
+<div class="headers">Failure 1<br>
+Nimble Stone Play</div>
+<p>Simply playing Black 1 to occupy the bottom allows White to get the exchange of 2 for Black 3, then invade at 4, leaving Black unsatisfied. The problem is that the value of blocking at <em>a</em> has been reduced.</p>
+
+<hr class="page">
+<div class="page-number">72</div>
+<div class="headers">Failure 2<br>
+Much the Same</div>
+<p>Even if Black takes a wide stance at 1, White invades the bottom from 2 onward. The drawback of this diagram is that the moyo on the right cannot easily become large in a single move.</p>
+
+<hr class="file">
+<div class="headers">Failure 2 (continued)<br>
+An Example of Sabaki</div>
+<p>If Black presses the white stones on the bottom at 5, White settles with 6 and following. The moment Black resists at <em>a</em>, White <em>b</em> is a clever counter-move, and the white stones cannot easily be caught.</p>
+
+<hr class="page">
+<div class="page-number">73</div>
+<div class="headers">Problem 19<br>
+Where Territory Forms Easily<br>
+White to Play</div>
+<p>Areas near thickness have the characteristic of forming territory easily.</p>
+<p>Keeping this in mind, even when many big points exist, you should be able to identify which big point is most urgent.</p>
+
+<hr class="page">
+<div class="page-number">74</div>
+<div class="headers">Correct Answer<br>
+The Urgent Big Point</div>
+<p>White 1 is a key point that solidifies the lower left while preventing Black from forming a moyo on the bottom. The key is to create a position where Black cannot exploit the thickness in the lower right.</p>
+
+<hr class="file">
+<div class="headers">Failure<br>
+A Deeply Rooted Moyo</div>
+<p>Running to a big point like White 1 allows Black to build a moyo on the bottom from 2 to 4. This moyo is deeper than it appears, giving White a difficult position.</p>
+
+<hr class="page">
+<div class="page-number">75</div>
+<div class="headers">Problem 20<br>
+How to Build a Formation<br>
+Black to Play</div>
+<p>The theme of this problem is defending the lower left while building a black formation on the bottom.</p>
+<p>Find a move that also keeps earning territory in mind.</p>
+
+<hr class="page">
+<div class="page-number">76</div>
+<div class="headers">Correct Answer<br>
+Defense and Profit</div>
+<p>Black 1 is a key point that solidifies the lower right while sending reinforcements to the black stones in the lower left. This formation on the bottom appears frequently in actual games, so it is worth memorizing.</p>
+
+<hr class="file">
+<div class="headers">Correct Answer (continued)<br>
+An Even Fight</div>
+<p>Even if White presses the black stones in the lower left with 2 and 4, Black can reinforce the lower left from 5 onward while threatening the white stones on the bottom, leading to a fight that is not bad for Black.</p>
+
+<hr class="page">
+<div class="page-number">77</div>
+<div class="headers">Variation<br>
+Building One&#8217;s Own Formation</div>
+<p>If White runs to a big point at 1 instead of 2 in the previous diagram, Black can solidify the bottom from 2 onward, giving Black a playable game.</p>
+
+<hr class="file">
+<div class="headers">Failure<br>
+A Stunted Moyo</div>
+<p>Playing Black 1 to occupy the bottom allows White to gain territory from 2 to 6. White has the means to reduce the black moyo on the bottom with moves at <em>a</em> or <em>b</em>, and the problem is that the moyo is hard to make large.</p>
+
+<hr class="page">
+<div class="page-number">78</div>
+<div class="headers">Column 2<br>
+The Habit of Developing Reading Ability</div>
+<p>When I asked a professional player about tsumego, they said the approach changes depending on what ability you want to train. Specifically, there are two types:</p>
+<ul>
+<li>Easy problems: for reducing mistakes</li>
+<li>Hard problems: for developing the independent strength to work out moves</li>
+</ul>
+<p>The common prerequisite for both approaches is forming the habit of reading moves — even just one problem a day. Reading ability is like strength training: if you don&#8217;t keep it up, it will decline, even if only a little.</p>
+<p>The ideal for easy problems is a difficulty level that makes you think just a bit. And for basic shapes and tesuji, the advice is to repeat them until your body remembers them.</p>
+<p>Even among professional players, there are those who practice solving easy problems every day, so please give it a try.</p>
+
+<hr class="page">
+<div class="page-number">79</div>
+<div class="headers">Chapter 2<br>
+The Theory of Urgent Moves</div>
+<p>The fundamental principle of fuseki is <em>leave no weak stones</em>. This is an important idea for leading into advantageous fighting in the middlegame.</p>
+<p>In this chapter, we explain what kinds of stones should be defended, through representative examples.</p>
+
+<hr class="page">
+<div class="page-number">80</div>
+<div class="headers">Theme Diagram 1<br>
+The Feel of Wall Attack</div>
+<p>In modern Go, there is the idea that <em>strong stones should have eyes (or be alive)</em>. Put another way, stones that are not clearly alive can be considered targets for attack.</p>
+<p>A representative example is what is called <em>wall attack</em> (kabe-zeme). Wall attack is when stones that look thick are attacked.</p>
+<p>The concept of wall attack not only seizes the initiative in fighting but also has the effect of erasing the opponent&#8217;s moyo. It is definitely something to keep in mind as one of your ideas.</p>
+<p>As a concrete example, look at Theme Diagram 1. This is the position after White gained territory at 2 without responding to Black 1. Assess the strength of the white stones in the lower left and look for the next move.</p>
+
+<hr class="page">
+<div class="page-number">81</div>
+<div class="headers">Diagram 1</div>
+<p>Black pressing the three white stones in the lower left at 1 is the perfect move. Even if White presses at 2, Black has the key point of stabilizing at <em>a</em> while consolidating with 3 through 5, and aims to attack at <em>b</em>, giving Black an advantageous fight. Also to Black&#8217;s advantage is preventing White from forming a moyo on the left.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2</div>
+<p>If White defends the lower left at 2, Black plays 3 to consolidate on the left side — a solid approach. Black retains the threats of attacking at <em>a</em> and expanding the black formation on the bottom at <em>b</em>, giving Black a sufficient game.</p>
+
+<hr class="file">
+<div class="headers">Diagram 3</div>
+<p>Simply expanding the bottom with Black 1 shows a lack of ingenuity. White defends at 2 and the chance is missed.</p>
+
+<hr class="page">
+<div class="page-number">82</div>
+<div class="headers">Theme Diagram 2<br>
+Judging Which Stones to Defend</div>
+<p>The fundamental principle of fuseki is <em>defend weak stones</em>. This is because if your opponent attacks you and seizes the initiative in fighting, you are likely to suffer in terms of the position.</p>
+<p>So, in what situations should you defend? The representative cases are as follows:</p>
+<ul>
+<li>When your opponent is attacking you</li>
+<li>When a severe move is being threatened next</li>
+</ul>
+<p>The latter situation in particular is easy to overlook. Even just developing the habit of thinking <em>there may be an attack being threatened</em> when an opponent&#8217;s stone approaches will make it easier to avoid falling behind in the fuseki.</p>
+<p>Now let us look at Theme Diagram 2. In the position where Black has pressed the white stones in the lower right at 1, judge whether they are stones that need to be defended.</p>
+
+<hr class="page">
+<div class="page-number">83</div>
+<div class="headers">Diagram 1</div>
+<p>White plays 1 and 3 to secure the lower right and build up strength — this is the approach to aim for. Later, White has the means of erasing the moyo on the right at <em>a</em> and the threat of pressuring the lone black stone on the bottom at <em>b</em> and similar moves, giving White a fine result.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2</div>
+<p>Attacking the black stones on the bottom at White 1 is an overplay. Black presses the white stones in the lower right with 2 and 4, forcing White into a disadvantageous fight. The key point this time was avoiding the shape where Black can launch a severe attack on the white stones in the lower right with 4.</p>
+
+<hr class="page">
+<div class="page-number">84</div>
+<div class="headers">Theme Diagram 3<br>
+The Practical Feel of the Exception</div>
+<p>One advanced technique for gaining an edge in the fuseki is <em>having the option not to defend</em>. Since it assumes you will be attacked, this is an idea that requires a sophisticated fuseki sense.</p>
+<p>Of course, the basic principle is to defend weak stones, but if you can turn <em>a defensive move</em> into <em>a profit-making move</em>, the possibility of building an advantage expands.</p>
+<p>The key to applying this idea is <em>to anticipate the position after being attacked</em>. For example, if the thickness gained after being attacked is hard to exploit, you can judge that omitting the defense is acceptable.</p>
+<p>In Theme Diagram 3, White has solidified the lower left at 1 and 3 while eyeing an attack on the black stones there. Should Black defend, or run to a big point? Think it over.</p>
+
+<hr class="page">
+<div class="page-number">85</div>
+<div class="headers">Diagram 1</div>
+<p>Without defending the black stones in the lower left, getting to a big point first with Black 1 is the right judgment. In the fuseki stage, a single move&#8217;s difference leads to greater ease of fighting and territory-making from the middlegame onward, so getting ahead as much as possible is desirable. Of course, White attacks at 2, but —</p>
+
+<hr class="file">
+<div class="headers">Diagram 2</div>
+<p>Black evades the attack starting with 3 — one example. Even allowing White to build a thick formation, the marked Black stones make it difficult to put to use, resulting in a board shape where White cannot make the most of the thickness. Black also keeps the threats of attacking the white stones in the lower left and expanding the moyo on the bottom, giving Black an easy game to play.</p>
+
+<hr class="page">
+<div class="page-number">86</div>
+<div class="headers">Diagram 3</div>
+<p>If White defends the lower left solidly at 1, Black plays 2 to expand on the bottom while keeping <em>a</em> and <em>b</em> in view to reinforce the black stones in the lower left, giving Black a sufficient game. Black&#8217;s active play achieves both profit and consolidation.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4</div>
+<p>Reinforcing the lower left with Black 1 is a solid choice. However, not only does White gain territory at 2, but White also prevents Black from forming a moyo on the bottom, leaving Black dissatisfied. The frightening thing about fuseki is that a single move&#8217;s difference can dramatically change the landscape of the board.</p>
+
+<hr class="page">
+<div class="page-number">87</div>
+<div class="headers">Problems</div>
+
+<hr class="page">
+<div class="page-number">88</div>
+<div class="headers">Approaching with a Broad Perspective</div>
+<p>An urgent move (kyūba) is <em>a point that affects the balance of power between stones</em>. The idea of prioritizing the balance of power over gaining territory is a standard to keep in mind in actual games. However, even in positions with an urgent move, there are two perspectives to consider:</p>
+<ul>
+<li>Is the stone worth saving? (the idea of sacrificing stones)</li>
+<li>Can you fight even if attacked? (the idea of profit first)</li>
+</ul>
+<p>In actual games, there are times when <em>deliberately not defending even in a situation where you are about to be attacked</em> makes for easier play. It is therefore important to approach with the flexible mindset of <em>urgent moves don&#8217;t always have to be answered urgently</em>.</p>
+<p>If you fixate too much on defending weak stones (or attacking weak stones), you lose sight of the question <em>what way of playing leads to victory?</em> Sometimes, try keeping in mind a style of play that ignores the urgent move.</p>
+
+<hr class="page">
+<div class="page-number">89</div>
+<div class="headers">Problem 1<br>
+The Basics of Urgent Moves<br>
+Black to Play</div>
+<p>The fundamental principle in fuseki is <em>do not create weak stones</em>.</p>
+
+<hr class="page">
+<div class="page-number">90</div>
+<div class="headers">Correct Answer<br>
+The Key Defensive Point</div>
+<p>It is essential to reinforce the lower left with Black 1. Even if White stabilizes on the bottom at 2, Black can get to a big point like 3 first, giving Black a fine result.</p>
+
+<hr class="file">
+<div class="headers">Failure<br>
+A Disadvantageous Fight</div>
+<p>Pressing the white stones on the bottom from the right with Black 1 is an overplay. White attacks the black stones in the lower left at 2, leading Black into a disadvantageous fight.</p>
+
+<hr class="page">
+<div class="page-number">91</div>
+<div class="headers">Problem 2<br>
+Make Haste Slowly<br>
+Black to Play</div>
+<p>When there are many places you want to play, if you have weak stones, it&#8217;s important to reinforce them carefully.</p>
+
+<hr class="page">
+<div class="page-number">92</div>
+<div class="headers">Correct Answer (Securing Safety)</div>
+<p>Black 1 is an excellent point that simultaneously secures the base in the lower left while preventing White from building a moyo on the left side. The fundamentals call for advancing without leaving stones vulnerable to attack.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer (Falling into Trouble)</div>
+<p>Expanding on the upper side with Black 1 is also a good point, but after White 2 the Black stones in the lower left come under attack while White&#8217;s moyo on the left side expands, leaving Black dissatisfied.</p>
+
+<hr class="page">
+<div class="page-number">93</div>
+<div class="headers">Problem 3<br>
+Defending Against a Wall Attack<br>
+Black to Play</div>
+<p>In modern Go, wall attacks are frequently employed. They are especially likely to occur in the fighting after the 3-3 invasion joseki, so be particularly careful.</p>
+
+<hr class="page">
+<div class="page-number">94</div>
+<div class="headers">Correct Answer (The Standard Defense)</div>
+<p>It&#8217;s vital that Black 1 defends the three Black stones in the lower left. It&#8217;s important to recognize that the lower left is not <em>thickness</em> but a <em>wall</em> - a target for attack.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer (Losing the Initiative)</div>
+<p>Running to a big point with Black 1 allows White 2 to attack the Black stones in the lower left while White&#8217;s position on the left and bottom consolidates, leaving Black in a difficult position.</p>
+
+<hr class="page">
+<div class="page-number">95</div>
+<div class="headers">Problem 4<br>
+Attacking the Two-Space Extension<br>
+Black to Play</div>
+<p>A two-space extension is one of the defensive formations. However, it is not completely immune to attack.</p>
+<p>Use this characteristic to seize the initiative in the fuseki.</p>
+
+<hr class="page">
+<div class="page-number">96</div>
+<div class="headers">Correct Answer (Powerful Pressure)</div>
+<p>Black 1 is the ideal point, pressing against the White stones in the lower right. Black can then look forward to attacking with <em>a</em> or <em>b</em> while expanding the Black moyo on the right side.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer (Missing the Moment)</div>
+<p>It&#8217;s a shame to play Black 1 at the big point first. After White 2 reinforces the right side and checks the expansion of Black&#8217;s moyo on the upper side, Black is dissatisfied.</p>
+
+<hr class="page">
+<div class="page-number">97</div>
+<div class="headers">Problem 5<br>
+A Nose for Danger<br>
+White to Play</div>
+<p>Black 1 is a defensive formation played after the 3-3 invasion joseki.</p>
+<p>Before heading to a big point, check the balance of power between the stones.</p>
+
+<hr class="page">
+<div class="page-number">98</div>
+<div class="headers">Correct Answer (A Solid Defense)</div>
+<p>Reinforcing the lower left with White 1 is the vital point. This nips Black&#8217;s attacking potential in the bud and allows White to fight in the middlegame without worry.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer 1 (Wall Attack)</div>
+<p>Running to the big points with White 1 through 5 is too impatient. Black 6 pressing against the three White stones in the lower left is a move that is more severe than it appears.</p>
+
+<hr class="page">
+<div class="page-number">99</div>
+<div class="headers">Wrong Answer 2 (No Relief)</div>
+<p>If White tries to escape with White 1, for example, not only does Black 2 settle on the left side, but Black also threatens to continue with <em>a</em>, leaving White with endless problems.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer 3 (The Miai Line)</div>
+<p>That said, if White counterattacks at 1 against the Black stones on the left side, Black 2 through 4 leaves both <em>a</em> and <em>b</em> as good points, forcing White into an unfavorable fight.</p>
+
+<hr class="page">
+<div class="page-number">100</div>
+<div class="headers">Column 3</div>
+
+<hr class="file">
+<div class="headers">Games with Time Pressure</div>
+<p>In amateur tournaments, losing on time is common. With 300 moves in 40 minutes, the pace works out to an average of 16 seconds per move - speed-go territory. Here are some recommended mindsets for performing well under these conditions:</p>
+<ul>
+<li>Keep enough time in reserve to play to the end</li>
+<li>Spend time at the key moments</li>
+<li>Have options to play a move that is 60% or better</li>
+</ul>
+<p>Playing your personal best move is important, but it&#8217;s a waste if you run out of time and fall apart in the second half. For moments that aren&#8217;t the crux of the game, <em>choosing safe moves and acceptable compromises</em> to <em>avoid big mistakes</em> is a key factor in winning games decided by time pressure.</p>
+<p>The concrete action to preserve your time on the clock is to <em>learn fuseki tactics and fundamentals</em>. By studying fuseki with AI and learning theories like those in this book, you&#8217;ll be able to consistently find good moves quickly. If you can take advantage of time-limited situations to widen the gap against your opponents, give it a try.</p>
+
+<hr class="page">
+<div class="page-number">101</div>
+<div class="headers">Problem 6<br>
+Attack and Defense<br>
+Black to Play</div>
+<p>Should Black defend the upper left, or attack the White stones in the lower right? Anticipate how the game will unfold and decide on the next move.</p>
+
+<hr class="page">
+<div class="page-number">102</div>
+<div class="headers">Correct Answer (The Right Judgment)</div>
+<p>Prioritizing the defense of the upper left with Black 1 is the good move. The fact that White&#8217;s thickness in the lower left is difficult to utilize is Black&#8217;s source of pride.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer (A Sudden Reversal)</div>
+<p>Attacking the White stones in the lower right with Black 1 allows White 2 to attack the upper left simultaneously while building a White moyo on the left side, an unfavorable development for Black.</p>
+
+<hr class="page">
+<div class="page-number">103</div>
+<div class="headers">Problem 7<br>
+The Rhythm of Fighting<br>
+Black to Play</div>
+<p>When defending your stones, don&#8217;t simply absorb the attack one-sidedly. It&#8217;s important to find ways to fight while keeping your own threats alive.</p>
+
+<hr class="page">
+<div class="page-number">104</div>
+<div class="headers">Correct Answer (Balancing Attack and Defense)</div>
+<p>Applying pressure to the White stones on the bottom with Black 1 is the good move. If White responds at 2, Black 3 escapes while threatening a counterattack on the bottom, giving Black at least an even fight.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer (A One-Sided Development)</div>
+<p>Simply defending the lower left with Black 1 lacks ingenuity. After White 2 secures the bottom, White threatens to attack the Black stones in the lower left.</p>
+
+<hr class="page">
+<div class="page-number">105</div>
+<div class="headers">Problem 8<br>
+The Idea of Sacrificing<br>
+Black to Play</div>
+<p>The Black stones in the lower left are isolated. Should Black save them or sacrifice them? The right judgment is required.</p>
+
+<hr class="page">
+<div class="page-number">106</div>
+<div class="headers">Correct Answer (A Bright Idea)</div>
+<p>It&#8217;s a good decision to press the White stones on the bottom with Black 1 while expanding the moyo in the lower right. Of course, White 2 swallows the single Black stone, but Black 3 expands the moyo and Black has enough.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer (A Painful Flow)</div>
+<p>Trying to rescue the stone with Black 1 is a dangerous idea. After White 2 secures the bottom, the Black stones in the lower left end up being attacked one-sidedly.</p>
+
+<hr class="page">
+<div class="page-number">107</div>
+<div class="headers">Problem 9<br>
+A Whole-Board Judgment<br>
+White to Play</div>
+<p>The question is how to respond to Black&#8217;s invasion at 1. First, think about whether the White stones in the upper right need to be saved.</p>
+
+<hr class="page">
+<div class="page-number">108</div>
+<div class="headers">Correct Answer (A Thick Resolution)</div>
+<p>Sacrificing the White stones in the upper right with White 1 is the good judgment. With Black 2 resisting, White builds thickness on the outside with 3 and following, giving White enough. If Black plays at <em>a</em>, White can fight with <em>b</em> and following.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer (Opening a Wound)</div>
+<p>Rescuing with White 1 and 3 is reckless. Black 4 creates an attack target, and with <em>a</em> White also faces threats against the lower right, leaving White in an unfavorable fight.</p>
+
+<hr class="page">
+<div class="page-number">109</div>
+<div class="headers">Problem 10<br>
+No Time to Think<br>
+Black to Play</div>
+<p>If you recall the previous problems, what to do should become clear.</p>
+
+<hr class="page">
+<div class="page-number">110</div>
+<div class="headers">Correct Answer (Quick Development)</div>
+<p>Applying pressure to the White stones on the right side with Black 1 is the good move. After White 2, Black 3 reaches the big point first, a development favorable to Black.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer (Expanding the Front)</div>
+<p>Moving out with Black 1 allows White 2 and following to reinforce the right side, after which the Black stones on the right face a major attack - a progression Black wants to avoid.</p>
+
+<hr class="page">
+<div class="page-number">111</div>
+<div class="headers">Problem 11<br>
+Practical Defense<br>
+Black to Play</div>
+<p>White has pressed into the left side Black group with moves 1 and 3.</p>
+<p>Find an effective way to defend and seize the flow of the game.</p>
+
+<hr class="page">
+<div class="page-number">112</div>
+<div class="headers">Correct Answer (Nimble Defense)</div>
+<p>After Black reinforces the left side in sente with moves 1 and 3, Black 5 runs to the big point - this is the strong move. The key is to neutralize the attack against the left side Black group.</p>
+
+<hr class="file">
+<div class="headers">Variation 1 (Solid Reinforcement)</div>
+<p>If White answers with 1 instead of the previous diagram&#8217;s White 2, Black reinforces the left side Black group with move 2 and following, while preventing White from expanding territory in the upper left - a success for Black.</p>
+
+<hr class="page">
+<div class="page-number">113</div>
+<div class="headers">Variation 2 (Forcing the Issue)</div>
+<p>If White resists at 1 instead of the correct diagram&#8217;s White 4, Black cuts with move 2 and following. After White 5, the two Black stones may look precarious, but—</p>
+
+<hr class="file">
+<div class="headers">Variation 2 Continued (Powerful Breakout)</div>
+<p>Black&#8217;s breakout at 1 works. After White connects with moves 2 through 8, Black escapes with move 9 and following, severely disrupting the White territory on the left side - Black is satisfied.</p>
+
+<hr class="page">
+<div class="page-number">114</div>
+<div class="headers">Wrong Answer 1 (Exploiting the Gap)</div>
+<p>Running to a big point with Black 1 and similar moves lets White expand the left side territory with move 2 and following while also gaining points on the bottom - Black is dissatisfied.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer 2 (Direct Attack)</div>
+<p>Instead of White 2 in the previous diagram, pressing with 1 and 3 is also powerful. White threatens to seize the eyes with move <em>a</em> and following, forcing Black into an unfavorable fight.</p>
+
+<hr class="page">
+<div class="page-number">115</div>
+<div class="headers">Problem 12<br>
+The Resilience of the Fourth Line<br>
+Black to Play</div>
+<p>A high formation on the fourth line has more resilience than it appears. Taking advantage of this strength is the key to seizing the initiative in the opening.</p>
+
+<hr class="page">
+<div class="page-number">116</div>
+<div class="headers">Correct Answer (Prioritizing Speed)</div>
+<p>Gaining territory with Black 1 through 5 is the right judgment. Since the Black formation in the upper left is a high fourth-line structure, no severe attack on it can succeed.</p>
+
+<hr class="file">
+<div class="headers">Variation 1 (Prioritizing Safety)</div>
+<p>If White pursues with 1, Black can consolidate solidly with moves 2 through 10. With good points at <em>a</em> and <em>b</em>, Black can recover the loss from White&#8217;s gains on the left side.</p>
+
+<hr class="page">
+<div class="page-number">117</div>
+<div class="headers">Variation 2 (Solid Consolidation)</div>
+<p>When attacked with White 1, Black can sidestep by thickening the outside with moves 2 through 8. If White plays <em>a</em>, Black can also ensure safety with <em>b</em> and following.</p>
+
+<hr class="file">
+<div class="headers">Variation 3 (Threat into Enemy Territory)</div>
+<p>When White plays 1, Black reinforces solidly with move 2 and following. There are good points later at <em>a</em> to thicken the outside and at <em>b</em> to cut, giving Black a position full of potential.</p>
+
+<hr class="page">
+<div class="page-number">118</div>
+<div class="headers">Variation 4 (Profit Wins Out)</div>
+<p>If White encloses with moves 2 and 4, Black can invade and disrupt the lower left White territory with move 5 and following while highlighting the weakness at <em>a</em> - not a bad result for Black.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer (Counterproductive Defense)</div>
+<p>Defending the left side with Black 1 and similar moves is solid, but White solidifies the lower left territory with move 2, and Black misses the opportunity.</p>
+
+<hr class="page">
+<div class="page-number">119</div>
+<div class="headers">Problem 13<br>
+A Light Sidestep<br>
+Black to Play</div>
+<p>White 1 is aimed at attacking the Black stones in the lower left.</p>
+<p>Rather than looking for a local defense, consider a move that balances the whole board.</p>
+
+<hr class="page">
+<div class="page-number">120</div>
+<div class="headers">Correct Answer (Dual-Purpose Move)</div>
+<p>Black 1, confirming safety, is the good move. Black also has the follow-up threat of attacking the three White stones in the lower right from <em>a</em> - not a bad development for Black.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer (Cramped Shape)</div>
+<p>Simply responding with Black 1 allows White not only to attack the lower left Black stones with move 2, but also to build a White framework on the bottom.</p>
+
+<hr class="page">
+<div class="page-number">121</div>
+<div class="headers">Problem 14<br>
+Sense of Balance<br>
+Black to Play</div>
+<p>White has attacked the upper left Black stones with moves 1 and 3.</p>
+<p>Black has two options, A and B. Take note of the White framework on the left side and decide on the next move.</p>
+
+<hr class="page">
+<div class="page-number">122</div>
+<div class="headers">Correct Answer (Framework and Defense)</div>
+<p>Simply escaping with Black 1 is the right judgment. White naturally secures the top with move 2, but Black 3 restrains White&#8217;s framework expansion on the left - a manageable progression for Black.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer (Overplaying)</div>
+<p>It is tempting to press into the White stones at the top with Black 1, but White attacks the upper left Black stones with move 2 while expanding the White framework on the left, leaving Black with a difficult position going forward.</p>
+
+<hr class="page">
+<div class="page-number">123</div>
+<div class="headers">Problem 15<br>
+Identifying the Vital Point<br>
+Black to Play</div>
+<p>The hint for not missing the vital point in the opening is to look for &quot;places that affect the balance of power and the extent of the framework.&quot;</p>
+<p>Simply keeping this in mind should expand your chances of taking the lead.</p>
+
+<hr class="page">
+<div class="page-number">124</div>
+<div class="headers">Correct Answer (A Point Not to Miss)</div>
+<p>Solidifying the lower left with Black 1 is the vital point. With the thickness in the lower right as backing, the key is to prevent White from building a large framework on the bottom.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer (A World of Difference)</div>
+<p>The moment Black runs to a big point with move 1, White presses into the lower left Black stones with move 2. The White framework on the bottom expands greatly - an unfavorable development for Black.</p>
+
+<hr class="page">
+<div class="page-number">125</div>
+<div class="headers">Problem 16<br>
+Whole-Board Strategy<br>
+Black to Play</div>
+<p>White 1 is aimed at swallowing up the two Black stones in the lower left.</p>
+<p>The key question is: &quot;Should Black save the lower left stones or not?&quot;</p>
+
+<hr class="page">
+<div class="page-number">126</div>
+<div class="headers">Correct Answer (Expanding the Framework)</div>
+<p>Abandoning the lower left stones with Black 1 through 5 and expanding the overall framework in the lower right is the right judgment. White is forced to defend with move 6, and Black thickens the outside with move 7 - Black is doing well.</p>
+
+<hr class="file">
+<div class="headers">Reference (Another Strong Option)</div>
+<p>Instead of Black 7 in the previous diagram, reaching the big point first with 1 is also a viable strategy. If White pursues with move 2, Black can sidestep with moves 3 through 5 and deepen the lower right framework.</p>
+
+<hr class="page">
+<div class="page-number">127</div>
+<div class="headers">Wrong Answer 1 (A Difficult Fight)</div>
+<p>Saving the stones with Black 1 is a progression to avoid. White attacks with move 2 and following, and the White position on the left side solidifies - it is hard for Black to profit.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer 2 (A Major Loss)</div>
+<p>But running to a big point with Black 1 and similar moves lets White swallow the two lower left Black stones whole with move 2, while also threatening a counterattack at <em>a</em> - Black is dissatisfied.</p>
+
+<hr class="page">
+<div class="page-number">128</div>
+<div class="headers">Column 4<br>
+Tips for AI Research</div>
+<p>When researching openings with AI, the most important thing is to &quot;look for moves you can actually use.&quot; This is because understanding the top candidate moves is often difficult in itself.</p>
+<p>So how should you practically make use of AI? We recommend starting straightforwardly by examining moves that look playable to you. Of course, if the win rate drops significantly, you will need to investigate why and set those moves aside, but a difference of a few percent rarely poses a major problem.</p>
+<p>Another key factor when using AI is the &quot;number of playouts.&quot; With too few, the results are unreliable, so you want to examine at least 100,000 playouts per position (1,000,000 or more is ideal). At the 10,000-playout level, for instance, the evaluation itself can flip.</p>
+<p>In summary, if you satisfy two conditions — &quot;examining moves you can actually play&quot; and &quot;using 100,000 or more playouts&quot; — you should be able to find moves that work in real games, whether you are a professional or amateur. Examining the top candidate moves is not wrong, but be careful: when it comes to improving your own strength, it can sometimes have a negative effect.</p>
+
+<hr class="page">
+<div class="page-number">129</div>
+<div class="headers">Problem 17<br>
+The Basics of Attack<br>
+Black to Play</div>
+<p>The focus is on how to attack the White stones in the lower right.</p>
+<p>The basic principle of attack is to &quot;deprive the opponent of a base.&quot; Aim for a progression that does not allow White to stabilize easily.</p>
+
+<hr class="page">
+<div class="page-number">130</div>
+<div class="headers">Correct Answer (The Rhythm of Attack)</div>
+<p>After the exchange of Black 1 and White 2 to stop White&#8217;s advance into the lower right, pressing with Black 3 is the steady attacking approach. The bottom Black stones are also reinforced, allowing Black to pursue the lower right White stones safely.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer (An Attack That Fails to Connect)</div>
+<p>Simply reinforcing the bottom with Black 1 allows White to sidestep with move 2 and following, keeping both <em>a</em> and <em>b</em> in view. This is a common consolidating maneuver in corner fights, so it is worth preventing.</p>
+
+<hr class="page">
+<div class="page-number">131</div>
+<div class="headers">Problem 18<br>
+Principles of the Wall Attack<br>
+Black to Play</div>
+<p>The White stones in the lower right are isolated, making them a prime target for a wall attack.</p>
+<p>Consider the right distance from which to press in.</p>
+
+<hr class="page">
+<div class="page-number">132</div>
+<div class="headers">Correct Answer (The Right Distance)</div>
+<p>Black 1 is the good point, pressing against the three White stones in the lower right while expanding the Black territory on the bottom. This is a frequently occurring formation after the 3-3 invasion joseki from the star point, so it is worth remembering.</p>
+
+<hr class="file">
+<div class="headers">Correct Answer Continued (Consolidating Naturally)</div>
+<p>If White runs to a big point with 2, Black consolidates the right side with 3 and following while continuing the attack on the lower right White stones - a fight favorable to Black.</p>
+
+<hr class="page">
+<div class="page-number">133</div>
+<div class="headers">Variation 1 (Steady Attack)</div>
+<p>If White escapes with 1 and 3 instead of White 2 in the previous diagram, Black consolidates in multiple places with 4 and following while retaining the attacking threat at <em>a</em> - not a bad outcome for Black.</p>
+
+<hr class="file">
+<div class="headers">Variation 2 (Profit Wins Out)</div>
+<p>If White escapes with 1, Black can still gain territory on the right side with 2 and following - Black is satisfied. The secret to the wall attack is not to press aggressively, but to steadily corner the stones from a distance.</p>
+
+<hr class="page">
+<div class="page-number">134</div>
+<div class="headers">Wrong Answer 1 (Missing the Moment)</div>
+<p>Occupying a good point with Black 1 allows White to reinforce the lower right with 2. A single move makes a major difference, so this requires care.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer 2 (Much the Same)</div>
+<p>Reaching a big point first with Black 1 also leads to White reinforcing with 2 - a disappointing result for Black. In positions where a wall attack is possible, pay close attention to the stone configuration before committing.</p>
+
+<hr class="page">
+<div class="page-number">135</div>
+<div class="headers">Problem 19<br>
+Practical Judgment ①<br>
+Black to Play</div>
+<p>The exchange of Black 1 and White 2 has left a cutting point on the outside.</p>
+<p>The basic instinct is to defend without giving the opponent an opening, but in this position there is something that demands immediate attention.</p>
+
+<hr class="page">
+<div class="page-number">136</div>
+<div class="headers">Correct Answer (Securing Prime Territory)</div>
+<p>Solidifying the left side Black territory with Black 1 is the top priority. If White exploits the cutting point with 2 and 4, Black can still enclose the left side with 5 - Black is satisfied.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer (Loss of Balance)</div>
+<p>Defending the cutting point with Black 1 allows White to prevent the Black framework on the left from forming with 2. The thickness in the upper left and lower left becomes ineffective - Black fails.</p>
+
+<hr class="page">
+<div class="page-number">137</div>
+<div class="headers">Problem 20<br>
+Practical Judgment ②<br>
+Black to Play</div>
+<p>White has applied pressure to the upper left Black stones with moves 1 and 3.</p>
+<p>Should Black defend, or is there room to occupy a big point? Pay attention to the stone configuration and decide on the next move.</p>
+
+<hr class="page">
+<div class="page-number">138</div>
+<div class="headers">Correct Answer (Bold Decision Not to Defend)</div>
+<p>Reaching the big point first with Black 1 is the right judgment. If White attacks with 2 and following, the ▲ stone configuration prevents a large White territory from forming on the left - no problem.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer (A Significant Difference)</div>
+<p>Reinforcing the upper left with Black 1 is solid. However, it allows White to occupy a big point with 2. Pay attention to the stone configuration and aim to advance through the opening flexibly.</p>
+
+<hr class="page">
+<div class="page-number">139</div>
+<div class="headers">Chapter 3<br>
+Framework Theory</div>
+<p>In the modern game, what matters for a framework is not only its size but also whether territory can realistically be converted from it.</p>
+<p>Mastering the use of frameworks is not easy, but knowing the theory alone can offer hints for grasping the flow of a game.</p>
+<p>Work through the content of this chapter to improve your strength.</p>
+
+<hr class="page">
+<div class="page-number">140</div>
+<div class="headers">Theme Diagram 1: Basic Use of Thickness</div>
+<p>First, the foundation of building a framework is &quot;using thickness.&quot; If you can make effective use of thickness, you can gain large amounts of territory later on, so utilizing thickness is a very high priority in the opening.</p>
+<p>For example, it is not uncommon for building a framework to take priority even when there is a point that would normally need defending (though of course, defending weak stones remains the basic principle - do not forget this).</p>
+<p>Now let&#8217;s look at Theme Diagram 1. White has defended the lower right with move 1. Many big points remain on the board, but there is one point you will immediately want to head for.</p>
+<p>By focusing on the thickness in the upper right, you should be able to see where to rush next.</p>
+
+<hr class="page">
+<div class="page-number">141</div>
+<p>With the thickness in the upper right as backing, Diagram 1: Black 1 — building a framework on the right side — is the vital point. If White runs to a big point with 2, Black expands further with 3 through 5, a development favorable to Black. Whenever you can build a framework backed by thickness, head there without hesitation.</p>
+<p>This is because Diagram 2: if Black runs to a big point with 1, White prevents the right side from becoming a framework with 2. There are many cases where the opponent interferes in the gap between the phase of building thickness and the phase of building a framework, so be careful not to miss the opportunity.</p>
+
+<hr class="page">
+<div class="page-number">142</div>
+<div class="headers">Theme Diagram 2: Distance Sense When Building a Framework</div>
+<p>When building a framework, the important thing to watch is &quot;judging the right distance from your thickness.&quot;</p>
+<p>This is because if the framework is too wide, it creates openings for the opponent to invade; conversely, if it is too narrow, the opponent can confine it to a small area without any room for resistance, putting you in an inferior position.</p>
+<p>Judging the right distance is not easy, but a useful benchmark is to &quot;build the framework at a width where an invasion cannot easily succeed.&quot;</p>
+<p>As a concrete example, look at Theme Diagram 2. With the thickness in the lower right as backing, if Black builds a framework on the bottom, how wide can it extend? The key is to consider whether there is room for disruption.</p>
+
+<hr class="page">
+<div class="page-number">143</div>
+<p>Diagram 1: Black 1, setting up on the bottom, is the steady approach. If White restrains the framework expansion with 2, Black responds carefully with 3, building a framework likely to become settled territory - Black is satisfied. Diagram 2: If White invades with 1, Black can press hard with 2 and following, leading to a fight favorable to Black.</p>
+<p>Diagram 3: Expanding the bottom with Black 1 allows White to prevent the Black framework on the bottom with 2 through 4 - Black is dissatisfied. Being unable to press hard against the White stones on the bottom is Black&#8217;s weakness here.
+Diagram 4: Pursuing the White stones on the bottom with Black 5 and 7 leads to a counterattack against the lower left Black stones with White 8 and following - an unfavorable fight for Black.</p>
+
+<hr class="page">
+<div class="page-number">144</div>
+<div class="headers">Theme Diagram 3: An Unfavorable Formation</div>
+<p>When playing a framework game, there is a formation to avoid: the two-space extension.</p>
+<p>The two-space extension has the drawback that, being narrow in width, a large amount of territory cannot be expected no matter how much it is reinforced. When the opponent exploits this weakness with an attacking approach, the framework can be dismantled all at once, leaving only small profit.</p>
+<p>Of course, the two-space extension is effective for stabilizing stones, but it can be said to be poorly suited for a framework game.</p>
+<p>The representative example is Theme Diagram 3. White reinforces the lower right with 1 while building a White framework on the bottom - White appears to be doing well. However, there is a move for Black that can shatter White&#8217;s plan.</p>
+
+<hr class="page">
+<div class="page-number">145</div>
+<p>Diagram 1: Black 1 is the vital point that neutralizes the White framework on the bottom. If White responds with 2, Black confirms safety with 3 through 5 - a manageable development for Black. This is a representative technique for dismantling a framework, so it is worth remembering.</p>
+<p>Diagram 2: If White resists with 2, the policy remains the same: Black confirms safety with 3 through 5, leading to a position where the lower left thickness is difficult to make use of. Allowing White to consolidate the bottom does not create a large White territory, so there is no problem.</p>
+
+<hr class="page">
+<div class="page-number">146</div>
+<p>Diagram 3: Running to a big point with Black 1 and similar moves allows White to expand the framework on the bottom with 2. Whether one side is ahead or behind in the opening hinges on whether the opponent&#8217;s thickness can be neutralized. Progressions where the thickness is made useful, as in this diagram, are to be avoided as much as possible.</p>
+<p>Diagram 4: When the △ stone configuration is high, neutralizing the framework with Black 1 is still effective. Allowing the opponent to gain territory on the fourth line is acceptable; preventing the lower left thickness from being utilized takes priority, so Black can manage in this diagram too.</p>
+
+<hr class="page">
+<div class="page-number">147</div>
+<div class="headers">Problems</div>
+
+<hr class="page">
+<div class="page-number">148</div>
+<div class="headers">Two Key Criteria</div>
+<p>Mastering frameworks allows you to seize the pace of the game in the opening all at once. This is because the vast majority of games contain elements related to frameworks. So what specifically should you do? Here are two representative methods.</p>
+<p>The first is to &quot;pay attention to thickness.&quot; For example, building a framework backed by thickness is the standard approach. Conversely, preventing the opponent from forming a framework also deprives their thickness of its effectiveness, making it a powerful strategy.</p>
+<p>The second is to &quot;watch the size of the framework.&quot; Too wide and it is easily disrupted; too narrow and you get confined and fall into an inferior position. A useful guide for choosing the right size is to ask yourself: &quot;If the opponent invades the framework, can I press hard against them?&quot;</p>
+<p>When you are uncertain where to play, these two methods serve as valuable criteria - try putting them into practice.</p>
+
+<hr class="page">
+<div class="page-number">149</div>
+<div class="headers">Problem 1<br>
+Preventing the Framework<br>
+Black to Play</div>
+<p>The concrete method for preemptively preventing a framework is to &quot;strike the moment the opponent has built thickness.&quot;</p>
+<p>Miss the timing and you may face a framework that expands without limit.</p>
+
+<hr class="page">
+<div class="page-number">150</div>
+<div class="headers">Correct Answer (The Splitting Technique)</div>
+<p>Black 1, preventing the left side from becoming a framework, is the vital point. The key is to &quot;play away from the thickness&quot; so as not to be pressed hard by the opponent.</p>
+
+<hr class="file">
+<div class="headers">Correct Answer Continued (Solid Defense)</div>
+<p>If White presses into the left side Black stones with 2 through 6, Black can sidestep the attack with 7 and following. With good points at <em>a</em> and <em>b</em> in view, Black has much to look forward to.</p>
+
+<hr class="page">
+<div class="page-number">151</div>
+<div class="headers">Variation (A Comfortable Shape)</div>
+<p>If White presses at 1 instead of the previous diagram&#8217;s White 2, Black can confirm safety on the left side with 2. Depending on the situation, a wall attack against the upper left is possible - not a bad development for Black.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer (A Lively Stone Configuration)</div>
+<p>Running to a big point with Black 1 and similar moves allows White to build a framework with 2, backed by the thickness in the upper left. Aim for a progression that does not allow the stone configuration to be put to good use.</p>
+
+<hr class="page">
+<div class="page-number">152</div>
+<div class="headers">Column 5<br>
+How to Handle Mistakes</div>
+<p>Playing perfectly throughout a game is extremely difficult. Even the strongest players make mistakes. That is precisely why it is important to have &quot;a strategy that assumes mistakes and failures.&quot;</p>
+<p>What we want you to practice is this: &quot;Do not compound a single mistake with further failures.&quot; A small loss can be recovered, but accumulated losses can lead to a situation impossible to recover from.</p>
+<p>A typical mistake is trying to turn things around in the vicinity of where you went wrong. This may work sometimes, but in most cases it widens the wound and worsens the position. First, try considering the option of leaving that area alone and heading elsewhere. This should offer a hint for preventing the position from deteriorating further.</p>
+<p>Also, a game played to the end can exceed 300 moves. Even if you fall nearly 10 points behind in the middle game, closing the gap by one point per move in the endgame means you can make it up in about 20 moves. Stay calm, wait for your chance, and you will expand the possibility of a long-term reversal.</p>
+
+<hr class="page">
+<div class="page-number">153</div>
+<div class="headers">Problem 2<br>
+Using Thickness<br>
+Black to Play</div>
+<p>There are many ways to make use of thickness. Among them, &quot;putting it to use by building a framework&quot; is the most straightforward - try putting it into practice.</p>
+
+<hr class="page">
+<div class="page-number">154</div>
+<div class="headers">Correct Answer (A Simple Plan)</div>
+<p>With the thickness in the upper right as backing, Black 1 — building a framework across the entire right side — is the good point. It is more urgent than defending the upper left Black stones.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer (Falling a Move Behind)</div>
+<p>Defending the upper left with Black 1 allows White to neutralize the right side framework with 2 - a disappointing result for Black. Making the upper right thickness difficult to use is also a major drawback.</p>
+
+<hr class="page">
+<div class="page-number">155</div>
+<div class="headers">Problem 3<br>
+Framework Intuition<br>
+White to Play</div>
+<p>If you can immediately see where to play first, you have developed basic framework intuition.</p>
+
+<hr class="page">
+<div class="page-number">156</div>
+<div class="headers">Correct Answer (Whole-Board Balance)</div>
+<p>White 1, building a framework on the left side, is the urgent move. It also keeps the three White stones in the upper left from being isolated, making it more valuable than reinforcing the upper right.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer (A Collapsing Plan)</div>
+<p>Reinforcing the upper right with White 1 is careless. Black not only neutralizes the White framework on the left with 2, but also keeps the attack on the three White stones in the upper left in view - a disappointing result for White.</p>
+
+<hr class="page">
+<div class="page-number">157</div>
+<div class="headers">Problem 4<br>
+The Urgent Big Point<br>
+Black to Play</div>
+<p>Finding the place where you do not want the opponent to build a framework is the key to taking the lead.</p>
+
+<hr class="page">
+<div class="page-number">158</div>
+<div class="headers">Correct Answer (Developing into a Wall Attack)</div>
+<p>Black 1 is the vital point that prevents the left side from becoming a framework. If White plays 2, Black reinforces with 3 while setting up to attack the three White stones in the lower left.</p>
+
+<hr class="file">
+<div class="headers">Correct Answer Continued (A Connected Attack)</div>
+<p>If White escapes with 4 and 6, Black solidifies the lower left with 7 while targeting the entire White group - a fight favorable to Black.</p>
+
+<hr class="page">
+<div class="page-number">159</div>
+<div class="headers">Variation 1 (Calm Response)</div>
+<p>If White moves out with 1 and 3 instead of the previous diagram&#8217;s White 4, Black confirms safety with 4 and following - no problem. With follow-up moves at <em>a</em> and <em>b</em> available later, Black can fight.</p>
+
+<hr class="file">
+<div class="headers">Variation 1 Continued (Expanding the Home Territory)</div>
+<p>For example, if White responds with 7 through 11, Black can encircle the three lower left White stones on a large scale with 12 and following, leading to a fight at least equal for Black.</p>
+
+<hr class="page">
+<div class="page-number">160</div>
+<div class="headers">Variation 2 (Ensuring Safety)</div>
+<p>If White presses from the lower left with 2, Black can ensure safety with 3 - not a bad development for Black. Neutralizing the left side framework without paying a price is no small achievement.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer (Heading for a Long Battle)</div>
+<p>Black 1 is a good point for expanding the Black territory toward the bottom. However, White reinforces the lower left with 2 and also builds a framework on the left - Black will need to find a good idea.</p>
+
+<hr class="page">
+<div class="page-number">161</div>
+<div class="headers">Problem 5<br>
+Consolidating the Framework<br>
+Black to Play</div>
+<p>Expanding the framework is important, but &quot;strengthening the core&quot; is also a vital element.</p>
+
+<hr class="page">
+<div class="page-number">162</div>
+<div class="headers">Correct Answer (Strengthening the Core)</div>
+<p>Black 1, solidifying the upper right home territory, is the important move. It broadens the possibility of the framework consolidating into substantial territory.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer 1 (Too Eager)</div>
+<p>Expanding with Black 1 allows White to run to the 3-3 point with 2, reducing the scale of the framework. Black faces a choice between <em>a</em> and <em>b</em>, but either way leads to a progression where Black is dissatisfied.</p>
+
+<hr class="page">
+<div class="page-number">163</div>
+<div class="headers">Wrong Answer 2 (Being Haggled Down)</div>
+<p>Thickening the outside with Black 1 through 5 still allows White to limit the framework&#8217;s potential with 6 and following, leaving Black no room to resist.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer 3 (Collapse of the Home Territory)</div>
+<p>If Black varies with 1 instead of the previous diagram&#8217;s Black 5, White reinforces the upper right with 2 through 14 while severely disrupting the right side - Black fails.</p>
+
+<hr class="page">
+<div class="page-number">164</div>
+<div class="headers">Wrong Answer 4 (Shrinking Framework)</div>
+<p>Responding with Black 1 through 5 also lets White limit the framework with 6 through 12, falling behind in territory. In a framework game, the timing for preventing 3-3 invasions is crucial.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer 5 (Full of Holes)</div>
+<p>Resisting with 1 instead of the previous diagram&#8217;s Black 5 allows White to defend the top in sente with 2 and following while disrupting the right side - a progression where the framework is difficult to consolidate into large territory.</p>
+
+<hr class="page">
+<div class="page-number">165</div>
+<div class="headers">Problem 6<br>
+A Momentary Opening<br>
+White to Play</div>
+<p>Find the point you should head for without hesitation.</p>
+
+<hr class="page">
+<div class="page-number">166</div>
+<div class="headers">Correct Answer (Framework Neutralized)</div>
+<p>White 1, preventing the Black framework on the right side, is the vital point. With good points at <em>a</em> to apply pressure to the lower right Black stones and at <em>b</em> to confirm safety, this is a comfortable development for White.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer (The Cost of a Reflex Move)</div>
+<p>Responding in the lower left with White 1 is careless. Black builds a framework on the right side with 2, and White misses the opportunity. A single move makes a major difference in how comfortable the opening is, so care is required.</p>
+
+<hr class="page">
+<div class="page-number">167</div>
+<div class="headers">Problem 7<br>
+Timing<br>
+Black to Play</div>
+<p>The exchange of Black 1 and White 2 has settled things for now.</p>
+<p>This is a moment to take action to prevent the bottom framework from expanding.</p>
+
+<hr class="page">
+<div class="page-number">168</div>
+<div class="headers">Correct Answer (The Standard Neutralizing Technique)</div>
+<p>Black 1, neutralizing the White framework on the bottom, is the vital point. If White responds with 2 through 4, Black confirms safety with 5 - a manageable development for Black.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer (An Expanding Framework)</div>
+<p>Running to a big point with Black 1 and similar moves allows White to build a deep framework on the bottom with 2 through 6, leaving Black with a difficult position.</p>
+
+<hr class="page">
+<div class="page-number">169</div>
+<div class="headers">Problem 8<br>
+Contested Territory<br>
+Black to Play</div>
+<p>There is a good point for building a framework from either side&#8217;s perspective.</p>
+
+<hr class="page">
+<div class="page-number">170</div>
+<div class="headers">Correct Answer (A Point Not to Miss)</div>
+<p>Black 1, occupying the bottom, is the good point. It hampers the effectiveness of the lower left thickness while keeping the follow-up of expanding the bottom from <em>a</em> in view - not a bad development for Black.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer (A Changed Landscape)</div>
+<p>Running to a big point with Black 1 allows White to build a framework on the bottom with 2. White also keeps the threat of applying pressure to the lower right Black stones from <em>a</em> in view - Black is dissatisfied.</p>
+
+<hr class="page">
+<div class="page-number">171</div>
+<div class="headers">Problem 9<br>
+Neutralizing Thickness<br>
+Black to Play</div>
+<p>The key to preventing a framework is to &quot;deprive the opponent&#8217;s thickness of its effectiveness.&quot;</p>
+<p>This is because frameworks are most often built with thickness as their backing.</p>
+
+<hr class="page">
+<div class="page-number">172</div>
+<p>Black 1, reinforcing the lower left while depriving the upper left thickness of its effectiveness, is the good point. Being able to aim for a wall attack from <em>a</em> later is also something Black can be proud of.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer (Disrupted Pace)</div>
+<p>Running to a big point with Black 1 allows White not only to build a framework on the left side with 2, but also to develop the threat of expanding the bottom with <em>a</em> and following - an unfavorable development for Black.</p>
+
+<hr class="page">
+<div class="page-number">173</div>
+<div class="headers">Problem 10<br>
+Testing Your Strategic Vision<br>
+Black to Play</div>
+<p>Should you expand your own territory or limit the opponent&#8217;s? Look ahead and make the more valuable choice.</p>
+
+<hr class="page">
+<div class="page-number">174</div>
+<div class="headers">Correct Answer (Limiting the Opponent&#8217;s Territory)</div>
+<p>Black 1, restraining the expansion of the top framework, is the urgent move. If White responds at <em>a</em>, Black builds a framework on the left side with <em>b</em> - a development at least equal for Black.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer (A Deep Framework)</div>
+<p>Occupying the left side with Black 1 allows White to expand the top with 2, leading to a difficult position. For example, if Black plays <em>a</em>, White encloses the top with <em>b</em> and following - Black is dissatisfied.</p>
+
+<hr class="page">
+<div class="page-number">175</div>
+<div class="headers">Problem 11<br>
+How to Neutralize a Framework<br>
+Black to Play</div>
+<p>The framework on the top keeps expanding. Find an effective countermeasure.</p>
+
+<hr class="page">
+<div class="page-number">176</div>
+<div class="headers">Correct Answer (Destroying the Framework)</div>
+<p>Diving in deeply with Black 1 is the good move. If White presses with 2, Black applies pressure to the upper right White stones with 3 while confirming safety on the top - Black is satisfied.</p>
+
+<hr class="file">
+<div class="headers">Variation (Safety First)</div>
+<p>If White resists at 1 instead of the previous diagram&#8217;s White 2, the priority is for Black to ensure safety on the top with 2 and following. This is because if the framework is limited, Black&#8217;s solid profit comes to life.</p>
+
+<hr class="page">
+<div class="page-number">177</div>
+<div class="headers">Wrong Answer 1 (Helping the Opponent)</div>
+<p>Neutralizing the top framework with Black 1 is careless. It results in White efficiently enclosing the top territory with 2 and following - Black is dissatisfied.</p>
+
+<hr class="file">
+<div class="headers">Wrong Answer 2 (An Expanding Framework)</div>
+<p>But running to a big point with Black 1 or the like allows White to expand the top framework with 2 and following while keeping good points at <em>a</em> and <em>b</em> in view - an unfavorable development for Black.</p>
+
+<hr class="page">
+<div class="page-number">178</div>
+<div class="headers">Column 6<br>
+Sharpening Your Own Strength in the AI Era</div>
+<p>In the Go world, when AI AlphaGo defeated Korean professional Lee Sedol 9-dan in March 2016, AI research gained rapid momentum. Now, nearly a decade later, AI is accessible to professionals and amateurs alike.</p>
+<p>While the environment for improving has become available anywhere at any time, it is also said to come with a significant drawback: &quot;the ability to think independently deteriorates.&quot;</p>
+<p>The main cause is looking at the AI&#8217;s win rate and candidate moves and accepting them without thinking deeply. That said, AI is a convenient tool - it would be a waste not to use it. With this in mind, one professional has said: &quot;It is important to create opportunities to hear other people&#8217;s opinions.&quot; Interpreting the AI&#8217;s suggested lines on your own can lead to improvement, but there are cases where gaps in understanding make it difficult to convert the analysis into actual playing strength. To break through such stagnation, incorporating perspectives other than your own is said to be the quickest route to improvement.</p>
+<p>It is interesting that, precisely because researching with AI has become the norm, human interaction has become all the more important.</p>
+
+<hr class="page">
+<div class="page-number">179</div>
+<div class="headers">Problem 12<br>
+The Danger of Thickness<br>
+Black to Play</div>
+<p>When thickness has been built, it is important to ask: &quot;Are the surrounding stones vulnerable to attack?&quot;</p>
+
+<hr class="page">
+<div class="page-number">180</div>
+<div class="headers">Correct Answer (Wary of the Thickness)</div>
+<p>Solidifying the bottom home territory with Black 1 is essential. Since thickness has been built in the lower left, it is time to prepare carefully for severe tactics.</p>
+
+<hr class="file">
+<div class="headers">Correct Answer Continued (Effective Expansion)</div>
+<p>If White runs to a big point with 2, Black 3 through 5, expanding the bottom framework, is the strong follow-up - the idea being to enclose with <em>b</em> in response to White <em>a</em>.</p>
+
+<hr class="page">
+<div class="page-number">181</div>
+<div class="headers">Variation 1 (Countering the Invasion, Part 1)</div>
+<p>If White invades deeply at 1, Black applies pressure with 2. If White resists with 3 through 5, Black 6 threatens both <em>a</em> and <em>b</em>, and the fight is favorable for Black.</p>
+
+<hr class="file">
+<div class="headers">Variation 2 (Countering the Invasion, Part 2)</div>
+<p>If White resists at 1 instead of White 3 in the previous diagram, Black thickens the outside with 2 and following, and Black is fine. Since Black can counterattack at <em>b</em> and following if White plays <em>a</em>, there is no problem.</p>
+
+<hr class="page">
+<div class="page-number">182</div>
+<div class="headers">Failure (The Price of Insufficient Preparation)</div>
+<p>Running to a big point with Black 1 and the like is careless. White invades the Black formation on the lower side at 2, and Black&#8217;s overall position becomes thin.</p>
+
+<hr class="file">
+<div class="headers">Failure, Continued (The Collapse of One&#8217;s Own Position)</div>
+<p>Black is forced to defend at 3, and while White consolidates with 4 and following, the Black stones on the lower side and in the lower right are targeted, forcing Black into an unfavorable fight.</p>
+
+<hr class="page">
+<div class="page-number">183</div>
+<div class="headers">Problem 13<br>
+A Solid Move at the Key Point<br>
+Black to Play</div>
+<p>Expanding your moyo as widely as possible is not always the correct approach.</p>
+<p>Even if it seems slow, there are times when expanding solidly step by step is the right choice.</p>
+
+<hr class="page">
+<div class="page-number">184</div>
+<div class="headers">Correct Answer (Solid Expansion)</div>
+<p>Extending to expand the right-side moyo at Black 1 is the good point. Even if White answers at 2, Black expands further with 3, and the position is comfortable for Black.</p>
+
+<hr class="file">
+<div class="headers">Failure (Falling One Move Behind)</div>
+<p>Running to a big point with Black 1 and the like allows White to expand on the lower side with 2 and following. In moyo go, &quot;a single move&#8217;s difference can dramatically shift the balance of power.&quot;</p>
+
+<hr class="page">
+<div class="page-number">185</div>
+<div class="headers">Problem 14<br>
+The Key Point<br>
+Black to Play</div>
+<p>A location that affects both players&#8217; moyos tends to be an ideal point.</p>
+<p>In this problem, which location is that?</p>
+
+<hr class="page">
+<div class="page-number">186</div>
+<div class="headers">Correct Answer (The Junction of Moyos)</div>
+<p>Black 1 is the ideal point, simultaneously restraining the expansion of White&#8217;s moyo on the lower side while expanding Black&#8217;s own moyo on the right. Black also has the plan of advancing into White&#8217;s lower formation at <em>a</em> and following, so Black is fine.</p>
+
+<hr class="file">
+<div class="headers">Failure (The Price of Missing It)</div>
+<p>Playing Black 1 to build a moyo on the right allows White to expand on the lower side at 2, leaving Black dissatisfied. A location that affects both players&#8217; moyos is somewhere to head for without hesitation.</p>
+
+<hr class="page">
+<div class="page-number">187</div>
+<div class="headers">Problem 15<br>
+An Effective Way to Expand<br>
+Black to Play</div>
+<p>The theme of this problem is to find the best way to expand the right-side moyo.</p>
+<p>Try to envision a straightforward plan for expansion.</p>
+
+<hr class="page">
+<div class="page-number">188</div>
+<div class="headers">Correct Answer (Naturally Consolidated)</div>
+<p>Black 1 through 5 stops White&#8217;s advance in the lower right while expanding the right-side moyo, and Black is fine. After White <em>a</em>, Black <em>b</em> and following gives Black a superior scale of territory.</p>
+
+<hr class="file">
+<div class="headers">Failure (A Crumbling Plan)</div>
+<p>Running to a big point with Black 1 and the like is careless. White blocks the expansion of the right-side moyo at 2, and Black squanders the opportunity.</p>
+
+<hr class="page">
+<div class="page-number">189</div>
+<div class="headers">Problem 16<br>
+Simple Expansion<br>
+White to Play</div>
+<p>There is no need to overthink this. Simply envision the move that expands White&#8217;s moyo on the lower side.</p>
+
+<hr class="page">
+<div class="page-number">190</div>
+<div class="headers">Correct Answer (The Attach-and-Extend Method)</div>
+<p>White 1 through 5 to expand the lower-side moyo is the good move. White&#8217;s advance to the lower left is blocked, and the position is excellent in terms of territory as well.</p>
+
+<hr class="file">
+<div class="headers">Correct Answer, Continued (An Enormous Moyo)</div>
+<p>If Black defends at 6, White continues to expand the lower-side moyo with 7 through 11, and White is doing well. The depth of White&#8217;s lower side is sufficient to be considered nearly settled territory.</p>
+
+<hr class="page">
+<div class="page-number">191</div>
+<div class="headers">Variation 1 (Expanding Without Limit)</div>
+<p>If Black stabilizes on the left side with 1 and 3, White expands the lower-side moyo with 4 and following, and White is fine. This technique is frequently used when one wants to expand one&#8217;s moyo.</p>
+
+<hr class="file">
+<div class="headers">Variation 2 (A Flexible Response)</div>
+<p>Instead of Black 1 in the previous diagram, if Black plays at the 3-3 point, White can build a moyo on the left side with 2 and following, so there is no need to rush.</p>
+
+<hr class="page">
+<div class="page-number">192</div>
+<div class="headers">Variation 3 (The Strongest Resistance)</div>
+<p>Black may also try varying with 1, but since White has strong stones in the lower right, White can guide the game into a favorable fight with 2 and following.</p>
+
+<hr class="file">
+<div class="headers">Failure (Too Cautious a Choice)</div>
+<p>Blocking with White 1 lacks ingenuity. Black reinforces the left side at 2 and the like, and White ends up missing the chance to efficiently expand its moyo.</p>
+
+<hr class="page">
+<div class="page-number">193</div>
+<div class="headers">Problem 17<br>
+Distance from Thickness<br>
+White to Play</div>
+<p>When preventing moyofication, the trick is to respond from a position away from your thickness.</p>
+<p>If you get too close to the thickness, you may face an unexpected counterattack, so caution is required.</p>
+
+<hr class="page">
+<div class="page-number">194</div>
+<div class="headers">Correct Answer (Proper Distance)</div>
+<p>White 1, played at a distance from the thickness in the upper right to prevent moyofication on the upper side, is the right judgment. If Black takes a big point at 2, White plays consecutive moves on the upper side with 3 and following, and White is fine.</p>
+
+<hr class="file">
+<div class="headers">Variation (A Solid Conclusion)</div>
+<p>Instead of Black 2 in the previous diagram, if Black presses into the upper side at 1, White solidly prevents moyo expansion with 2 and following. Avoiding a position where the upper-right thickness goes unused is the top priority.</p>
+
+<hr class="page">
+<div class="page-number">195</div>
+<div class="headers">Reference 1 (A Counterattack to Watch Out For)</div>
+<p>White 1 to take the upper side allows Black to invade White&#8217;s upper formation at 2, and the White stones in the upper left and on the upper side may become targets of attack, drawing White into a chaotic fight.</p>
+
+<hr class="file">
+<div class="headers">Reference 2 (A Thwarted Assault)</div>
+<p>Instead of White 3 in the previous diagram, if White presses against the Black upper-side stones with 1 and 3, Black can build a moyo toward the left side with 4 and following, resulting in a dissatisfying outcome for White.</p>
+
+<hr class="page">
+<div class="page-number">196</div>
+<div class="headers">Reference 3 (Much the Same)</div>
+<p>Playing White 1 high also leads to a fighting type where, after Black separates with 2 through 4, White stones in various locations become targets, requiring brute strength.</p>
+
+<hr class="file">
+<div class="headers">Failure (Too Wide)</div>
+<p>White 1 is too close to the thickness in the upper right. Black stabilizes the upper side with 2 and following while pressing the White stones in the upper left, resulting in an unfavorable fight for White.</p>
+
+<hr class="page">
+<div class="page-number">197</div>
+<div class="headers">Problem 18<br>
+The Right Way to Reduce<br>
+Black to Play</div>
+<p>The theme of this problem is erasing White&#8217;s moyo on the upper side. The goal is to safely neutralize the moyo while determining how deeply Black can venture.</p>
+
+<hr class="page">
+<div class="page-number">198</div>
+<div class="headers">Correct Answer (Safe Reduction)</div>
+<p>The key is Black 1 to restrain the expansion of White&#8217;s moyo on the upper side. White&#8217;s thickness is present on the upper side, so venturing too deeply is dangerous.</p>
+
+<hr class="file">
+<div class="headers">Correct Answer, Continued (Nimble Stone Management)</div>
+<p>If White defends at 2, Black solidifies the left-side moyo at 3, and Black is fine. Limiting the upper-side moyo in sente is the key to disrupting White&#8217;s plans.</p>
+
+<hr class="page">
+<div class="page-number">199</div>
+<div class="headers">Variation (A Calm Resolution)</div>
+<p>Instead of White 2 in the previous diagram, if White prevents moyofication on the left side at 1, Black can surround the single White stone in the upper right with 2 while also threatening to cut at <em>a</em>, giving Black a rich position.</p>
+
+<hr class="file">
+<div class="headers">Failure 1 (Moyo Expansion)</div>
+<p>Simply solidifying the left-side moyo with Black 1 allows White to expand the upper-side moyo greatly at 2, building a promising position for White.</p>
+
+<hr class="page">
+<div class="page-number">200</div>
+<div class="headers">Failure 2 (Venturing Too Deep, Part 1)</div>
+<p>Invading White&#8217;s upper formation at Black 1 is overdoing it. After being sealed in with White 2 and following, Black faces threats of a cut at <em>a</em> and an attack at <em>b</em>, resulting in an unfavorable fight.</p>
+
+<hr class="file">
+<div class="headers">Failure 3 (Venturing Too Deep, Part 2)</div>
+<p>Instead of Black 5 in the previous diagram, resisting at 1 also allows White to isolate the upper Black stones with 2 through 4. After Black <em>a</em>, White <em>b</em> and following engulfs them entirely - Black fails.</p>
+
+<hr class="page">
+<div class="page-number">201</div>
+<div class="headers">Problem 19<br>
+Reading the Enemy Formation<br>
+Black to Play</div>
+<p>White has expanded their lower-side formation at 1.</p>
+<p>Pay attention to the strong White stones in the lower right and the width of White&#8217;s formation as you decide on your next move.</p>
+
+<hr class="page">
+<div class="page-number">202</div>
+<div class="headers">Correct Answer (The Decision to Consolidate)</div>
+<p>Instead of allowing White to consolidate the lower-side formation, stopping White&#8217;s advance to the lower left with Black 1 through 5 is the right judgment. Black&#8217;s formation on the left side also expands, and the development is not bad for Black.</p>
+
+<hr class="file">
+<div class="headers">Variation 1 (Much the Same)</div>
+<p>Instead of White 4 in the previous diagram, if White varies with 1, Black can expand the left-side moyo with 2 and following, so even if White gains territory on the lower side, Black can fully recover.</p>
+
+<hr class="page">
+<div class="page-number">203</div>
+<div class="headers">Variation 2 (A Sacrifice Strategy)</div>
+<p>If White defends at 1, Black thickens the outside with 2 through 4. When White plays 5, the key is Black 6 and following, using the single Black stone as a sacrifice to tidy up the surrounding shape.</p>
+
+<hr class="file">
+<div class="headers">Variation 2, Continued (The Importance of Tempo)</div>
+<p>Naturally, White 9 through 15 captures the three Black stones, but Black 16 and following shapes the lower left in sente while getting to the big point first - Black succeeds.</p>
+
+<hr class="page">
+<div class="page-number">204</div>
+<div class="headers">Failure 1 (Venturing Too Deep)</div>
+<p>Invading White&#8217;s lower formation at Black 1 is overdoing it. Black is surrounded with White 2 and following, forcing an unfavorable fight.</p>
+
+<hr class="file">
+<div class="headers">Failure 2 (Lacking Ingenuity)</div>
+<p>Defending quietly with Black 1 gives White the leisure to get to a big point first at 2 and the like - Black should come up with something more inventive.</p>
+
+<hr class="page">
+<div class="page-number">205</div>
+<div class="headers">Problem 20<br>
+Straightforward Expansion<br>
+Black to Play</div>
+<p>White has expanded on the lower side at 1.</p>
+<p>Black should envision a plan that both limits the expansion of White&#8217;s lower formation and expands the right-side moyo.</p>
+
+<hr class="page">
+<div class="page-number">206</div>
+<div class="headers">Correct Answer (A Simple Choice)</div>
+<p>The idea is to consolidate the lower right with Black 1 through 5 while expanding the right-side moyo. The gain from expanding the right-side moyo outweighs the loss from allowing White to consolidate on the lower side.</p>
+
+<hr class="file">
+<div class="headers">Variation 1 (Naturally Consolidated)</div>
+<p>Instead of White 4 in the previous diagram, if White advances to the lower right at 1, Black can consolidate with 2 and following, and Black is fine. As long as the right-side moyo is consolidated, Black&#8217;s goal has been achieved.</p>
+
+<hr class="page">
+<div class="page-number">207</div>
+<div class="headers">Variation 2 (A Race to Enclose)</div>
+<p>Even if White expands on the lower side with 1 and 3, Black expands the right side with 4 through 10, resulting in a separation where Black&#8217;s moyo scale is superior.</p>
+
+<hr class="file">
+<div class="headers">Variation 3 (A Solid Conclusion)</div>
+<p>If White invades at the 3-3 point with 1, Black thickens the outside solidly with 2 and following. Since the lower-side moyo has been erased, the development is not bad for Black.</p>
+
+<hr class="page">
+<div class="page-number">208</div>
+<div class="headers">Failure 1 (A Difficult Fight)</div>
+<p>Invading the lower side at Black 1 leads to Black being surrounded with White 2 and following, making for a difficult fight. Fighting within the opponent&#8217;s sphere of influence is something to avoid.</p>
+
+<hr class="file">
+<div class="headers">Failure 2 (An Expanding Moyo)</div>
+<p>Defending with Black 1 allows White to expand the lower side at 2. A single move&#8217;s difference changes the size of the moyo, so caution is required.</p>
+
+<hr class="page">
+<div class="page-number">209</div>
+<div class="headers">Problem 21<br>
+Gauging Potential<br>
+Black to Play</div>
+<p>If you envision where your opponent&#8217;s territory is likely to grow, you should be able to see the big point that demands urgent attention.</p>
+
+<hr class="page">
+<div class="page-number">210</div>
+<div class="headers">Correct Answer (Accurate Judgment)</div>
+<p>Preventing moyofication on the upper side with Black 1 and 3 is the right judgment. The key is to eliminate the potential for White to build a large moyo backed by the upper-left thickness.</p>
+
+<hr class="file">
+<div class="headers">Failure (Rich Potential)</div>
+<p>Running to a big point with Black 1 and the like not only allows White to consolidate the upper right with 2 through 4, but also gives White the prospect of forming large territory on the upper side - Black is dissatisfied.</p>
+
+<hr class="page">
+<div class="page-number">211</div>
+<div class="headers">Problem 22<br>
+Where to Hurry<br>
+White to Play</div>
+<p>The potential for Black to advance into White&#8217;s upper formation is a concern.</p>
+<p>However, if you survey the board as a whole, you should notice where urgency is truly required.</p>
+
+<hr class="page">
+<div class="page-number">212</div>
+<div class="headers">Correct Answer (Blocking Moyo Development)</div>
+<p>The key is White 1 to prevent Black from building a moyo on the right side. If Black cuts into the upper White formation at <em>a</em> and the like, White&#8217;s stones in various locations are strong, so there is no need to worry.</p>
+
+<hr class="file">
+<div class="headers">Failure (The Price of Playing by Rote)</div>
+<p>White 1 to enclose the upper side is not a small area, but if Black builds a moyo on the right side at 2, Black makes good use of the thick formations in the upper right and lower right - White is dissatisfied.</p>
+
+<hr class="page">
+<div class="page-number">213</div>
+<div class="headers">Problem 23<br>
+Maintaining a Sense of Urgency<br>
+Black to Play</div>
+<p>One key to improving at moyo go is to &quot;always envision which areas are likely to grow large.&quot;</p>
+<p>In the current position, where is that?</p>
+
+<hr class="page">
+<div class="page-number">214</div>
+<div class="headers">Correct Answer (Nimble Stone Management)</div>
+<p>The key is Black 1 to restrain the expansion of White&#8217;s upper moyo. If White exploits weaknesses with 2 and 4, Black can press the White stones in the lower right with 5 while keeping <em>a</em> in mind, making for a promising development for Black.</p>
+
+<hr class="file">
+<div class="headers">Failure (A Moyo Deeper Than It Looks)</div>
+<p>Defending the weakness on the outer perimeter with Black 1 allows White to expand the upper moyo at 2. The moyo being deeper than it appears is Black&#8217;s cause for regret.</p>
+
+<hr class="page">
+<div class="page-number">215</div>
+<div class="headers">Problem 24<br>
+A Single Move&#8217;s Difference<br>
+Black to Play</div>
+<p>There is a point that can affect the size of both moyos with a single move.</p>
+<p>The key is that it &quot;acts on both players&#8217; moyos.&quot;</p>
+
+<hr class="page">
+<div class="page-number">216</div>
+<div class="headers">Correct Answer (Building a Moyo)</div>
+<p>Black 1 to build a moyo toward the upper side, backed by the upper-right thickness, is the ideal point. A location where both sides can build a moyo is somewhere to get to immediately.</p>
+
+<hr class="file">
+<div class="headers">Failure (One Move Too Slow)</div>
+<p>Expanding the moyo toward the lower right with Black 1 not only allows White to build a moyo on the upper side at 2, but also diminishes the effectiveness of the upper-right thickness - Black is dissatisfied.</p>
+
+<hr class="page">
+<div class="page-number">217</div>
+<div class="headers">Problem 25<br>
+Adapting to the Situation<br>
+Black to Play</div>
+<p>White has just reinforced with 1 and 3.</p>
+<p>Where should Black prioritize? If you recall what you have learned so far, you should be able to find the answer.</p>
+
+<hr class="page">
+<div class="page-number">218</div>
+<div class="headers">Correct Answer (The Moyo to Prioritize)</div>
+<p>Black 1 is the ideal point, attacking the White stones in the lower left while building a moyo on the left side. Black&#8217;s shape in the upper left is incomplete, but this is a position where the moyo should take priority.</p>
+
+<hr class="file">
+<div class="headers">Correct Answer, Continued (Steady Expansion)</div>
+<p>After White 2, Black consolidates the left-side moyo with 3 and following. White&#8217;s upper formation is not large territory either, and the development is satisfying for Black.</p>
+
+<hr class="page">
+<div class="page-number">219</div>
+<div class="headers">Variation 1 (A Calm Resolution)</div>
+<p>Instead of White 2 in the previous diagram, if White stirs things up with 1, Black expands the left-side moyo with 2 and following, and Black is fine. There is no need to attack the White stones in the lower left harshly.</p>
+
+<hr class="file">
+<div class="headers">Variation 2 (Much the Same)</div>
+<p>When White plays 1, Black defends at 2. Black has many prospects, with the plan of attacking the lower-left White stones at <em>a</em> and the good point at <em>b</em> both in view.</p>
+
+<hr class="page">
+<div class="page-number">220</div>
+<div class="headers">Variation 3 (Naturally Consolidated)</div>
+<p>If White resists with 1 and 3, Black can deny White&#8217;s base with 4 and following while consolidating the left-side formation, guiding the game into a favorable fight for Black.</p>
+
+<hr class="file">
+<div class="headers">Variation 4 (A Connected Attack)</div>
+<p>Instead of White 5 in the previous diagram, if White defends with 1 and 3, Black applies pressure with 4 while expanding on the left side. After White <em>a</em>, Black <em>b</em> and following gives Black a workable fight.</p>
+
+<hr class="page">
+<div class="page-number">221</div>
+<div class="headers">Failure 1 (An Unfavorable Development)</div>
+<p>Pressing close to the White stones in the lower left with Black 1 is unfavorable for Black, as White may reduce the left-side moyo with 2 and following while also consolidating.</p>
+
+<hr class="file">
+<div class="headers">Failure 2 (Walking into a Trap)</div>
+<p>Simply defending with Black 1 is careless. Not only does White erase the left-side moyo with 2 through 4, but the arrangement of the triangled White stones also prevents large Black territory from forming on the upper side - Black is dissatisfied.</p>
+
+<hr class="page">
+<div class="page-number">222</div>
+<div class="headers">Afterword</div>
+<p>As you study the fundamentals of fuseki and practical thinking, you will likely find that playing freely is not enough to win. This is because fuseki is constantly being refined to a high level through accumulated wisdom and AI research. As your strength increases, you will feel just how high the bar is for playing freely.</p>
+<p>Of course, playing the moves you want to play, without fighting your curiosity, can be enjoyable too. Even if you fail, working through trial and error to find answers that satisfy you is one way to enjoy the game. That said, losing too much can dampen your motivation to play go, so I strongly recommend starting with the fundamentals. It is never too late to play freely after that.</p>
+<p>Revisit the contents of this book to grasp the keys to fuseki, and use them to improve your strength.</p>
+<p>December 2025, Gendai Go Research Institute</p>
+
+<hr class="page">
+<div class="page-number">223</div>
+<div class="headers">Supervisor Profile</div>
+<p>Ichiriki Ryo
+Born June 10, 1997, in Miyagi Prefecture. Student of Song Guangfu 9-dan.
+Turned professional in 2010; reached 9-dan in 2020. Member of the Nihon Ki-in Tokyo Headquarters.</p>
+<p>Title wins include 4 Kisei, 2 Meijin, 3 Tengen, 3 Honinbo, 1 Gosei, and others, for a total of 32 titles.
+As of December 2025, holds four simultaneous titles. Winner of the 10th Ing Cup World Championship.</p>
+
+</body>
+</html>
