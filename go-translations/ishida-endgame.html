@@ -1,0 +1,2196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Yose and Calculation from the Basics</title>
+<style>
+body {
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Georgia, serif;
+    line-height: 1.4;
+    background-color: #fff8f0;
+}
+.headers {
+    font-weight: bold;
+    line-height: 1.4;
+}
+hr.file { border: none; border-top: 1px solid #bbb; margin: 1.2em 0; }
+hr.page { border: none; border-top: 4px double #444; margin: 1.5em 0; }
+.page-number { text-align: center; color: #888; font-size: 0.85em; margin: 0.2em 0 1em; }
+.meta-title { font-size: 1.6em; font-weight: bold; line-height: 1.4; text-align: center; }
+.meta-volume { font-size: 1.1em; font-weight: bold; line-height: 1.4; text-align: center; margin-top: 0.4em; }
+.meta-author { font-size: 1.2em; font-weight: bold; line-height: 1.4; text-align: right; margin-top: 0.4em; }
+.meta-isbn { font-size: 1.0em; line-height: 1.4; text-align: right; margin-top: 0.4em; }
+</style>
+</head>
+<body>
+<div class="meta-title">Yose and Calculation from the Basics</div>
+<div class="meta-author">Ishidia Yoshio</div>
+<hr class="page">
+<div class="page-number">3</div>
+<div class="headers">Preface</div>
+<p>Knowing how to count points makes an enormous difference in how you play a game of Go. Beginners and intermediate players especially often proceed by estimation rather than calculation. If their estimates and instincts are correct, that is fine, but they are often mistaken.</p>
+<p>This book is based on <em>Introduction to Go Calculation</em> published in 2006, with additional material on how to think about large endgame moves in actual play.</p>
+<p>Chapter 1 explains the method of calculation. The method itself is straightforward. Use it to develop your way of thinking about the value of each move.</p>
+<p>Chapter 2 studies various positions to ask: &quot;How many points is the next move?&quot; The basics are as learned in Chapter 1, but some calculations will be fairly complex. If a calculation seems too complicated, I recommend estimating the value roughly on your own.</p>
+<p>Chapter 3 explains thinking about large endgame moves using examples from my own games. I hope you will gain an understanding of which moves are urgent.</p>
+<p>Chapter 4 presents a reference table focused mainly on endgame moves. All calculations have been omitted, so please investigate anything you find doubtful on your own.</p>
+<p>I hope this book will serve as a guide for playing a game of Go, and the endgame in particular.</p>
+<p>9-dan Ishida Yoshio</p>
+
+<hr class="page">
+<div class="page-number">4</div>
+<div class="headers">Yose and Calculation from the Basics - Contents</div>
+<p>Preface&#8230;..3</p>
+<p>Chapter 1: The Basics of Calculation&#8230;..5
+Chapter 2: Tesuji and Point Values&#8230;..45
+Chapter 3: Thinking about Large Endgame Moves&#8230;..173
+Chapter 4: Point Value Reference Table&#8230;..211</p>
+<p>Editorial assistance: Sakamaki Tadao
+Book design: Rick Design Office</p>
+
+<hr class="page">
+<div class="page-number">5</div>
+<div class="headers">Chapter 1</div>
+
+<hr class="file">
+<div class="headers">The Basics of Calculation - How to Calculate the Value of Each Move</div>
+
+<hr class="page">
+<div class="page-number">6</div>
+<p>First, let&#8217;s briefly learn how to calculate the value of each move.</p>
+<p>Every move has a definite value. There are moves of great value and moves of small value. Whether large or small, the basic method of calculation is the same.</p>
+<p>Most beginners and intermediate players seem to play without knowing any method of calculation. They play by feel, without knowing the correct approach.</p>
+<p>Once you master the method of calculation, you will be able to play a different kind of Go - a &quot;bright&quot; game. Rather than groping blindly through the dark, let us walk the right path with calculation as our weapon.</p>
+
+<hr class="page">
+<div class="page-number">7</div>
+<p>I once heard this story from a senior player.</p>
+<p>Long ago, Wu Qingyuan 9-dan and Shimamura Toshihiro 9-dan played a game of Go at an inn during their travels. Both were probably at loose ends, and ended up playing a quick game using the wooden board in the recreation room.</p>
+<p>An elderly Go enthusiast staying at the same inn was watching keenly. Fortunately, the old man did not seem to realize that the players were the celebrated Wu and Shimamura. He was perhaps a &quot;practical player&quot; who never read newspapers or magazines.</p>
+<p>As the game entered the endgame, the old man began to interject: &quot;Hmm, there&#8217;s a big move here&#8230;&quot;</p>
+<p>Wu and Shimamura looked at each other, wondering where on earth this big move could be, but they could find nothing. The old man began to grow irritated. Each time Wu and Shimamura played a move,</p>
+<p>&quot;Ah, that&#8217;s not it! There&#8217;s a big move here, I tell you!&quot;</p>
+<p>he would complain.</p>
+<p>Finally, when there were no more places to play, they played a 4-point gote move that captures 2 stones. It was probably a move like Diagram 1.</p>
+<p>&quot;So you finally noticed it!&quot;</p>
+<p>The old man slapped his knee and rejoiced as if it were his own victory.</p>
+<p>The old man in this story was probably not very strong. He thought the smallest of the various available moves was the biggest. He was probably playing moves like Diagram 1 far too early - during the busy middle game, for instance.</p>
+
+<hr class="page">
+<div class="page-number">8</div>
+<p>This sort of thing happens because of a lack of correct understanding of point values.</p>
+
+<hr class="file">
+<div class="headers">The &#8220;Swing&#8221; Is the Value of a Move</div>
+<p>Look at Diagram 2. If Black plays at <em>a</em>, Black can capture 4 stones. How many points is playing at <em>a</em> for Black? It&#8217;s simple: it&#8217;s an 8-point move. Whether Black takes at <em>a</em> or White connects at <em>a</em>, both are 8-point moves. What about Diagram 3?</p>
+<p>&quot;Isn&#8217;t it the same as Diagram 2? If you&#8217;re taking 4 stones, it has to be 8 points.&quot;</p>
+<p>Anyone who says this is mistaken somewhere. They are being a bit hasty. It is true that taking 4 stones creates 8 points of Black territory.</p>
+<p><strong>Diagram 4:</strong> But you must also consider what happens when White plays 1. When White plays 1 and captures 1 Black stone, 2 points of White territory are created. So what do we have?</p>
+<p>If Black plays: 8 points of Black territory.</p>
+<p>If White plays: 2 points of White territory.</p>
+<p>The difference is 10 points. In other words, it is a 10-point move. As shown here, the value (point count) of a move is the difference between the result when Black plays and the result when White plays,</p>
+
+<hr class="page">
+<div class="page-number">9</div>
+<p>and we call this difference the &quot;swing.&quot; Therefore, to find the value of a move, you must consider both diagrams - the one where you play and the one where your opponent plays - and calculate the difference (the swing). This is the fundamental principle.</p>
+<p><strong>Diagram 5:</strong> If Black plays 1, Black can capture 3 stones. Saying Black 1 is a 6-point move because it captures 3 stones is wrong.</p>
+<p><strong>Diagram 6:</strong> If Black plays the marked stone, White 1 and Black 2 follow -</p>
+<p><strong>Diagram 7:</strong> If White plays 1 instead, 3 points of White territory are created at the X marks compared to Diagram 6.</p>
+<p>If Black plays: 6 points of Black territory.</p>
+<p>If White plays: 3 points of White territory.</p>
+<p>The difference is 9 points.</p>
+<p>Not 6 points - 9 points is the correct answer.</p>
+
+<hr class="page">
+<div class="page-number">10</div>
+<div class="headers">Hane-Tsugi on the First and Second Lines</div>
+<p><strong>Diagram 1:</strong> Black 1 is a 1-point move. Needless to say, this is because the difference between Black playing 1 and White playing 1 is 1 point.</p>
+<p><strong>Diagram 2:</strong> Black 1 is a 2-point move.</p>
+<p>If Black plays: 2 points of Black territory.</p>
+<p>If White plays: Black has zero territory.</p>
+<p>The difference - the swing - is 2 points, so both Black 1 and White 1 are 2-point moves.</p>
+<p><strong>Diagram 3:</strong> A move on the first line. Black 1, White 2, and Black 3 are grouped together and considered as one move.</p>
+<p><strong>Diagram 4:</strong> You must consider what happens when White plays first. White hanes and connects with 1 and 3.</p>
+
+<hr class="page">
+<div class="page-number">11</div>
+<p><strong>Diagram 5:</strong> Black makes the hane-and-connect.</p>
+<p><strong>Diagram 6:</strong> White makes the hane-and-connect.</p>
+<p>How much is the difference - the swing - between Diagrams 5 and 6?</p>
+<p>It&#8217;s simple: 1 point of Black&#8217;s territory and 1 point of White&#8217;s territory, a total of 2 points.</p>
+<p>So whether Black or White makes the hane-and-connect, it is a 2-point move.</p>
+<p>This first-line hane-and-connect counts as 2 points - it belongs to the smallest category of endgame moves.</p>
+<p>So what about the second-line hane-and-connect?</p>
+<p><strong>Diagram 7:</strong> The boundary between Black&#8217;s territory and White&#8217;s territory is unclear. How should you play?</p>
+<p><strong>Diagram 8:</strong> Black descends at 1, and White plays 2. If Black plays 3 and White plays 4, things proceed evenly. But White won&#8217;t play at 4. This is an unsatisfying result for Black.</p>
+
+<hr class="page">
+<div class="page-number">12</div>
+<p><strong>Diagram 9:</strong> Black makes the hane-and-connect at 1 and 3, reducing White&#8217;s territory while expanding Black&#8217;s. This is the correct way to play.</p>
+<p>After this, however, the first line remains unsettled. Without the first line settled, we can&#8217;t establish an assumed diagram for when Black plays 1 and 3.</p>
+<p>So how should we think about things going forward?</p>
+<p><strong>Diagram 10:</strong> If White plays next, White makes the hane-and-connect at 1 and 3.</p>
+<p><strong>Diagram 11:</strong> If Black plays next, Black makes the hane-and-connect at 1 and 3. Either way the shape becomes settled, but we don&#8217;t know which diagram to use as our reference.</p>
+<p>If Diagram 10 is the assumed diagram when Black makes the hane-and-connect, the value of Black 1 and 3 in Diagram 9 seems small. If Diagram 11 is the assumed diagram, the value seems large.</p>
+<p>So let&#8217;s think about it this way.</p>
+<p>Whether the position ends up like Diagram 10 or Diagram 11, in both cases the player who moves ends up in gote. In other words, this is a point where the rights are equal.</p>
+<p>Since the rights are equal, rather than thinking that either player will hane-and-connect on the first line, we imagine the position with the ▲ and △ of Diagram 12</p>
+
+<hr class="page">
+<div class="page-number">13</div>
+<p>where both sides descend. With this view, 1 point of Black&#8217;s territory forms at the × mark and 1 point of White&#8217;s territory forms at the △ mark, making things even.</p>
+<p>This way of seeing things - where ▲ and △ both descend - is called &quot;descent-descent&quot; (sagari-sagari). The name comes from the fact that rather than making hane moves, both sides are descending.</p>
+<p>The descent-descent diagram in Diagram 12 is a hypothetical scenario.</p>
+<p>In reality, the position will eventually become either Diagram 10 or Diagram 11. It may seem strange to consider a hypothetical diagram, but for calculation purposes this is actually the correct way to view things.</p>
+<p><strong>Diagram 13:</strong> So what happens if White makes the hane-and-connect? With the roles of Black and White reversed, it amounts to the same thing. After White 1 and 3 -</p>
+<p><strong>Diagram 14:</strong> We imagine the ▲ and △ descent.
+With that, the assumed diagrams for both Black and White are now established.</p>
+
+<hr class="page">
+<div class="page-number">14</div>
+<p>Diagram 15 is the assumed diagram when Black plays.</p>
+<p>Diagram 16 is the assumed diagram when White plays.</p>
+<p>We just need to find the difference.</p>
+<p>Look carefully. Black&#8217;s territory is 3 points (the × marks in Diagram 15).</p>
+<p>White&#8217;s territory is also 3 points (the △ marks in Diagram 16), for a total of 6 points.</p>
+<p>The difference is 6 points, so the second-line hane-and-connect in this position counts as a 6-point move. Whether it is Black or White making the hane-and-connect, it is worth 6 points.</p>
+<p>Incidentally, as a side note: the same spot always has the same value whether Black plays it or White plays it.</p>
+<p>In the above example, whoever made the hane-and-connect, it was worth 6 points.</p>
+<p><strong>Diagram 17:</strong> This is a shape that appeared at the beginning. Would anyone say: &quot;Taking the four stones with Black at <em>a</em> is enormously valuable, but White connecting at <em>a</em> seems rather unimportant.&quot;</p>
+<p>That feeling is understandable, but it&#8217;s wrong. Taking with Black at <em>a</em> and connecting with White at <em>a</em> are both 8-point moves.</p>
+
+<hr class="page">
+<div class="page-number">15</div>
+<p><strong>Diagram 18:</strong> The shape where White has made a hane and Black has blocked.</p>
+<p><strong>Diagram 19:</strong> Black cuts at 1, and after White 2, Black captures at 3. Rather than a &quot;second-line hane-and-connect,&quot; this shape is called a &quot;second-line cut-and-capture.&quot;</p>
+<p>How many points is this move worth?</p>
+<p><strong>Diagram 20:</strong> After Black cuts and captures, White descends at 1 and Black plays 2. We take this to be the resulting position. This is because, rather than Black making the hane-and-connect at 1, White descending at 1 and then aiming to play at 2 is the stronger claim.</p>
+<p><strong>Diagram 21:</strong> For White&#8217;s part, White connects at 1. What comes next? You already know: White at <em>a</em> and Black at <em>b</em> - the &quot;descent-descent.&quot;</p>
+<p>We calculate the difference between Diagrams 20 and 21.</p>
+<p>Black&#8217;s territory differs by 3 points, and White&#8217;s territory also differs by 3 points, for a total of 6 points. So the Black cut-and-capture is the same size as a hane-and-connect: 6 points.</p>
+
+<hr class="page">
+<div class="page-number">16</div>
+<div class="headers">Post-move Assessment</div>
+<p>The basic principle of calculation is to figure out the difference between what happens when each side plays. However, the assumed position is often not clear-cut. In such cases, as we saw earlier, you need to find a method like &quot;descent-descent&quot; to clarify the assumed position.</p>
+<p><strong>Diagram 1:</strong> Black 1 is a 3-point move. Whether Black plays at 1 or White plays there, the position is clear and there is nothing problematic. There is no post-move assessment needed, because nothing remains to be resolved.</p>
+<p><strong>Diagram 2:</strong> What about Black 1 here? In this case too, it&#8217;s just a bit more complex - you simply need to find the difference between this and White 1 in Diagram 3.</p>
+<p>If Black plays: 3 points of Black territory.</p>
+<p>If White plays: 1 point of White territory.</p>
+<p>The difference is 4 points. Therefore, Black 1 in Diagram 2 and White 1 in Diagram 3 are both 4-point moves.</p>
+<p>What about Black 1 in Diagram 4?</p>
+<p>After Black 1, what happens with the triangled Black stone? This post-move assessment is the issue.</p>
+<p><strong>Diagram 5:</strong> After the triangled stone, does Black connect at 1 -</p>
+<p><strong>Diagram 6:</strong> Or does White take at 1 -</p>
+
+<hr class="page">
+<div class="page-number">17</div>
+<p>It&#8217;s one or the other. The rights are 50-50. However, as we saw earlier, we cannot construct a &quot;descent-descent&quot; diagram. So we reason as follows.</p>
+<p>With Black 1 in Diagram 5, White territory is zero. With White 1 in Diagram 6, White territory is 2 points. Since the rights are 50-50, we take the midpoint and treat the position after Black 1 in Diagram 4 as having 1 point of White territory.</p>
+<p>We then calculate the difference between Diagrams 4 and 7.</p>
+<p>Difference in Black territory: 3 points.</p>
+<p>Difference in White territory: 3 - 1 = 2 points.</p>
+<p>3 points and 2 points, totaling 5 points. This is the correct answer. When the remaining moves are 50-50, we take the midpoint between what happens when Black plays and what happens when White plays. This method is called &quot;splitting.&quot; It is the same idea as the &quot;descent-descent&quot; we saw earlier.</p>
+
+<hr class="page">
+<div class="page-number">18</div>
+<p><strong>Diagram 8:</strong> Black 1. Do not say this is an 8-point move for capturing 4 stones.</p>
+<p><strong>Diagram 9:</strong> White&#8217;s response is to connect at 1.</p>
+<p><strong>Diagram 10:</strong> The issue is what happens at <em>a</em> after the triangled stone.</p>
+<p>If Black takes at <em>a</em>, 4 points of Black territory are added. But if White connects at <em>a</em>, nothing is added to Black territory.</p>
+<p>Black at <em>a</em>: 4 points.</p>
+<p>White at <em>a</em>: 0 points.</p>
+<p>Splitting gives 2 points. That is, with the triangled stone on the board, we treat <em>a</em> as 2 points of Black territory.</p>
+<p>Therefore, the triangled move - capturing 4 stones for 8 points, plus 2 more points - is a 10-point move. There is no change in White territory.</p>
+<p>This 4-stone capture is a 10-point move.</p>
+<p><strong>Diagram 11:</strong> A similar-looking position - consider how many points Black 1 is worth.</p>
+
+<hr class="page">
+<div class="page-number">19</div>
+<p>With Black 1, the 7 points of Black territory on the left are first secured. The issue is <em>a</em>. Black at <em>a</em> gives 4 points of territory; White at <em>a</em> gives zero - so splitting gives 2 points of Black territory.</p>
+<p>In total, with Black 1, Black territory is 7 + 2 = 9 points. But does that mean Black 1 is a 9-point move? Not so fast.</p>
+<p><strong>Diagram 12:</strong> What if White connects at 1? After that, if Black plays at <em>a</em>, there are 2 points of Black territory. If White plays at <em>a</em>, zero Black territory. Splitting gives 1 point of Black territory. With White 1 connecting, there is 1 point of Black territory at <em>a</em>.</p>
+<p>Diagram 11: 9 points of Black territory.</p>
+<p>Diagram 12: 1 point of Black territory.</p>
+<p>The difference is 8 points (9 - 1). Therefore, Black 1 in Diagram 11 and White 1 in Diagram 12 are both 8-point moves.</p>
+<p><strong>Diagram 13:</strong> Black 1 cuts and captures 4 stones. How many points is this move worth? Nine points for the 4 White stones and one liberty? It is a bit tricky, so let&#8217;s just examine the concept.</p>
+
+<hr class="page">
+<div class="page-number">20</div>
+<p><strong>Diagram 14:</strong> After the triangled stone, if White connects at 1, White can secure the territory at the × points. However, if Black cuts at 1, the White territory at × disappears and Black territory increases further.</p>
+<p><strong>Diagram 15:</strong> Without going into the detailed calculation, we must conclude that when the triangled stone is played, the White territory at × should be considered to have disappeared.</p>
+<p>By capturing 4 White stones, Black territory increases by 9 points, and the 4 points of White territory at × are eliminated - so the triangled move is worth: 9 + 4 = 13 points. Thirteen points is the correct answer.</p>
+<p><strong>Diagram 16:</strong> Black 1 first secures 7 points of Black territory on the left. Additionally, if Black plays at <em>a</em>, 5 points are added; if White plays at <em>a</em>, zero. Splitting gives 2.5 points. On the other hand, if White plays at 1, <em>a</em> is worth 0.5 points. Therefore, 7 + 2.5 + 0.5 = 10 points. This is the value of Black 1.</p>
+<p>Oh, a strange fractional number has appeared. Half a point doesn&#8217;t exist in reality, but because we&#8217;re splitting in the calculation, fractional numbers come up.</p>
+
+<hr class="page">
+<div class="page-number">21</div>
+<p><strong>Diagram 17:</strong> Incidentally, as we have seen, the second-line hane-and-connect is worth at least 6 points, and depending on the situation can be worth 8, 10, 12, or 14 points.</p>
+<p>How about the hane-and-connect of White 1 and 3? After this, as we have already seen, we get the descent-descent - White at <em>a</em> and Black at <em>b</em>.</p>
+<p><strong>Diagram 18:</strong> From Black&#8217;s side, the hane-and-connect is 1 and 3.</p>
+<p><strong>Diagram 19:</strong> After this, either White plays 1 and 3&#8230;</p>
+<p><strong>Diagram 20:</strong> &#8230;or Black plays 1 and 3.</p>
+<p>Since Diagrams 19 and 20 are equal in value, one might say we should apply the &quot;descent-descent&quot; rule and split the difference. But that won&#8217;t work here. Look carefully: White&#8217;s hane-and-connect (Diagram 19) is gote, but Black&#8217;s 1 and 3 in Diagram 20 can be played as sente. You can see that the sente player has the stronger claim.</p>
+
+<hr class="page">
+<div class="page-number">22</div>
+<p>When the next move is sente for one side and gote for the other, naturally the sente player should be able to play as they intend.</p>
+<p>If the next move is gote for both sides, split the difference.</p>
+<p>If the next move is sente for one side and gote for the other, calculate based on the sente player&#8217;s expected diagram - splitting is not appropriate.</p>
+<p>Therefore, in this hane-and-connect case, we compare Diagrams 21 and 22. In Diagram 21, after Black plays the second-line hane-and-connect, Black continues with a first-line hane-and-connect as sente.</p>
+<p>Comparing territories: Black territory is 3 points (× marks in Diagram 21), White territory is 5 points (△ marks in Diagram 22), for a total of 8 points.</p>
+<p>In the end, this hane-and-connect is worth 8 points - 2 more than the 6-point case.</p>
+<p>We must pay close attention to whether the follow-up endgame moves are sente or gote.</p>
+<p>Let&#8217;s look at various hane-and-connects.</p>
+<p><strong>Diagram 23:</strong> How should Black play? Black descends at 1, and in response to White&#8217;s press at 2, Black plays the hane-and-connect with 3 and 5.</p>
+
+<hr class="page">
+<div class="page-number">23</div>
+<p>This is also a strong option, but let&#8217;s consider the hane-and-connect approach.</p>
+<p><strong>Diagram 24:</strong> Black plays the hane-and-connect at 1 and 3. This is gote for the moment, but the idea is to reduce White&#8217;s territory as much as possible.</p>
+<p><strong>Diagram 25:</strong> After this, Black&#8217;s 1 and 3 are sente. White&#8217;s hane at 3 would be gote, but for Black it is sente. We must therefore assume Black can play as intended. This is the assumed diagram for when Black initiates.</p>
+<p><strong>Diagram 26:</strong> What does the assumed diagram look like from White&#8217;s side? After White 1 and 3&#8230;</p>
+<p><strong>Diagram 27:</strong> White&#8217;s 1 and 3 are sente, so Black is assured of playing through 4.</p>
+<p>The difference between Diagrams 25 and 26 is 5 points of White territory and 5 points of Black territory, for a total of 10 points.</p>
+<p>Both Black&#8217;s hane-and-connect and White&#8217;s hane-and-connect are worth 10 points.</p>
+
+<hr class="page">
+<div class="page-number">24</div>
+<p><strong>Diagram 28:</strong> This is similar to the previous problem, but slightly different.</p>
+<p>After Black 1 and 3&#8230;</p>
+<p><strong>Diagram 29:</strong> Black hanes at 1. If White presses at 2 - watch out! Black has the cut at 3, which is very serious.</p>
+<p><strong>Diagram 30:</strong> White must give way at 2, and play continues through White 6. Even though White playing at <em>a</em> in Diagram 28 would be gote, Black&#8217;s sequence here is sente, so White is essentially committed to playing through 6.</p>
+<p><strong>Diagram 31:</strong> From White&#8217;s side, the hane-and-connect is 1 and 3. After this, the first-line hane-and-connect is sente only for White, so play continues with White <em>a</em> through Black <em>d</em>.</p>
+<p>Comparing Diagrams 30 and 31: White territory is 7 points and Black territory is 5 points, for a total of 12 points. This hane-and-connect is worth 12 points.</p>
+
+<hr class="page">
+<div class="page-number">25</div>
+<p><strong>Diagram 32:</strong> This is the largest hane-and-connect in the second-line cut-off family.</p>
+<p><strong>Diagram 33:</strong> After White plays the hane-and-connect, in response to White <em>a</em>, Black must give way at <em>b</em>, and play continues through Black <em>f</em>.</p>
+<p>What if Black plays the hane-and-connect instead? The result is the same as Diagram 30 on the previous page.</p>
+<p>In the end, we compare Diagrams 34 and 35.</p>
+<p>Look: both White territory and Black territory show 7 × marks each, for a total difference of 14 points.</p>
+<p>This hane-and-connect is worth a remarkable 14 points.</p>
+<p>6, 8, 10, 12, 14 points - hane-and-connects come in many sizes, and we must accurately grasp each one&#8217;s value.</p>
+
+<hr class="page">
+<div class="page-number">26</div>
+<p><strong>Diagram 36:</strong> Black captures the 5 stones on the left with 1. Since there are two dame, the initial gain is 12 points.</p>
+<p>Furthermore, <em>a</em> remains. Since Black <em>a</em> is a 5-point move, we halve it with White <em>a</em> to get 2.5 points. 12 + 2.5 = 14.5 points.</p>
+<p>Since the remaining moves are double gote, we split the difference to arrive at 14.5 points.</p>
+<p><strong>Diagram 37:</strong> What about this shape?</p>
+<p>After Black 1, the capture at <em>a</em> remains. If both Black taking at <em>a</em> and White connecting at <em>a</em> are gote, we halve it.</p>
+<p><strong>Diagram 38:</strong> However, in this case Black 1 is sente. If White does not capture at 2, the White stones in the corner die.</p>
+<p>Since it is sente, Black can play 1 and White 2 at any time. Therefore, Black&#8217;s cut at 1 in Diagram 37 is worth 12 + 5 = 17 points, plus 1 point for when White plays first, for a total of 18 points.</p>
+<p>There are situations where splitting is necessary and situations where it is not. The latter is when the remaining endgame is decided by sente moves.</p>
+
+<hr class="page">
+<div class="page-number">27</div>
+<div class="headers">Sente and Gote</div>
+<p>Following the gain-loss counting method, the second most important concept is distinguishing sente from gote. For example, even when a move is simply called &quot;5 points,&quot; we must clearly distinguish whether it is 5 points of sente or 5 points of gote.</p>
+<p><strong>Diagram 1:</strong> Whether Black hanes at <em>a</em> or White hanes at <em>b</em>, the result is gote - meaning it is gote for either player.</p>
+<p>This type of position is called double gote.</p>
+<p>What about Diagram 2?</p>
+<p><strong>Diagram 3:</strong> If Black plays, it is sente through White 4.</p>
+<p><strong>Diagram 4:</strong> If White plays, it is gote.</p>
+<p>In other words, sente for one side but gote for the other. This type of position is called one-sided sente (katasente).</p>
+
+<hr class="page">
+<div class="page-number">28</div>
+<p><strong>Diagram 5:</strong> Whether Black or White plays this shape, it is sente - as shown in Diagrams 6 and 7. A position where either player&#8217;s move is sente is called double sente.</p>
+<ul>
+<li>Double gote (gote for either player)</li>
+<li>One-sided sente (sente for one side, gote for the other)</li>
+<li>Double sente (sente for either player)</li>
+</ul>
+<p>Every move belongs to one of these three categories.</p>
+<p>Of the three, the order of priority is as follows:</p>
+<ol>
+<li>Double sente</li>
+<li>One-sided sente</li>
+<li>Double gote</li>
+</ol>
+<p>Double sente is &quot;first come, first served,&quot; so it is the highest priority. Next comes one-sided sente, and finally double gote.</p>
+<p>However, this is a general rule - playing a double-sente move too early can sometimes eliminate aji, and there are also situations where even a double-gote move worth 20 or more points must be played immediately.</p>
+
+<hr class="page">
+<div class="page-number">29</div>
+<p><strong>Diagram 8</strong> is a one-sided sente position. White 1 and 3 are the gote endgame in a one-sided sente position. The gote endgame in a one-sided sente position is called reverse sente (gyaku-yose or gyaku-sente). Converted to double-gote terms, reverse sente is normally worth twice as much.</p>
+<p>White 1 and 3 in Diagram 8 are a 3-point reverse sente, yet they are worth the same as a 6-point gote move as in Diagram 9. There is a reason reverse sente is worth twice as much, but we won&#8217;t go into it here. The main point is that reverse sente moves are surprisingly large - a 5-point reverse sente should be thought of as roughly 10 points of double gote.</p>
+<p><strong>Diagram 10:</strong> 1-point gote.</p>
+<p><strong>Diagram 11:</strong> 1-point reverse sente.</p>
+<p>Even though both are 1 point, Diagram 11 is generally larger. It is wrong to treat them as equal just because both show 1 point.</p>
+
+<hr class="page">
+<div class="page-number">30</div>
+<p><strong>Diagram 12:</strong> This is a double-sente position. The diagram where Black plays 1 through White 4&#8230;</p>
+<p><strong>Diagram 13:</strong> &#8230;and the diagram where White plays 1 through Black 4&#8230;</p>
+<p>Comparing them: 2 points of Black territory and 2 points of White territory, for a total difference of 4 points.</p>
+<p>Either player can play as sente. Since a 4-point gap opens unconditionally, it is profitable to play first. However, playing too early and allowing the opponent to solidify while eliminating various aji is not good. The point is that you must not lose more than 4 points in pursuit of that 4-point gain.</p>
+<p><strong>Diagram 14:</strong> Black 1 is sente. White must respond at 2.</p>
+<p><strong>Diagram 15:</strong> The difference between White 1 and Diagram 14 is 1 point of Black territory and 3 points of White territory, for a total of 4 points.</p>
+<p>This is a one-sided sente position worth 4 points.</p>
+
+<hr class="page">
+<div class="page-number">31</div>
+<p><strong>Diagram 16:</strong> Black 1 is a 4-point double-gote move.</p>
+<p><strong>Diagram 17:</strong> This is because the difference between White taking at 1 and Diagram 16 is 4 points.</p>
+<p><strong>Diagram 18:</strong> <em>a</em> (White <em>b</em>) is a 4-point double-sente position.</p>
+<p><strong>Diagram 19:</strong> <em>a</em> is a one-sided sente position. If Black plays there, it is 4-point sente. If White plays, it is 4-point reverse sente.</p>
+<p><strong>Diagram 20</strong> (next page): <em>a</em> is a 4-point double-gote position regardless of who plays.</p>
+<p>Even though all three are worth 4 points, the nature of the moves differs as shown above. The nature of a move is whether it is sente or gote.</p>
+<p>Among Diagrams 18 through 20, in general Diagram 18 receives the highest priority, followed by Diagram 19, with Diagram 20 last.</p>
+<p>Keep in mind that the one-sided sente in Diagram 19 is worth twice as much as in Diagram 20, even though both show 4 points.</p>
+
+<hr class="page">
+<div class="page-number">32</div>
+<p>There is one thing I want to point out about &quot;sente.&quot;</p>
+<p><strong>Diagram 21</strong> is a one-sided sente position. White can play 1 through 4. This is, so to speak, White&#8217;s prerogative.</p>
+<p><strong>Diagram 22</strong> is also a one-sided sente position. White 1 through Black 6 is sente.</p>
+<p>In both diagrams, there is a possibility that Black could play reverse sente, but that chance rarely comes around. White, given any opportunity, will go ahead and settle things with sente one after another.</p>
+<p>However, when White plays many such positions as in Diagrams 21 and 22 with sente in rapid succession, Black may get frustrated and say:</p>
+<p>&quot;I&#8217;m being totally pushed around in the endgame!&quot;</p>
+<p>This thinking is mistaken. Since White has sente in all of these positions, one must accept that this is how things will go. When the opponent has sente and you have gote, there is nothing strange about the game going exactly as your opponent wants. You are not being pushed around at all.</p>
+
+<hr class="page">
+<div class="page-number">33</div>
+<div class="headers">Calculating Difficult Moves</div>
+<p>All the positions we have examined so far are endgame moves with clearly defined shapes. Calculating those is relatively easy. But moves in the middle game, or endgame positions where the shape is not yet settled - moves carrying various threats (attacking threats, etc.) or latent possibilities - are hard to evaluate in terms of exact point value.</p>
+<p>This is especially true of opening moves, where accurate point counting is virtually impossible.</p>
+<p>Even so, it is possible to arrive at a rough estimate of how many points a move is worth. The basic method is to calculate the difference depending on whether each side plays the move, and then determine whether it is sente or gote. The basics are simple.</p>
+<p>Take a look at Diagram 1.</p>
+<p>This is from one of my own games. Here Black plays 1 to capture a single stone. For those who might think, &quot;What a dull move!&quot; - let&#8217;s consider how large this move actually is. In the actual game, White responds at 2 and Black extends at 3.</p>
+
+<hr class="page">
+<div class="page-number">34</div>
+<p><strong>Diagram 2:</strong> It is a mistake to think that the triangled Black stone is merely capturing a single stone and is therefore just an endgame move. The triangled Black stone is arguably the biggest move on the board at this point.</p>
+<p>First, if White does not respond to the triangled Black stone, Black smashes in at 1. There is no good way to attack Black 1, and in fact the triangled White stone becomes the weaker group.</p>
+<p>Rather than crawling at <em>a</em>, Black forcefully invades at 1.</p>
+<p><strong>Diagram 3:</strong> Consequently, as in the actual game, White has no choice but to respond at 2. This shows that Black 1 is sente.</p>
+<p>Next, we investigate the point count.</p>
+<p>Comparing Diagram 3 with -</p>
+<p><strong>Diagram 4:</strong> - the diagram where White pulls back at 1.</p>
+<p>How large is the difference in White&#8217;s territory? Approximately 4 points.</p>
+<p>The difference in Black&#8217;s territory is unclear due to moves like White clamping at <em>a</em> in Diagram 4, but it is roughly 6 points.</p>
+<p>Approximately 4 + approximately 6 = approximately 10 points.</p>
+
+<hr class="page">
+<div class="page-number">35</div>
+<p>Approximately 10 points. Since the capture in Diagram 3 is sente, we get sente worth approximately 10 points.</p>
+<p>A sente move worth 10 points is enormous - it must not be lumped together with a 10-point double-gote move.</p>
+<p>Furthermore, since White 1 in Diagram 4 is gote, this is a one-sided sente position. White 1 in Diagram 4 is a 10-point reverse sente - it can be seen as having a value of nearly 20 points.</p>
+<p><strong>Diagram 5:</strong> This is also from one of my actual games. What would Black play here? Many large endgame moves remain on the sides, but -</p>
+
+<hr class="page">
+<div class="page-number">36</div>
+<p><strong>Diagram 6:</strong> Black plays 1 to capture. &quot;My goodness, what a petty little move!&quot; - for those who think so, let&#8217;s consider how large this move actually is.</p>
+<p>Recalling that the hane-and-connect is worth 6 points and the cut-and-capture is worth 6 points, one might assume this move is also a mere 6 points or so. That would be a serious mistake.</p>
+<p><strong>Diagram 7:</strong> White captures at 1. Then Black 2 is necessary - meaning White 1 is sente. So Black 1 in Diagram 6 was reverse sente.</p>
+<p>Let&#8217;s calculate the point count difference between Diagrams 6 and 7.</p>
+<p>The difference in Black&#8217;s territory is 3-4 points; the difference in White&#8217;s territory is 6-7 points (in Diagram 6, the area around the × marks is not territory at all).</p>
+
+<hr class="page">
+<div class="page-number">37</div>
+<p>Total: approximately 10 points.</p>
+<p>However, in Diagram 6, there is the aji of White moving out at <em>a</em>, which is a minus for Black. So some amount is subtracted from 10 points. But there are also positives.</p>
+<p><strong>Diagram 8:</strong> If White captures, Black&#8217;s approach at 1 carries no force at all. This is because White&#8217;s 5 stones are strong, making Black 1 merely a territory-reducing move.</p>
+<p><strong>Diagram 9:</strong> On the other hand, if Black has captured, Black&#8217;s approach at 1 also works as an attack on the weak 3 White stones. This is an extra benefit of the triangled Black stone.</p>
+<p>With that bonus factored in, the total comes to approximately 10 points.</p>
+<p>Territory difference: 10 points minus α, plus α = 10 points.</p>
+<p>In the end, the triangled Black stone is 10-point reverse sente - equivalent to a roughly 20-point double-gote move.</p>
+
+<hr class="page">
+<div class="page-number">38</div>
+<p>In the opening and middle game, there are many moves whose value is difficult to pin down. In such cases, the smart approach is to estimate a rough figure of &quot;approximately how many points.&quot;</p>
+<p><strong>Diagram 10:</strong> Black&#8217;s check at 1 is, at first glance, a wonderfully large move.</p>
+<p><strong>Diagram 11:</strong> With the triangled Black stone checking White, White&#8217;s two-space extension must be considered to have zero territory! You might wonder whether there aren&#8217;t 5 or 6 points there. That does seem plausible, but this White group is by no means strong. For instance, Black can make a placement at 1 to attack.</p>
+<p><strong>Diagram 12:</strong> Or Black can press down from above with 1 to attack.</p>
+<p>Either way, White has resources for shinogi and sabaki. But it is clear that Black will gain some definite profit - either building solid territory or developing outside influence -</p>
+<p><strong>Diagram 13:</strong> Now, if White plays first, there is the extension at 1 -</p>
+
+<hr class="page">
+<div class="page-number">39</div>
+<p>after which these White stones need no longer worry about being attacked. Moreover, the points at the × marks can be regarded as virtually territory. So the difference in White&#8217;s territory is -</p>
+<p>12 - 0 = 12 points.</p>
+<p>What about Black&#8217;s territory?</p>
+<p>Black&#8217;s territory in the upper right in Diagram 11 is approximately 18 points. In Diagram 13 this decreases to about 10 points. The difference is approximately 8 points. In total, the territory difference (swing) is -</p>
+<p>12 + 8 = 20 points.</p>
+<p>To these 20 points, we add the bonus from the attacking possibilities seen in Diagrams 11 and 12.</p>
+<p>Although it is double gote, this check is a large move worth nearly 25 points. You may be surprised to hear 25 points, but the move truly carries that kind of value, and it can be called a move well worth noting in the opening.</p>
+
+<hr class="page">
+<div class="page-number">40</div>
+<p><strong>Diagram 14:</strong> White slides at 1. Regardless of the situation on the left half of the board, one&#8217;s eyes are drawn here first. In most cases it can be called the largest move on the board. But how should we think about the size of this move?</p>
+<p>&quot;I don&#8217;t know where to begin thinking about it.&quot;</p>
+<p>The reason you don&#8217;t know is that you&#8217;re approaching it in too complicated a way. Simplify the analysis as much as possible and arrive at a rough estimate.</p>
+<p><strong>Diagram 15:</strong> First, if White slides at the triangled stone, anyone can see that 8 points of White territory appear at the × marks. In reality it could be larger, so it&#8217;s reasonable to estimate 10 points.</p>
+<p><strong>Diagram 16:</strong> If Black plays first, Black plays 1.</p>
+<p>After Black 1, the 12 points at the × marks can be regarded as virtually Black territory. These 12 points of Black territory are reduced to zero by the triangled stone in Diagram 15.</p>
+
+<hr class="page">
+<div class="page-number">41</div>
+<p>&quot;That&#8217;s not right. Even after the triangled slide in Diagram 15, if Black plays a few moves, some territory will form there.&quot;</p>
+<p>This view is one-sided. Of course, if Black plays, some territory will be created. But if White continues after the triangled stone, White&#8217;s territory increases too -</p>
+<p>So the difference in Black&#8217;s territory is 12 points.</p>
+<p><strong>Diagram 17:</strong> On the other hand, if Black jumps to the triangled stone, what happens to White&#8217;s territory? Because of Black&#8217;s attacking possibilities at <em>a</em> or <em>b</em>, this White territory must be regarded as zero. If White immediately crawls at <em>a</em>, the triangled stone becomes sente, and the exchange of the triangled stone for White <em>a</em> becomes profitable.</p>
+<p>So the difference in White&#8217;s territory is 10 points.</p>
+<p>12 + 10 = 22 points. Although it is gote, Diagram 17 carries the additional bonus of attacking possibilities, so it can be regarded as more than 22 points.</p>
+
+<hr class="page">
+<div class="page-number">42</div>
+<p><strong>Diagram 18:</strong> Black 1 is an extraordinarily massive move.</p>
+<p>Such a configuration rarely arises, and if it does, it would draw both players&#8217; keen attention.</p>
+<p><strong>Diagram 19:</strong> For White, the move is the knight&#8217;s move at 1.</p>
+<p><strong>Diagram 20:</strong> With the triangled Black stone, looking at the configuration above, the × marks can be regarded as virtually Black territory. Of course White has means of invasion, but if the × territory disappears, Black can take compensation through attacks and the like. For White too, if Black presses down, invading deeply is inadvisable.</p>
+<p>When White slides at 1 as in Diagram 19, those 18 points vanish entirely. You might object that it&#8217;s strange for all of it to disappear, but if Black were to play there, they would seek thickness with something like the capping play at <em>a</em>. Black would gain thickness instead of territory - but that&#8217;s only when Black plays first.</p>
+
+<hr class="page">
+<div class="page-number">43</div>
+<p>On the other hand, White&#8217;s territory is approximately 20 points in Diagram 19. In Diagram 20, with Black 1 and 3 being effective, it&#8217;s approximately 10 points. The difference is 10 points.</p>
+<p>18 + 10 = 28 points.</p>
+<p>This is nearly 30 points - remarkable! It may seem unbelievable, but that is how this configuration works out.</p>
+
+<hr class="file">
+<div class="headers">Plus and Minus</div>
+<p>Finally, let&#8217;s say a word about half-ko.</p>
+<p><strong>Diagram 1:</strong> Taking with Black <em>a</em> depends on ko threats, but it&#8217;s a move worth 1 point or less.</p>
+<p><strong>Diagram 2:</strong> In contrast, the difference between Black 1 and White 1 is 3 points. Moreover, there is the additional benefit of capturing at <em>a</em> after Black 1, making it a &quot;3-plus&quot; move.</p>
+
+<hr class="page">
+<div class="page-number">44</div>
+<p><strong>Diagram 3:</strong> How many points is Black 1? This is easy - Black 1 is a gote move of 5 points.</p>
+<p><strong>Diagram 4:</strong> Now, how does Black 1 fare in this configuration?</p>
+<p><strong>Diagram 5:</strong> The difference compared to White 1 is -</p>
+<p>Black territory 5 points, White territory 1 point, total 6 points. Additionally, there is the right to capture at <em>a</em> in Diagram 4.</p>
+<p>If White connects at <em>a</em>, the matter is resolved. If Black captures and then connects, Black gains 1 point. Since 1 point can arise in three moves, that&#8217;s one-third of a point - meaning there&#8217;s a one-in-three chance of gaining 1 point.</p>
+<p>So it&#8217;s 6 and one-third points: a &quot;6-plus&quot; move.</p>
+<p>In this book, fractions of a point are expressed using the terms 強 (&quot;plus&quot;) and 弱 (&quot;minus&quot;). However, fractions less than 1 point are of little significance, so there&#8217;s no need to worry too much about them. 6 points and &quot;6-plus&quot; are much the same.</p>
+
+<hr class="page">
+<div class="page-number">45</div>
+<div class="headers">Chapter 2</div>
+
+<hr class="file">
+<div class="headers">Tesuji and Point Values</div>
+
+<hr class="page">
+<div class="page-number">46</div>
+<p>Let&#8217;s develop the habit of asking &quot;how many points is this move?&quot; whenever various moves arise in actual play.</p>
+<p>For joseki sequences where each move is forced, or for capturing races, it is meaningless to assign a point value to each move. But for many moves, you can make an approximate estimate of about how many points.</p>
+<p>We have collected about 60 positions likely to appear in actual games. Please think about how many points each move is worth.</p>
+<p>Even if you don&#8217;t arrive at the right answer, as you read on you will naturally develop a feel for counting points.</p>
+
+<hr class="page">
+<div class="page-number">47</div>
+<div class="headers">Problem 1: The Descent Tesuji</div>
+<p>In this position, descending with Black 1 is the endgame tesuji. Making the hane-and-connect at A is incorrect. Why is Black 1 the tesuji?</p>
+<p>Think about what follow-up threats Black has after playing 1. If you can see that, you can calculate the point value of Black 1. Sente and gote considerations must also be kept in mind.</p>
+<p>Note: when thinking about each problem, please don&#8217;t just give &quot;X points&quot; as your answer - always specify the nature of the move as well: sente (how many points), reverse sente (how many points), or gote (how many points).</p>
+
+<hr class="page">
+<div class="page-number">48</div>
+<div class="headers">Reverse Sente, 4 Points</div>
+<p><strong>Diagram 1:</strong> After the descent of the triangled Black stone, Black can next play the atekomi at 1. However, since this is a gote endgame move, it is not guaranteed to happen.</p>
+<p><strong>Diagram 2:</strong> White may block at 1, after which Black <em>a</em> and White <em>b</em> follow. Whether Diagram 1 or Diagram 2 occurs is even.</p>
+<p><strong>Diagram 3:</strong> For White, there is the hane-and-connect at 1 and 3, which can be played in sente.</p>
+<p>The difference between Diagram 3 and Diagram 1 is 3 points of Black territory (note: if Black captures at <em>a</em> in Diagram 1 there are 2 points here, and if White captures at <em>a</em> there are zero, so Black has 1 point here) plus 3 points of White territory, totaling 6 points. The difference between Diagram 3 and Diagram 2 is only 2 points of Black territory.</p>
+<p>Averaging 6 and 2 gives 4 points. Since Diagram 3 is White&#8217;s sente, the answer is reverse sente, 4 points.</p>
+
+<hr class="page">
+<div class="page-number">49</div>
+<div class="headers">Problem 2: Surprisingly Large</div>
+<p>Black 1. This move is unexpectedly large. In the endgame, moves like this cannot be ignored.</p>
+<p>White may respond immediately at A, or may choose not to. Consider both cases and calculate the point value.</p>
+
+<hr class="page">
+<div class="page-number">50</div>
+<div class="headers">Sente, 4 Points (Gote, 11 Points)</div>
+<p><strong>Diagram 1:</strong> If White responds immediately to the triangled Black stone, White 1 settles the shape. The triangled stone is sente.</p>
+<p><strong>Diagram 2:</strong> If White does not respond, Black plays 1 through 6, followed by Black <em>a</em> and White <em>b</em>. In this case, the triangled stone is gote.</p>
+<p><strong>Diagram 3:</strong> For White, there is the hane at 1.</p>
+<p>The difference between Diagram 1 and Diagram 3 is 4 points of Black territory (the × marks in Diagram 1).</p>
+<p>The difference between Diagram 2 and Diagram 3 is 4 points of Black territory plus 7 points of White territory, totaling 11 points.</p>
+<p>Therefore, the descent of the triangled stone is either sente, 4 points, or gote, 11 points.</p>
+<p>Normally, Black 1 and following in Diagram 2 is too large to pass up, so Diagram 1 is more likely, and it is reasonable to regard the move as sente, 4 points.</p>
+
+<hr class="page">
+<div class="page-number">51</div>
+<div class="headers">Problem 3: The Common Connect-Under</div>
+<p>White connecting under with 1 and 3 comes up all the time. Arriving at an exact answer in points is very difficult. Approximately how many points is it?</p>
+<p>If White plays, 1 and 3 are fine - the question is how Black should play.</p>
+<p>&quot;That&#8217;s obvious. Just capture at Black 2.&quot;</p>
+<p>Capturing at Black 2 is a failing answer. Black has a better endgame move.</p>
+
+<hr class="page">
+<div class="page-number">52</div>
+<div class="headers">Reverse Sente, Approximately 4 Points</div>
+<p><strong>Diagram 1:</strong> After White connects under, if Black connects at 1, Black&#8217;s territory is 3 points: 2 at the × marks plus 1 from the capture. White&#8217;s territory is 2 points at the △ marks, since <em>a</em> is a repair move. Within this area, Black is about 1 point ahead.</p>
+<p><strong>Diagram 2:</strong> White captures at 1, and suppose Black connects at 2. Black has 1 point at the × mark and White has 2 at the △ marks as expected, but in reality there is more. In this diagram, within this area alone, White is 2 or more points ahead. Averaging Diagrams 1 and 2, if White connects under, White is about 1 point ahead within the × and △ area.</p>
+<p><strong>Diagram 3:</strong> For Black, 1 and 3 are good endgame moves. Black has sente through White 4. After this, White <em>a</em> and Black <em>b</em> follow, leaving Black&#8217;s territory at 5 points (the × marks plus the captured stone) and White&#8217;s territory at 2 points (the △ mark plus the captured stone). Black is 3 points ahead.</p>
+<p>If White connects under, White is approximately 1 point ahead. If Black plays, Black is 3 points ahead - so the connect-under is reverse sente, approximately 4 points.</p>
+
+<hr class="page">
+<div class="page-number">53</div>
+<div class="headers">Problem 4: The ~5-Point Connection</div>
+<p>This move also comes up frequently in the endgame. The calculation is simple - not as difficult as in the previous problem.</p>
+<p>People who think it is worth 2 or 3 points are underestimating it. People who think it is 7 or 8 points are overestimating it. Those who judge it as about 5 points are correct.</p>
+<p>If White plays first, White naturally cuts at 1. However, if Black has abundant ko threats at that point, Black can fight a ko at A in response to White 1. Let us assume, though, that Black has no such ko threats.</p>
+
+<hr class="page">
+<div class="page-number">54</div>
+<div class="headers">Gote, a Strong 5 Points</div>
+<p><strong>Diagram 1:</strong> White cuts at 1 and captures at 3. After this, White <em>a</em>, Black <em>b</em>, then Black captures the ko at <em>c</em>, and White connects 2 stones, in that order.</p>
+<p>Diagram 2 shows the resulting position.</p>
+<p><strong>Diagram 3:</strong> Comparing Diagram 3, where Black connects at the marked stone, with Diagram 2, the difference is 5 points of Black territory at the × marks in Diagram 3. Since White captured one stone initially and Black captured the ko, the prisoners cancel out. However, White has the right to capture the half-ko at <em>a</em> in Diagram 2. To be precise, this right is worth one-third of a point. Therefore, the difference between Diagrams 2 and 3 is 5 and one-third points. Since one-third is a nuisance, &quot;a strong 5 points&quot; will do. Calling it about 5 points is perfectly fine. Regardless of who plays, it is gote, a strong 5 points.</p>
+
+<hr class="page">
+<div class="page-number">55</div>
+<div class="headers">Problem 5: Even a First-Line Move&#8230;</div>
+<p>Black hanes at 1. This is not a 2-3 point move. Because there remains a follow-up to capture 3 stones, it is surprisingly large. Even a first-line hane cannot be dismissed.</p>
+<p>White must either connect the 3 stones immediately, or accept gote.</p>
+
+<hr class="page">
+<div class="page-number">56</div>
+<div class="headers">Sente, 5 Points (Gote, 9 Points)</div>
+<p><strong>Diagram 1:</strong> Even if the triangled stone is left as is for now, eventually either White connects at 1—</p>
+<p><strong>Diagram 2:</strong> —or Black captures at 1.</p>
+<p><strong>Diagram 3:</strong> For White, 1 is the move. White pushes at <em>a</em>, and Black blocks at <em>b</em>.</p>
+<p>The difference between Diagrams 3 and 1 is 1 point of Black territory plus 4 points of White territory, totaling 5 points. The difference between Diagrams 3 and 2 is 9 points of Black territory plus 4 points of White territory, totaling 13 points. The midpoint (average) of 5 and 13 is 9 points. Thus the triangled hane is gote, 9 points.</p>
+<p>In Diagram 1, if White connects immediately at 1 in response to the triangled hane, Black has sente. Therefore the triangled stone is sente, 5 points. Whether it turns out to be sente or gote cannot be determined from this position alone.</p>
+
+<hr class="page">
+<div class="page-number">57</div>
+<div class="headers">Problem 6: The Hanging Connection with Good Aji</div>
+<p>Black defends at 1. Considered purely as a territory move, it is still fairly large.</p>
+<p>If White plays instead, what would the position look like? There is a simple tesuji: White clamps at A.</p>
+<p>Since the positions after Black plays and after White plays are clear, the calculation is easy. There is no need to take the average.</p>
+
+<hr class="page">
+<div class="page-number">58</div>
+<div class="headers">Reverse Sente, 6 Points</div>
+<p><strong>Diagram 1:</strong> After the hanging connection is played at the marked stone, the natural continuation is descent-descent: Black at <em>a</em>, White at <em>b</em>.</p>
+<p><strong>Diagram 2:</strong> For White, 1 is the clamp, and the sequence runs through Black 4. After this, Black <em>a</em> and White <em>b</em> follow.</p>
+<p>Comparing Diagrams 1 and 2: the difference is 6 points of Black territory and 0 points of White territory, totaling 6 points.</p>
+<p>The triangled stone in Diagram 1 is reverse sente, 6 points. White 1 and 3 in Diagram 2 are sente, 6 points.</p>
+<p><strong>Diagram 3:</strong> If Black connects at 2 in response to White 1, White 3 followed by Black <em>a</em> amounts to the same thing. However, it would be a mistake for Black not to block at <em>a</em> after White 3. The atari at White <em>a</em> would become a very large move. Black must patiently accept here first.</p>
+
+<hr class="page">
+<div class="page-number">59</div>
+<div class="headers">Problem 7: First-Line Hanes Come in All Sizes</div>
+<p>The smallest first-line hane is gote, 2 points. But there are first-line hanes worth close to 10 points as well - they come in all sizes.</p>
+<p>Black&#8217;s hane at 1 is also a very large move.</p>
+<p>If White plays instead, how would the endgame play out? Without a correct assumed diagram for White&#8217;s play, we cannot calculate the value of Black 1.</p>
+
+<hr class="page">
+<div class="page-number">60</div>
+<div class="headers">Reverse Sente, a Strong 7 Points</div>
+<p><strong>Diagram 1:</strong> After Black hanes with the triangled stone, Black has the right to play 1. After this, White <em>a</em>, Black <em>b</em>, White <em>c</em>, Black <em>d</em>, White <em>e</em>, Black <em>f</em> follow.</p>
+<p><strong>Diagram 2:</strong> What does the assumed diagram look like if White plays? There is the brilliant move of White making the placement of 1. After Black 6 is the expected sequence. If Black plays <em>a</em> instead of Black 2, then White 3 and Black tries to block at 5 - White plays at 2 and Black is crushed.</p>
+<p>The difference between Diagrams 1 and 2 is 4 points of Black territory plus a strong 3 points of White territory, totaling a strong 7 points. Since Diagram 2 is White&#8217;s sente, the hane at the triangled Black stone in Diagram 1 is reverse sente, a strong 7 points - that is the answer.</p>
+<p><strong>Diagram 3:</strong> White&#8217;s hane at 1 is a failure. Black jumps to 2 in response, and this is the key move; White is about 2 points worse off than in Diagram 2. If Black plays <em>a</em> instead of Black 2, White making the placement of 2 is a clever move with the same meaning as Diagram 2.</p>
+<p>A reverse-sente 7-point move becomes 10 or more points when both sides are in gote.</p>
+
+<hr class="page">
+<div class="page-number">61</div>
+<div class="headers">Problem 8: The Big Crawl-In</div>
+<p>Black&#8217;s crawl-in at 1 is surprisingly large. For comparison, there is the gote 4-point move of capturing 2 stones with a ponnuki. How does Black 1 compare? Black 1 is far larger. Beginners tend to overlook moves like Black 1 and end up playing them at the very end, during the &quot;hane-and-connect for 2 points&quot; stage.</p>
+<p>The assumed diagram is not that difficult.</p>
+
+<hr class="page">
+<div class="page-number">62</div>
+<div class="headers">Gote, 8 Points</div>
+<p><strong>Diagram 1:</strong> From the triangled stone, the sequence Black 1 through White 6 can be considered Black&#8217;s right. White may also respond immediately at 1 in response to the triangled stone, but—</p>
+<p><strong>Diagram 2:</strong> For White, the natural move is to block at 1. Black <em>a</em> and White <em>b</em> follow — the descent-descent.</p>
+<p>Computing the difference between Diagrams 1 and 2 gives us the answer: 2 points of Black territory difference plus 6 points of White territory difference, totaling 8 points. The triangled stone in Diagram 1 and White 1 in Diagram 2 are both gote, 8 points.</p>
+<p><strong>Diagram 3:</strong> Black&#8217;s knight&#8217;s-move slide at 1 is a losing play. White passes, and the sequence runs Black 3 through White 8. Comparing to Diagram 1, White gains 1 point and Black loses 1 point, a total loss of 2 points.</p>
+
+<hr class="page">
+<div class="page-number">63</div>
+<div class="headers">Problem 9: Not to Be Underestimated</div>
+<p>How many points is Black&#8217;s descent at 1 worth? This is a somewhat difficult problem to assess, so let us think about it roughly.</p>
+<p>There is nothing particularly threatening in the corner, so you might think that Black descending at 1 is not all that useful - but this move is actually quite large and not to be underestimated.</p>
+<p>Also, we must keep the difference between sente and gote in mind. &quot;Gote may be small, but sente and reverse sente are large.&quot; For example, 8 points in gote is not that significant, but a sente 8-point move or a reverse-sente 8-point move is a size that cannot be ignored.</p>
+
+<hr class="page">
+<div class="page-number">64</div>
+<p><strong>Diagram 1:</strong> After the triangled stone descends, even setting aside the invasion at <em>a</em>, Black has at least the additional gain of a slide at 1.</p>
+<p><strong>Diagram 2:</strong> For White, 1 and 3 are the attach-and-pull. This is sente. However, the downside of White&#8217;s attach-and-pull at 1 and 3 is that the arrival of a stone at Black 4 prevents White from playing the hane-and-connect at <em>a</em>.</p>
+<p><strong>Diagram 3:</strong> If Black ignores White&#8217;s attach-and-pull, White cuts at 1 and Black is in trouble.</p>
+<p>The difference between Diagrams 1 and 2 is about 5 or 6 points of White territory and about 2 or 3 points of Black territory, totaling about 8 points. Since Diagram 2 is White&#8217;s sente, the triangled stone in Diagram 1 is reverse sente, 8 points. Converted to both-sides gote, this is a large move worth about 15 points.</p>
+
+<hr class="page">
+<div class="page-number">65</div>
+<div class="headers">Problem 10: The Atari-Hane</div>
+<p>Another first-line hane. Since Black is giving atari before haneing, this is at least not a small hane.</p>
+<p>Would you be surprised to learn that this move is larger than the gote 10-point move of capturing 5 stones with a ponnuki? But it really is that large.</p>
+<p>In response to Black 1, White does not necessarily connect the single stone.</p>
+
+<hr class="page">
+<div class="page-number">66</div>
+<div class="headers">Reverse Sente, 8 Points</div>
+<p><strong>Diagram 1:</strong> The triangled stone is not sente. However, in the future, if Black captures at 1, the sequence Black <em>a</em> through White <em>f</em> is guaranteed. White descending at <em>a</em> in response to Black 1 would be a large reverse-sente move, but let us assume the sequence continues through White <em>f</em>.</p>
+<p><strong>Diagram 2:</strong> If White connects at 1, later White <em>a</em> and Black <em>b</em> follow.</p>
+<p><strong>Diagram 3:</strong> For White, the hane-and-connect at 1 and 3 is sente.</p>
+<p>We must average Diagrams 1 and 2. The difference between Diagrams 1 and 3 is 5 points of Black territory plus 7 points of White territory, totaling 12 points. The difference between Diagrams 2 and 3 is 2 points of Black territory plus 2 points of White territory, totaling 4 points. The midpoint of 12 and 4 is 8 points.</p>
+<p>The triangled hane in Diagram 1 is reverse sente, 8 points. The hane-and-connect in Diagram 3 is sente, 8 points. A reverse-sente 8-point move is worth about 15 points when converted to both-sides gote.</p>
+
+<hr class="page">
+<div class="page-number">67</div>
+<div class="headers">Problem 11: Playing in Sente</div>
+<p>This position arose in an actual game. Black is pleased, having played the kosumi at 1, then settled the hane-and-connect and ended in sente. However, Black is playing too loosely. There is a move that steps in one more step.</p>
+<p>When we say &quot;sente,&quot; we must distinguish between double-sente positions and single-sente positions. Double sente means both players can play the position in sente. Single sente means only one side can play it in sente; for the other side, it is reverse sente. Needless to say, double sente is more valuable than single sente.</p>
+
+<hr class="page">
+<div class="page-number">68</div>
+<div class="headers">Double Sente, 8-9 Points</div>
+<p><strong>Diagram 1:</strong> Attaching at Black 1 is the correct answer. In response, White extending at 2 and 4 is common sense. If White plays the hane-through at 3 instead of White 2, Black cuts at <em>c</em> and invades White&#8217;s moyo, weakening the triangled White stone.</p>
+<p>White 4 could also be the hanging connection at <em>a</em>, in which case Black&#8217;s hane-and-connect at <em>b</em> has no effect. However, with White <em>a</em>, the situation at <em>c</em> changes, so it is give and take.</p>
+<p><strong>Diagram 2:</strong> If White plays first, 1 and 3 are again the attach-and-pull. If Black plays 3 instead of Black 2, White <em>a</em>, Black 2, White <em>b</em>&#8230; Black gains nothing.</p>
+<p>The difference between Diagrams 1 and 2 is 4 points of Black territory plus 4 or 5 points of White territory, totaling 8 or 9 points. Since both sides play in sente, this is double sente, 8-9 points. An extraordinarily large attach-and-pull.</p>
+
+<hr class="page">
+<div class="page-number">69</div>
+<div class="headers">Problem 12: The Hane-Descent</div>
+<p>This hane-descent appears in the high-point joseki.</p>
+<p>When it affects the eye shape of both sides, it is no longer a question of how many points. When it involves the life, death, or stability of stones, it can become enormously large.</p>
+<p>However, in the position shown in the diagram, it appears to be purely a territory problem.</p>
+
+<hr class="page">
+<div class="page-number">70</div>
+<div class="headers">Gote, 9 Points</div>
+<p><strong>Diagram 1:</strong> If White plays, White makes the hane-and-connect at 1 and 3. White has the right to the sente hane-and-connect at <em>a</em> through Black <em>d</em>.</p>
+<p><strong>Diagram 2:</strong> White&#8217;s hanging connection at 1 and 3 aims for the sequence White <em>a</em>, Black <em>b</em>, forcing Black to play the loose response. If that works, White gains 2 points, but Black blocking at <em>c</em> in response to White <em>a</em> is likely. The ko complications are troublesome. Without being too greedy, we take Diagram 1 as the standard sequence.</p>
+<p>We need only compare Diagrams 1 and 3.</p>
+<p>Black territory is 5 points, White territory is 4 points, totaling 9 points. Regardless of who plays, this is gote, 9 points.</p>
+<p>If White can force Black to play loosely with the hanging connection as in Diagram 2, it becomes gote, 11 points.</p>
+<p>As a pure territory problem, this is a move to play in the early stages of the endgame.</p>
+
+<hr class="page">
+<div class="page-number">71</div>
+<div class="headers">Problem 13: The Star-Point Large-Knight Joseki</div>
+<p>This joseki arises when White approaches the star-point Black stone, Black makes the large knight&#8217;s move, and White invades at 3-3. In this formation, Black can always play the sente hane-and-connect at 1 and 3, since White must live at 4.</p>
+<p>If Black does not play 1 and 3, how would White play? Do not overthink it.</p>
+
+<hr class="page">
+<div class="page-number">72</div>
+<div class="headers">Sente, 9 Points</div>
+<p><strong>Diagram 1:</strong> In this position, if White plays, White simply makes the hane-and-connect at 1 and 3. White <em>a</em> is naturally White&#8217;s right.</p>
+<p><strong>Diagram 2:</strong> White&#8217;s bend at 1 aims for the monkey jump at <em>a</em>, which would be large, so Black will block at 2. Compared to Diagram 3, White appears to gain unconditionally in sente - but since the hane-and-connect in Diagram 1 is also large, the hane-and-connect is the standard move.</p>
+<p>The difference between Diagrams 1 and 3 is 5 points of Black territory (the × marks in Diagram 3) plus 4 points of White territory (the × marks in Diagram 1), totaling 9 points.</p>
+<p>The hane-and-connect in Diagram 3 is sente, 9 points. Diagram 1 is reverse sente, 9 points.</p>
+<p>Note that the × marks are not drawn in each diagram, so please mark them mentally as you think it through. In actual games too, you calculate the × marks in your head.</p>
+
+<hr class="page">
+<div class="page-number">73</div>
+<div class="headers">Problem 14: Capturing 1 Stone</div>
+<p>White has played a single attachment and left it. About how many points is Black&#8217;s capture at 1 and 3? Think of it as a pure territory problem.</p>
+<p>Second-line hane-and-connects and captures run at least 6 points. This case seems somewhat larger. We must also take into account the question of sente and gote.</p>
+
+<hr class="page">
+<div class="page-number">74</div>
+<div class="headers">Reverse Sente, 9 Points</div>
+<p><strong>Diagram 1:</strong> After the triangled Black stone, White has the tesuji of jumping to 1 and aiming for the descent at White 4 next. With Black 2 and 4, the assumed diagram is complete. Black&#8217;s tesuji would be the kosumi at 1, but let us assume for now that White plays at 1 first.</p>
+<p><strong>Diagram 2:</strong> If White blocks at 1, after Black captures at 2, Black plays at <em>a</em> and White must play the loose response at <em>b</em>, through White <em>f</em>. You can see why White 1 in Diagram 1 is the better move.</p>
+<p><strong>Diagram 3:</strong> For White, the pull-back at 1 is sente. After Black 6, this is the most natural assumed diagram.</p>
+<p>The difference between Diagrams 1 and 3: 5 points of Black territory plus 4 points of White territory, totaling 9 points. The capture of 1 stone in Diagram 1 is reverse sente, 9 points. Diagram 3 is sente, 9 points. Among second-line moves, this belongs to the largest category.</p>
+
+<hr class="page">
+<div class="page-number">75</div>
+<div class="headers">Problem 15: The Crossing, 8 Points</div>
+<p>People say &quot;the crossing is 8 points, the monkey jump is 9 points.&quot; This refers to the first-line crossing. 8 points may sound like a great exaggeration, but there are cases where it is not an exaggeration at all.</p>
+<p>Black&#8217;s crossing at 1 is an extraordinarily large move. To understand just how large it is, consider what would happen if White plays first.</p>
+
+<hr class="page">
+<div class="page-number">76</div>
+<div class="headers">Reverse Sente, 9 Points</div>
+<p><strong>Diagram 1:</strong> After Black crosses at the marked stone, the position is settled cleanly. Nothing more needs to be said.</p>
+<p><strong>Diagram 2:</strong> If White plays, White can play all the moves starting at 1 in sente. White 7 at 9 amounts to the same thing. If White times it precisely, White can play all the way through Black 12 in sente.</p>
+<p>The difference between Diagrams 1 and 2 is 9 points eaten into Black&#8217;s territory. The triangled Black stone in Diagram 1 is the crossing, reverse sente, 9 points.</p>
+<p><strong>Diagram 3:</strong> If there is a stone at the triangled position, after White 1 and Black 2, consider Black <em>a</em>, White <em>b</em>, White <em>c</em>, Black <em>d</em>. In that case, White 1 is sente, 5 points. Also, if there were a Black stone at 2 instead, White&#8217;s descent at <em>b</em> would be only gote, 4 points. First-line crossings also vary depending on the position.</p>
+
+<hr class="page">
+<div class="page-number">77</div>
+<div class="headers">Problem 16: Even in Sente&#8230;</div>
+<p>In this position, Black&#8217;s kosumi at 1 is a somewhat slack play. One should not be satisfied just by forcing White to block at A and celebrating &quot;sente! sente!&quot;</p>
+<p>Even in sente, we should look for a move that pushes one step further.</p>
+<p>Also, if White plays first? The ordinary move is White&#8217;s kosumi at 1, but we must work out the assumed diagram after White 1 carefully.</p>
+
+<hr class="page">
+<div class="page-number">78</div>
+<div class="headers">Sente, About a Strong 9 Points</div>
+<p><strong>Diagram 1:</strong> Black plays the attach-and-pull at 1 and 3. This forces White to defend at 4, and Black has sente. White playing at 3 instead of 2 is completely unreasonable, and White&#8217;s defensive move at 4 is absolutely necessary.</p>
+<p><strong>Diagram 2:</strong> If left alone, Black plays 1. White has no choice but 2, and after Black 3 and White 4, there is the ordinary continuation of Black <em>a</em>, White <em>b</em>, Black <em>c</em>, or alternatively Black <em>c</em>, White <em>d</em>, Black <em>a</em>, White <em>b</em>, Black <em>e</em>. Black has eaten deeply into White&#8217;s territory.</p>
+<p><strong>Diagram 3:</strong> If White plays, the kosumi at 1 is the move. The standard sequence runs from Black&#8217;s atekomi at 2 through White 5.</p>
+<p>Now, the difference between Diagrams 1 and 3: in Diagram 1, after Black <em>a</em> and White <em>b</em>, White territory is about 6 points and Black territory about 3 points, totaling about 9 points.</p>
+<p>The attach-and-pull in Diagram 1 is sente, about 9 points. The kosumi in Diagram 3 is reverse sente, about 9 points.</p>
+
+<hr class="page">
+<div class="page-number">79</div>
+<div class="headers">Problem 17: A Necessary Move</div>
+<p>Black&#8217;s guzumi at 1. Rather than calling it a &quot;good move,&quot; it is simply a move that must be played here.</p>
+<p>Beginners may have no idea what this is about, but without Black 1, White gains a great deal in sente. The Black stones won&#8217;t die - but what exactly is White&#8217;s resource?</p>
+
+<hr class="page">
+<div class="page-number">80</div>
+<div class="headers">Reverse Sente, 9 Points</div>
+<p><strong>Diagram 1:</strong> The triangled Black stone is a large move that also amounts to reverse sente, 9 points.</p>
+<p><strong>Diagram 2:</strong> If White plays, the attachment at 1 is the vital point. When Black plays 2, White&#8217;s sequence of 3 through 5 is an attack with good move order. White&#8217;s pull-back at 7 in response to Black 6 is sente, and Black 8 is necessary. Black&#8217;s territory has become quite small - but Black cannot avoid making eyes in the corner.</p>
+<p><strong>Diagram 3:</strong> In response to White 1, Black 2 allows White to cut off 2 stones with 3 through 5. White even has the additional resource of the hane-back at 6 in place of White 3.</p>
+<p>In Diagram 1, Black&#8217;s territory comes to about 12 points, but in Diagram 2 only 6 points. Meanwhile, White&#8217;s territory increases by about 3 points thanks to White 1 and 7 in Diagram 2. Totaling 9 points, the triangled Black stone in Diagram 1 is therefore reverse sente, 9 points.</p>
+
+<hr class="page">
+<div class="page-number">81</div>
+<div class="headers">Problem 18: The Unsatisfying Atari</div>
+<p>Black plays atari at 1, forcing White to connect at 2.</p>
+<p>Even though it is sente, this is a rather disappointing endgame move. Is there not a way to gain more, even if it means settling for gote?</p>
+<p>Suppose there is a double gote 8-point spot elsewhere. Taking that spot with a sente 2-point or sente 3-point move is a loss. Taking it with a sente 4-point move breaks even. Taking it with a sente 5-point or sente 6-point move is a slight gain.</p>
+<p>Since the spot is double gote, 8 points, the midpoint - a sente 4-point move - breaks even.</p>
+
+<hr class="page">
+<div class="page-number">82</div>
+<div class="headers">Gote, About 10 Points</div>
+<p><strong>Diagram 1:</strong> Black&#8217;s cut at 1 followed by the connect-under at 3 is the correct answer. However, the calculation is complicated.</p>
+<p><strong>Diagram 2:</strong> The question is who plays at <em>a</em>. If Black captures at <em>a</em>, within the × and △ regions, counting prisoners, White has 7 points and Black has a strong 4 points (<em>b</em> may become Black territory). Counting only this area, White is a strong 2 points ahead. If White connects at <em>a</em>, White has 8 points and Black 1 point - White is 7 points ahead.</p>
+<p>The midpoint between a strong 2 points and 7 points is about 5 points, in White&#8217;s favor.</p>
+<p><strong>Diagram 3:</strong> On the other hand, if White plays 1, the sequence becomes White <em>a</em>, Black <em>b</em>. Within the × region, White has 15 points and Black has minus 1 point (<em>b</em> disappears). White is 16 points ahead.</p>
+<p>Subtracting about 5 points from 16 gives about 11 points. In the end, it is approximately gote, about 10 points.</p>
+
+<hr class="page">
+<div class="page-number">83</div>
+<div class="headers">Problem 19: Close to 10 Points?</div>
+<p>The calculation in the previous problem was very complicated, but in actual play you need not work it out with such precision. Getting so absorbed in calculating move values that you end up losing the game itself would be pointless. It is enough to sense roughly how many points a move is worth.</p>
+<p>Black&#8217;s capture of 2 stones at 1 is a move worth close to 10 points. Of course, this is a double gote position.</p>
+
+<hr class="page">
+<div class="page-number">84</div>
+<div class="headers">Gote, a Strong 8 Points</div>
+<p><strong>Diagram 1:</strong> After Black captures at the triangled stone, the continuation is White <em>a</em>, Black <em>b</em>.</p>
+<p><strong>Diagram 2:</strong> The question is what follows White 1 (the correct move). Considering Black <em>a</em> and White <em>b</em>, White comes out ahead in this case.</p>
+<p><strong>Diagram 3:</strong> After Black pushes through at 1 and White responds at 2, the point at <em>a</em> is seen as an equal right for both sides.</p>
+<p>In Diagram 1: within the × and △ regions, Black has 10 points and White has 1 point (at the △ mark), giving Black a net advantage of 9 points.</p>
+<p>In Diagram 3, if Black plays <em>a</em>: Black has 3 points at the × marks, and White&#8217;s territory, counting Black <em>b</em> and White <em>c</em>, comes to half a point. Black is ahead by 2.5 points. If White plays <em>a</em> instead, White is ahead by 1.5 points. Averaging gives Black ahead by half a point.</p>
+<p>Subtracting from Diagram 1&#8217;s 9 points, the capture of 2 stones is worth 8.5 points.</p>
+
+<hr class="page">
+<div class="page-number">85</div>
+<div class="headers">Problem 20: The Corner Block</div>
+<p>The calculations have been getting complicated, but please don&#8217;t worry and keep reading. It is enough to understand the method of calculation.</p>
+<p>Black&#8217;s block at 1. This one need not produce overly complicated numbers. Working it out in meticulous detail would be pointless. What is your first impression of how many points this block is worth?</p>
+
+<hr class="page">
+<div class="page-number">86</div>
+<div class="headers">Reverse Sente, About 10 Points</div>
+<p><strong>Diagram 1:</strong> If White plays first, the jump-in at White 1 is natural. It is reasonable to assume Black responds at 2.</p>
+<p><strong>Diagram 2:</strong> If Black does not respond, White will reduce the position drastically and Black&#8217;s entire base is lost. In general, Diagram 1 is the standard assumption.</p>
+<p>We compare Diagrams 1 and 3.</p>
+<p>In Diagram 3, Black&#8217;s territory is about 15 points. In Diagram 1, it has decreased to about 5 points. The difference is 10 points. White&#8217;s territory changes very little.</p>
+<p>Since Diagram 1 is White&#8217;s sente, the triangled Black stone in Diagram 3 is reverse sente, 10 points. If converted to double gote, it is close to 20 points in size.</p>
+
+<hr class="page">
+<div class="page-number">87</div>
+<div class="headers">Problem 21: A Rough Guide to Move Size</div>
+<p>Black&#8217;s defensive move at 1. This too will be a rough calculation, since an exact calculation is impossible.</p>
+<p>&quot;This feels like it should be big,&quot; and so Black jumps to 1 to defend. That is perfectly fine. It is, in fact, an extremely large move.</p>
+<p>But how large, exactly? If you have a rough sense of its size, you can compare it against other large moves on the board.</p>
+
+<hr class="page">
+<div class="page-number">88</div>
+<div class="headers">Reverse Sente, 10 Points (Gote, 20 Points)</div>
+<p><strong>Diagram 1:</strong> If White plays, we assume White slides at 1 and Black responds at 2. Black can decline to respond at 2, but for the purposes of this calculation, we assume this. Also, Black&#8217;s kosumi at 2 is itself a move of about 10 points.</p>
+<p><strong>Diagram 2:</strong> Rather than sliding, White might invade at 3-3 at 1. Whether Black plays <em>a</em> or <em>b</em> after Black 2 and White 3 depends on the overall board position.</p>
+<p>For the purpose of estimating move size, Diagram 1 is the appropriate assumption. In Diagram 1, Black and White territory are roughly equal. In Diagram 3, on the other hand, Black has about 10 more points of territory. That is, the difference between Diagrams 1 and 3 is about 10 points.</p>
+<p>Since Diagram 1 is White&#8217;s sente, the triangled Black stone in Diagram 3 is reverse sente, about 10 points. This figure, however, disregards the issues of both sides&#8217; bases and stability.</p>
+
+<hr class="page">
+<div class="page-number">89</div>
+<div class="headers">Problem 22: A Pure Territory Problem</div>
+<p>Assume that an invasion by Black at A or similar does not work.</p>
+<p>When you decide it is acceptable to solidify White&#8217;s territory, Black&#8217;s attachment at 1 turns out to be a surprisingly large move. What happens after Black 1? And if White plays first, what is White&#8217;s move?</p>
+
+<hr class="page">
+<div class="page-number">90</div>
+<div class="headers">Double Sente, 10 Points</div>
+<p><strong>Diagram 1:</strong> After Black&#8217;s attachment at 1, the sequence continues through White 8. If White ataris at 7 instead of connecting at 4, Black ataris back and White gains nothing.</p>
+<p><strong>Diagram 2:</strong> If White plays, White makes the diagonal attachment at 1. Since the corner still has aji, Black defends at 2.</p>
+<p><strong>Diagram 3:</strong> Without that defense, White&#8217;s reduction starting at 1 is large. Even if Black plays 3 instead of 2, White&#8217;s connect-under at 2 is large.</p>
+<p>We examine the difference between Diagrams 1 and 2.</p>
+<p>Black territory: 5 points (the × marks in Diagram 1). White territory: 5 points (the × marks in Diagram 2). Total: 10 points.</p>
+<p>Since it is sente regardless of whether Black or White plays, the answer is double sente, about 10 points. Unlike double gote 10 points, double sente 10 points is enormously significant - it almost transcends the question of profit and loss.</p>
+
+<hr class="page">
+<div class="page-number">91</div>
+<div class="headers">Problem 23: Refusing the Harassment</div>
+<p>This joseki arises when White approaches Black&#8217;s star-point stone with a diagonal attachment, Black extends, and then Black invades at 3-3.</p>
+<p>Black in the corner is alive as it stands, but spending a move to defend at Black 1 is also a move of considerable size that cannot be ignored.</p>
+<p>Even if there is no danger of death, consider what harassment White has available if Black does not play 1.</p>
+
+<hr class="page">
+<div class="page-number">92</div>
+<div class="headers">Reverse Sente, About 10 Points</div>
+<p><strong>Diagram 1:</strong> For the triangled Black stone, there is also the option of playing alongside at Black <em>a</em>. After the triangled stone, White <em>b</em>, Black <em>c</em>.</p>
+<p><strong>Diagram 2:</strong> White&#8217;s placement at 1 is severe. Through Black 6, living with two eyes (White <em>a</em>, Black <em>b</em>) is unavoidable.</p>
+<p><strong>Diagram 3:</strong> Black&#8217;s stubborn resistance at 2 in response to White 1 does not work. After White 7, Black <em>a</em> leads to a large ko after White <em>b</em>, and Black <em>c</em> leads to death by five-point nakade after White <em>b</em>.</p>
+<p>In Diagram 1, Black&#8217;s territory is about 9 points (the option to capture White <em>b</em> remains). In Diagram 2, Black&#8217;s territory is 2 points. The difference is about 7 points. Additionally, in Diagram 2, White&#8217;s territory increases by 3 points, so the total difference is about 10 points.</p>
+<p>Since Diagram 2 is White&#8217;s sente, the defensive triangled Black stone in Diagram 1 amounts to reverse sente, about 10 points.</p>
+
+<hr class="page">
+<div class="page-number">93</div>
+<div class="headers">Problem 24: The Large Knight&#8217;s Jump-In</div>
+<p>From the triangled stone&#8217;s kosumi, Black jumps in at 1 to reduce White&#8217;s territory. This is a satisfying move.</p>
+<p>What happens after Black 1? Since the calculation is quite complicated, we will assume that White responds to Black 1. If White does not, the position will be reduced drastically.</p>
+
+<hr class="page">
+<div class="page-number">94</div>
+<div class="headers">Sente, a Strong 10 Points</div>
+<p><strong>Diagram 1:</strong> White responds at 1 to the triangled stone. This largely settles the shape, but Black retains the push-and-cut aji at <em>a</em>, White <em>b</em>, Black <em>c</em>. That is the bonus.</p>
+<p><strong>Diagram 2:</strong> White&#8217;s kosumi at 1 largely settles the shape.</p>
+<p>We examine the difference between Diagrams 1 and 2.</p>
+<p>Black territory does not change, but White territory differs by about 10 points. Therefore, the triangled Black stone in Diagram 1 is sente, a strong 10 points.</p>
+<p>If White does not respond with 1 in Diagram 1, the calculation becomes double gote. In that case, we also factor in the continuation from the triangled stone to further reduce White&#8217;s position. As double gote, the triangled stone amounts to close to 20 points.</p>
+
+<hr class="page">
+<div class="page-number">95</div>
+<div class="headers">Problem 25: Reducing White&#8217;s Territory</div>
+<p>Black&#8217;s clamp at 1. A move we encounter time and again.</p>
+<p>If White descends, Black cuts. If White prevents the cut, Black connects under. So you might think it must be enormously large - and you would be right. Black 1, reducing White&#8217;s territory, is about as large an endgame move as there is.</p>
+
+<hr class="page">
+<div class="page-number">96</div>
+<div class="headers">Sente, About 10 Points</div>
+<p><strong>Diagram 1:</strong> In response to the triangled stone, White&#8217;s bump at 1 is the normal move. Black connects under at 2, and after White 7 is the standard sequence. White descending at 2 instead of 1, then sacrificing 2 stones after Black 4, White 1, Black 5, White 3 is not very good. Also, the hane at Black 6 and similar moves are considered Black&#8217;s right.</p>
+<p>We compare Diagrams 2 and 3.</p>
+<p>White territory differs by 9 points. For Black territory, there is the half-ko at <em>a</em> in Diagram 2 and the half-point at <em>b</em> (with the possibility of it becoming 1 point), totaling 1 point.</p>
+<p>9 points plus 1 point gives a difference of 10 points.</p>
+<p>Diagram 1 is Black&#8217;s sente, about 10 points. Diagram 3 amounts to reverse sente, about 10 points.</p>
+<p>Converted to ordinary double gote, this was a move close to 20 points in size.</p>
+
+<hr class="page">
+<div class="page-number">97</div>
+<div class="headers">Problem 26: Severe Harassment</div>
+<p>This placement appears in both even games and handicap games.</p>
+<p>Black makes the placement at 1 to harass the White stones in the corner. Once you can recognize the quality of that harassment, you have truly arrived. Beginners tend to overlook this kind of move.</p>
+<p>But what exactly happens after Black makes the placement at 1? Careful reading is required. White too must be on guard - a careless response leads to death.</p>
+
+<hr class="page">
+<div class="page-number">98</div>
+<div class="headers">Sente, More Than 10 Points</div>
+<p><strong>Diagram 1:</strong> In response to the triangled stone, White 1 is the only move. After Black 2, White hanes through at 3 and then blocks at 5 - a reliable way to live. White 7 and 9 are the right sequence for life. But White has been harassed all the way into making two eyes. If Black can force this in sente, it is Black&#8217;s success.</p>
+<p><strong>Diagram 2:</strong> If White immediately blocks at 4 and captures 2 stones at 6, Black jumps in with 5 through 7, and in this position White&#8217;s life is uncertain. If White plays 7 instead of 6, White can live, which gives nearly the same result as Diagram 1.</p>
+<p><strong>Diagram 3:</strong> If White plays, White plays the kosumi at 1.</p>
+<p>The difference between Diagrams 1 and 3: combining the difference in White territory and Black territory, more than 10 points. The sequence from the triangled stone in Diagram 1 is sente, more than 10 points - a staggering amount. The kosumi in Diagram 3 is reverse sente, more than 10 points.</p>
+
+<hr class="page">
+<div class="page-number">99</div>
+<div class="headers">Problem 27: The Second-Line Capture</div>
+<p>The minimum value of a second-line hane-and-connect followed by a capture was 6 points (see Chapter 1). Depending on the endgame conditions after the hane-and-connect and capture, it can become 8 or 10 points.</p>
+<p>Black&#8217;s connection at 1. If White plays, White cuts and captures. Of course this seems larger than 6 points.</p>
+
+<hr class="page">
+<div class="page-number">100</div>
+<div class="headers">Gote, 11 Points</div>
+<p>This is a double gote position.</p>
+<p><strong>Diagram 1:</strong> If White cuts and captures at 1 and 3&#8230;</p>
+<p><strong>Diagram 2:</strong> We consider White 1 through Black 6 to be White&#8217;s right. A ko from Black blocking at 3 instead of 2 is generally not something Black can pursue.</p>
+<p><strong>Diagram 3:</strong> After Black connects at the triangled position, we cannot assume &quot;descent-descent&quot; in what follows. This is because Black&#8217;s hane at <em>a</em> is a stronger right than White&#8217;s hane at <em>b</em>.</p>
+<p>The difference between Diagrams 2 and 3 is about 11 points. Since it is gote regardless of who plays, gote, 11 points.</p>
+<p>Compared to Problem 26&#8217;s sente more than 10 points and Problem 25&#8217;s sente about 10 points, this gote 11 points is considerably smaller. But there is no doubt it is a large endgame move played in the early stages of the endgame.</p>
+
+<hr class="page">
+<div class="page-number">101</div>
+<div class="headers">Problem 28: The Value of the Hane-and-Connect</div>
+<p>Black&#8217;s hane-and-connect at 1 and 3. At first glance, this too is worth at least 10 points, or possibly more.</p>
+<p>One amateur player said:</p>
+<p>&quot;When I was around 7 or 8 kyu, this kind of hane-and-connect seemed very small. Or rather, I had absolutely no idea how big it was. I thought capturing 3 stones outright (gote, 6 points) or capturing 4 stones (gote, 8 points) was far bigger. Now that I&#8217;m approaching shodan, I&#8217;ve finally come to understand the value of the hane-and-connect.&quot;</p>
+
+<hr class="page">
+<div class="page-number">102</div>
+<div class="headers">Gote, 11 Points</div>
+<p>This calculation is quite simple.</p>
+<p><strong>Diagram 1:</strong> After the triangled stone makes the hane-and-connect, Black 1 and 3 are naturally Black&#8217;s right.</p>
+<p><strong>Diagram 2:</strong> White makes the hane-and-connect at 1 and 3.</p>
+<p><strong>Diagram 3:</strong> White 1 and Black 2 can also be played. Rather than White haneing immediately at 1, if White judges that Black is likely to respond, Black will descend at 2.</p>
+<p>The difference between Diagrams 1 and 3: Black territory 6 points (× marks in Diagram 1), White territory 5 points (× marks in Diagram 3). Total: 11 points. This was a gote, 11-point hane-and-connect.</p>
+<p>In Diagram 3, how many points is Black&#8217;s descent at 1 as reverse sente? That move is reverse sente, 4 points. White&#8217;s capture at <em>a</em> after White 1 is about gote, 10 points.</p>
+
+<hr class="page">
+<div class="page-number">103</div>
+<div class="headers">Problem 29: Also More Than 10 Points?</div>
+<p>Black&#8217;s hane at 1. 6 or 8 points does not do it justice. Normally, the corner hane-and-connect and hane-descent in this shape often relate to base, but in this position, stone stability and attacking threats are completely irrelevant. It is purely a territory problem.</p>
+<p>Since the assumed diagrams for both sides are relatively straightforward, the numbers come out easily.</p>
+
+<hr class="page">
+<div class="page-number">104</div>
+<div class="headers">Gote, 11 Points</div>
+<p><strong>Diagram 1:</strong> After the triangled stone hanes, White 1 and Black 2 follow, and we assume Black <em>a</em> through White <em>d</em>.</p>
+<p><strong>Diagram 2:</strong> If Black plays at 1, the result goes through White 4. This seems slightly better for Black, but White can also play <em>a</em> to capture Black&#8217;s single stone.</p>
+<p>Diagram 1 can be taken as the standard assumption.</p>
+<p><strong>Diagram 3:</strong> White naturally plays the hane-descent at 1 and 3. There is no need to bother connecting at <em>a</em> or making a hanging connection at <em>b</em> instead of White 3.</p>
+<p>The difference between Diagrams 1 and 3: White territory 7 points, Black territory 4 points. Total: 11 points. Regardless of who plays, gote, 11 points. Compared to the &quot;gote, 6-point hane-and-connect,&quot; it is 5 points larger because White must tend to the position through <em>d</em> in Diagram 1.</p>
+
+<hr class="page">
+<div class="page-number">105</div>
+<div class="headers">Problem 30: What Is the Right Move?</div>
+<p>If Black plays in the corner, which move is correct? Consider that first. Sliding on the first line is not a good way to play.</p>
+<p>As in this case, there are &quot;established shapes&quot; in the endgame - and particularly so in the late endgame. If you reach the point where you can immediately recognize at first glance &quot;in such a position, this is the move,&quot; you have truly mastered it.</p>
+
+<hr class="page">
+<div class="page-number">106</div>
+<div class="headers">Gote, 11 Points</div>
+<p><strong>Diagram 1:</strong> Black makes the jump-attachment at 1. Black connects solidly at 3 in response to White 2. If White wedges in at 3 instead of 2, Black <em>a</em>, White <em>b</em>, Black 2 actually turns out worse for White.</p>
+<p><strong>Diagram 2:</strong> After Diagram 1, Black&#8217;s two moves at 1 and 3 can eventually be played in sente.</p>
+<p><strong>Diagram 3:</strong> White naturally plays 1.</p>
+<p>We compare Diagrams 2 and 3. White territory: 9 points (× marks in Diagram 3). Black territory: 2 points (× marks in Diagram 2). Total: 11 points. In Diagram 2, it is unclear whether Black hanes at <em>a</em> or White plays at <em>a</em>, but a total of 11 points is a reasonable figure.</p>
+<p>Black 1 and 3 in Diagram 1 being gote, 11 points may come as a surprise. It is a far larger move than it appears.</p>
+
+<hr class="page">
+<div class="page-number">107</div>
+<div class="headers">Problem 31: From an Actual Game</div>
+<p>This position was taken from an actual game. Black&#8217;s bend at 1. Try to figure out how many points this move is worth.</p>
+<p>This calculation, however, is extremely difficult, and even high-dan amateurs would struggle considerably. Since it is a hard problem, it is fine not to arrive at an exact figure.</p>
+<p>Some people might feel it is around 3 or 4 points. But 3 or 4 points is a severe underestimation.</p>
+
+<hr class="page">
+<div class="page-number">108</div>
+<div class="headers">Gote, About 11 Points</div>
+<p><strong>Diagram 1:</strong> After the triangled stone, if Black cuts at 1, White territory is zero through Black 5 (each player captures one stone). If White connects at 3 instead of 2, Black&#8217;s connect-under at <em>a</em> is sente.</p>
+<p><strong>Diagram 2:</strong> If White connects at 1, White&#8217;s territory here amounts to 5 points. Splitting the difference between Diagrams 1 and 2, the triangled stone&#8217;s bend results in 2.5 points of White territory.</p>
+<p><strong>Diagram 3:</strong> With the triangled White stone&#8217;s block, White 1 through Black 6 is White&#8217;s right. If Black blocks at 3 instead of 2, White has the cut at <em>a</em>. White&#8217;s territory amounts to 8 points.</p>
+<p>The difference in White territory is 8 points minus 2.5 points, which is 5.5 points. The difference in Black territory is about 5 points. The conclusion is that this move is worth about 11 points.</p>
+
+<hr class="page">
+<div class="page-number">109</div>
+<div class="headers">Problem 32: A Common Pattern</div>
+<p>The previous problem, being taken from an actual game, required difficult reading and calculation.</p>
+<p>Black&#8217;s capture at 1 and 3 is not as difficult as the previous problem.</p>
+<p>It is a single-stone capture that appears frequently in actual games. It is convenient to have a rough sense of how many points a move like this is worth.</p>
+
+<hr class="page">
+<div class="page-number">110</div>
+<div class="headers">Gote, 12 Points (10 Points)</div>
+<p><strong>Diagram 1:</strong> After capturing White&#8217;s stone, the routine sequence from Black&#8217;s hane at 1 through White 6 is the obvious play.</p>
+<p><strong>Diagram 2:</strong> Or White may have to retreat at 2.</p>
+<p>Whether White can block or must retreat depends, needless to say, on the ko threats available and the overall board judgment.</p>
+<p><strong>Diagram 3:</strong> Conversely, if White plays 1, White <em>a</em> through Black <em>d</em> is White&#8217;s right. Later, Black <em>e</em> and White <em>f</em> follow.</p>
+<p>The difference between Diagrams 1 and 3: Black territory 5 points, White territory 5 points, total 10 points. Between Diagrams 2 and 3: Black territory 5 points, White territory 7 points, total 12 points. If White retreats, gote, 12 points; if White blocks immediately, gote, 10 points.</p>
+
+<hr class="page">
+<div class="page-number">111</div>
+<div class="headers">Problem 11: First Impression</div>
+<p>In this shape, Black plays at 1. White&#8217;s knight&#8217;s move to A is the usual endgame play for both sides.</p>
+<p>This may be a somewhat difficult problem to calculate. What is your first impression of how many points it is worth? Stare at the difference between Black 1 and White A, and try to estimate roughly how many points it is.</p>
+
+<hr class="page">
+<div class="page-number">112</div>
+<div class="headers">Gote, 12 or 13 Points</div>
+<p><strong>Diagram 1:</strong> After the triangled stone, White pressing at 1 from above is the natural move. Blocking at 2 is somewhat conceding to Black; Black plays out at 2 and 4. Prioritizing the upper area with Black 4 rather than retreating at <em>a</em> is also basic common sense.</p>
+<p><strong>Diagram 2:</strong> After Diagram 1, White 1, Black 2. After that, Black <em>a</em>, White <em>b</em>, Black <em>c</em>, White <em>d</em>.</p>
+<p><strong>Diagram 3:</strong> If White plays 1, the result is similarly White 5.</p>
+<p>We need only find the difference between Diagrams 2 and 3. Black territory: 5 points. White territory differs by 7 or 8 points. Total: 12 or 13 points. At gote, 12 or 13 points, it is fine to play this move quite early in the endgame.</p>
+
+<hr class="page">
+<div class="page-number">113</div>
+<div class="headers">Problem 34: A Skillful Capture</div>
+<p>Black 1. Is it merely capturing a single White stone? To say it is nothing special is too shallow a view.</p>
+<p>If White plays at 1, White can capture Black&#8217;s single stone, so the difference should be larger than expected.</p>
+<p>Also, the value of this kind of move often relates to the base of the surrounding stones. In this position, the base cannot be called irrelevant.</p>
+
+<hr class="page">
+<div class="page-number">114</div>
+<div class="headers">Reverse Sente, 12 Points</div>
+<p><strong>Diagram 1:</strong> After the triangled stone, the hane-and-connect from Black 1 through White 4. This is the natural sequence.</p>
+<p><strong>Diagram 2:</strong> White plays 1. Black must respond at 2. The key point is that it is White&#8217;s sente.</p>
+<p><strong>Diagram 3:</strong> If Black does not respond, White&#8217;s jump-in at 1 creates enormous trouble for Black&#8217;s stones. Even short of that, White 1 is a large reduction. Black must struggle desperately just to live.</p>
+<p>The difference between Diagrams 1 and 2: White territory 5 points, Black territory 6 points. Furthermore, in Diagram 2, one more move from Black in the corner will likely be needed at the end. The total difference is 12 points.</p>
+<p>Since Diagram 2 is White&#8217;s sente, Black&#8217;s connection at the triangled stone is reverse sente, 12 points - an enormous amount.</p>
+
+<hr class="page">
+<div class="page-number">115</div>
+<div class="headers">Problem 35: Defending the Corner</div>
+<p>Black blocks at 1 to defend the corner territory. This is worth a considerable amount.</p>
+<p>When Black blocks at 1 in the middle game, it often relates to the stone&#8217;s base and stability, but in this case it is purely a territory problem. However, just because it is purely a territory problem does not mean it can be taken lightly.</p>
+<p>It is virtually impossible for this kind of move to be fewer than [N] points.</p>
+<p>However, playing a move like Black 1 - which is purely a territory move - too early is also to be avoided. Choose the right timing: not too early, not too late. For that, you must have a rough grasp of how many points it is worth.</p>
+
+<hr class="page">
+<div class="page-number">116</div>
+<div class="headers">Gote, 13 or 14 Points</div>
+<p><strong>Diagram 1:</strong> After blocking at the triangled stone, White 1 through Black 4 is White&#8217;s right.</p>
+<p><strong>Diagram 2:</strong> If White plays, White jumps in at 1. After White 1, Black blocks at 2, or&#8230;</p>
+<p><strong>Diagram 3:</strong> White makes the kosumi at 1. Since both are gote, we must consider them by splitting the difference. If the kosumi at White 1 could be played in sente, we would adopt that diagram, but&#8230;</p>
+<p>Let us focus on the 9 points of Black territory marked × in Diagram 1. What happens to the × marks in Diagrams 2 and 3? In Diagram 3 there is also room for White to push further into Black&#8217;s territory at <em>a</em>, and in either case, if White jumps in, White appears to have 4 or 5 more points within the × area. With Black blocking at the triangled position in Diagram 1, Black has 9 more points; if White jumps in as in Diagram 2, White has 4 or 5 more points. Therefore, gote, about 13 or 14 points.</p>
+
+<hr class="page">
+<div class="page-number">117</div>
+<div class="headers">Problem 36: A Middle-Game Hane-and-Connect (?)</div>
+<p>Black plays the hane-and-connect at 1 and 3. This appears frequently in the big endgame. But it is not uncommon for it to be played even in the middle game rather than the endgame. That is how large a move it is.</p>
+<p>There are middle games with no real fighting, where the game proceeds quietly. In such cases, if you don&#8217;t know where to play and nowhere seems particularly important, you cannot go wrong playing this hane-and-connect. Because it is such a large move, you can at least be sure it won&#8217;t be a serious loss.</p>
+
+<hr class="page">
+<div class="page-number">118</div>
+<div class="headers">Gote, 13 Points</div>
+<p><strong>Diagram 1:</strong> After the triangled Black stone, Black 1 and White 2 will eventually be played. After the hane-and-connect, however, if Black hanes at 1, White may not respond at 2.</p>
+<p><strong>Diagram 2:</strong> White&#8217;s correct move is the descent at the triangled White stone. After that, White 1 through Black 8 follows. If Black immediately blocks at 5 in response to the triangled White stone, that alone benefits White, so Black does not block. Therefore, through Black 8 can be considered White&#8217;s right. You already know how to stop the monkey jump by Black 8.</p>
+<p><strong>Diagram 3:</strong> If White makes the hane-and-connect at 1 and 3, even assuming White <em>a</em> through Black <em>d</em>, this is 2 points worse than Diagram 2.</p>
+<p>The difference between Diagrams 1 and 2: White territory 6 points, Black territory 7 points. Total: 13 points. This is a gote, 13-point hane-and-connect.</p>
+
+<hr class="page">
+<div class="page-number">119</div>
+<div class="headers">Problem 37: Mammoth-Sized</div>
+<p>This too is an eye-poppingly large move.</p>
+<p>In any board position, Black&#8217;s descent at 1 is virtually an absolute move. It is virtually inconceivable to leave such a point and play elsewhere.</p>
+<p>It would be almost foolish to calculate such a large move, but as a guideline, let us consider how many points it is worth.</p>
+
+<hr class="page">
+<div class="page-number">120</div>
+<div class="headers">Reverse Sente, 13 or 14 Points</div>
+<p><strong>Diagram 1:</strong> After descending at the triangled Black stone, Black 1 through White 8 can eventually be played. There may be harsher approaches exploiting the triangled stone, but here we limit our consideration to reducing territory.</p>
+<p><strong>Diagram 2:</strong> White plays the hane at 1. We assume Black responds at 2.</p>
+<p><strong>Diagram 3:</strong> This is because if Black does not respond, White 1 becomes an extraordinarily large move.</p>
+<p>In Diagram 2, it is fifty-fifty as to which player plays at <em>a</em> afterward, so we must split the difference. Roughly, between Diagrams 1 and 2, there is a difference of 7 or 8 points of Black territory and 6 points of White territory. Total: 13 or 14 points. The triangled Black stone is reverse sente, 13 or 14 points - as double gote, a staggering 25 points.</p>
+
+<hr class="page">
+<div class="page-number">121</div>
+<div class="headers">Problem 38: Why Capture?</div>
+<p>This is a difficult theme.</p>
+<p>A double approach to the star-point stone. It is the attachment-block joseki, but Black captures at 1.</p>
+<p>Oh? Looking carefully, the stone is already captured without needing to spend a move on it. Why capture, then? That is where we begin.</p>
+<p>The answer is simple. Because it is large - that is why one takes the trouble to spend a move capturing. Why it is so large, however, is where things get complicated.</p>
+
+<hr class="page">
+<div class="page-number">122</div>
+<div class="headers">Reverse Sente, 13 Points</div>
+<p><strong>Diagram 1:</strong> After the triangled Black stone, we can assume Black <em>a</em>, White <em>b</em>. Black&#8217;s territory is 16 or 17 points.</p>
+<p><strong>Diagram 2:</strong> If Black does not capture, White has the squeeze starting at 1. White 7 is played efficiently, and through Black 8, Black&#8217;s territory has shrunk to about 10 points.</p>
+<p>The difference in Black territory is 6 or 7 points. Furthermore, in Diagram 2, White has built thickness by blocking at 3 and 5 (White <em>a</em> is effective). The value of this thickness, compared to Diagram 1 where White has not blocked, appears to be 6 or 7 points. Combined: about 13 points. Since Diagram 2 is White&#8217;s sente, the capture in Diagram 1 is reverse sente, 13 points. This too is an immensely large move.</p>
+<p><strong>Diagram 3:</strong> Black 2 in response to White 1 is crude play. White squeezes perfectly through White 5, and the value of White&#8217;s thickness increases.</p>
+
+<hr class="page">
+<div class="page-number">123</div>
+<div class="headers">Problem 39: About 15 Points</div>
+<p>Black&#8217;s corner bend at 1 is gote regardless of who plays, so it does not have the value of reverse sente, 13 points like the previous problem.</p>
+<p>However, this kind of bend is worth about 15 points even as double gote.</p>
+<p>What! This move is 15 points? Beginners may be surprised. If it is worth 15 points, never missing such a move might make it quite hard to lose. That, at least, could be said.</p>
+
+<hr class="page">
+<div class="page-number">124</div>
+<div class="headers">Gote, About 14 Points</div>
+<p><strong>Diagram 1:</strong> After bending at the triangled Black stone, Black&#8217;s cut-and-capture at 1 and 3 follows. Black <em>a</em> through White <em>f</em> is Black&#8217;s right.</p>
+<p><strong>Diagram 2:</strong> If White connects at 1, we cannot assume Black <em>a</em>, White <em>b</em>. Since White&#8217;s hane at <em>a</em> reduces Black&#8217;s territory more than Black&#8217;s first-line hane-and-connect, the resulting position is slightly more favorable for White than descent-descent.</p>
+<p><strong>Diagram 3:</strong> If White crawls in at 1, White <em>a</em> onward is sente, so the sequence goes through Black <em>d</em>.</p>
+<p>The difference between Diagrams 1 and 3: Black territory 8 points, White territory 11 points, total 19 points. The difference between Diagrams 2 and 3 is about 9 points combined. The midpoint between 19 points and about 9 points is about 14 points. The reason we take the midpoint is that we split the difference between Diagrams 1 and 2. The answer is gote, about 14 points.</p>
+
+<hr class="page">
+<div class="page-number">125</div>
+<div class="headers">Problem 40: A Large Block</div>
+<p>Black&#8217;s block at 1.</p>
+<p>In four or five games, this shape is almost certain to appear at least once. Let us appreciate just how large a second-line move like this is.</p>
+<p>Depending on the game, it may even be appropriate to play it in the middle game.</p>
+
+<hr class="page">
+<div class="page-number">126</div>
+<div class="headers">Gote, 14 Points</div>
+<p>Let us try a different method of calculation from before.</p>
+<p><strong>Diagram 1:</strong> After the triangled Black stone, if Black plays 1 and 3, Black <em>a</em> through White <em>f</em> is settled. The × marks, combined with capturing one stone, amount to 15 points of Black territory.</p>
+<p><strong>Diagram 2:</strong> If White connects at 1, since White <em>a</em> through Black <em>d</em> will later be sente for White, White&#8217;s territory at △ is 7 points and the × marks are 10 points, giving Black 3 points&#8217; advantage. Since Diagrams 1 and 2 are split evenly, the midpoint between 15 points and 3 points gives Black 9 points&#8217; advantage.</p>
+<p><strong>Diagram 3:</strong> When White plays 1, if Black <em>a</em>, White <em>b</em>, Black <em>c</em>, Black has 7 points against White&#8217;s 8, giving White 1 point&#8217;s advantage. If White <em>d</em>, Black <em>e</em>, White <em>a</em>, Black has 4 points against White&#8217;s 13, giving White 9 points&#8217; advantage. The midpoint between 1 point and 9 points gives White 5 points&#8217; advantage.</p>
+<p>The difference between Black having 9 points&#8217; advantage and White having 5 points&#8217; advantage is 14 points. The answer is gote, 14 points.</p>
+
+<hr class="page">
+<div class="page-number">127</div>
+<div class="headers">Problem 41: The Champion of Captures</div>
+<p>The method of calculation in the previous problem may seem a bit different from what we have done before, but it is ultimately the same logic. It became somewhat complicated because we split the next move in each case - both when Black plays and when White plays. There is no need to be that precise, however.</p>
+<p>What about Black&#8217;s cut-and-capture at 1 and 3? Try to come up with a rough figure. Even those who find calculation difficult should be getting used to the methods we have practiced so far.</p>
+
+<hr class="page">
+<div class="page-number">128</div>
+<div class="headers">Gote, 14 Points</div>
+<p><strong>Diagram 1:</strong> After Black&#8217;s cut-and-capture, Black <em>a</em> through White <em>f</em> is guaranteed.</p>
+<p><strong>Diagram 2:</strong> If White connects at the triangled stone, Black retreats at 2 in response to White 1. After that, whether White crawls in at <em>a</em>, followed by White <em>b</em>, Black <em>c</em>, White <em>d</em>, Black <em>e</em> —</p>
+<p><strong>Diagram 3:</strong> or Black blocks at 1 — remains uncertain. We would need to split the difference between White&#8217;s crawl and Black&#8217;s block, but that would be cumbersome, so we will skip it.</p>
+<p>The difference between Diagram 1 and the triangled stone in Diagram 2 works out to White territory 7 points and Black territory about 7 points. Total: about 14 points. Even among second-line cut-and-captures, this is among the largest.</p>
+
+<hr class="page">
+<div class="page-number">129</div>
+<div class="headers">Problem 42: A Capture Not to Be Underestimated</div>
+<p>Black&#8217;s capture of one stone at 1.</p>
+<p>No one would call it a mere 2-point move. It is about 10 points - no, an even larger capture. Those who doubt it is that large should think carefully before turning the page.</p>
+<p>Since the shape does not lend itself to precise calculation, a rough comparison is sufficient.</p>
+
+<hr class="page">
+<div class="page-number">130</div>
+<div class="headers">Gote, 14 or 15 Points</div>
+<p><strong>Diagram 1:</strong> After the triangled Black stone is played, how should White&#8217;s territory be assessed? White&#8217;s territory here should be counted as zero. With Black&#8217;s invasion at <em>a</em> and similar threats, it is unreasonable to expect any White territory. If White connects at <em>b</em> in response, territory materializes, but then connecting is Black&#8217;s sente.</p>
+<p><strong>Diagram 2:</strong> If White connects at 1, about 10 points of White territory materializes. Therefore the difference in White territory is about 10 points.</p>
+<p>Meanwhile, there is a difference of 4 or 5 points in Black&#8217;s corner territory as well, since after White 1 in Diagram 2, White has the cut-in at <em>a</em>.</p>
+<p>Therefore, the difference is 14 or 15 points. Note that instead of connecting, White can also fight the ko with White 1 in Diagram 3.</p>
+
+<hr class="page">
+<div class="page-number">131</div>
+<div class="headers">Problem 43: The Obvious Move?</div>
+<p>&quot;How many points is Black&#8217;s connection at 1? I&#8217;ve never thought about that. When White makes the hane-and-connect, I always connect in response.&quot;</p>
+<p>That reaction is perfectly understandable. After all, it is such a large move that calculating the exact point value each time would be tedious. Still, knowing roughly how much it is worth is not wasted effort.</p>
+<p>Note that if White&#8217;s cut at 1 would leave Black without a base and under attack, no point count can be given - it becomes a matter beyond calculation. In this problem, please think only in terms of territory.</p>
+
+<hr class="page">
+<div class="page-number">132</div>
+<div class="headers">16 Points or Less</div>
+<p><strong>Diagram 1:</strong> When White cuts at 1, Black may respond at 2. If Black responds, Black 2 is the proper shape.</p>
+<p><strong>Diagram 2:</strong> However, Black may also not respond, in which case let us tentatively assume the sequence runs White 1 through Black 6.</p>
+<p>Let us compare Diagrams 2 and 3. The difference in Black territory is 11 points, the difference in White territory is 5 points, total 16 points.</p>
+<p>However, if Black&#8217;s stones are strong, Black is not necessarily obliged to respond at 2 in Diagram 2. Black may even ignore it altogether, and in practice this move must be considered smaller than 16 points. Therefore, if White plays the first-line hane-and-connect too early - say, in the heat of the middle game - Black may leave the triangled stone unconnected.</p>
+
+<hr class="page">
+<div class="page-number">133</div>
+<div class="headers">Easily More Than 10 Points</div>
+<p>Black 1. Please keep in mind that this kind of capture also easily exceeds 10 points.</p>
+<p>&quot;Is there really such a large difference between Black 1 and White connecting at 1?&quot;</p>
+<p>Wait a moment. White would not simply connect at 1. White has a more forceful approach.</p>
+
+<hr class="page">
+<div class="page-number">134</div>
+<div class="headers">Gote, 15 Points</div>
+<p><strong>Diagram 1:</strong> White has the clever hane at 1. If Black cuts at <em>a</em>, White&#8217;s connection at <em>b</em> handles it. After White 1, the sequence goes Black descends at 2, White 3 (a good move), Black 4; or —</p>
+<p><strong>Diagram 2:</strong> White cuts and captures at 1 and 3. These two must be split.</p>
+<p>Note, however, that in response to White 1 in Diagram 1, Black can also play <em>a</em>, White <em>b</em>, Black <em>c</em> with a hanging connection, aiming for ko.</p>
+<p>The difference between Diagrams 1 and 3: Black territory 6 points, White territory 5 points, total 11 points. The difference between Diagrams 2 and 3: Black territory 9 points, White territory 10 points, total 19 points. The midpoint between 11 points and 19 points is 15 points.</p>
+<p>The triangled Black stone is a remarkable gote, 15 points. If White fights the ko as mentioned, the value decreases somewhat.</p>
+
+<hr class="page">
+<div class="page-number">135</div>
+<div class="headers">Problem 45: Defending the Corner</div>
+<p>Black 1 is purely a defensive move for the corner.</p>
+<p>&quot;When I played this move, a strong amateur high-dan player scolded me: &#8216;You&#8217;re being too defensive, not aggressive enough.&#8217;&quot;</p>
+<p>Someone was lamenting this. Even if it may seem overly defensive, it is truly a large move, so play it without hesitation. Needless to say, there is such a thing as the right timing for defensive moves.</p>
+
+<hr class="page">
+<div class="page-number">136</div>
+<div class="headers">Reverse Sente, 15 Points</div>
+<p><strong>Diagram 1:</strong> White plays at the 3-3 point with 1. In most cases in the opening and middle game, it is good for Black to descend at 3 to live in the center and attack White&#8217;s outside stones. However, in this configuration White&#8217;s outside stones are strong, so Black allows White to connect under with 2. Through Black 6 is the standard sequence. Omitting Black 6 and allowing White to descend at <em>a</em> is too large a concession. After Black 6, White can connect under with <em>b</em>, Black <em>a</em>, White <em>c</em>.</p>
+<p><strong>Diagram 2:</strong> However, Black has the skillful sente of haneing at 1 and pulling back at 3 in response to White 2, with White <em>a</em>, Black <em>b</em> after White 4.</p>
+<p>The difference between Diagrams 2 and 3 is Black territory about 10 points, White territory about 5 points, total about 15 points. Since Diagram 1 is White&#8217;s sente, the triangled Black stone in Diagram 3 is reverse sente, 15 points. However, if White invades as in Diagram 1, the area around <em>d</em> becomes a minus for White.</p>
+
+<hr class="page">
+<div class="page-number">137</div>
+<div class="headers">A Descent in the 15-Point Class</div>
+<p>Black&#8217;s descent at 1 is the correct play in this shape. Why is the descent good? The alternative would be the hane-and-connect, but the hane-and-connect loses slightly.</p>
+<p>Incidentally, after Black 1, how should Black continue the endgame? Even constructing the assumed diagrams requires careful attention.</p>
+
+<hr class="page">
+<div class="page-number">138</div>
+<div class="headers">Gote, 15 Points</div>
+<p><strong>Diagram 1:</strong> With the triangled Black stone at <em>a</em>, Black makes the jump-attachment at 1. Since White cannot afford to let three stones be captured, the sequence goes through White 8.</p>
+<p><strong>Diagram 2:</strong> Might anyone play the monkey jump at Black 1? Compare the resulting position after White 8 with Diagram 1. White territory increases by 1 point and Black territory decreases by 1 point. Diagram 2 loses 2 points for Black. Since the liberties are tight, the jump-attachment at Black 1 in Diagram 1 is correct.</p>
+<p><strong>Diagram 3:</strong> White naturally plays the hane-and-connect at 1 and 3. We assume White <em>a</em>, Black <em>b</em> later.</p>
+<p>The difference between Diagrams 1 and 3: Black territory 7 points, White territory 8 points, total 15 points. The descent at the triangled stone and White&#8217;s hane-and-connect are both gote, 15 points.</p>
+
+<hr class="page">
+<div class="page-number">139</div>
+<div class="headers">Problem 47: 3-3 Kosumi</div>
+<p>A move like Black&#8217;s kosumi at 1 cannot be calculated precisely to an exact number of points. One can only estimate roughly how many points it is worth.</p>
+<p>Let us compare Black playing the kosumi at 1 versus White playing the kosumi at 1.</p>
+<p>Note that this 3-3 kosumi often relates to the base of both sides&#8217; stones, but in this configuration it does not appear to be particularly relevant.</p>
+
+<hr class="page">
+<div class="page-number">140</div>
+<div class="headers">Gote, 15 Points or More</div>
+<p><strong>Diagram 1:</strong> After the kosumi at the triangled stone, it is hard to predict what follows. Whether Black slides at <em>a</em> or White blocks at <em>b</em> — splitting the difference would be correct, but it gets complicated.</p>
+<p>Looking roughly, let us compare Black and White territory at the stage when the kosumi at the triangled stone is on the board.</p>
+<p>Black territory about [N] points, White territory about 5 points. Black has about [N] points more. This should be apparent to anyone.</p>
+<p><strong>Diagram 2:</strong> What if White plays the kosumi at 1? The ratio of Black to White territory is about 7 points for Black against about 10 points for White. White now has about 3 points more instead.</p>
+<p>So the difference between Diagrams 1 and 2 is 10 + 3 = 13 points.</p>
+<p>Occupying the 3-3 point also means there will be some additional value in the future — for instance, in Diagram 1, Black can press against White&#8217;s three stones at <em>a</em> and <em>c</em>.</p>
+<p>Therefore, 13 points plus additional value. It is reasonable to estimate at least about 15 points as a minimum. Depending on the configuration, it may often exceed 20 points.</p>
+
+<hr class="page">
+<div class="page-number">141</div>
+<div class="headers">Problem 48: Joseki Follow-Up</div>
+<p>This appears in actual games with almost numbing frequency.</p>
+<p>The reason it is sometimes played quite early is that it relates to the base and stability of both sides&#8217; stones. However, even considered purely in terms of the territorial difference, it is of considerable size.</p>
+<p>In joseki where White slides and Black responds at the 3-3 point, this point is always the joseki follow-up.</p>
+
+<hr class="page">
+<div class="page-number">142</div>
+<div class="headers">Gote, Approximately 16 Points</div>
+<p><strong>Diagram 1:</strong> After the triangled Black stone blocks, if Black takes with 1 and 3, Black <em>a</em> through White <em>h</em> follows. White apparently cannot block at <em>c</em> when Black plays <em>a</em>.</p>
+<p><strong>Diagram 2:</strong> Or White might defend at 1. If White plays 1, the sequence White <em>a</em> through Black <em>d</em>, then Black <em>e</em> and White <em>f</em> are Black&#8217;s prerogative.</p>
+<p><strong>Diagram 3:</strong> From White&#8217;s perspective, the triangled White stone crawls in. Blocking immediately at Black 1 is possible, but then White has sente. After the triangled White stone, we can expect White 1 through Black 6.</p>
+<p>The difference between Diagrams 3 and 1 is 11 points of Black territory and 11 points of White territory, 22 points total. The difference between Diagrams 2 and 3 is 6 points of Black territory and 4 points of White territory, 10 points total.</p>
+<p>The midpoint between 22 and 10 is 16. This is a gote move worth approximately 16 points. It can be worth more than 15 points, or it can be fewer than 16 points.</p>
+
+<hr class="page">
+<div class="page-number">143</div>
+<div class="headers">Problem 49: Large and Good Aji</div>
+<p>Black hanes and connects at 1 and 3.</p>
+<p>Don&#8217;t say &quot;How boring!&quot; Far from boring, your first instinct should tell you this is a hane-and-connect worth at least 15 points.</p>
+<p>The point count is large, but more than that, the aji is good. The player who hanes and connects gains good aji, while the player on the receiving end of the hane-and-connect is left with poor aji.</p>
+
+<hr class="page">
+<div class="page-number">144</div>
+<div class="headers">Gote, 17 Points</div>
+<p><strong>Diagram 1:</strong> When the triangled Black stone hanes and connects, Black has the clamp at 1. The sequence continues through White 4.</p>
+<p><strong>Diagram 2:</strong> If White hanes and connects, the sequence White <em>a</em> through Black <em>f</em> is natural.</p>
+<p>Just compare Diagrams 1 and 2: 7 points of Black territory, 10 points of White territory, 17 points total.</p>
+<p>For a hane-and-connect on the second line, 17 points in gote is an exceptionally large value.</p>
+<p>There is no need to halve the count because each side&#8217;s subsequent endgame moves are sente.</p>
+<p><strong>Diagram 3:</strong> Even if White connects at 2 in response to Black 1 and tries to take sente, the following Black <em>a</em> and White <em>b</em> are too large. It is generally correct to view this as White playing gote.</p>
+
+<hr class="page">
+<div class="page-number">145</div>
+<div class="headers">Problem 50: After the Attach-and-Extend Joseki</div>
+<p>Black descends at 1. This is similar to the pattern in #46, but even larger. Why? Because the expected diagram when White plays first differs considerably from the pattern in #46.</p>
+<p>After the attach-and-extend joseki, the question of who plays this point is constantly at issue.</p>
+
+<hr class="page">
+<div class="page-number">146</div>
+<div class="headers">Gote, 17 Points</div>
+<p><strong>Diagram 1:</strong> Starting from the triangled Black stone, the monkey jump at 1 is the natural sequence through White 8.</p>
+<p><strong>Diagram 2:</strong> From White&#8217;s perspective, White hanes and connects at 1 and 3. What happens after this?</p>
+<p><strong>Diagram 3:</strong> Starting with White&#8217;s push at 1, the clamp at 3 becomes available. Black has no choice but to yield at 4.</p>
+<p>If Black plays <em>a</em> instead of at 2, White&#8217;s push at 3 disappears, but then White&#8217;s push at 2 arises, weakening Black&#8217;s outer stones. Black gains nothing either way.</p>
+<p>Just compare Diagrams 1 and 3: Black territory 10 points, White territory 7 points, 17 points total. This descent is worth 17 points in gote - exactly the same size as the pattern in #49, and the subsequent endgame play is also very similar.</p>
+
+<hr class="page">
+<div class="page-number">147</div>
+<div class="headers">Problem 51: An Opening and Middlegame Slide</div>
+<p>A move like Black 1 is large enough to be played not just in the middlegame but in the opening as well.</p>
+<p>At a glance, it greatly reduces White&#8217;s territory while somewhat adding to Black&#8217;s. It is clearly a large move.</p>
+<p>How would you go about calculating approximately what it is worth?</p>
+
+<hr class="page">
+<div class="page-number">148</div>
+<div class="headers">Gote, 17 Points</div>
+<p>In such cases, think as simply as possible.</p>
+<p><strong>Diagram 1:</strong> The comparison is between the triangled Black stone in Diagram 1 and White 1 in Diagram 2. What happens after either diagram is a question, but we stop and evaluate at this point.</p>
+<p>The difference in White territory is that the 12 points marked × in Diagram 2 become zero in Diagram 1.</p>
+<p>The difference in Black territory is approximately 5 points.</p>
+<p>12 + 5 = 17 points. This large knight&#8217;s-move slide is worth approximately 17 points.</p>
+<p>Thinking this way, anyone can easily calculate the value. There is no need to worry about whether White&#8217;s territorial difference is really 12 points or whether Black&#8217;s gain is precisely 5 points.</p>
+
+<hr class="page">
+<div class="page-number">149</div>
+<div class="headers">Problem 52: The Large Knight&#8217;s-Move Slide</div>
+<p>I have seen players blocking at Black 1. This is a mistake.</p>
+<p>If White&#8217;s slide is a small knight&#8217;s move, Black 1 is fine, but since it is a large knight&#8217;s move, a sharper response must be found.</p>
+<p>If Black is to play in this corner, the first task is to identify what options are available beyond Black 1.</p>
+
+<hr class="page">
+<div class="page-number">150</div>
+<div class="headers">Gote, Approximately 18 Points</div>
+<p><strong>Diagram 1:</strong> The placement tesuji at 1 is available. White cannot capture this Black stone, so White 2 through 7 is the normal sequence. Compared to the block on the previous page, this is a large difference even though both moves are gote.</p>
+<p><strong>Diagram 2:</strong> From White&#8217;s perspective, the crawl at 1. Whether White will then aim at <em>a</em>, hane and connect at <em>b</em>, or Black will block at <em>c</em> is unclear.</p>
+<p>The difference between Diagrams 1 and 2 is approximately 10 points of Black territory and about 8 points of White territory, about 18 points total. Whether Black or White plays here, the move is worth approximately 18 points.</p>
+<p><strong>Diagram 3:</strong> If White slides with a small knight&#8217;s move, Black <em>a</em> is of course the correct response. Since Black has not taken one stone as in Diagram 1, Black <em>a</em> is slightly smaller than 18 points.</p>
+
+<hr class="page">
+<div class="page-number">151</div>
+<div class="headers">Problem 53: An Opening Move</div>
+<p>Black&#8217;s diagonal attachment at 1. This is clearly what one would call an opening move. The size of the move alone is significant, but controlling the corner matters in many respects as well.</p>
+<p>Opening moves are all worth approximately 20 points. Therefore, even if there is no added value beyond territory, if a move is worth about 20 points, it stands to reason that it can be played in the opening.</p>
+
+<hr class="page">
+<div class="page-number">152</div>
+<div class="headers">Gote, 18 Points</div>
+<p>This diagonal attachment is said to be &quot;18 points in gote.&quot; This number is approximately correct.</p>
+<p><strong>Diagram 1:</strong> After the triangled Black stone, White 1 through Black 6 follows. White 3 and 5 are a double-sente 4-point hane-and-connect, but it would be a bit greedy to expect Black to play the hane-and-connect first.</p>
+<p><strong>Diagram 2:</strong> White naturally slides at 1.</p>
+<p><strong>Diagram 3:</strong> After that, White 1 through Black 6 is considered White&#8217;s prerogative.</p>
+<p>The difference between Diagrams 1 and 3 is 11 points of Black territory (× marks in Diagram 1) and 7 points of White territory (× marks in Diagram 3), 18 points total.</p>
+<p>If the configuration prevents White from playing 1, 3, and 5 in Diagram 3 with sente, the value decreases considerably from 18 points. Also, Black blocking at <em>a</em> in Diagram 2 is a large move.</p>
+
+<hr class="page">
+<div class="page-number">153</div>
+<div class="headers">Problem 54: Hard to Spot</div>
+<p>As with the previous problem, when a large point is obvious at a glance, you find it immediately. Even without knowing exactly how large it is, everyone can see it.</p>
+<p>However, many moves that are actually large are hard to spot. Finding them is what skill is about.</p>
+<p>A move like Black 1 looks unimpressive, yet it is actually a very significant play. At first glance it even seems unnecessary to bother playing there —</p>
+
+<hr class="page">
+<div class="page-number">154</div>
+<div class="headers">Gote, 18 Points</div>
+<p><strong>Diagram 1:</strong> Starting from the triangled Black stone, Black can play 1 and 3.</p>
+<p><strong>Diagram 2:</strong> From White&#8217;s perspective, the diagonal attachment at 1 is the tesuji - the most profitable approach. Black 2 and beyond is forced, and White makes a large incursion into Black&#8217;s territory through White 7. If Black connects at 4 instead of capturing at 5, the sequence becomes White <em>a</em>, Black 4, White <em>b</em>, and Black ends up in gote.</p>
+<p>Comparing Diagrams 1 and 2:</p>
+<p>Black territory 11 points, White territory 7 points, 18 points total. This was an unexpectedly large move.</p>
+<p>Note that White has the option of omitting the hanging connection of White 7 in Diagram 2.</p>
+<p><strong>Diagram 3:</strong> Even if Black cuts at 1, White gains slightly compared to having to guard against the triangled Black stone of Diagram 1. But White 7 in Diagram 2 is a large move even in gote.</p>
+
+<hr class="page">
+<div class="page-number">155</div>
+<div class="headers">Problem 55: The Corner Is Large</div>
+<p>Black&#8217;s 3-3 block at 1.</p>
+<p>It would be strange for the game to proceed without this point being played. At any rate, it is the key point of the corner and an extremely large point territorially.</p>
+<p>They say the corners and sides are large while the center is small - Black 1 proves the point.</p>
+
+<hr class="page">
+<div class="page-number">156</div>
+<div class="headers">Gote, 18 Points or More</div>
+<p><strong>Diagram 1:</strong> After the triangled Black stone, it is unclear who plays next, but let us hypothetically assume Black <em>a</em> and White <em>b</em> each descend. White might also hane and connect —</p>
+<p><strong>Diagram 2:</strong> When the triangled Black stone hanes and connects, White must give way at 2 in response to Black 1.</p>
+<p><strong>Diagram 3:</strong> From White&#8217;s perspective, after the triangled White stone, White can play 1 and below.</p>
+<p>Comparing the hypothetical Diagram 1 (with Black <em>a</em> and White <em>b</em>) against Diagram 3: the difference is 10 points of Black territory and 8 points of White territory, 18 points total. This 3-3 block is worth approximately 18 points in gote. Since White&#8217;s territory decreases greatly when Black hanes and connects as in Diagram 2, Black actually does better than the hypothetical Diagram 1 suggests. Therefore, the value is 18 points or more in gote.</p>
+
+<hr class="page">
+<div class="page-number">157</div>
+<div class="headers">Problem 56: An Irresistible Move</div>
+<p>Black 1 is an irresistibly large move. The reason it is so large is that it takes in one White stone.</p>
+<p>If the triangled White stone were not there, the endgame play here would be very small. Second-line moves vary in value depending on the situation.</p>
+
+<hr class="page">
+<div class="page-number">158</div>
+<div class="headers">Gote, 18 Points</div>
+<p><strong>Diagram 1:</strong> Starting from the triangled Black stone, Black can next slide to <em>a</em>. You should know how to stop the slide to <em>a</em> - White&#8217;s diagonal attachment at <em>b</em> is sufficient.</p>
+<p><strong>Diagram 2:</strong> From White&#8217;s perspective, White plays 1. After that, White <em>a</em>, Black <em>b</em>, White <em>c</em>, Black <em>d</em> follows. The exchange of White <em>c</em> for Black <em>d</em> is good for White because of the peep at <em>e</em>, which is why White can play this way.</p>
+<p>The difference between Diagrams 1 and 2:</p>
+<p>Black territory 8 points, White territory 10 points, 18 points total. Gote, 18 points, is the answer.</p>
+<p>This applies generally: when the subsequent endgame plays are large, the move itself is large.</p>
+<p>The position in Diagram 1 is where you should head first once the fighting settles.</p>
+
+<hr class="page">
+<div class="page-number">159</div>
+<div class="headers">Problem 57: The Jump-In</div>
+<p>Should Black crawl at A or jump in at B? Invasion comes down to these two choices. In this case, the jump-in appears to be better.</p>
+<p>Now, calculating exactly how many points this jump-in is worth is not simple. However, a rough estimate should be possible.</p>
+
+<hr class="page">
+<div class="page-number">160</div>
+<div class="headers">Gote, Under 20 Points</div>
+<p>Precisely because it cannot be calculated precisely, this is actually simple.</p>
+<p><strong>Diagram 1:</strong> In response to Black 1, White would play <em>a</em> or <em>b</em>. With White <em>a</em>, the total White territory still feels like less than about 20 points. If White does not respond, it is even smaller.</p>
+<p><strong>Diagram 2:</strong> If White blocks at 1, the total White territory amounts to at least 32 points.</p>
+<p>Since White territory in Diagram 1 is about 15 points, the difference is 17 to 18 points. This jump-in is close to 20 points in gote.</p>
+<p>For shapes that are hard to calculate precisely, you can work this way: produce rough numbers and consider the difference. When counting territory, take a reasonable estimate rather than a maximum or minimum.</p>
+
+<hr class="page">
+<div class="page-number">161</div>
+<div class="headers">Problem 58: Shortage of Liberties</div>
+<p>This is similar to the pattern in #50. The difference is that the liberties are tight. With tight liberties, Black&#8217;s descent at 1 becomes larger than in #50.</p>
+<p>After Black descends at 1, what should Black play next? The monkey jump? Wrong.</p>
+
+<hr class="page">
+<div class="page-number">162</div>
+<div class="headers">Gote, 19 Points</div>
+<p><strong>Diagram 1:</strong> Starting from the triangled Black stone, Black can play 1 and below with sente. Of course, one chooses the right moment to play out this sequence.</p>
+<p><strong>Diagram 2:</strong> The monkey jump at Black 1 is too casual. The sequence goes through White 8, but compared to Diagram 1, White territory increases by 1 point and Black territory decreases by 1 point - a loss of 2 points total. Don&#8217;t dismiss &quot;just 2 points&quot; - losing 2 points in such an unremarkable-looking place is a serious matter.</p>
+<p><strong>Diagram 3:</strong> From White&#8217;s perspective, the hane-and-connect at 1 and 3. After that, White <em>a</em> through Black <em>d</em>.</p>
+<p>Comparing Diagrams 1 and 3:</p>
+<p>Black territory 11 points, White territory 8 points, 19 points total.</p>
+<p>This descent is worth a remarkable 19 points. However, if Black plays the endgame as in Diagram 2, it is only 17 points.</p>
+
+<hr class="page">
+<div class="page-number">163</div>
+<div class="headers">Problem 59: Securing the Corner</div>
+<p>Black&#8217;s block at 1 is quite a large move.</p>
+<p>How should White play? Everyone considers the jump-in at A, but it falls slightly short.</p>
+<p>In a game contested purely on territory, the point of Black 1 should be the top priority for both sides.</p>
+
+<hr class="page">
+<div class="page-number">164</div>
+<div class="headers">Gote, Approximately 20 Points</div>
+<p><strong>Diagram 1:</strong> After the triangled Black stone, the hane-and-connect at White <em>a</em> is White&#8217;s prerogative. It would be too greedy to expect Black to play the hane-and-connect first.</p>
+<p><strong>Diagram 2:</strong> From White&#8217;s perspective, White invades at 1. Blocking and preventing the connection would allow White to live large, so Black 2 is the normal response. White connects at 3, and after that, Black <em>a</em> through White <em>d</em> is Black&#8217;s prerogative.</p>
+<p><strong>Diagram 3:</strong> Suppose the sequence runs White 1 through Black 6. The difference between this diagram and Diagram 1 is 15 points of Black territory and 7 points of White territory, 22 points total. However, this is the maximum value. Black gains enough by simply playing out <em>a</em> through White <em>d</em> as in Diagram 2. About 20 points is a reasonable figure.</p>
+
+<hr class="page">
+<div class="page-number">165</div>
+<div class="headers">Problem 60: The Slide Into an Open Base</div>
+<p>Black&#8217;s slide at 1. This is another outstanding point.</p>
+<p>It is precisely because of large slides like this that an open base is hard to convert into territory.</p>
+<p>In this configuration, after Black slides at 1, White feels no urge to respond. How should White play? Even if White plays first, sente cannot be achieved.</p>
+
+<hr class="page">
+<div class="page-number">166</div>
+<div class="headers">Gote, Approximately 20 Points</div>
+<p><strong>Diagram 1:</strong> With the triangled Black stone sliding, Black territory within the dotted lines is about 15 points. White territory within the dotted lines is zero - or rather, it must be counted as negative. Splitting the difference between Black&#8217;s kosumi at <em>a</em> and White&#8217;s kosumi at <em>a</em>, White&#8217;s territory is zero or less.</p>
+<p><strong>Diagram 2:</strong> If White plays 1, White <em>a</em> and Black <em>b</em> follow. Black territory is 10 points, White territory is 13 points.</p>
+<p>The difference in Black territory between Diagrams 1 and 2 is 5 points; the difference in White territory is [13] points or more. Combined, 18 points or more, leading to the conclusion of approximately 20 points.</p>
+<p><strong>Diagram 3:</strong> If Black responds to White 1 at 2, that alone becomes a forcing exchange for White, giving White sente. Comparing with Diagram 1 where Black slides to <em>a</em>, the exchange of White 1 and Black 2 clearly benefits White. The calculation was therefore made without Black responding at 2.</p>
+
+<hr class="page">
+<div class="page-number">167</div>
+<div class="headers">Problem 61: Strength and Weakness Matter</div>
+<p>Black&#8217;s hane-and-connect at 1 and 3. This type of hane-and-connect has appeared many times before. Calculating the point value should not be too difficult.</p>
+<p>However, in this configuration, note that the Black stones are not particularly strong. It is fine for Black to hane and connect, but if White hanes and connects instead, Black is left in a slightly weak position. This weakness must also be factored in.</p>
+
+<hr class="page">
+<div class="page-number">168</div>
+<div class="headers">Gote, Approximately 20 Points</div>
+<p><strong>Diagram 1:</strong> When the triangled Black stone hanes and connects, Black <em>a</em> and White <em>b</em> follow later. Black territory in this diagram is about 13 points.</p>
+<p><strong>Diagram 2:</strong> Conversely, if White hanes and connects at 1 and 3, how many points of Black territory should we expect? With the clamp at <em>a</em> and similar threats available, it must be counted as essentially zero. In some cases, the stability of the entire group may also be a concern. If Black territory in Diagram 2 is zero, the difference in Black territory is 13 points.</p>
+<p>The difference in White territory is clear. The difference between Diagrams 1 and 2 is 6 points.</p>
+<p>13 + 6 = 19 points. This hane-and-connect is worth approximately 20 points. Take note of the reasoning that counts Black territory in Diagram 2 as zero. Thinking there might be about 8 points there is simply wrong.</p>
+
+<hr class="page">
+<div class="page-number">169</div>
+<div class="headers">Problem 62: How to Defend</div>
+<p>This shape arises when White attaches to the back of Black&#8217;s one-space corner enclosure. It appears occasionally in actual games.</p>
+<p>Left as is, the corner&#8217;s Black territory is open at the base, so Black defends at 1. Unfortunately, however, Black 1 is a poor defensive shape - it has a tendency toward overconcentration. What is the correct way to defend?</p>
+
+<hr class="page">
+<div class="page-number">170</div>
+<div class="headers">Gote, 20 Points or More</div>
+<p><strong>Diagram 1:</strong> Black 1 is the correct defensive shape. If White plays <em>a</em>, Black pulls back at <em>b</em>; if White plays <em>c</em>, it can simply be ignored. Furthermore, after Black 1, Black has the option of crawling in at <em>c</em> next.</p>
+<p><strong>Diagram 2:</strong> From White&#8217;s perspective, White peeps at 1 and pulls back at 3, making a large gouge into Black&#8217;s territory. If Black blocks at 3 in response to White 1, trouble breaks out.</p>
+<p>Comparing Diagrams 1 and 2:</p>
+<p>The difference in Black territory is about 15 points. The difference in White territory is 7 to 8 points. Total: 22 to 23 points. This move is worth 20 points or more in gote.</p>
+<p><strong>Diagram 3:</strong> Since the peep in Diagram 2 is so sharp, White&#8217;s slide at 1 is somewhat slack. Even if White then peeps at <em>a</em>, the distorted shape leaves White dissatisfied.</p>
+
+<hr class="page">
+<div class="page-number">171</div>
+<div class="headers">Problem 63: The Value of Life and Death</div>
+<p>Are the White stones in the corner alive?</p>
+<p>Play from Black&#8217;s side and kill them cleanly. Also, approximately how many points is the killing move worth?</p>
+<p>White has only 4 stones, but since there are many liberties, whether they live or die is an extremely significant question.</p>
+
+<hr class="page">
+<div class="page-number">172</div>
+<div class="headers">Gote, More than 25 Points</div>
+<p><strong>Diagram 1:</strong> Black 1 attach is sharp, and White dies. Because the marked stone is present, there is a line where Black wraps up with 3 through 5.</p>
+<p><strong>Diagram 2:</strong> White plays the kosumi at 1 and lives.</p>
+<p>Comparing Diagrams 1 and 2, the figure of more than 25 points emerges.</p>
+<p>We can see that killing stones is indeed extremely large.</p>
+<p>We have examined over 60 positions likely to appear in actual games. There are countless other positions as well, but the important thing is to quickly and accurately grasp the approximate value of each move, situation by situation.</p>
+<p>As long as your approach is sound, there is no need to panic no matter what position arises. Even if not perfectly precise, you should be able to get a rough sense of the value, I believe.</p>
+<p>Knowing the method for calculating the value of a move versus not knowing it makes a world of difference. If you know the method, you will be able to play a wise game of Go backed by sound calculation.</p>
+
+<hr class="page">
+<div class="page-number">173</div>
+<div class="headers">Chapter 3</div>
+
+<hr class="file">
+<div class="headers">Thinking About Large Endgame Moves</div>
+
+<hr class="page">
+<div class="page-number">174</div>
+<div class="headers">Thinking About Large Endgame Moves</div>
+<p>Up to this point, we have focused primarily on calculating the point value of endgame moves. Of course, it is normally important to play the largest moves first, but in large endgame situations, there are cases where other considerations take priority over point count. In this chapter, I explain how to think about large endgame moves, using examples from my own games. Before playing what seems like a large move, please try to keep the following four points in mind.</p>
+
+<hr class="file">
+<div class="headers">Four Points for Large Endgame Moves</div>
+<ol>
+<li>
+<p>Moves with follow-up threats (moves that affect groups&#8217; bases) are large.</p>
+</li>
+<li>
+<p>Moves that enclose the center are often deferred.</p>
+</li>
+<li>
+<p>Consider whether you can push one step further.</p>
+</li>
+<li>
+<p>Look for sequences that allow sente endgame moves.</p>
+</li>
+</ol>
+
+<hr class="page">
+<div class="page-number">175</div>
+<div class="headers">Problem 1<br>
+Black to Play</div>
+<p>This is the position after the marked stone has been played. After more than 100 moves, the large endgame stage has already arrived.</p>
+<p>This is a very close game, and the balance of the position is unclear. The White group in the center still has some concerns about eye shape.</p>
+<p>Where should Black play—A, B, C, or D?</p>
+
+<hr class="page">
+<div class="page-number">176</div>
+<div class="headers">Diagram 1 (Moves Leading to the Theme Diagram)</div>
+<p>The sequence from White&#8217;s attach-and-cut at 12 and 14 through the exchange at move 20 leaves White somewhat uncomfortable. Through move 40, White has secured territory while Black has built outside influence, suggesting a prolonged battle.</p>
+<p>Starting with move 54, the fighting breaks out in midair.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2 (B = Correct Answer: Hanging Connection)</div>
+<p>Black 1 hanging connection is a large move that defends the bottom while keeping an eye on reducing the White group in the lower right. Black 7, a large slide, is more significant than it appears, and after Black turns at 9, the large endgame proceeds smoothly.</p>
+
+<hr class="page">
+<div class="page-number">177</div>
+<div class="headers">Diagram 3 (Seki Remaining)</div>
+<p>There remains the additional option of Black giving atari at 1 and pulling back at 3 against the White group in the lower right. White has no choice but to play the under-extension at 4 and respond through 6, and with Black&#8217;s placement at 7 through 11, a seki results. This means White&#8217;s territory is zero.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4 (C = 8 Points: Risk of Being Captured)</div>
+<p>Black 1 connect is a move similar to the correct answer, but White can invade at 2 and 4. For now, Black&#8217;s cut at 5 through 11 holds the position, but later White&#8217;s hane at <em>a</em> and <em>b</em> will be effective, and there is a risk of White capturing from <em>c</em>, so this move loses points.</p>
+
+<hr class="page">
+<div class="page-number">178</div>
+<div class="headers">Diagram 5 (A = 6 Points: An Irregular Defensive Move)</div>
+<p>Black 1 as a defensive move is irregular. After White cuts at 2, White peeps at 4 and Black is weakened. Black would like to save the stone with <em>a</em>, but being cut off by White <em>b</em>, Black <em>c</em>, White <em>d</em> would be a disaster.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6 (D = 6 Points: A Painful Descent)</div>
+<p>Black 1 descent is a small move, and it actually makes it easier for White to bend at 2. After White later plays <em>a</em> and Black responds at <em>b</em>, Black 1 becomes a painful shape. With Black 1, Black&#8217;s territory has not increased much.</p>
+
+<hr class="page">
+<div class="page-number">179</div>
+<div class="headers">Problem 2<br>
+White to Play</div>
+<p>This is the position after Black has played the marked stone. The current balance seems slightly favorable for White. The theme is how White can reduce Black&#8217;s territory in the upper left and lower left, while also keeping in mind the option of approaching the Black group in the center.</p>
+<p>Where should White play—A, B, C, or D?</p>
+
+<hr class="page">
+<div class="page-number">180</div>
+<div class="headers">Diagram 1 (Moves Leading to the Theme Diagram)</div>
+<p>At move 41, Black could instead capture at <em>a</em>; after White 42, Black connecting at 36, and White pulling back at 41, there is also the option of Black crossing at <em>b</em>. Black has invaded and disrupted through move 51, but lacking eyes is a concern. If White blocks at <em>c</em> at move 74, Black&#8217;s move 100 becomes a threat.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2 (A = Correct Answer: Attachment Below)</div>
+<p>White 1 attachment below is a nimble endgame move. If Black captures at 2 and 4, the block at White 7 is effective, and the subsequent sequence results in a large reduction of the corner. Meanwhile, if White can get to <em>a</em>, some additional territory can be expected.</p>
+
+<hr class="page">
+<div class="page-number">181</div>
+<div class="headers">Diagram 3 (Black Overplays)</div>
+<p>Instead of Black 4 in Diagram 2, extending at Black 1 here is an overplay. After White settles matters with 2 through Black 7, approaching the center at White 8 is severe. After Black eliminates the ko threat at 9, White 10 and following causes a disaster.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4 (D = 8 Points: A 9-Point Capture)</div>
+<p>White 1 capturing two stones is a 9-point move and not small, but it does not compare to Black&#8217;s kosumi at 2. After White descends at 3, if Black gets to descend with 4 through 6, White loses points.</p>
+
+<hr class="page">
+<div class="page-number">182</div>
+<div class="headers">Diagram 5 (C = 6 Points: The Kosumi Is Large)</div>
+<p>White 1 hane is also not small, like White 1 in Diagram 4, but Black kosumis at 2 and plays at 4 all the same. Compared to the correct answer, it is painful that Black gets to play the left side in sente.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6 (B = 5 Points: Black&#8217;s Territory Grows)</div>
+<p>White 1 descent also allows Black&#8217;s kosumi at 2, which is large. After White 3 and Black 4, Black&#8217;s territory in the lower-left corner is about the same as in the correct answer, but Black&#8217;s territory on the left side grows by 3 to 4 points, so White 1 is a failure.</p>
+
+<hr class="page">
+<div class="page-number">183</div>
+<div class="headers">Problem 3<br>
+Black to Play</div>
+<p>Black has secured solid territory in various places while White has built a large central territory; the outcome depends on the endgame ahead.</p>
+<p>Black gives atari at 1 and White captures at 2. Where should Black play next—A, B, C, or D?</p>
+
+<hr class="page">
+<div class="page-number">184</div>
+<div class="headers">Diagram 1 (Moves Leading to the Theme Diagram)</div>
+<p>The exchange starting with Black 41 is a spirited trade. Starting with Black 19, Black played with momentum, and because the lower left became stable, Black was able to get to 97 first. The defensive move at White 132 is crucial; if neglected, the sequence Black 132, White 133, Black <em>a</em>, White <em>b</em>, Black <em>c</em> would cause a disaster.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2 (B = Correct Answer: A Large Hane-and-Connect)</div>
+<p>Black 1 and 3, the hane-and-connect, is unassuming but the largest move. This creates the possibility of Black <em>a</em>, White <em>b</em>, Black <em>c</em> threatening White&#8217;s eye shape, allowing Black to push in through 11, and Black is doing well.</p>
+
+<hr class="page">
+<div class="page-number">185</div>
+<div class="headers">Diagram 3 (Territory Fails to Consolidate)</div>
+<p>Instead of White 4 in Diagram 2, blocking at White 1 here allows Black to push out with 2 through 6, making it difficult for White to consolidate territory. Because Black <em>a</em> is effective, White has no choice but to play 7, and Black 8 is sufficient.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4 (A = 8 Points: A Large Difference on the Bottom)</div>
+<p>White 2 bend is the key response to Black 1. Black reduces the center somewhat with 3 through 5, but suffering White&#8217;s attachment at 6 is too much. After White 8, White <em>a</em> is also available, creating a large difference on the bottom.</p>
+
+<hr class="page">
+<div class="page-number">186</div>
+<div class="headers">Diagram 5 (C = 6 Points: The Bend Is Large)</div>
+<p>Invading the center with Black 1 makes the point count difficult to calculate, and White 2 bend is again large. Assuming Black responds at 5 to White 4, White 2 is worth about 7 points in sente.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6 (D = 5 Points: 7-8 Points in Gote)</div>
+<p>Black 1 and 3 cutting and capturing is 7 to 8 points in gote and not small, but White 4 bending in is again large. Black must respond at 9, but White 10 encloses Black, leaving Black somewhat dissatisfied.</p>
+
+<hr class="page">
+<div class="page-number">187</div>
+<div class="headers">Problem 4<br>
+Black to Play</div>
+<p>This is the position after Black has played 1 and White has responded at 2. The position could be called the small endgame stage.</p>
+<p>The position looks difficult for Black to overcome the komi, but there are still endgame moves worth around 10 points remaining.</p>
+<p>Which of A through D is the largest?</p>
+
+<hr class="page">
+<div class="page-number">188</div>
+<div class="headers">Diagram 1 (Moves Leading to the Theme Diagram)</div>
+<p>If White had jumped at 27 in response to the bend at Black 23, the game would have been calm, but White pushed hard at 24, triggering a melee from Black 25 onward. White&#8217;s attachment at 100 through 102 guards against Black&#8217;s peep at <em>a</em>. The attachment at White 118 was a sharp incursion.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2 (D = Correct Answer: Cut and Capture)</div>
+<p>Black 1 and 3 cutting and capturing is a move worth about 8 points, but is the largest. Following this, making Black 5 and White 6 effective is large. For Black&#8217;s attachment at 7, White has no choice but to endure at 8 and 10, and Black&#8217;s attachment at 11 through 15 is the optimal endgame.</p>
+
+<hr class="page">
+<div class="page-number">189</div>
+<div class="headers">Diagram 3 (White&#8217;s Territory Shrinks)</div>
+<p>Instead of the hanging connection at White 10 in Diagram 2, simply connecting at White 1 here results in Black haneing at 4, and White is paralyzed. Because Black&#8217;s cut at <em>a</em> is effective on the right side, White has no choice but to respond at <em>b</em>, and the territory loss is large.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4 (B = 8 Points: An Endgame Move Worth More than 10 Points)</div>
+<p>Black 1 capturing three stones is a move worth more than 10 points, but White still captures one stone at 2 and 4, and White 8 responds calmly to Black&#8217;s captures at 5 and 7. Through Black 9 and White 10, this does not match the correct answer.</p>
+
+<hr class="page">
+<div class="page-number">190</div>
+<div class="headers">Diagram 5 (C = 8 Points: Miai)</div>
+<p>Black 1 hane is worth about 8 points, but White will get to respond at 2. After Black&#8217;s captures at 5 and 7, White plays 8 and keeps an eye on <em>a</em>. Black 9 and White&#8217;s capture at 12 are made into miai.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6 (A = 6 Points: White Can Tenuki)</div>
+<p>Black 1 is not small, but it does not compare to White&#8217;s connect at 2. After Black reduces with 3 through 7, White can tenuki, turning to capture at White 8, which is sufficient.</p>
+
+<hr class="page">
+<div class="page-number">191</div>
+<div class="headers">Problem 5<br>
+White to Play</div>
+<p>This is the position after White has played 1 and Black has responded at 2. The game has not gone far, but the large endgame stage has already arrived.</p>
+<p>Black&#8217;s territory is about 70 points. White&#8217;s territory in the upper right and lower right is about 25 points. If White can make 40 points from the lower left through the center, it will be a close game.</p>
+<p>Where should White play—A, B, C, or D?</p>
+
+<hr class="page">
+<div class="page-number">192</div>
+<div class="headers">Diagram 1 (Moves Leading to the Theme Diagram)</div>
+<p>Black wanted to play high at 17, and the upper right was a good trade. Black 63 is the vital point for erasure. If White ataris at 102 instead of 100, then Black 63, White <em>a</em>, Black <em>b</em> is difficult for White. Up through Black 103, the trade was roughly equal.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2 (B = Correct Answer: Single Attachment)</div>
+<p>The single attachment of White 1 is a clever move, and after the exchange with Black 2, the block at White 3 is large. Black cannot omit the connection at 4, and up through Black 8 is the natural course. White then pulls back at 9, and White&#8217;s endgame is ideal. Continuing—</p>
+
+<hr class="page">
+<div class="page-number">193</div>
+<div class="headers">Diagram 3 (Correct Answer Continued)</div>
+<p>Black&#8217;s peep at 1 is annoying, but White can be proud of responding at 2 without needing to connect. When Black pushes and cuts at 3 and 5, White gives atari at 10 and exits at 12, surviving.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4 (A = 8 Points: Settling In)</div>
+<p>The kosumi of White 1 differs from the correct answer by one line, but the peep of Black 2 fits perfectly, and after White 3, Black settles in at 4. When a stone arrives at Black 4, Black <em>b</em> becomes sente in response to White <em>a</em>.</p>
+
+<hr class="page">
+<div class="page-number">194</div>
+<div class="headers">Diagram 5 (C = 6 Points: Ordinary Feeling, But&#8230;)</div>
+<p>The wedge-and-connect at White 1 and 3 is the ordinary approach, but the peep of Black 4 is convenient. After White 5 connects, Black 6 leaves the center in terrible shape—no good for White.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6 (D = 5 Points: Black Gets a Chance to Counter)</div>
+<p>White 1 trades with Black 2, and up through 6, White profits nicely in the corner, but when White attaches at 7, Black peeps at 8 and continues through 12, giving Black a chance to counter. With Black pushing at 18, White is in a worrying situation.</p>
+
+<hr class="page">
+<div class="page-number">195</div>
+<div class="headers">Problem 6<br>
+White to Play</div>
+<p>This is the position after the marked stone has been played. Black&#8217;s settled territory is relatively easy to count—about 50 points. White&#8217;s settled territory, on the other hand, is about 30 points; the question is how much can be expected from White&#8217;s thickness.</p>
+<p>At the moment, Black is probably slightly ahead.</p>
+<p>Which of A through D is White&#8217;s next move?</p>
+
+<hr class="page">
+<div class="page-number">196</div>
+<div class="headers">Diagram 1 (Moves Leading to the Theme Diagram)</div>
+<p>White&#8217;s invasion at 34 prompted Black to invade at 37 as well, creating a mutual reduction battle. Black aimed for quick life from 51 onward, resulting in a position favorable for Black. Black jumps to 81 to restrain White&#8217;s central framework.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2 (A = Correct Answer: Jump-In)</div>
+<p>The jump-in of White 1 is the largest move, and the sequence through White 3 and Black 4 is to be expected. The jump of Black 2 keeps an eye on approaching the corner, and the mutual reduction is balanced. Black 8 is vital—</p>
+
+<hr class="page">
+<div class="page-number">197</div>
+<div class="headers">Diagram 3 (Variation on Correct Answer: Risk of Being Cut)</div>
+<p>Simply connecting at Black 1 is unimaginative, and White&#8217;s splitting move at 2 followed by 4 is the tesuji. Being cut at White 6 would be a disaster. If White tries simply cutting at 4 instead of playing 2 first, Black 6, White 2, Black 5, White 3, Black <em>a</em> loses two stones for White.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4 (B = 7 Points: Crude Endgame)</div>
+<p>The endgame play of White 1 and 3 is crude, and after Black crosses at 4, the value of the jump-in at White <em>a</em> is diminished. Starting with White <em>a</em>, attaching at White 2 is the plan. However, although it slightly neutralizes the aji, it is still a sente endgame.</p>
+
+<hr class="page">
+<div class="page-number">198</div>
+<div class="headers">Diagram 5 (C = 6 Points: Corner Territory Shrinks)</div>
+<p>If White encircles the center at 1, Black jumps at 2. If White then jumps in at 3, Black 4 through 6 is large. With White 7 through 11, the corner territory has shrunk dramatically.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6 (D = 5 Points: Risk of Gote)</div>
+<p>The placement of White 1 is not small, but White risks ending up in gote when Black blocks at 6. That is, if White captures at <em>a</em>, Black gets to play at <em>b</em>, and if White plays <em>c</em>, Black <em>d</em> is large.</p>
+
+<hr class="page">
+<div class="page-number">199</div>
+<div class="headers">Problem 7<br>
+White to Play</div>
+<p>This is the position after the marked stone has been played. The game has shifted from White&#8217;s territory versus Black&#8217;s thickness to the large endgame stage. The position is extremely close, and the outcome will be decided by the endgame.</p>
+<p>Large endgame moves remain for White. Which of A through D is the largest?</p>
+
+<hr class="page">
+<div class="page-number">200</div>
+<div class="headers">Diagram 1 (Moves Leading to the Theme Diagram)</div>
+<p>If Black had played 54 in response to White 52, White would push at <em>a</em>, so Black found it hard to respond directly and instead played 53. Black lacked confidence in playing 62 instead of 59, and Black 59 threatens White. Through White 66, the territorial balance is not bad for White.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2 (C = Correct Answer: Placement)</div>
+<p>The placement of White 1 is the correct answer, and in response to Black 2, White plays the kosumi at 3 through 9, covering both the upper right and upper left—substantial endgame gains. Note that if Black plays <em>a</em> instead of 2, White&#8217;s attachment aji at 2 is troublesome.</p>
+
+<hr class="page">
+<div class="page-number">201</div>
+<div class="headers">Diagram 3 (D = 8 Points: Sente Kosumi)</div>
+<p>The kosumi of White 1 is the second-best move. White forces with 5 through Black 8 in response to the block at Black 4. Following this, capturing one stone with White 9 and 11 is a large move. Note that White 3 in the sequence is indispensable—</p>
+
+<hr class="file">
+<div class="headers">Diagram 4 (The Capture Is Large)</div>
+<p>If White jumps in at 1, Black&#8217;s capture at 2 is large. White inevitably makes the kosumi at 3, but Black jumps in with 4 through 6, which is painful. White has no choice but to kosumi at 7, and this is tough for White.</p>
+
+<hr class="page">
+<div class="page-number">202</div>
+<div class="headers">Diagram 5 (A = 6 Points: A Powerful Attachment)</div>
+<p>The block of White 1 is a natural move, but White ends up in gote after White 5. Then the attachment at Black 6 is powerful, and Black 8 is unbearable for White. If White plays 8 instead of 7, Black <em>a</em>, White 7, Black <em>b</em> is disastrous for White.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6 (B = 4 Points: Threatening Eye Shape, But&#8230;)</div>
+<p>The block of White 1 threatens Black&#8217;s overall eye shape, but Black invades starting with 2 and makes eyes in the corner. Even if Black tenukis after White 1 and reduces at <em>a</em>, White 1, Black <em>b</em>, White <em>c</em> leaves Black&#8217;s eye shape thin.</p>
+
+<hr class="page">
+<div class="page-number">203</div>
+<div class="headers">Problem 8<br>
+Black to Play</div>
+<p>This is the position after Black has slid at 1 and White has responded at 2. The game has not reached 150 moves, but the large endgame has already arrived.</p>
+<p>Black occupies all four corners and is slightly ahead, but this is a game where the endgame will be difficult.</p>
+<p>Where should Black play—A, B, C, or D?</p>
+
+<hr class="page">
+<div class="page-number">204</div>
+<div class="headers">Diagram 1 (Moves Leading to the Theme Diagram)</div>
+<p>Through White 36, Black&#8217;s territory and White&#8217;s framework are clear. Through Black 65, Black achieves complete life, and White extends to 78 at full capacity. Extending to 126 instead of 124 is painful because the push at Black 124 is effective. If White plays <em>a</em> instead of 128, Black 128 is bad for White.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2 (B = Correct Answer: Knight&#8217;s Move Slide)</div>
+<p>The knight&#8217;s move of Black 1 is the largest move and the correct answer. White does best with the attachment-and-cut with 2 through 4, and the atari of Black 5 is vital. This way, after Black 9, the escape at Black <em>a</em> remains.</p>
+
+<hr class="page">
+<div class="page-number">205</div>
+<div class="headers">Diagram 3 (Variation on Correct Answer: Aji Remains for White)</div>
+<p>The attachment-and-cut of White 2 in Diagram 2 is a good move. Simply attaching at White 2 here results in Black 3 and White 4, after which the aji of pushing out at Black <em>a</em> remains. With Black 5 pushing while keeping this threat in mind, White is in trouble.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4 (A = 8 Points: Neutralizes Aji)</div>
+<p>Black 1 heading toward the center is not small, but the connect of White 4 in response to the hane at Black 3 is a good move that neutralizes the bad aji on the left side. The jump of White 6 in response to Black 5 is large, and this falls short of the correct answer.</p>
+
+<hr class="page">
+<div class="page-number">206</div>
+<div class="headers">Diagram 5 (D = 7 Points: No Follow-Up)</div>
+<p>After White connects at 2, Black 1 has no follow-up. If Black tries to cross at <em>a</em>, White <em>b</em>, Black <em>c</em>, White <em>d</em> cuts, and the five Black stones in the center are captured.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6 (C = 6 Points: The Top Is Large)</div>
+<p>The block at Black 1 lets White get to 2, falling short of the correct answer. Black 3 and White 4 make the top boundary very large. Note that if Black omits 3, White <em>a</em>, Black <em>b</em>, White <em>c</em> turns the corner into a ko.</p>
+
+<hr class="page">
+<div class="page-number">207</div>
+<div class="headers">Problem 9<br>
+Black to Play</div>
+<p>This is a continuation from Diagram 2 of the previous problem. White played a large knight&#8217;s move slide at 1 in sente and headed to 7.</p>
+<p>After White 9, which of A through D is Black&#8217;s largest endgame move?</p>
+
+<hr class="page">
+<div class="page-number">208</div>
+<div class="headers">Diagram 1 (A = Correct Answer: The Block Is Largest)</div>
+<p>The block of Black 1 is the largest, and White must defend with 4 and 6, continuing through 10. Then the hane-and-connect of Black 11 and 13 is excellent, and Black reduces in sente through White 16 and turns to 17.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2 (Variation on Correct Answer)</div>
+<p>If White omits the defense starting with 4 in Diagram 1 and instead plays the kosumi at White 1 here, a sequence arises: Black cuts with 2 through 4. White has no choice but to give atari at 5 and fight back to 7, but—</p>
+
+<hr class="page">
+<div class="page-number">209</div>
+<div class="headers">Diagram 3 (Variation on Correct Answer Continued)</div>
+<p>Continuing from the previous diagram, the bend of Black 1 is the vital point, and even if White comes to take the eye at 2, Black 3 through 9 is a forced sequence. Black <em>a</em> and <em>b</em> are miai, and Black lives. To avoid this, White needed to play through White 10 in Diagram 1.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4 (C = 8 Points: An Endgame Move Worth Over 6 Points)</div>
+<p>The extension of Black 1 is premature. The large knight&#8217;s slide of White 2 is large, and even after Black 3 and White 4 are played, it is a move worth over 6 points—making it the second-best move at this stage.</p>
+
+<hr class="page">
+<div class="page-number">210</div>
+<div class="headers">Diagram 5 (D = 6 Points: Large Knight&#8217;s Slide)</div>
+<p>The kosumi of Black 1 allows White to immediately slide to the large knight&#8217;s position at 2. The values of Black 1 and White 2 themselves are hard to distinguish, but what matters is that the sequence from Diagram 2 onward is no longer available.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6 (B = 6 Points: Neutralizes Aji)</div>
+<p>The hane of Black 1 meets White&#8217;s excellent connect at 2, which neutralizes the aji mentioned earlier. After the hanging connection of Black 3, White slides to the large knight&#8217;s position with 4 through 6—Black&#8217;s endgame is a failure.</p>
+
+<hr class="page">
+<div class="page-number">211</div>
+<div class="headers">Chapter 4<br>
+Table of Move Values</div>
+
+<hr class="page">
+<div class="page-number">212</div>
+<p>I have compiled a table of point values for individual moves. All calculation methods have been omitted. For any values you find questionable, please work them out yourself as the occasion arises. The moves are shown as Black&#8217;s plays, so to determine the values you must also consider what would happen if White were to play there instead.</p>
+<p>Entries listing only a point value indicate double gote. For one-sided sente positions, the value is listed as &quot;X points sente&quot; from the sente side and &quot;X points reverse sente&quot; from the gote side. For double sente positions, the entry notes &quot;X points double sente.&quot; The priority of moves is: first, double sente; second, one-sided sente (sente and reverse sente); third, double gote. Use this as your guide. Also, do not worry too much about whether a value is slightly higher or lower than stated.</p>
+
+<hr class="page">
+<div class="page-number">213</div>
+<p>(1) Under 1 point: 1/3 point</p>
+<p>(2) Under 1 point: 1/3 point</p>
+<p>(3) Under 1 point: 1/3 point</p>
+<p>(4) Under 1 point: 1/3 point</p>
+
+<hr class="page">
+<div class="page-number">214</div>
+<p>(5) 1 point</p>
+<p>(6) 1 point</p>
+<p>(7) 1 point</p>
+<p>(8) Slightly over 1 point</p>
+
+<hr class="page">
+<div class="page-number">215</div>
+<p>(9) 1 point</p>
+<p>(10) 1 point</p>
+<p>(11) Sente, slightly under 1 point</p>
+<p>(12) Sente, 1 point</p>
+
+<hr class="page">
+<div class="page-number">216</div>
+<p>(13) Sente, 1 point</p>
+<p>(14) Sente, 1 point</p>
+<p>(15) Sente, 1 point</p>
+<p>(16) 1.5 points</p>
+
+<hr class="page">
+<div class="page-number">217</div>
+<p>(17) 1.5 points
+(Position <em>a</em> is equal value)</p>
+<p>(18) 1.5 points
+(Same as 16)</p>
+<p>(19) Sente, 1.5 points</p>
+<p>(20) 2 points
+(Position <em>a</em> is also 2 points)</p>
+
+<hr class="page">
+<div class="page-number">218</div>
+<p>(21) 2 points
+(The next play at <em>a</em> is shared equally)</p>
+<p>(22) 2 points</p>
+<p>(23) 2 points
+(From White&#8217;s side: White plays 1 and captures 2 Black stones, then Black recaptures and White takes back)</p>
+<p>(24) 2 points</p>
+
+<hr class="page">
+<div class="page-number">219</div>
+<p>(25) 2 points</p>
+<p>(26) 2 points</p>
+<p>(27) 2 points
+(White 1 is also 2 points)</p>
+<p>(28) 2 points
+(The next play at <em>a</em> is shared equally)</p>
+
+<hr class="page">
+<div class="page-number">220</div>
+<p>(29) 2 points</p>
+<p>(30) 2 points</p>
+<p>(31) 2 points
+(Black <em>a</em>, White <em>b</em>)</p>
+<p>(32) 2 points</p>
+
+<hr class="page">
+<div class="page-number">221</div>
+<p>(33) 2 points</p>
+<p>(34) 2 points
+(Next: Black <em>a</em>, White <em>b</em>)</p>
+<p>(35) About 2 points
+(Depends on ko threats)</p>
+<p>(36) About 2 points
+(Depends on ko threats)</p>
+
+<hr class="page">
+<div class="page-number">222</div>
+<p>(37) 2 points
+(Depends on ko threats)</p>
+<p>(38) Reverse sente, 2 points</p>
+<p>(39) Sente, 2 points</p>
+<p>(40) 2.5 points</p>
+
+<hr class="page">
+<div class="page-number">223</div>
+<p>(41) Slightly over 2 points</p>
+<p>(42) Slightly over 3 points</p>
+<p>(43) 3 points</p>
+<p>(44) 3 points</p>
+
+<hr class="page">
+<div class="page-number">224</div>
+<p>(45) 3 points</p>
+<p>(46) 3 points</p>
+<p>(47) Slightly over 3 points</p>
+<p>(48) Sente, 4 points
+(From White&#8217;s side: 1 point)</p>
+
+<hr class="page">
+<div class="page-number">225</div>
+<p>(49) Sente, 3 points</p>
+<p>(50) Reverse sente, 3 points
+(Same as the right diagram)</p>
+<p>(51) Sente, 3 points</p>
+<p>(52) Sente, 3 points</p>
+
+<hr class="page">
+<div class="page-number">226</div>
+<p>(53) Sente, 3 points</p>
+<p>(54) Sente, 3 points
+(Black 1 is the tesuji)</p>
+<p>(55) Reverse sente, 3 points</p>
+<p>(56) Reverse sente, slightly over 3 points</p>
+
+<hr class="page">
+<div class="page-number">227</div>
+<p>(57) 4 points</p>
+<p>(58) 4 points</p>
+<p>(59) 4 points</p>
+<p>(60) 4 points</p>
+
+<hr class="page">
+<div class="page-number">228</div>
+<p>(61) 4 points</p>
+<p>(62) 4 points</p>
+<p>(63) Slightly under 4 points</p>
+<p>(64) 4 points</p>
+
+<hr class="page">
+<div class="page-number">229</div>
+<p>(65) 4 points</p>
+<p>(66) Double sente, 4 points</p>
+<p>(67) Double sente, 4 points</p>
+<p>(68) Double sente, 4 points</p>
+
+<hr class="page">
+<div class="page-number">230</div>
+<p>(69) Double sente, 4 points</p>
+<p>(70) Sente, 4 points</p>
+<p>(71) Sente, slightly under 4 points
+(White 2 is the tesuji)</p>
+<p>(72) Reverse sente, 4 points</p>
+
+<hr class="page">
+<div class="page-number">231</div>
+<p>(73) Reverse sente, 4 points</p>
+<p>(74) Slightly under 5 points</p>
+<p>(75) Slightly under 5 points
+(Same as 74)</p>
+<p>(76) Slightly under 5 points
+(If White immediately plays at <em>a</em>, captures 2 Black stones, and White recaptures: sente, 3 points)</p>
+
+<hr class="page">
+<div class="page-number">232</div>
+<p>(77) 5 points</p>
+<p>(78) Slightly over 5 points</p>
+<p>(79) Double sente, 5 points</p>
+<p>(80) Sente, 5 points</p>
+
+<hr class="page">
+<div class="page-number">233</div>
+<p>(81) Reverse sente, 5 points</p>
+<p>(82) Reverse sente, 5 points
+(Next: Black <em>a</em> through White <em>d</em>)</p>
+<p>(83) Reverse sente, 5 points</p>
+<p>(84) Sente, 5 points
+(Black 1 is the tesuji)</p>
+
+<hr class="page">
+<div class="page-number">234</div>
+<p>(85) 6 points</p>
+<p>(86) 6 points</p>
+<p>(87) 6 points</p>
+<p>(88) 6 points</p>
+
+<hr class="page">
+<div class="page-number">235</div>
+<p>(89) Slightly over 6 points</p>
+<p>(90) 6 points</p>
+<p>(91) Double sente, 6 points</p>
+<p>(92) Double sente, 4 points</p>
+
+<hr class="page">
+<div class="page-number">236</div>
+<p>(93) Reverse sente, slightly under 6 points</p>
+<p>(94) Sente, 6 points</p>
+<p>(95) Sente, slightly over 6 points</p>
+<p>(96) Sente, 7 points</p>
+
+<hr class="page">
+<div class="page-number">237</div>
+<p>(97) 7 points</p>
+<p>(98) 7 points</p>
+<p>(99) About 7 points</p>
+<p>(100) 7 points</p>
+
+<hr class="page">
+<div class="page-number">238</div>
+<p>(101) Part 1: Slightly under 7 points
+(Sequence follows)</p>
+<p>(101) Part 2
+(Continued from previous)</p>
+<p>(101) Part 3
+(Continued from previous)</p>
+<p>(101) Part 4
+(Continued from previous)</p>
+
+<hr class="page">
+<div class="page-number">239</div>
+<p>(102) Sente, 7 points</p>
+<p>(103) Sente, about 7 points
+(Assuming White defends at 2)</p>
+<p>(104) Sente, 7 points</p>
+<p>(105) Sente, 7 points</p>
+
+<hr class="page">
+<div class="page-number">240</div>
+<p>(106) Sente, 7 points</p>
+<p>(107) Sente, 7 points
+(If White plays 5 instead of 4: eternal ko)</p>
+<p>(108) Reverse sente, 7 points</p>
+<p>(109) Reverse sente, 7 points
+(White&#8217;s move is the descent at 1)</p>
+
+<hr class="page">
+<div class="page-number">241</div>
+<p>(110) Reverse sente, 7 points</p>
+<p>(111) Reverse sente, 7 points</p>
+<p>(112) Reverse sente, 7 points</p>
+<p>(113) 8 points</p>
+
+<hr class="page">
+<div class="page-number">242</div>
+<p>(114) 8 points</p>
+<p>(115) 8 points</p>
+<p>(116) 8 points</p>
+<p>(117) Double sente, 8 points</p>
+
+<hr class="page">
+<div class="page-number">243</div>
+<p>(118) Sente, 8 points</p>
+<p>(119) Sente, 8 points</p>
+<p>(120) Reverse sente, 8 points</p>
+<p>(121) Reverse sente, 8 points
+(White plays the hane-and-connect starting at 1)</p>
+
+<hr class="page">
+<div class="page-number">244</div>
+<p>(122) Reverse sente, 8 points
+(If Black <em>a</em>, White <em>b</em>: same as 121)</p>
+<p>(123) 9 points</p>
+<p>(124) 9 points</p>
+<p>(125) About 9 points</p>
+
+<hr class="page">
+<div class="page-number">245</div>
+<p>(126) About 9 points</p>
+<p>(127) Sente, 9 points
+(From White&#8217;s side: White <em>a</em>, Black <em>b</em>, then White 1)</p>
+<p>(128) Sente, 9 points</p>
+<p>(129) Reverse sente, 9 points</p>
+
+<hr class="page">
+<div class="page-number">246</div>
+<p>(130) 10 points</p>
+<p>(131) 10 points</p>
+<p>(132) Slightly over 10 points</p>
+<p>(133) 10 points</p>
+
+<hr class="page">
+<div class="page-number">247</div>
+<p>(134) 10 points</p>
+<p>(135) 10 points</p>
+<p>(136) Slightly over 10 points</p>
+<p>(137) About 10 points</p>
+
+<hr class="page">
+<div class="page-number">248</div>
+<p>(138) Sente, 10 points</p>
+<p>(139) Reverse sente, about 10 points</p>
+<p>(140) 11 points</p>
+<p>(141) About 11 points</p>
+
+<hr class="page">
+<div class="page-number">249</div>
+<p>(142) Slightly over 11 points</p>
+<p>(143) 11 points
+(If White immediately plays <em>a</em>: sente, 4 points)</p>
+<p>(144) 11 points</p>
+<p>(145) Sente, 11 points</p>
+
+<hr class="page">
+<div class="page-number">250</div>
+<p>(146) 11 points</p>
+<p>(147) 12 points</p>
+<p>(148) Slightly over 12 points</p>
+<p>(149) 12 points</p>
+
+<hr class="page">
+<div class="page-number">251</div>
+<p>(150) 12 points</p>
+<p>(151) 12 points</p>
+<p>(152) Sente, 12 points</p>
+<p>(153) 13 points</p>
+
+<hr class="page">
+<div class="page-number">252</div>
+<p>(154) 13 points</p>
+<p>(155) About 13 points</p>
+<p>(156) 13 points</p>
+<p>(157) 14 points</p>
+
+<hr class="page">
+<div class="page-number">253</div>
+<p>(158) 14 points</p>
+<p>(159) 14 points</p>
+<p>(160) About 14 points
+(The next play at <em>a</em> is shared equally)</p>
+<p>(161) 14 points</p>
+
+<hr class="page">
+<div class="page-number">254</div>
+<p>(162) About 14 points</p>
+<p>(163) Reverse sente, 12 points
+(White&#8217;s move is at <em>a</em>)</p>
+<p>(164) 16 points
+(White <em>a</em> through Black <em>d</em>)</p>
+<p>(165) About 16 points</p>
+
+<hr class="page">
+<div class="page-number">255</div>
+<p>(166) 16 points</p>
+<p>(167) About 17 points</p>
+<p>(168) About 17 points</p>
+<p>(169) About 18 points</p>
+
+<hr class="page">
+<div class="page-number">256</div>
+<p>(170) About 18 points</p>
+<p>(171) 18 points</p>
+<p>(172) About 18 points</p>
+<p>(173) About 20 points</p>
+
+<hr class="page">
+<div class="page-number">257</div>
+<p>(174) About 20 points</p>
+<p>(175) About 20 points</p>
+<p>(176) About 20 points</p>
+<p>(177) About 20 points</p>
+
+<hr class="page">
+<div class="page-number">258</div>
+<p>(178) Over 20 points</p>
+<p>(179) Over 20 points</p>
+<p>(180) About 25 points</p>
+<p>(181) Zero points
+(Of no value whatsoever)</p>
+
+<hr class="page">
+<div class="page-number">259</div>
+<p>(182) Minus 1/2 point
+(Black <em>a</em>, White 2 is correct)</p>
+<p>(183) Minus 1 point
+(Black 1 is unnecessary)</p>
+<p>(184) Minus 1 point
+(When White plays <em>a</em>, Black should play at 1)</p>
+<p>(185) Minus 2 points
+(For Black: 2 is correct, not 1)</p>
+
+<hr class="page">
+<div class="page-number">260</div>
+<p>(186) Minus χ points
+(Black should be able to cut at <em>a</em>)</p>
+<p>(187) Minus about 30 points
+(Suicidal)</p>
+<p>(188) Part 1: Plus χ points
+(Correct play)</p>
+<p>(188) Part 2: Minus χ points
+(Helping the opponent)</p>
+
+<hr class="page">
+<div class="page-number">261</div>
+<div class="headers">Ishida Yoshio</div>
+<p>Born in 1948 in Aichi Prefecture. Became a student of 9-dan Kitani Minoru at age 9 in 1957. Turned professional in 1963; reached 9-dan in 1974.</p>
+<p>Won the 12th Prime Minister&#8217;s Cup in 1968. Won the inaugural Rising Stars Tournament in 1969. Won the 17th Japan Go Association Championship in 1970 and defended it in the 18th. In 1971, in the 26th Honinbo match, defeated Rin Kaiho to become Honinbo at age 22, the youngest ever at that time; subsequently defended the title five consecutive times. In 1974, in the 13th Meijin match, defeated Rin Kaiho to become the third player to hold both the Meijin and Honinbo titles simultaneously. Won the Tengen title in 1984. Two-time winner of the Ooteai Division 1 and the Pro Top Ten. Won the inaugural Japan Series in 1973. Won the Oza title in 1974 (22nd) and 1978 (26th). Three-time Hayago Championship winner. Won the NHK Cup in 1987 (34th), 1990 (37th), and 2001 (48th). Runner-up in the 2002 Hayago Championship. Won the 7th NEC Cup Tournament in 1988, and was the inaugural IBM Cup champion in 1988.</p>
+<p>Three-time recipient of the Shuusai Prize and two-time recipient of the Kido Award for Best Player. In 1985 received the TV Go Program Producers&#8217; Award. Known by the nickname &quot;The Computer.&quot; From 2008, holds the honorary title of 24th Honinbo Shuho. In 2010, achieved 1,000 career wins.</p>
+
+</body>
+</html>
