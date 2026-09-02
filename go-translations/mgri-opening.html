@@ -1,0 +1,3324 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Get Ahead in the Opening! AI-Style Joseki and Tesuji</title>
+<style>
+body {
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Georgia, serif;
+    line-height: 1.4;
+    background-color: #fff8f0;
+}
+.headers {
+    font-weight: bold;
+    line-height: 1.4;
+}
+hr.file { border: none; border-top: 1px solid #bbb; margin: 1.2em 0; }
+hr.page { border: none; border-top: 4px double #444; margin: 1.5em 0; }
+.page-number { text-align: center; color: #888; font-size: 0.85em; margin: 0.2em 0 1em; }
+.meta-title { font-size: 1.6em; font-weight: bold; line-height: 1.4; text-align: center; }
+.meta-volume { font-size: 1.1em; font-weight: bold; line-height: 1.4; text-align: center; margin-top: 0.4em; }
+.meta-author { font-size: 1.2em; font-weight: bold; line-height: 1.4; text-align: right; margin-top: 0.4em; }
+.meta-isbn { font-size: 1.0em; line-height: 1.4; text-align: right; margin-top: 0.4em; }
+</style>
+</head>
+<body>
+<div class="meta-title">Get Ahead in the Opening! AI-Style Joseki and Tesuji</div>
+<div class="meta-author">Modern Go Research Institute</div>
+<div class="meta-isbn">978-4-8399-7623-1</div>
+<hr class="page">
+<div class="page-number">3</div>
+<div class="headers">Preface</div>
+<p>Hello, we are the Modern Go Research Institute. Something we had been
+working on caught the attention of an editor at Mynavi, who invited us
+to write this book. Believing that such a chance would never come
+again, we swung for the fences and gathered together the techniques
+needed to survive in modern Go.</p>
+<p>Modern Go is an era in which &quot;the difference opens up before the
+fighting even starts.&quot; In other words, a gap in advance study or
+knowledge lets you easily surpass your opponent&#8217;s experience. You have
+surely noticed that the joseki being played tend to resemble one
+another. That is the result of many joseki being weeded out, leaving
+only the survivors on the board. To put it another way, the trend in
+modern Go is whether a particular shape or technique can be fitted
+neatly into place as &quot;one piece of the puzzle.&quot;</p>
+<p>With that in mind, even within this limited set of joseki and
+techniques, we focus on the ones you &quot;can&#8217;t play unless you know
+them&quot; - the knowledge that makes the difference. Did you know that even the
+AlphaGo techniques are now old-fashioned formations? Playing on the
+second or fifth line right out of the opening is standard practice
+these days. We hope this book offers you stimulating new insights and
+a chance to break out of your shell.</p>
+<p>May 2021, Modern Go Research Institute</p>
+
+<hr class="page">
+<div class="page-number">4</div>
+<div class="headers">Get Ahead in the Opening! AI-Style Joseki and Tesuji — Contents</div>
+<p>Preface&#8230;3</p>
+
+<hr class="file">
+<div class="headers">Chapter 1: Star-Point Joseki&#8230;7</div>
+<p>Theme Diagram 1: Countering the Peep / 9</p>
+<p>Theme Diagram 2: The Two-Space Extension in the New Joseki / 23</p>
+<p>Theme Diagram 3: Countering the Double Approach / 31</p>
+<p>Theme Diagram 4: Countering the Second-Line Invasion / 43</p>
+<p>Theme Diagram 5: A Simple Answer to Frameworks / 53</p>
+<p>Theme Diagram 6: The Modern Technique for the Large Knight&#8217;s Move / 65</p>
+<p>Theme Diagram 7: The Evolving Attach-and-Extend Joseki / 73</p>
+<p>Theme Diagram 8: A New Three-Move Technique / 83</p>
+
+<hr class="page">
+<div class="page-number">5</div>
+<div class="headers">Chapter 2: 3-4 Point Joseki&#8230;91</div>
+<p>Theme Diagram 1: A Simple Counter / 93</p>
+<p>Theme Diagram 2: Four Patterns to Master / 101</p>
+<p>Theme Diagram 3: The Invasion at the Angle / 117</p>
+<p>Theme Diagram 4: A Fifth-Line Probe / 127</p>
+<p>Theme Diagram 5: A 3-4 Point Joseki That Appears Constantly in Games / 141</p>
+<p>Theme Diagram 6: Attack and Defense in the Fashionable Pincer / 153</p>
+<p>Theme Diagram 7: The Attach as a Countermeasure Against a Framework / 173</p>
+<p>Theme Diagram 8: The Endlessly Versatile Fifth-Line Technique / 185</p>
+
+<hr class="file">
+<div class="headers">Chapter 3: Opening Systems&#8230;197</div>
+<p>Theme Diagram 1: The New San-Ren-Sei System / 199</p>
+<p>Theme Diagram 2: Ke Jie&#8217;s Chinese Opening / 211</p>
+
+<hr class="page">
+<div class="page-number">6</div>
+<p>Column 1: Five Minutes a Day! Studying Game Records to Steal Techniques / 22</p>
+<p>Column 2: Learning Strengths and Weaknesses from Videos / 82</p>
+<p>Column 3: Why You Can Lay Out a Long Joseki Sequence in an Instant / 116</p>
+<p>Column 4: The Power of Trial and Error Is the Strongest Weapon / 152</p>
+<p>Column 5: How Go AI Changes the Art of Winning / 172</p>
+<p>Column 6: The &quot;Sacrifice-Stone Mindset&quot; That Changes Once You Put It into Practice / 210</p>
+
+<hr class="page">
+<div class="page-number">7</div>
+<div class="headers">Chapter 1<br>
+Star-Point Joseki</div>
+
+<hr class="page">
+<div class="page-number">8</div>
+<div class="headers">How Emphasizing the Corner Changes the Fighting at the Star Point</div>
+<p>When a stone is placed on the star point, the key question is how to
+handle the aji that remains in the corner. Modern evaluation tends to
+say that &quot;the corner is highly valuable,&quot; so the points to emphasize
+differ between the player who takes the star point and the player
+facing it.</p>
+<p>【For the player who takes the star point】
+The aim is to seize the initiative skillfully and defend the corner,
+or to find efficient defensive techniques, offsetting the drawback of
+the aji left behind there.</p>
+<p>【For the player facing the star point】
+The crucial thing is not to miss the right moment to disrupt the
+corner. An approach move is often ignored, so invading at the 3-3
+immediately has become the mainstream way to play.</p>
+<p>In this chapter we have collected the representative joseki and
+techniques worth knowing from either side. Even the AlphaGo techniques
+are out of date nowadays. Prepare in advance and get ahead of your
+rivals!</p>
+
+<hr class="page">
+<div class="page-number">9</div>
+<div class="headers">Theme Diagram 1<br>
+Countering the Peep</div>
+<p>We start with one of the AlphaGo techniques, the peep of Black 3. It
+is still played often, but a simple way for White to sidestep it has
+been discovered. Black is now forced into sophisticated calculations
+about the surrounding stones and the ladders, so the technique has
+become hard to handle.</p>
+<p>Until a few years ago this peep was played almost without a moment&#8217;s
+thought. Why doesn&#8217;t it work well? Here we introduce a simple strategy
+you can put to use in your games right away.</p>
+
+<hr class="page">
+<div class="page-number">10</div>
+<div class="headers">Diagram 1<br>
+The Straightforward Answer</div>
+<p>When White connects at 1, Black&#8217;s intention is to turn to the slide at
+2. One reason is that this is &quot;a shape in which White finds it hard to
+answer at <em>a</em>.&quot;</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+A Splendid Formation</div>
+<p>If White plays 3, Black is proud to be able to set up the large
+knight&#8217;s move at 4. The marked peep is well placed, so White has
+trouble pursuing Black strongly on the lower side.</p>
+
+<hr class="page">
+<div class="page-number">11</div>
+<div class="headers">Diagram 3<br>
+Countering White&#8217;s Pursuit</div>
+<p>For example, if White pursues with 1, Black 2 through 6 is a skillful
+way to answer. After White cuts at <em>a</em>, Black has a counter prepared.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+The Sacrifice Strategy</div>
+<p>After White cuts with 7 and 9, stopping White&#8217;s advance along the
+lower side with Black 10 is a good move. White cannot omit the
+reinforcement of 11, so Black gets to build a framework with 12 - a
+result favoring Black.</p>
+
+<hr class="page">
+<div class="page-number">12</div>
+<div class="headers">Diagram 5<br>
+Why It Is Inefficient</div>
+<p>Rearranging the move order of the previous diagram, White has answered
+Black 2 with 3. Instead of White 3, White should be taking territory
+at <em>a</em> or <em>b</em>; the play in this diagram can only be called an
+inefficient way of moving the stones.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+A Severe Attack</div>
+<p>If White takes the big points with 1 and 3, Black 4 is severe. When
+White plays 5, Black attacks the White stones in the lower left with 6
+through 8 while making territory on the lower side - a development
+that is not bad for Black.</p>
+
+<hr class="page">
+<div class="page-number">13</div>
+<div class="headers">Diagram 7<br>
+A Simple Counter</div>
+<p>The diagonal attachment of White 1 is the counter that thwarts Black&#8217;s
+intention. Its strength is that White does not come out badly whichever
+of <em>a</em> through <em>c</em> Black chooses.</p>
+
+<hr class="file">
+<div class="headers">Diagram 8<br>
+The Merit of the Diagonal Attachment</div>
+<p>If Black answers at 1, White solidifies the corner with 2 - enough for
+White. The diagonal attachment technique has the merit of pulling the
+corner together efficiently.</p>
+
+<hr class="page">
+<div class="page-number">14</div>
+<div class="headers">Diagram 9<br>
+Handling the Cut</div>
+<p>When the ladder favors Black, the cut of Black 1 is often played.
+However, since White can sidestep it with 2 and what follows, the peep
+technique is gradually disappearing.</p>
+
+<hr class="file">
+<div class="headers">Diagram 10<br>
+Refuting the Peep</div>
+<p>The moment Black reinforces the left and lower sides with 5 and 7,
+White 8 is the important move. It makes <em>a</em> and <em>b</em> miai, so White can
+bring things to a simple resolution.</p>
+
+<hr class="page">
+<div class="page-number">15</div>
+<div class="headers">Diagram 11<br>
+A Large Profit</div>
+<p>When Black plays 9, taking territory on the lower side with White 10
+and what follows is the calm choice. The three White stones on the
+left side still have the aim of being activated with something like
+<em>a</em>, so this is a result that satisfies White.</p>
+
+<hr class="file">
+<div class="headers">Diagram 12<br>
+The Ladder Situation</div>
+<p>When the ladder favors White - say, after exchanging the triangled
+White stone for the triangled Black stone - White 2 and what follows
+leads to a fight in White&#8217;s favor. If Black <em>a</em> doesn&#8217;t work, then
+neither does Black 1.</p>
+
+<hr class="page">
+<div class="page-number">16</div>
+<div class="headers">Diagram 13<br>
+A New Five-Move Technique</div>
+<p>Another promising counter is to probe with White 1 and 3. If Black
+answers at 4, White stops the advance into the corner with 5. Since
+Black <em>a</em> lets White take a large amount of territory with <em>b</em> -</p>
+
+<hr class="file">
+<div class="headers">Diagram 14<br>
+A Fight Favoring White</div>
+<p>Black advances into the corner with 6. However, White can attack the
+three Black stones on the lower side with 7 and what follows, so White
+seizes the initiative in the fight.</p>
+
+<hr class="page">
+<div class="page-number">17</div>
+<div class="headers">Diagram 15<br>
+Building a Framework</div>
+<p>If Black defends at 1 instead of 12 in the previous diagram, White puts
+their own position in order with 2 through 4. Since White <em>a</em> is
+forcing, the formation is thicker for White than it looks - quite
+satisfactory.</p>
+
+<hr class="file">
+<div class="headers">Diagram 16<br>
+A Solid Resolution</div>
+<p>If Black invades at the 3-3 with 1 instead of 4 in Diagram 13, White
+thickens the outside with 2 and what follows. If Black
+plays <em>a</em>, White has the sealing move of <em>b</em> and what follows, making
+it a result that is not bad for White.</p>
+
+<hr class="page">
+<div class="page-number">18</div>
+<div class="headers">Diagram 17<br>
+Countering the Cut</div>
+<p>The moment White gives atari with 1, the cut of Black 2 is a variation
+to anticipate. With Black breaking into the lower left through 6, the
+development looks painful for White, but -</p>
+
+<hr class="file">
+<div class="headers">Diagram 18<br>
+A Solid Resolution</div>
+<p>Answering with White 7 and 9 is the key point. White induces Black 10,
+then reinforces the lower side in sente with 11 and what follows while
+racing to a big point - enough for White. If Black plays <em>a</em>, White
+<em>b</em> means the stones are not captured.</p>
+
+<hr class="page">
+<div class="page-number">19</div>
+<div class="headers">Diagram 19<br>
+A Flexible Shape</div>
+<p>If Black cuts with 1 and 3, White can make shape with 4 through 8.
+When Black approaches with 9, White plays 10 and what follows to make
+<em>a</em> and <em>b</em> miai - a success.</p>
+
+<hr class="file">
+<div class="headers">Diagram 20<br>
+Swallowing the Corner</div>
+<p>If Black answers at 1 instead of 3 in the previous diagram, White
+takes the whole corner with 2 and what follows. If Black resists at
+<em>a</em>, White <em>b</em> leaves nothing to worry about.</p>
+
+<hr class="page">
+<div class="page-number">20</div>
+<div class="headers">Diagram 21<br>
+The Assault of the Reverse Cut</div>
+<p>If Black cuts at 1, the correct order is for White to exchange 2 for
+Black 3 and then defend the cutting point with 4. Black activating the
+stone at <em>a</em> is a concern, but -</p>
+
+<hr class="file">
+<div class="headers">Diagram 22<br>
+Prioritizing Stability</div>
+<p>When Black plays 5, answering with White 6 through 8 is simple.
+Making <em>a</em> and <em>b</em> miai resolves things into a result favoring White.</p>
+
+<hr class="page">
+<div class="page-number">21</div>
+<div class="headers">Diagram 23<br>
+A Fair Outcome</div>
+<p>Instead of Black 7 in the previous diagram, Black 1 is safe. Things
+settle into a result in which White captures the three Black stones
+with 2 and what follows. Later White also has the option of expanding
+the left side starting with <em>a</em>, so this is not bad for White.</p>
+
+<hr class="file">
+<div class="headers">Diagram 24<br>
+Resisting with the Cut</div>
+<p>If Black resists at 1 instead of 3 in Diagram 21, White switches to the lower side with 2 and what follows - satisfying for
+White. If Black 5 is at <em>a</em>, White 5 riddles the surrounding Black
+stones with weaknesses, so White succeeds.</p>
+
+<hr class="page">
+<div class="page-number">22</div>
+<div class="headers">Column 1</div>
+<p>For those who can&#8217;t set aside much time to study Go, we recommend the
+&quot;five-minute daily game-record check.&quot; We live in an age when
+professionals play online every day, so if you can make good use of
+the opportunity, you will find new techniques faster than anyone else.
+All you need to prepare is a device that can display online games and
+an internet connection.</p>
+<p>① Look for game records on an online Go server.</p>
+<p>② Take a screenshot of anything that strikes you as interesting or
+unusual.</p>
+<p>③ When you have time, examine it with a Go AI or something similar.</p>
+<p>Those three steps are all there is to it. It is fine to look only at
+the first 50 moves of the opening. This way each record takes about
+ten seconds, so in five minutes you can check a great many of them.</p>
+<p>The key is to &quot;record the positions your intuition finds interesting.&quot;
+You don&#8217;t need to grasp the meaning of the moves right away. Simply
+seeing new shapes and tesuji is good stimulation, and once you want
+to use them in your own games you will naturally start studying them,
+gradually building a productive loop of learning.</p>
+
+<hr class="page">
+<div class="page-number">23</div>
+<div class="headers">Theme Diagram 2<br>
+The Two-Space Extension in the New Joseki</div>
+<p>The one-space pincer of White 1 is often used when White doesn&#8217;t want
+to let Black build a framework.</p>
+<p>Naturally Black resists with the jump at 2, but answering with the
+two-space extension of White 3 is the new technique. White&#8217;s formation
+looks thin, yet it actually holds the key to favorably carrying on
+the fight on the lower side.</p>
+<p>Let&#8217;s take a look right away at what sort of fight to anticipate and
+how the new technique should be used!</p>
+
+<hr class="page">
+<div class="page-number">24</div>
+<div class="headers">Diagram 1<br>
+White&#8217;s Intention (1)</div>
+<p>If Black simply invades at the 3-3 with 2, White builds thickness with
+3 and what follows. White forestalls the expansion of Black&#8217;s
+framework - a development that is enough for White.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+White&#8217;s Intention (2)</div>
+<p>Pressing from above with Black 1 and 3 is the conventional technique.
+However, White settles while taking territory with 4 and what follows,
+so this is regarded as good for White.</p>
+
+<hr class="page">
+<div class="page-number">25</div>
+<div class="headers">Diagram 3<br>
+Resistance Is Inevitable</div>
+<p>For those reasons, Black 1 is the natural counterattack. With Black
+waiting in the lower right, the fight looks hard for White, but -</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+A Favorable Battlefield</div>
+<p>White&#8217;s pride is being able to reinforce the lower side with 4 and
+what follows while taking away Black&#8217;s base. The insurance of
+connecting at <em>a</em> also remains, so the fight favors White.</p>
+
+<hr class="page">
+<div class="page-number">26</div>
+<div class="headers">Diagram 5<br>
+Countering the Crosscut</div>
+<p>When Black strikes at the thinness of the two-space extension with 1
+and 3, answering with White 4 and what follows is simple. White has
+breakthrough points at <em>a</em> and <em>b</em>, so there is no danger of being
+crushed.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+Flexible Handling of the Stones</div>
+<p>When Black plays 7, White should answer at 8. If Black breaks through
+at 9, the good order is for White to play 10 and what follows, turning
+to the lower side while stopping the advance on the left side.</p>
+
+<hr class="page">
+<div class="page-number">27</div>
+<div class="headers">Diagram 7<br>
+A Large Gain</div>
+<p>Black cannot omit the reinforcement of 13, and White solidifies the
+left side with 14 and what follows - the flow is going White&#8217;s way.
+The thinness of the two-space extension is not so easily broken
+through.</p>
+
+<hr class="file">
+<div class="headers">Diagram 8<br>
+An Answer That Values the Corner</div>
+<p>If Black plays 1 instead of 7 in Diagram 6, White again answers in the
+corner with 2. In compensation for allowing the breakthrough of Black
+3 and what follows, White solidifies the lower left and takes
+territory with 10, recovering the loss.</p>
+
+<hr class="page">
+<div class="page-number">28</div>
+<div class="headers">Diagram 9<br>
+Black&#8217;s Countermeasure</div>
+<p>Accordingly, Black 1 is one countermeasure that has been proposed.
+Black&#8217;s shape looks precarious, but White needs to respond carefully.</p>
+
+<hr class="file">
+<div class="headers">Diagram 10<br>
+The Assault Strategy</div>
+<p>If White counterattacks with 2 and 4, Black surrounds the lower side
+with 5 and what follows. White does have ways to live, such as <em>a</em>,
+but White is drawn into an undesirable fight.</p>
+
+<hr class="page">
+<div class="page-number">29</div>
+<div class="headers">Diagram 11<br>
+A Simple Resolution</div>
+<p>When Black plays 1, defending the lower left and the lower side with
+White 2 and what follows is simple. Black&#8217;s own position is thin, so
+Black cannot counterattack strongly.</p>
+
+<hr class="file">
+<div class="headers">Diagram 12<br>
+Prioritizing Defense</div>
+<p>When Black plays 7, White again solidifies the lower left with 8 and
+what follows. White takes territory while building a position from
+which to aim at attacking the Black stones in the lower left - a fight
+that is good for White.</p>
+
+<hr class="page">
+<div class="page-number">30</div>
+<div class="headers">Diagram 13<br>
+An Advantage Without Fighting</div>
+<p>If Black aims to make shape with 1 and 3, White answers with 4 and
+what follows - enough for White. Since White has spread out widely
+with the marked stone, White has no complaints once the lower left is
+solidified.</p>
+
+<hr class="file">
+<div class="headers">Diagram 14<br>
+The Drawback of the Conventional Technique</div>
+<p>White 1 is the way it has been played until now. However, in the
+fighting starting with Black 2, White has to answer Black 8 with 9, so
+Black ends up seizing the initiative in the fight.</p>
+
+<hr class="page">
+<div class="page-number">31</div>
+<div class="headers">Theme Diagram 3<br>
+Countering the Double Approach</div>
+<p>Rather than answering the approach of Black 1, taking territory with
+something like White 2 has become the modern mainstream. The main
+reason is that many ways of dealing with the double approach of Black
+7 have emerged.</p>
+<p>You can choose anything from a simple strategy to a forceful response,
+so try selecting among them to suit your own style and the position at
+hand.</p>
+
+<hr class="page">
+<div class="page-number">32</div>
+<div class="headers">Diagram 1<br>
+The Criterion for the Attachment</div>
+<p>Answering with White 1 and 3 is the starting point. The key is to
+attach in the direction opposite the big point you want to play. Here
+White wants to head for the lower side, so White attaches toward the
+left side.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+A Simple Strategy</div>
+<p>Pursuing with Black 4 and 6 is the modern technique. In this position,
+the attachment of White 7, which simply sidesteps, is the recommended
+way to play.</p>
+
+<hr class="page">
+<div class="page-number">33</div>
+<div class="headers">Diagram 3<br>
+The Modern Joseki</div>
+<p>Even when Black reduces the corner with 8 and 10, White plays 11 and
+what follows to take the lower side while building a stable formation,
+resolving into a result that is enough for White.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+Understanding the Drawback</div>
+<p>The drawback of this formation is that Black has the resource of 1.
+White can support the lower side with 2, but you need to use this line
+expecting to be sealed in by Black 3 and what follows.</p>
+
+<hr class="page">
+<div class="page-number">34</div>
+<div class="headers">Diagram 5<br>
+Prioritizing Defense</div>
+<p>If Black sets up on the lower side with 1, White captures the one
+Black stone with 2 and what follows. White can settle with <em>a</em> and <em>b</em>
+as miai, so this development is not bad for White.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+A Thick Resolution</div>
+<p>When Black plays tenuki with something like 1, being able to make
+shape with White 2 and what follows is big. White&#8217;s pride is being
+able to reduce Black&#8217;s territory while thickening the lower left.</p>
+
+<hr class="page">
+<div class="page-number">35</div>
+<div class="headers">Diagram 7<br>
+Light Stone Management</div>
+<p>Even if Black cuts at 2, White has enough after making shape with 3
+and what follows and then taking a big point. White also has the aim
+of attacking the Black stones in the lower right - a position with
+much for White to look forward to.</p>
+
+<hr class="file">
+<div class="headers">Diagram 8<br>
+Aiming at a Counterattack</div>
+<p>If Black hanes at 1 instead of 2 in the previous diagram, securing the
+base with White 2 and what follows is solid. White can aim at
+counterattacking with <em>a</em> or <em>b</em>, so the result favors White.</p>
+
+<hr class="page">
+<div class="page-number">36</div>
+<div class="headers">Diagram 9<br>
+For Those Confident in Their Strength</div>
+<p>The connection of White 1 is recommended for those who like to fight.
+In response to Black 2, the key is to exchange White 3 for Black 4,
+gaining the tempo to defend with White 5 and what follows.</p>
+
+<hr class="file">
+<div class="headers">Diagram 10<br>
+A Blow to the Vital Point</div>
+<p>If Black defends with 8 and 10, White 15 is the vital point after
+reinforcing with 11 through 13. With the wedge of White <em>a</em> in view,
+Black&#8217;s way of defending is troublesome.</p>
+
+<hr class="page">
+<div class="page-number">37</div>
+<div class="headers">Diagram 11<br>
+A Contest</div>
+<p>Instead of Black 10 in the previous diagram, escaping with 1 is the
+move. However, White can defend while eyeing an attack on the left
+side with 2 and what follows, so White can bring about a fight that is
+at least even.</p>
+
+<hr class="file">
+<div class="headers">Diagram 12<br>
+A Thin Formation</div>
+<p>Black 1 instead of Black 2 in Diagram 9 is another technique to
+prepare for. Even if White attacks with 2 and 4, Black plays 6 and
+what follows with an eye on <em>a</em> and <em>b</em> - a formation where White&#8217;s
+pursuit cannot continue.</p>
+
+<hr class="page">
+<div class="page-number">38</div>
+<div class="headers">Diagram 13<br>
+A Flexible Response</div>
+<p>Accordingly, the pincer of White 1 is the way to break up Black&#8217;s
+intention. In response to Black 2, White plays 3 and what follows to
+defend the lower left and the lower side while aiming at an attack on
+the lower right - a development that is not bad for White.</p>
+
+<hr class="file">
+<div class="headers">Diagram 14<br>
+Aiming for the Seal</div>
+<p>If Black presses on the lower side with 1 instead of 6 in the previous
+diagram, White seals Black in with 2 and what follows. Black strikes
+at the thinness of the outer wall and aims to break through the
+encirclement, but -</p>
+
+<hr class="page">
+<div class="page-number">39</div>
+<div class="headers">Diagram 15<br>
+A Fighting Position</div>
+<p>Even if Black escapes with 13 through 19, White continues the attack
+with 20 and what follows - a fight that is not bad for White. However,
+even with the insurance of White <em>a</em>, playing it out well is
+difficult.</p>
+
+<hr class="file">
+<div class="headers">Diagram 16<br>
+A Difficult Shape That Demands Study</div>
+<p>The connection of White 1 requires answers prepared for Black <em>a</em> and
+<em>b</em>, and on top of that it demands strong reading - a way of playing
+with a high level of difficulty.</p>
+
+<hr class="page">
+<div class="page-number">40</div>
+<div class="headers">Diagram 17<br>
+Answering the Extension</div>
+<p>Answering the extension of Black 1 with White 2 is the starting point.
+In response to Black 3, White stops the advance into the corner with
+4. Continuing, Black <em>a</em> is the joseki sequence, but -</p>
+
+<hr class="file">
+<div class="headers">Diagram 18<br>
+A Counterattack Worth Remembering</div>
+<p>In response to Black 5, counterattacking with White 6 and 8 is a good
+decision. The key is to switch to attacking the left side and seize
+the initiative. White also has the insurance of coming back to <em>a</em>, so
+the fight favors White.</p>
+
+<hr class="page">
+<div class="page-number">41</div>
+<div class="headers">Diagram 19<br>
+Countering the Resistance</div>
+<p>Black 1 and 3 are another troublesome counter-strategy. However, White
+can answer them fully with the resistance of 4. Continuing, if Black
+plays <em>a</em>, White <em>b</em> leads to a result that favors White, so -</p>
+
+<hr class="file">
+<div class="headers">Diagram 20<br>
+A Trade</div>
+<p>Black answers with 5 and 7. At this moment, White 8 is a good move
+that defends the weakness at <em>a</em>. In exchange for being captured by
+Black 9, White thickens the left-side area with 10 - enough for White.</p>
+
+<hr class="page">
+<div class="page-number">42</div>
+<div class="headers">Diagram 21<br>
+A Fast Development</div>
+<p>If Black answers at 1, White plays 2 and what follows to secure the
+base in the lower left, then runs to a big point. White builds a
+fast-paced development and has enough.</p>
+
+<hr class="file">
+<div class="headers">Diagram 22<br>
+The Merit of Prioritizing Defense</div>
+<p>In response to Black 1, White plays 2 and what follows with defense as
+the priority. Even if Black expands with 9, White&#8217;s strength is being
+able to reduce the left side with 12 while eyeing <em>a</em> through <em>c</em>.</p>
+
+<hr class="page">
+<div class="page-number">43</div>
+<div class="headers">Theme Diagram 4<br>
+Countering the Second-Line Invasion</div>
+<p>In response to the approach of Black 1, White 2 through 4 is the
+mainstream technique. One of its aims is to reduce the lower side with
+the invasion of White 6.</p>
+<p>However, at an early stage of the opening, it resolves into a
+variation that is not bad for Black. It is a way of answering that
+ordinary thinking cannot arrive at, so be sure to prepare the
+countermeasure thoroughly.</p>
+
+<hr class="page">
+<div class="page-number">44</div>
+<div class="headers">Diagram 1<br>
+Separating Without Preparation</div>
+<p>If Black separates with 1 and 3, White settles boldly with 4 and what
+follows. Later White can also look toward the resource starting with
+<em>a</em> - a development where Black&#8217;s thinness stands out.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+A Fight That Favors White</div>
+<p>If Black counterattacks with 7, White advances into the center with 8
+and what follows. White reinforces the lower side while attacking the
+Black stones in the lower left - White is doing well.</p>
+
+<hr class="page">
+<div class="page-number">45</div>
+<div class="headers">Diagram 3<br>
+The Verdict Goes to Thickness</div>
+<p>Sealing White in with Black 1 is correct. If White answers at 2, Black
+plays 3 and what follows to thicken the outside while reducing White&#8217;s
+territory - enough for Black.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+White&#8217;s Aim</div>
+<p>White 1 instead of White 2 in the previous diagram is White&#8217;s aim. In
+response to Black 2, White takes territory with 3 and what follows - a
+result that favors White. The surrounding White stones are solid, so
+Black cannot put the thickness to work.</p>
+
+<hr class="page">
+<div class="page-number">46</div>
+<div class="headers">Diagram 5<br>
+Black&#8217;s Counter-Strategy</div>
+<p>Exchanging Black 1 for White 2 and then probing with Black 3 is
+exquisite. Black&#8217;s advantage is being able to ask how White will come
+out at <em>a</em> through <em>c</em> and then change the later plan accordingly.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+Aji Left in the Corner</div>
+<p>In response to White 4, Black comes back with 5. Even if White
+connects with 6 and what follows, Black can reduce the corner with 11
+through 13, breaking up White&#8217;s fast-paced development.</p>
+
+<hr class="page">
+<div class="page-number">47</div>
+<div class="headers">Diagram 7<br>
+Much the Same</div>
+<p>If White varies with 1 instead of 6 in the previous diagram, Black
+stops the advance along the lower side with 2. Black can look toward
+reducing with 10 through 12, so the result is good for Black.</p>
+
+<hr class="file">
+<div class="headers">Diagram 8<br>
+A Thick Resolution</div>
+<p>If White takes control of the corner with 1 and 3, coming back to the
+lower side with Black 4 is thick. Black&#8217;s position in the lower right
+becomes ground that easily turns into settled territory - enough for
+Black.</p>
+
+<hr class="page">
+<div class="page-number">48</div>
+<div class="headers">Diagram 9<br>
+A Head-On Confrontation</div>
+<p>In response to White 1, cutting the connection with Black 2 and what
+follows is a good move. Black&#8217;s aim is to bear down severely on the
+White stones on the lower side and build a thick shape.</p>
+
+<hr class="file">
+<div class="headers">Diagram 10<br>
+A Forceful Strategy</div>
+<p>When White moves out with 5 through 9, the key is for Black to stop
+firmly with 10. In response to White 11 as well, Black answers at 12,
+emphasizing that the lower side is still left for dead.</p>
+
+<hr class="page">
+<div class="page-number">49</div>
+<div class="headers">Diagram 11<br>
+A Calm Resolution</div>
+<p>Even if White creates weaknesses with 13 and what follows, White
+cannot omit playing 21 to make life. Black consolidates the thickness
+with 24 while looking at the forcing moves at <em>a</em> and <em>b</em> - enough for
+Black.</p>
+
+<hr class="file">
+<div class="headers">Diagram 12<br>
+A Development That Favors Black</div>
+<p>If White resists with 1 instead of White 3 in Diagram 9, Black secures
+a base with 2. Black has the aim of attacking at <em>a</em> or <em>b</em> - a
+position with much for Black to look forward to.</p>
+
+<hr class="page">
+<div class="page-number">50</div>
+<div class="headers">Diagram 13<br>
+Controlling the Pace at Will</div>
+<p>In response to White 2 as well, Black stops the advance into the lower
+side with 3. When White counterattacks with 4 and 6, it is essential
+for Black to give priority to reinforcing the lower left with 7.</p>
+
+<hr class="file">
+<div class="headers">Diagram 14<br>
+A Fight That Favors Black</div>
+<p>In response to White 8, the good order is for Black to secure an
+escape route with 9 and then seal White in with 11. With an eye on the
+life and death of the lower side, Black looks toward attacking the two
+White stones in the center - a success for Black.</p>
+
+<hr class="page">
+<div class="page-number">51</div>
+<div class="headers">Diagram 15<br>
+White&#8217;s Resistance</div>
+<p>Resisting with White 1 instead of 10 in the previous diagram is also
+conceivable. With White making <em>a</em> and <em>b</em> miai, Black looks to be in
+trouble, but -</p>
+
+<hr class="file">
+<div class="headers">Diagram 16<br>
+Opening Up New Territory</div>
+<p>Defending the lower left with Black 4 is a good decision. In exchange
+for letting White capture the two Black stones with 5, Black builds a
+framework on the left side with 6 and what follows - enough for Black.</p>
+
+<hr class="page">
+<div class="page-number">52</div>
+<div class="headers">Diagram 17<br>
+Aji Left in the Corner</div>
+<p>In response to White 1, Black thickens the lower side with 2. Black
+can leave behind the option of living in the lower left starting with
+<em>a</em>, so this progression is not bad for Black.</p>
+
+<hr class="file">
+<div class="headers">Diagram 18<br>
+Tenuki Is Also Strong</div>
+<p>Running to a big point with Black 1 is also strong. Even allowing
+White two moves in a row starting with 2, Black can compete by taking
+territory with 3 and what follows. Being able to aim at <em>a</em> later is
+another point of pride.</p>
+
+<hr class="page">
+<div class="page-number">53</div>
+<div class="headers">Theme Diagram 5<br>
+A Simple Counter to the Framework</div>
+<p>In response to Black 1, the wide pincer of White 2 is a strong counter
+to the framework. It is a technique that works especially well when
+the lower right is a two-space enclosure from the 3-4 point.</p>
+<p>The real aim of this pincer is to prevent the framework by giving
+priority to defense. Let us look at what plan White has in store once
+Black&#8217;s pursuit has been answered fully.</p>
+
+<hr class="page">
+<div class="page-number">54</div>
+<div class="headers">Diagram 1<br>
+Building a Solid Position</div>
+<p>If Black enters the 3-3 with 1, White builds a thick shape with 2 and
+what follows. While preventing the lower side from becoming a Black
+framework, White eyes the good point of expanding at <em>a</em> - a position
+with much for White to look forward to.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+A Thick Formation</div>
+<p>In response to the double approach of Black 1, White sidesteps with 2
+and what follows. White has resources such as reducing with <em>a</em> and
+what follows, so White is not behind on territory.</p>
+
+<hr class="page">
+<div class="page-number">55</div>
+<div class="headers">Diagram 3<br>
+Answering Strongly</div>
+<p>If Black varies with 1 instead of 5 in the previous diagram, White
+stops the advance into the corner with 2 and what follows. White has
+stones on the lower side, so it is a fight that favors White.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+Taking the Initiative</div>
+<p>If Black moves out with 5, White attacks the Black stones on the left
+side with 6 and what follows - the flow favors White. White has no
+weak stones, so White can draw Black into a one-sided fight.</p>
+
+<hr class="page">
+<div class="page-number">56</div>
+<div class="headers">Diagram 5<br>
+A Counter-Strategy Worth Knowing</div>
+<p>The high double approach of Black 1 is a way of playing with many
+examples in actual games. Facing this formation, the attachment of
+White 2 is a counter-strategy worth remembering.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+An Ingenious Way to Make Shape</div>
+<p>In response to Black 5, it is essential for White to make shape with 6
+through 12. The important point is not to settle the cut at <em>a</em>.</p>
+
+<hr class="page">
+<div class="page-number">57</div>
+<div class="headers">Diagram 7<br>
+Why White Should Not Settle It</div>
+<p>In response to Black 13, turning it into a ko with White 14 is a good
+move. In response to Black 15, White 16 is a forcing move, so White
+can capture back. Black can do no more than defend with 19 and what
+follows, and White builds a splendid shape after 22 - enough for
+White.</p>
+
+<hr class="file">
+<div class="headers">Diagram 8<br>
+A Fast-Paced Development</div>
+<p>If Black defends with 1 instead of 11 in Diagram 6, White defends the
+lower left in sente with 2 and what follows and then runs to a big
+point - a development that is not bad for White.</p>
+
+<hr class="page">
+<div class="page-number">58</div>
+<div class="headers">Diagram 9<br>
+Making Use of the Ladder</div>
+<p>If the ladder favors White, capturing with White 1 and 3 is also
+strong. Black 4 and what follows lead into the stone tower squeeze
+tesuji, but -</p>
+
+<hr class="file">
+<div class="headers">Diagram 10<br>
+Charging into the Tesuji</div>
+<p>Paying it no mind and simply capturing with White 9 and what follows
+is a good move. Since White goes right into the line Black is counting
+on, it is a progression that easily becomes a blind spot.</p>
+
+<hr class="page">
+<div class="page-number">59</div>
+<div class="headers">Diagram 11<br>
+Sidestepping Lightly</div>
+<p>In response to Black 12 and 14, connecting with White 15 and what
+follows is the expected diagram. Black only captures three White
+stones, while White reinforces the lower side and eyes the good point
+at <em>a</em> - a progression that satisfies White.</p>
+
+<hr class="file">
+<div class="headers">Diagram 12<br>
+Avoiding the Ladder Breaker</div>
+<p>In response to Black 1, White should answer at 2. Even if Black runs
+with 3, White defends the upper right and the lower side with 4 and
+what follows - a success for White. The ladder breaker is only a light
+burden for White.</p>
+
+<hr class="page">
+<div class="page-number">60</div>
+<div class="headers">Diagram 13<br>
+A Practical Result</div>
+<p>In response to Black 1, answering with White 2 and 4 is simple. In
+response to Black 5, sacrificing the two stones with White 6 and what
+follows and running to a big point is a good decision. White keeps
+Black&#8217;s thickness in check - not bad for White.</p>
+
+<hr class="file">
+<div class="headers">Diagram 14<br>
+A Fight That Favors White</div>
+<p>If Black resists with 1 instead of 3 in the previous diagram, White
+can aim at the Black stones on the lower side and the left side with 2
+and what follows, leading to a fight that favors White.</p>
+
+<hr class="page">
+<div class="page-number">61</div>
+<div class="headers">Diagram 15<br>
+A Progression to Watch Out For</div>
+<p>White 1 instead of 2 in Diagram 13 lets Black make shape with 2
+through 6 and then get to the lower left first with 8. Next, Black <em>a</em>
+would endanger the whole White position, so -</p>
+
+<hr class="file">
+<div class="headers">Diagram 16<br>
+A Slow Development</div>
+<p>White should bear down on the Black stones in the lower left with 9.
+However, Black defends the left side with 10 and what follows, and
+White is unimpressive. With <em>a</em> and <em>b</em> miai for the Black stones in
+the lower left, the pursuit cannot continue.</p>
+
+<hr class="page">
+<div class="page-number">62</div>
+<div class="headers">Diagram 17<br>
+Countering the Connection</div>
+<p>In response to Black 1, White makes shape with 2. In exchange for
+letting Black take profit with 3, White stores up strength with 4 and
+what follows and aims at the Black stones on the left side and in the
+lower left.</p>
+
+<hr class="file">
+<div class="headers">Diagram 18<br>
+Taking the Initiative</div>
+<p>If Black defends the lower left with 9, White attacks the left side
+with 10 and takes the initiative. After White 14, White also has the
+option of making shape with <em>a</em> and what follows - a shape thicker
+than it looks.</p>
+
+<hr class="page">
+<div class="page-number">63</div>
+<div class="headers">Diagram 19<br>
+A Thick Resolution</div>
+<p>If Black plays 1 instead of 9 in the previous diagram, pressing with
+White 2 is a good move. In response to Black 3, White swallows up the
+two Black stones with 4 and what follows - enough for White. If Black
+3 is at 4, White can build a good shape with <em>a</em>.</p>
+
+<hr class="file">
+<div class="headers">Diagram 20<br>
+Prioritizing Defense</div>
+<p>When Black reduces the lower side with 1 through 5, defending the
+lower left with White 6 and what follows is solid. Eyeing the attack
+at <em>a</em> and the good point at <em>b</em>, this is a progression that is not
+bad for White.</p>
+
+<hr class="page">
+<div class="page-number">64</div>
+<div class="headers">Diagram 21<br>
+A Large Profit</div>
+<p>If Black breaks through forcefully with 1, sidestepping with White 2
+and what follows is flexible. The White stones on the lower side
+become settled territory, so even though the two White stones are
+damaged, it is a result that satisfies White.</p>
+
+<hr class="file">
+<div class="headers">Diagram 22<br>
+Much the Same</div>
+<p>Even if Black tries something clever with 1 and 3, White&#8217;s plan of
+turning the lower side into territory with 4 and what follows does not
+change. As in the previous diagram, White&#8217;s territory is large - a
+success for White.</p>
+
+<hr class="page">
+<div class="page-number">65</div>
+<div class="headers">Theme Diagram 6<br>
+A New Three-Move Technique</div>
+<p>The skirt approach of White 1 is one of the resources often used when
+reducing Black&#8217;s position. In this position, it conceals the intention
+of watching how Black answers and then changing how White plays on the
+lower side.</p>
+<p>Nowadays the mainstream is a technique that restricts White&#8217;s movement
+and lets Black take the initiative. It demands no advanced technique
+either, so you can put it to use in your games right away.</p>
+
+<hr class="page">
+<div class="page-number">66</div>
+<div class="headers">Diagram 1<br>
+The Knack of Making White Heavy</div>
+<p>It is essential to settle the exchange of Black 1 for White 2, leaving
+the White stones in the lower right in a shape that is hard to give
+up. Black comes back with 3 and goes on to attack the two White
+stones.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+An Attack in Full Swing</div>
+<p>In response to White 4, Black pursues severely with 5 and what follows
+and seizes the initiative in the fight. Black&#8217;s position on the lower
+side expands as well - Black is doing well.</p>
+
+<hr class="page">
+<div class="page-number">67</div>
+<div class="headers">Diagram 3<br>
+The Price of Tenuki</div>
+<p>Taking profit with White 1 instead of 8 in the previous diagram lets
+Black play the vital point at 2 and keep up a one-sided attack. White
+cannot omit reinforcing the lower right.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+A Fast-Paced Development</div>
+<p>If White secures a base with 1 through 5, Black runs to a big point
+with 6 and what follows. Black can use the whole board expansively - a
+development that is not bad for Black.</p>
+
+<hr class="page">
+<div class="page-number">68</div>
+<div class="headers">Diagram 5<br>
+A Strong Move on the Second Line</div>
+<p>In response to White 1, pressing with Black 2 while taking away the
+base is a good move. Even if White breaks through with 3, Black can
+keep the attack going with 4 - that is Black&#8217;s point of pride.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+The Spoils of the Attack</div>
+<p>Black&#8217;s real aim is to steer the game into a situation where White has
+no choice but to run with 5 and what follows, and then to collect the
+spoils of the attack all over the board with moves like Black 10.</p>
+
+<hr class="page">
+<div class="page-number">69</div>
+<div class="headers">Diagram 7<br>
+Fighting Confidently</div>
+<p>In response to White 11 as well, Black keeps taking away eyes with 12.
+In response to White 13, Black expands the lower side with 14 and what
+follows - a development that satisfies Black. If White 17 is at <em>a</em>,
+Black can seal White in with 18, White <em>b</em>, Black <em>c</em> and what
+follows.</p>
+
+<hr class="file">
+<div class="headers">Diagram 8<br>
+Why Black Should Not Answer</div>
+<p>If Black answers at 2, White settles boldly with 3 through 5. The
+Black stones in the lower left are isolated as well - a progression
+that dissatisfies Black.</p>
+
+<hr class="page">
+<div class="page-number">70</div>
+<div class="headers">Diagram 9<br>
+Countering the 3-3</div>
+<p>If White enters the 3-3 with 2, Black should answer straightforwardly
+at 3. Even if White resists at <em>a</em> or <em>b</em>, it resolves into a result
+that favors Black.</p>
+
+<hr class="file">
+<div class="headers">Diagram 10<br>
+Prioritizing the Corner</div>
+<p>In response to White 4, taking away the base in the corner with Black
+5 is a good move. In response to White 6, Black attacks with 7 and
+what follows while expanding the lower side - Black is doing well.</p>
+
+<hr class="page">
+<div class="page-number">71</div>
+<div class="headers">Diagram 11<br>
+Much the Same</div>
+<p>In response to White 1 as well, Black pursues severely with 2. In
+exchange for allowing the breakthrough of White 3, Black keeps the
+attack going with 4 and what follows - a fight that favors Black.</p>
+
+<hr class="file">
+<div class="headers">Diagram 12<br>
+Expanding the Framework</div>
+<p>In response to White 1, Black seals White in with 2 and what follows
+in sente while building a framework on the lower side - Black is
+satisfied. Incidentally, if White omits 5, Black can capture the White
+stones with <em>a</em> and what follows.</p>
+
+<hr class="page">
+<div class="page-number">72</div>
+<div class="headers">Diagram 13<br>
+The Wrong Order of Moves</div>
+<p>Black 1 and 3 do not get answered, and White turns to the attack with
+4 and what follows. A difference of just one move reverses the balance
+of power, so take care.</p>
+
+<hr class="file">
+<div class="headers">Diagram 14<br>
+The Drawback of the Old Technique</div>
+<p>In response to Black 1 as well, White launches a preemptive attack
+with 2 and what follows, and Black ends up in gote. What hurts is that
+White is left with the option of settling matters at <em>a</em> or <em>b</em> as the
+situation demands.</p>
+
+<hr class="page">
+<div class="page-number">73</div>
+<div class="headers">Theme Diagram 7<br>
+The Evolving Attach-and-Extend Joseki</div>
+<p>In response to Black 1, the attach-and-extend joseki of White 2 and 4
+is frequently played. One reason is that it is a strong technique for
+turning a framework into territory.</p>
+<p>What was once called a bad joseki that solidifies the opponent&#8217;s
+stones has now risen to be counted among the representative resources.
+Let us explain what form the evolved attach-and-extend joseki has
+taken.</p>
+
+<hr class="page">
+<div class="page-number">74</div>
+<div class="headers">Diagram 1<br>
+Large Settled Territory</div>
+<p>In response to Black 1, White consolidates the lower side on a large
+scale with 2 and what follows - the verdict goes to White. White can
+take settled territory efficiently, so Black has become reluctant to
+choose this diagram.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+An Aggressive Strategy</div>
+<p>Enclosing on a large scale with White 1 instead of 4 in the previous
+diagram is also strong. In response to Black 2 and the cut at 4, White
+can bring about a fight that favors White with 5 and what follows.</p>
+
+<hr class="page">
+<div class="page-number">75</div>
+<div class="headers">Diagram 3<br>
+Countering the Push-and-Cut</div>
+<p>If Black cuts forcefully with 1 and 3 instead of 3 in Diagram 1, White
+counterattacks with 4. White can aim at the Black stones on the left
+side and the lower side, so it is a fight that favors White.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+A Calm Response</div>
+<p>Even if Black resists with 5 and what follows, calmly defending the
+corner with White 14 is a good move. With <em>a</em> and <em>b</em> miai, it is a
+success for White.</p>
+
+<hr class="page">
+<div class="page-number">76</div>
+<div class="headers">Diagram 5<br>
+Expanding the Framework</div>
+<p>Even if Black digs in with 1 and 3, White expands the lower side with
+4 and what follows. White can build a framework that easily becomes
+territory - a result that is enough for White.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+A Careful Answer</div>
+<p>In response to Black 3, it is essential for White to answer with 4 and
+what follows so as to erase Black&#8217;s aim at <em>a</em>. After White 8, the
+lower side becomes settled territory.</p>
+
+<hr class="page">
+<div class="page-number">77</div>
+<div class="headers">Diagram 7<br>
+A Forced Entry</div>
+<p>Charging into the left side with White 1 instead of 8 in the previous
+diagram is also strong. In response to Black 2, White&#8217;s aim is to bear
+down on the Black stones in the lower left with 3.</p>
+
+<hr class="file">
+<div class="headers">Diagram 8<br>
+A Thorough Reduction</div>
+<p>In response to Black 4, White probes the base with 5 and what follows.
+Even allowing Black the good point at <em>a</em>, White thins out Black&#8217;s
+whole position while aiming at the Black stones in the lower left with
+<em>b</em> - a development that is not bad for White.</p>
+
+<hr class="page">
+<div class="page-number">78</div>
+<div class="headers">Diagram 9<br>
+A Fair Outcome</div>
+<p>The kosumi of Black 1 is a frequently played technique. The point
+White must watch is to connect at 6 in response to Black 5. After
+White 10, it resolves into a result close to even.</p>
+
+<hr class="file">
+<div class="headers">Diagram 10<br>
+A Sudden Reversal</div>
+<p>If White stops the advance into the lower left with 1 instead of 6 in
+the previous diagram, the cut of Black 4 is severe. Continuing, if
+White plays <em>a</em>, Black breaks through with <em>b</em>.</p>
+
+<hr class="page">
+<div class="page-number">79</div>
+<div class="headers">Diagram 11<br>
+A Shortage of Liberties</div>
+<p>If White resists with 5 through 9, Black 10 and what follows is the
+tesuji. White&#8217;s cause for regret is being unable to prevent the
+resource of Black <em>a</em>, capturing the two White stones. If White 9 is
+at 11, Black <em>b</em> captures the lower left.</p>
+
+<hr class="file">
+<div class="headers">Diagram 12<br>
+Light Stone Management</div>
+<p>White 1 instead of 5 in the previous diagram lets Black reinforce the
+left side and the lower side with 2 and what follows, erasing White&#8217;s
+framework. Because resources like this exist, a careful way of
+defending is called for.</p>
+
+<hr class="page">
+<div class="page-number">80</div>
+<div class="headers">Diagram 13<br>
+Black&#8217;s Counter-Strategy</div>
+<p>Nowadays there are more and more examples in actual games of Black
+entering the corner with 1. In response to White 2, Black&#8217;s intention
+is to occupy the big points with 3 and what follows and accelerate the
+pace.</p>
+
+<hr class="file">
+<div class="headers">Diagram 14<br>
+Prioritizing Speed</div>
+<p>In response to White 6, Black prevents the left side from becoming a
+White framework with 7 and what follows. The profit Black has taken
+all over the board is large - a development that is not bad for Black.</p>
+
+<hr class="page">
+<div class="page-number">81</div>
+<div class="headers">Diagram 15<br>
+The Counter</div>
+<p>If White tries to stop the advance into the lower side with 1 and 3
+instead of 4 in Diagram 13, Black 4 is a clever counter-technique.
+Naturally White separates Black with <em>a</em>, but -</p>
+
+<hr class="file">
+<div class="headers">Diagram 16<br>
+Cutting Points That Cannot All Be Defended</div>
+<p>The moment White cuts with 5 and 7, Black 8 is the aim of this whole
+sequence. White cannot defend all the weaknesses from <em>a</em> through <em>c</em>,
+and the position is beyond repair.</p>
+
+<hr class="page">
+<div class="page-number">82</div>
+<div class="headers">Column 2<br>
+The Pros and Cons of Learning from Videos</div>
+<p>Nowadays there are more and more chances to learn from videos on
+YouTube and elsewhere, so as long as you have an internet connection,
+anyone has an environment in which they can study at a high level.
+However, you do need to understand the pros and cons of studying with
+videos.</p>
+<ul>
+<li>
+<p>Pro: you can understand concrete methods visually, without having to
+reproduce the sequence in your head.</p>
+</li>
+<li>
+<p>Con: concrete methods are tools, and yet they become the goal.</p>
+</li>
+</ul>
+<p>Most video sites are built so that users can watch for free, funded by
+advertising revenue, so the creators too find ways to draw viewers in,
+using inflammatory phrases and expressions that push right up to the
+line of what a broad interpretation will allow. Superfluous variations
+are trimmed away in order to lead to a single conclusion, which makes
+the opinion look correct; the result is that you are given no room to
+think while knowledge is hammered in one item after another.</p>
+<p>The thing to watch out for when learning from videos is that what you
+are getting is no more than one way of thinking. It is important to
+always leave yourself &quot;margin&quot; for taking in a variety of ideas. Since
+wringing out a move at the board is difficult, broadening the range of
+your ideas with videos and the like should lead to a higher winning
+percentage.</p>
+
+<hr class="page">
+<div class="page-number">83</div>
+<div class="headers">Theme Diagram 8<br>
+A Modern Large-Knight Technique</div>
+<p>When White attacks with 2, playing the large knight&#8217;s move of Black 3
+and seeing how White answers is an interesting technique. It looks
+like a formation full of gaps, but in fact the connection is strong,
+and it has the advantage of making it easy to build an elastic shape.</p>
+<p>This is a formation that often comes up in actual games, so it should
+be easy to get ahead of your rivals. Let&#8217;s take a look right away at
+how Black makes shape.</p>
+
+<hr class="page">
+<div class="page-number">84</div>
+<div class="headers">Diagram 1<br>
+A Counterattack Prepared in Advance</div>
+<p>If White splits Black with 1, Black reduces the lower left with 2 and
+what follows while leaving the cutting points at <em>a</em> and <em>b</em>. Since
+White cannot get things under control, White cannot split Black.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+A Large Profit</div>
+<p>Even if White seals Black in with 1 and 3, Black has enough after
+taking territory with 4. It is big that Black can stabilize the Black
+stones on the lower side while keeping an eye on the aim at <em>a</em>.</p>
+
+<hr class="page">
+<div class="page-number">85</div>
+<div class="headers">Diagram 3<br>
+A Powerful Cut</div>
+<p>If White stops the advance with 1, Black can cut with 2 through 6.
+Continuing, if White plays <em>a</em>, White collapses after Black <em>b</em> and
+what follows, so -</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+A Thick Formation</div>
+<p>White has no choice but to defend with 7 and 9. Black comes back with
+10 to make the outside thick. In response to White <em>a</em>, Black plays
+<em>b</em> - a fight that favors Black.</p>
+
+<hr class="page">
+<div class="page-number">86</div>
+<div class="headers">Diagram 5<br>
+Prioritizing Defense</div>
+<p>If White answers calmly with 1, Black defends with 2 through 4. White
+rushes to a big point with something like 5, and it looks as though
+Black&#8217;s development will be slow, but -</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+The Follow-Up</div>
+<p>Getting close to the lower left with Black 6 and 8 is severe. Being
+able to pursue the White stones in the lower left while making the
+left side thick is Black&#8217;s pride.</p>
+
+<hr class="page">
+<div class="page-number">87</div>
+<div class="headers">Diagram 7<br>
+A Thick Resolution</div>
+<p>If White tries to escape with 1 instead of 3 in Diagram 5, Black makes
+shape on the lower side with 2 and what follows. Black&#8217;s position on
+the left side gets solid as well, so this is a development that is
+enough for Black.</p>
+
+<hr class="file">
+<div class="headers">Diagram 8<br>
+The Verdict Goes to the Outside</div>
+<p>If White answers at 7, Black 8 is a good move. In exchange for letting
+White take territory with 9 and 11, Black makes the outside thick with
+12 and is satisfied.</p>
+
+<hr class="page">
+<div class="page-number">88</div>
+<div class="headers">Diagram 9<br>
+A Hard-Hitting Tesuji</div>
+<p>When White comes to stop Black with 1 and 3, the clamp of Black 4 is
+the tesuji. Black&#8217;s aim is to look at both <em>a</em> and <em>b</em> and put
+pressure on the White stones in the lower left.</p>
+
+<hr class="file">
+<div class="headers">Diagram 10<br>
+A Thorough Reduction</div>
+<p>If White cuts the connection with 5, Black goes on reducing with 6 and
+what follows. When White counterattacks with 11, the Black stones on
+the lower side look to be in danger, but -</p>
+
+<hr class="page">
+<div class="page-number">89</div>
+<div class="headers">Diagram 11<br>
+The Shinogi Sequence</div>
+<p>Black 12 and 14 are the tesuji for shinogi. Even if White cuts with
+15, Black can look at both <em>a</em> and <em>b</em> with 16 and what follows, so it
+resolves into a variation that is good for Black.</p>
+
+<hr class="file">
+<div class="headers">Diagram 12<br>
+Ko Is Welcome</div>
+<p>If White answers at 1 instead of 5 in Diagram 10, Black gets a ko with
+2 through 4. If White loses the ko, the whole lower left becomes
+precarious, so the burden on White is heavy.</p>
+
+<hr class="page">
+<div class="page-number">90</div>
+<div class="headers">Diagram 13<br>
+A Thin Formation</div>
+<p>In response to Black 1, answering at 2 is a good move for White. Even
+when Black advances with 3, the point is for White to make shape with
+4 and what follows, emphasizing Black&#8217;s thinness.</p>
+
+<hr class="file">
+<div class="headers">Diagram 14<br>
+White&#8217;s Aim</div>
+<p>For example, if Black runs out with 9, White can cut the lower side
+with 10 and what follows. Since defending the lower side is difficult,
+Black 1 in the previous diagram has stopped being played.</p>
+
+<hr class="page">
+<div class="page-number">91</div>
+<div class="headers">Chapter 2<br>
+3-4 Point Joseki</div>
+
+<hr class="page">
+<div class="page-number">92</div>
+<div class="headers">3-4 Point Joseki Have Become Patterned</div>
+<p>Until recently, many 3-4 point joseki were difficult and had countless
+variations, so a certain level of strength was demanded of you. With
+the arrival of Go AI, however, many of the old joseki have been driven
+out, and the modern tendency is to use a limited set of joseki.</p>
+<p>For example, the large avalanche joseki at the 3-4 point allowed no
+mistakes in the order of moves and had to be handled with the greatest
+care. But it became clear that a simple approach anyone can use is
+strong, and there should be all but no one left now who plays the
+large avalanche joseki.</p>
+<p>It is commonly said that &quot;the arrival of Go AI has widened our
+freedom,&quot; but in fact many joseki have disappeared and the range of
+ways to play has narrowed. Looked at another way, you could say that
+you need only grasp a limited number of joseki, so there is less need
+to study a great many of them.</p>
+<p>In this chapter I have focused on those patterned 3-4 point joseki
+that you cannot play unless you know them. You should find them
+stimulating and refreshing.</p>
+
+<hr class="page">
+<div class="page-number">93</div>
+<div class="headers">Theme Diagram 1<br>
+A Simple Counter</div>
+<p>White 1 through 7 is the basic form of the attach-and-draw-back
+joseki. Until recently, Black 8 was thought to be a good point looking
+toward the invasion at A. However, a strong counter has been found,
+and nowadays it is hardly ever played.</p>
+<p>The counter White has prepared follows a simple plan with few
+complicated variations, so you should be able to put it to use in your
+games right away.</p>
+
+<hr class="page">
+<div class="page-number">94</div>
+<div class="headers">Diagram 1<br>
+A Five-Move Counter</div>
+<p>Probing to see how the opponent will come out with White 1 is the
+prepared strategy. In response to Black 2, White solidifies the right
+side with 3 and what follows while reducing Black&#8217;s territory.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+White&#8217;s Conception</div>
+<p>If Black defends at 6, this is the timing for White to move out with
+7. Even if Black secures the corner territory with 8 and what follows,
+White builds a sphere of influence on the upper side and has enough.</p>
+
+<hr class="page">
+<div class="page-number">95</div>
+<div class="headers">Diagram 3<br>
+Neutralizing the Thickness</div>
+<p>If Black seals White in with 1 instead of 8 in the previous diagram,
+White enters the corner with 2 and what follows. The White stones on
+the right side are solid, so Black cannot make good use of the
+thickness.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+The Wrong Order of Moves</div>
+<p>Settling White 1 and 3 first is the wrong order of moves. In response
+to White 5, Black may swallow White up on a large scale with 6. White
+<em>a</em> is met by Black <em>b</em> - a hard fight for White.</p>
+
+<hr class="page">
+<div class="page-number">96</div>
+<div class="headers">Diagram 5<br>
+Light Stone Management</div>
+<p>If Black answers from the corner with 1, sidestepping with White 2 is
+a good move. Its advantage is that White can make shape to match the
+way Black answers.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+Sabaki Through Miai</div>
+<p>In response to Black 3, the attachment of White 4 is skillful. After
+Black 5, White 6 makes <em>a</em> and <em>b</em> miai, so White can sidestep Black&#8217;s
+pursuit.</p>
+
+<hr class="page">
+<div class="page-number">97</div>
+<div class="headers">Diagram 7<br>
+Leaving Aji</div>
+<p>When Black varies with 1 instead of 5 in the previous diagram, White
+settles 2 through 4 and then runs to a big point with 6. If Black
+defends at <em>a</em>, White stops the upper side with <em>b</em> and what follows
+and is satisfied.</p>
+
+<hr class="file">
+<div class="headers">Diagram 8<br>
+Sacrifice Strategy</div>
+<p>Even if Black pushes back with 7, if White solidifies the right side
+with 8 and what follows while getting to the upper side first and
+keeping the thickness in the upper right in check, it is a result that
+is enough for White.</p>
+
+<hr class="page">
+<div class="page-number">98</div>
+<div class="headers">Diagram 9<br>
+A Skillful Order of Moves</div>
+<p>When Black answers at 1, the good order is for White to exchange 2 for
+Black 3 and then move out with 4. Black cuts at 5, but -</p>
+
+<hr class="file">
+<div class="headers">Diagram 10<br>
+A Brilliant Way to Make Shape</div>
+<p>White&#8217;s aim is to escape with 6 and what follows while splitting the
+Black stones on the right side. With an eye on <em>a</em> and <em>b</em>, White gets
+a favorable fight.</p>
+
+<hr class="page">
+<div class="page-number">99</div>
+<div class="headers">Diagram 11<br>
+Answering the Assault</div>
+<p>If Black solidifies the right side with 1, White breaks through in the
+upper right with 2 through 4. Even when Black attacks with 5 and what
+follows, White has shinogi prepared, so there is nothing to worry
+about.</p>
+
+<hr class="file">
+<div class="headers">Diagram 12<br>
+The Shinogi Tesuji</div>
+<p>After settling White 8 through 12, White 14 is the tesuji for shinogi.
+In response to Black 15, White makes sure of life with 16 and what
+follows. Black <em>a</em> is met by White <em>b</em> and what follows, and White can
+survive.</p>
+
+<hr class="page">
+<div class="page-number">100</div>
+<div class="headers">Diagram 13<br>
+Picking Up Speed</div>
+<p>Black 1 was also a frequently played formation. However, since White
+gets to a big point such as 2 first, it has been gradually
+disappearing. In response to the invasion of Black 3 -</p>
+
+<hr class="file">
+<div class="headers">Diagram 14<br>
+The Modern Way of Thinking</div>
+<p>White makes thickness with 4 and what follows - not bad for White. The
+territory Black gains is offset by White&#8217;s being able to run to a big
+point first, so on a whole-board basis White is not behind.</p>
+
+<hr class="page">
+<div class="page-number">101</div>
+<div class="headers">Theme Diagram 2<br>
+Four Patterns to Master</div>
+<p>In response to the large-knight enclosure at the 3-4 point, White 3 is
+the standard way of probing to see how the opponent will come out.
+There are many complicated variations, and quite a few readers will
+find it hard to use.</p>
+<p>So this time I will introduce a way to handle it with four patterns.
+Even though the sequences look long, they resolve into what is nearly
+a single path, so you can put them to use in your games right away.
+Now let&#8217;s get started.</p>
+
+<hr class="page">
+<div class="page-number">102</div>
+<div class="headers">Diagram 1<br>
+The Counter to the Extension</div>
+<p>In response to Black 1, White puts pressure on the corner with 2. If
+Black cuts at 3, White splits Black&#8217;s position apart with 4 and what
+follows. Black <em>a</em> is a concern, but -</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+The Real Aim</div>
+<p>In exchange for letting Black capture the two White stones with 7 and
+9, White builds a position on the right side with 10 and what follows
+and has enough. With the forcing move at <em>a</em> available, the formation
+is thicker than it looks.</p>
+
+<hr class="page">
+<div class="page-number">103</div>
+<div class="headers">Diagram 3<br>
+Sealing Black In</div>
+<p>Even if Black advances with 1 instead of 11 in the previous diagram,
+White can stop it with 2 and what follows. If White can build a
+splendid formation on the right side, this is not bad.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+Much the Same</div>
+<p>If Black varies with 1 instead of 9 in Diagram 2, White answers calmly
+with 2 through 4. White can make <em>a</em> and <em>b</em> miai, so White succeeds.</p>
+
+<hr class="page">
+<div class="page-number">104</div>
+<div class="headers">Diagram 5<br>
+Preventing a Framework</div>
+<p>If Black answers at 1, White takes territory with something like 2.
+White&#8217;s pride is that the exchange in the lower right steers the game
+into a formation in which Black cannot build a large framework.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+A Perfect Placement</div>
+<p>For example, if Black makes the outside thick with 5 and what follows,
+White 14 prevents a framework on the right side while keeping the aim
+of moving out at <em>a</em> in view - a development that is not bad for
+White.</p>
+
+<hr class="page">
+<div class="page-number">105</div>
+<div class="headers">Diagram 7<br>
+Emphasizing Profit</div>
+<p>So answering with Black 1 is the technique seen most often in actual
+games. In response to White 2 as well, Black goes on taking territory
+solidly with 3 and what follows.</p>
+
+<hr class="file">
+<div class="headers">Diagram 8<br>
+A Fair Result</div>
+<p>After settling White 6 through 10, it is essential for White to probe
+with 12. The exchange of Black 13 for White 14 strengthens the White
+stones in the lower right, so White can develop at a fast pace with
+something like 16.</p>
+
+<hr class="page">
+<div class="page-number">106</div>
+<div class="headers">Diagram 9<br>
+An Ingenious Order of Moves</div>
+<p>The intention of Black 2 is not to strengthen the lower right more
+than necessary. However, cutting back with White 3 and what follows is
+a good order of moves, and Black is troubled over how to answer.</p>
+
+<hr class="file">
+<div class="headers">Diagram 10<br>
+A Thorough Reduction</div>
+<p>In response to Black 8, White 9 through 11 is the vital point of the
+shape. Black has no choice but to defend at 12, and White makes shape
+with 13 and what follows and has enough. Continuing, one example is
+for Black <em>a</em> to resolve into White <em>b</em> and what follows.</p>
+
+<hr class="page">
+<div class="page-number">107</div>
+<div class="headers">Diagram 11<br>
+A Shortage of Liberties</div>
+<p>If Black plays 1 instead of 12 in the previous diagram, White 2
+through 4 is a good move that strikes at the shortage of liberties.
+Black <em>a</em> is met by White <em>b</em> and what follows, and Black collapses.</p>
+
+<hr class="file">
+<div class="headers">Diagram 12<br>
+A Thick Formation</div>
+<p>If Black answers at 1 instead of 8 in Diagram 10, it is big that White
+can block at 2 in sente. Through White 6, White builds a splendid
+formation on the right side and is satisfied.</p>
+
+<hr class="page">
+<div class="page-number">108</div>
+<div class="headers">Diagram 13<br>
+A Calm Response</div>
+<p>In response to Black 1, the cut of White 2 works. Even if Black comes
+to swallow White up with 3, White keeps the resources at <em>a</em> and <em>b</em>
+in view with 4 and what follows, so there is no danger of being
+captured.</p>
+
+<hr class="file">
+<div class="headers">Diagram 14<br>
+A Fight That Favors White</div>
+<p>If Black defends at 11, White settles with 12 through 14. Black cannot
+pass up the key point of 15, and White attacks the Black stones on the
+lower side with 16 - White is doing well. (If Black 15 is at 16, White
+15 is a forcing move.)</p>
+
+<hr class="page">
+<div class="page-number">109</div>
+<div class="headers">Diagram 15<br>
+The Idea of Switching Elsewhere</div>
+<p>When Black varies with 1 instead of 13 in the previous diagram,
+expanding the sphere of influence on the lower side with White 2
+through 4 is good judgment. When Black presses with 5, the idea of
+giving up the lower right with White 6 is important.</p>
+
+<hr class="file">
+<div class="headers">Diagram 16<br>
+Destroying the Shape</div>
+<p>If Black defends at 1, White settles the squeeze with 2 and what
+follows and lives. Since Black has no choice but to play <em>a</em> in order
+to make life in the lower right, White can strengthen the right side
+with <em>b</em> and is satisfied.</p>
+
+<hr class="page">
+<div class="page-number">110</div>
+<div class="headers">Diagram 17<br>
+A Strong Counterattack</div>
+<p>If Black counterattacks with 2 and 4, the focus is on how things
+resolve. This time, rather than making shape with White <em>a</em> and what
+follows, I will introduce a counter that is simple and easy to use.</p>
+
+<hr class="file">
+<div class="headers">Diagram 18<br>
+A Simple Counter</div>
+<p>Making shape with White 5 through 9 is the simple approach. The White
+stones in the lower right have a shape with more elasticity than it
+looks, so Black&#8217;s pursuit hardly continues at all.</p>
+
+<hr class="page">
+<div class="page-number">111</div>
+<div class="headers">Diagram 19<br>
+A Solid Formation</div>
+<p>For example, even when Black presses with 10 through 12, White can
+ignore it and run to a big point with 13 and what follows. With many
+resources for shinogi such as <em>a</em> and <em>b</em>, Black&#8217;s attack does not
+hold together.</p>
+
+<hr class="file">
+<div class="headers">Diagram 20<br>
+A Thick Resolution</div>
+<p>If Black plays 1 instead of 8 in Diagram 18, White stops the advance
+into the right side with 2 and what follows. If White can build a
+position on the right side, this is a development that is not bad for
+White.</p>
+
+<hr class="page">
+<div class="page-number">112</div>
+<div class="headers">Diagram 21<br>
+Picking Up Speed</div>
+<p>In response to Black 1, White puts pressure on the lower right with 2.
+If Black seals White in with 3, White secures life in sente with 4 and
+what follows while taking the right side - a fast-paced development
+for White.</p>
+
+<hr class="file">
+<div class="headers">Diagram 22<br>
+Neutralizing the Thickness</div>
+<p>In response to Black 1 instead of 5 in the previous diagram, White
+defends with 2 and what follows. White can take the big point at <em>a</em>
+or <em>b</em> and keep the thickness in the lower right in check, so White
+has enough.</p>
+
+<hr class="page">
+<div class="page-number">113</div>
+<div class="headers">Diagram 23<br>
+Emphasizing the Outside</div>
+<p>In response to Black 1 instead of 5 in Diagram 21, probing with White
+2 is a good move. If Black takes the lower right with 3, White makes
+thickness with 4 and what follows while aiming to activate the corner
+stones.</p>
+
+<hr class="file">
+<div class="headers">Diagram 24<br>
+Sacrifice Strategy</div>
+<p>White&#8217;s aim is to activate the stones with 10 and 12. Even if Black
+lives with 13 and what follows, White&#8217;s pride is being able to choose
+between the plan of making the outside thick with 18 and the move of
+bringing the stones back to life with <em>a</em> and what follows.</p>
+
+<hr class="page">
+<div class="page-number">114</div>
+<div class="headers">Diagram 25<br>
+The Counter to the Cut</div>
+<p>If Black cuts with 2 and 4, making shape with White 5 and what follows
+is the tesuji. Black has many thin spots and cannot counterattack
+strongly.</p>
+
+<hr class="file">
+<div class="headers">Diagram 26<br>
+A Safe Result</div>
+<p>If Black defends at 10, White makes the outside thick with 11 and what
+follows, and it resolves into a result close to even. This is a joseki
+whose shape comes up often in actual games, so you will want to
+remember it.</p>
+
+<hr class="page">
+<div class="page-number">115</div>
+<div class="headers">Diagram 27<br>
+The Counter</div>
+<p>If Black pursues with 1 and 3 instead of 10 in the previous diagram,
+counterattacking with White 4 is a good move. Continuing, Black <em>a</em> is
+met by White <em>b</em> and what follows, stopping the advance into the lower
+side.</p>
+
+<hr class="file">
+<div class="headers">Diagram 28<br>
+A Trade</div>
+<p>In response to Black 5, White stops the advance into the lower side
+with 6 and what follows - a result that is enough for White. White
+also has the resource of putting pressure with <em>a</em>, so even if the
+three White stones are captured, it is no great loss.</p>
+
+<hr class="page">
+<div class="page-number">116</div>
+<div class="headers">Column 3<br>
+Why Some People Can Lay Out a Long Joseki in an Instant</div>
+<p>It has long been said that &quot;there is no need to memorize joseki&quot; and
+&quot;memorize joseki, then forget them.&quot; At the heart of these sayings is
+the idea that &quot;the effort of trying to recall is what builds
+strength.&quot; And once you acquire the power to reproduce them, you gain
+wisdom you can apply in all sorts of positions.</p>
+<p>For example, even a joseki with a long sequence is, in most cases,
+nothing more than a skillful combination of basic tesuji once you
+break it down into small pieces. But the moment it is condensed into a
+single variation, it suddenly feels difficult.</p>
+<p>The plan for solving this problem is the method of &quot;solving tsumego
+over and over.&quot; More than training your reading, the point is to make
+the patterns of reading part of your body. A single tesuji is often
+one set of a few moves, and once you have grasped those patterns, you
+can then optimize your reading by combining them.</p>
+<p>I expect you have often seen a strong player lay out a variation
+dozens of moves long in an instant. In fact, even a long variation can
+in most cases be explained in three or four patterns once you have
+grasped the basic ones, and being able to reproduce it with what
+amounts to about three moves of reading is the trick behind the magic.</p>
+
+<hr class="page">
+<div class="page-number">117</div>
+<div class="headers">Theme Diagram 3<br>
+The Invasion at the Angle</div>
+<p>There is a technique of charging in with Black 4 at the very moment
+White expands the framework on the lower side with 1 and 3.</p>
+<p>Since this formation comes up often in actual games, this is a way of
+reducing that you will want to know as one of your options. White&#8217;s
+two representative ways of answering are A and B, but both resolve
+into variations that are not bad for Black. It is a recommended
+technique for making brilliant shape inside the opponent&#8217;s position.</p>
+
+<hr class="page">
+<div class="page-number">118</div>
+<div class="headers">Diagram 1<br>
+A Miai Tesuji</div>
+<p>If White stops Black&#8217;s advance along the lower side with 1, Black 2 is
+a good move. Black can make shinogi by keeping the connection at <em>a</em>
+and the means of working against the lower side starting with <em>b</em> as
+miai.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+Profit Wins Out</div>
+<p>If White seals Black in with 3 and 5, Black connects with 6 through 8
+and has enough. Since Black can keep an eye on the weaknesses at <em>a</em>
+and <em>b</em>, Black retains a foothold for reducing the framework in the
+lower right.</p>
+
+<hr class="page">
+<div class="page-number">119</div>
+<div class="headers">Diagram 3<br>
+A Simple Conception</div>
+<p>If White defends the weaknesses in the lower left with moves like 9
+and 11, Black can turn to reducing White&#8217;s framework with 12, leading
+to a development in which Black&#8217;s territory comes into its own.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+The Cut Is Severe</div>
+<p>Instead of White 9 in the previous diagram, if White plays tenuki on
+the lower side with 1 and 3, Black has the technique starting with 4.
+With <em>a</em> and <em>b</em> in view, this is a development that is not bad for
+Black.</p>
+
+<hr class="page">
+<div class="page-number">120</div>
+<div class="headers">Diagram 5<br>
+Fighting Powerfully</div>
+<p>If White cuts the connection with 1, Black can escape into the center
+with 2 and what follows, so there is no problem. While aiming at the
+White stones in the lower left and watching <em>a</em> and <em>b</em>, this is a
+fight that favors Black.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+Building Good Shape</div>
+<p>If White rescues the lower left with 11, working against it with Black
+12 and 14 is the good move. White has no choice but to defend the
+weakness at <em>a</em> with 15, and Black makes shape with 16 and what
+follows - enough for Black.</p>
+
+<hr class="page">
+<div class="page-number">121</div>
+<div class="headers">Diagram 7<br>
+The Cut Is an Overplay</div>
+<p>Instead of White 13 in the previous diagram, if White cuts with 1,
+Black exchanges 2 for White 3 and then attacks the White stones in the
+lower left with 4 and what follows - a success for Black.</p>
+
+<hr class="file">
+<div class="headers">Diagram 8<br>
+Much the Same</div>
+<p>If White hanes at 1 instead of White 7 in Diagram 5, Black can seize
+the initiative in the fight by separating the White stones on the left
+and right with 2 and what follows.</p>
+
+<hr class="page">
+<div class="page-number">122</div>
+<div class="headers">Diagram 9<br>
+The Same Technique</div>
+<p>When White answers at 1, Black can respond with the kosumi of 2 here
+as well. With the connection at <em>a</em> and the move to advance along the
+lower side at <em>b</em> in view, there is no problem.</p>
+
+<hr class="file">
+<div class="headers">Diagram 10<br>
+Advancing Along the Lower Side</div>
+<p>If White separates Black with 3, Black settles 4 to leave a weakness
+on the outside and then seeks a base on the lower side with 6. With
+the weaknesses at <em>a</em> and <em>b</em>, Black&#8217;s shape cannot be captured.</p>
+
+<hr class="page">
+<div class="page-number">123</div>
+<div class="headers">Diagram 11<br>
+A Pursuit to Anticipate</div>
+<p>White 8 through 15 is the expected way of pressing the attack. Black
+cannot omit defending at 16, and with White sealing Black in at 17,
+the fight looks hard for Black, but -</p>
+
+<hr class="file">
+<div class="headers">Diagram 12<br>
+A Shinogi Tesuji</div>
+<p>The cross-attach of Black 18 is the shinogi tesuji. The fair outcome
+is for White to defend the outside weaknesses with 19 through 23, and
+since Black can make shape on the lower side with 24, Black dodges
+White&#8217;s pursuit.</p>
+
+<hr class="page">
+<div class="page-number">124</div>
+<div class="headers">Diagram 13<br>
+Seeking a Base</div>
+<p>When White seals Black in with 1 and 3, defending calmly with Black 4
+is solid. Black&#8217;s plan is to secure life on the lower side and put the
+territory gained in various places to work.</p>
+
+<hr class="file">
+<div class="headers">Diagram 14<br>
+Ready for a Strong Attack</div>
+<p>If White comes to capture with 5 through 11, Black probes to see how
+the opponent will come out with 12. If White attacks at <em>a</em>, Black can
+fight by striking at the weaknesses at <em>b</em> and <em>c</em>.</p>
+
+<hr class="page">
+<div class="page-number">125</div>
+<div class="headers">Diagram 15<br>
+Breaking Through the Encirclement</div>
+<p>Instead of White 1 in Diagram 13, if White seals Black in
+with 1, Black defends solidly with 2. If White comes to take away
+Black&#8217;s eyes with 3 and 5, Black can escape by making <em>a</em> and <em>b</em> miai
+with 6.</p>
+
+<hr class="file">
+<div class="headers">Diagram 16<br>
+A Large Gain</div>
+<p>If White answers at 2, Black gains territory with 3 and what follows -
+no problem. As long as Black can whittle down White&#8217;s framework on the
+lower side, this is a success for Black.</p>
+
+<hr class="page">
+<div class="page-number">126</div>
+<div class="headers">Diagram 17<br>
+Another Way to Reduce</div>
+<p>Black 1 is also a well-known way of reducing. If White separates Black
+with 2, Black seeks a base with 3 and what follows. Because of the
+weaknesses at <em>a</em> and <em>b</em>, this is a formation in which it is hard for
+White to counterattack strongly.</p>
+
+<hr class="file">
+<div class="headers">Diagram 18<br>
+Who Comes Out Better in the Ko</div>
+<p>Instead of Black 5 in the previous diagram, one would like to press
+with 1, but there is the possibility that White counterattacks with 2
+and what follows. If Black has no ko threats, Black comes out worse,
+so care is required.</p>
+
+<hr class="page">
+<div class="page-number">127</div>
+<div class="headers">Theme Diagram 4<br>
+A Probe on the Fifth Line</div>
+<p>At the very moment Black answers with 2 and 4, White 5 is the modern
+technique of probing to see how the opponent will come out and then
+making shape.</p>
+<p>Black has two options to consider, A and B, but both lead to
+variations that are not bad for White. The strength of this technique
+is that it &quot;breaks up the opponent&#8217;s shape.&quot;</p>
+<p>Let us look at what variations White has prepared.</p>
+
+<hr class="page">
+<div class="page-number">128</div>
+<div class="headers">Diagram 1<br>
+A Forceful Seal-In</div>
+<p>When Black answers at 1, White stops the advance along the lower side
+with 2 and what follows. There are cutting points at <em>a</em> and <em>b</em>, but
+Black&#8217;s response is a headache.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+A Tesuji That Breaks Up the Shape</div>
+<p>The moment Black tries to break through with 5, the cross-attach of
+White 6 is the good move. Seeing whether Black comes out at <em>a</em> or
+<em>b</em>, White has a way of making shape freely.</p>
+
+<hr class="page">
+<div class="page-number">129</div>
+<div class="headers">Diagram 3<br>
+An Exquisite Descent</div>
+<p>If Black blocks at 7, after White settles 8 through 10, the descent of
+White 12 is the move White is aiming for. Black needs to separate
+White, but -</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+An Effective Defense</div>
+<p>In response to Black 13, working against Black with White 14 is
+skillful. If Black answers at 15, White 16 becomes sente, so White can
+defend both the lower side and the right side - enough for White.</p>
+
+<hr class="page">
+<div class="page-number">130</div>
+<div class="headers">Diagram 5<br>
+Emphasizing the Cut</div>
+<p>In response to Black 2, White 3 is the counter-technique that
+emphasizes the cut at <em>a</em>. If Black defends at <em>a</em>, White can seal
+Black in at <em>b</em>, so it is a result with which White is satisfied.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+A Fast Development</div>
+<p>If Black answers at 2, White plays consecutive moves on the right side
+with 3 through 7. Being able to keep the option of whittling away at
+<em>a</em> is also big, and it is enough for White.</p>
+
+<hr class="page">
+<div class="page-number">131</div>
+<div class="headers">Diagram 7<br>
+Building a Framework</div>
+<p>Instead of Black 6 in the previous diagram, when Black presses on the
+right side with 1, White 2 is the good move. In response to Black 3,
+White builds a framework on the lower side with 4 and what follows - a
+development that is not bad for White.</p>
+
+<hr class="file">
+<div class="headers">Diagram 8<br>
+Nimble Stone Management</div>
+<p>If Black breaks through with 1 and 3, White can reinforce both the
+right side and the lower side with 4 and what follows. Black&#8217;s cutting
+technique is nothing to fear.</p>
+
+<hr class="page">
+<div class="page-number">132</div>
+<div class="headers">Diagram 9<br>
+A Probing Tesuji</div>
+<p>So what should White do if Black resists on the lower side with 1 and
+what follows? At just this moment, probing to see how the opponent
+will come out with White 8 is skillful.</p>
+
+<hr class="file">
+<div class="headers">Diagram 10<br>
+A Sacrifice Strategy</div>
+<p>If Black separates White with 9, White works against Black with 10 and
+12. Black 13 captures the three White stones on the lower side, but -</p>
+
+<hr class="page">
+<div class="page-number">133</div>
+<div class="headers">Diagram 11<br>
+Building Thickness</div>
+<p>White can sacrifice the lower side with 14 and what follows to build
+thickness, so it is a result that is enough for White. If Black
+plays tenuki instead of 27, White <em>a</em> makes the capturing race in the
+lower right corner hard for Black.</p>
+
+<hr class="file">
+<div class="headers">Diagram 12<br>
+A Severe Counterattack</div>
+<p>Instead of White 8 in Diagram 9, launching the attack with 1 and 3
+invites the counterattack of Black 4. Through Black 8, Black
+sacrifices three stones and attacks the lower right on a large scale
+with <em>a</em> - White is dissatisfied.</p>
+
+<hr class="page">
+<div class="page-number">134</div>
+<div class="headers">Diagram 13<br>
+Timing</div>
+<p>If Black answers at 1, the cross-attach of White 2 is the tesuji. The
+key to the strategy introduced here is whether you can play the
+cross-attach with good timing.</p>
+
+<hr class="file">
+<div class="headers">Diagram 14<br>
+Making Sure of Life</div>
+<p>If Black blocks at 3, White makes sure of life with 4 and what follows
+and aims at the Black stones in the lower right. Black needs to defend
+the corner, but -</p>
+
+<hr class="page">
+<div class="page-number">135</div>
+<div class="headers">Diagram 15<br>
+The Corner Has Aji</div>
+<p>If Black defends with 17 and 19, White carefully settles the shape
+with 20 and what follows. While aiming at White <em>a</em> and what follows,
+and with an eye toward a counterattack on the right side or the lower
+side, White can fight.</p>
+
+<hr class="file">
+<div class="headers">Diagram 16<br>
+Winning the Capturing Race</div>
+<p>Instead of Black 15 in Diagram 14, taking away the eye with 1 lets
+White capture the Black stones in the lower right with 2 and what
+follows. Continuing, if Black plays <em>a</em>, White <em>b</em> wins the capturing
+race by one move.</p>
+
+<hr class="page">
+<div class="page-number">136</div>
+<div class="headers">Diagram 17<br>
+Cannot Be Caught</div>
+<p>In response to Black&#8217;s answer at 2, the slide of White 3 makes a shape
+that cannot be captured. If Black presses the attack with 4 and what
+follows, Black still needs to come back with a move to secure life in
+the lower right.</p>
+
+<hr class="file">
+<div class="headers">Diagram 18<br>
+Skillful Shape-Making</div>
+<p>In response to Black 12 through 16, White defends with 17 and what
+follows. The spoils from reducing Black&#8217;s position in the lower right
+are large - enough for White. If Black plays <em>a</em>, White can make shape
+with <em>b</em> and what follows.</p>
+
+<hr class="page">
+<div class="page-number">137</div>
+<div class="headers">Diagram 19<br>
+How to Answer the Counterattack</div>
+<p>Continuing from the previous diagram, if Black counterattacks with 1
+and what follows, White can dodge it by making <em>a</em> and <em>b</em> miai with
+6. The White stones on the right side are stronger than they look.</p>
+
+<hr class="file">
+<div class="headers">Diagram 20<br>
+A Prepared Counter</div>
+<p>Instead of Black 4 in Diagram 17, if Black comes to stop White with 1,
+White can resist with 2. If Black answers with 3 through 5, White makes
+<em>a</em> and <em>b</em> miai with 6 and what follows - a fight that favors White.</p>
+
+<hr class="page">
+<div class="page-number">138</div>
+<div class="headers">Diagram 21<br>
+A Bold Pursuit</div>
+<p>If Black answers at 1, White presses the attack further with 2 through 4.
+Black separates White with 5, and it looks as though White has no
+continuation, but -</p>
+
+<hr class="file">
+<div class="headers">Diagram 22<br>
+A Solid Plan</div>
+<p>Moving out with White 6 is the aim of this whole sequence. In response
+to Black 7, White thickens the outside with 8 and what follows while
+limiting Black&#8217;s potential for expansion - a result that is not bad
+for White.</p>
+
+<hr class="page">
+<div class="page-number">139</div>
+<div class="headers">Diagram 23<br>
+The Idea of Tenuki</div>
+<p>Instead of White 14 in the previous diagram, heading for a big point
+with 1 is also strong. If Black cuts at 2, White can reinforce the
+right side with 3 and 5, so White can steer the game into a fast
+development.</p>
+
+<hr class="file">
+<div class="headers">Diagram 24<br>
+Much the Same</div>
+<p>Instead of Black 2 in the previous diagram, if Black presses the
+attack starting with 1, White defends the right side with 2 and what
+follows - no problem. The idea of playing tenuki is recommended for
+players who favor territory.</p>
+
+<hr class="page">
+<div class="page-number">140</div>
+<div class="headers">Diagram 25<br>
+A Cool-Headed Descent</div>
+<p>If Black comes to capture on a large scale with 1, White extends the
+liberties with 2, and then White 4 is the cool-headed good move. In
+response to Black 5, White 6 whittles Black&#8217;s position in the lower
+right down considerably.</p>
+
+<hr class="file">
+<div class="headers">Diagram 26<br>
+Whole-Board Management</div>
+<p>In exchange for being captured by Black 7, White defends the lower
+right in sente with 8 and what follows and can then head for a big
+point - a development with which White is satisfied.</p>
+
+<hr class="page">
+<div class="page-number">141</div>
+<div class="headers">Theme Diagram 5<br>
+A 3-4 Point Joseki That Appears Often in Games</div>
+<p>In response to the pincer of White 1, Black 2 is known to be a
+powerful countermeasure. The main reason is that after White 3 and 5,
+Black 6 works.</p>
+<p>Among the many complicated variations available, this discussion
+focuses on countermeasures that can be used simply and on the
+variations worth knowing. There are few subsidiary variations, so you
+should be able to put this to use in your games right away.</p>
+
+<hr class="page">
+<div class="page-number">142</div>
+<div class="headers">Diagram 1<br>
+The Basic Shape</div>
+<p>Defending the corner with White 1 and 3 is a necessary preparation.
+After Black reinforces the left side and the lower side with 4 and
+what follows, White builds an encirclement with 7 - this is the basic
+shape.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+Black Cannot Break Through</div>
+<p>Defending the lower side while breaking through with Black 8 and what
+follows is overdoing it. The cut of White 13 leaves Black with a
+difficult development. If Black plays <em>a</em>, White plays <em>b</em> and
+cannot be caught.</p>
+
+<hr class="page">
+<div class="page-number">143</div>
+<div class="headers">Diagram 3<br>
+A Powerful Conclusion</div>
+<p>If Black plays 14, White seals off the lower side with 15 through 21.
+Black has no choice but to defend at 22, and next White moves out on
+the left side with 23. (If Black 22 is at <em>a</em>, White <em>b</em> is a failure
+for Black.)</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+The Verdict Goes to Thickness</div>
+<p>If Black resists with 24, White gives priority to the seal-in with 25
+through 29 and erases any room for variation. After White 35, White
+whittles down the Black stones in the lower left while thickening -
+Black is dissatisfied.</p>
+
+<hr class="page">
+<div class="page-number">144</div>
+<div class="headers">Diagram 5<br>
+A Simple Three-Move Plan</div>
+<p>Accordingly, after exchanging Black 1 for White 2, reinforcing the
+left side with Black 3 is simple. White needs to defend the lower
+left, but -</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+A Perfect Defense</div>
+<p>In response to White 4, making sure of life with Black 5 and what
+follows is essential. That Black can make the left side completely
+secure and then aim at the thinness at <em>a</em> or <em>b</em> is Black&#8217;s boast.</p>
+
+<hr class="page">
+<div class="page-number">145</div>
+<div class="headers">Diagram 7<br>
+The Knack of Defending</div>
+<p>If White reinforces with 12, defending the cutting point at <em>a</em> with
+Black 13 and what follows is the good order of moves. Because of the
+weakness at <em>b</em>, White cannot go after the left side.</p>
+
+<hr class="file">
+<div class="headers">Diagram 8<br>
+Nimble Stone Management</div>
+<p>White has no choice but to defend at 20. Black builds a position on
+the lower side with 21 and what follows - enough for Black. That Black
+can keep the aim of reducing at <em>a</em> or <em>b</em> in reserve is also a
+strength.</p>
+
+<hr class="page">
+<div class="page-number">146</div>
+<div class="headers">Diagram 9<br>
+White&#8217;s Aggressive Plan</div>
+<p>In response to Black 1, a variation in which White thickens the
+outside with 2 is also conceivable. In exchange for letting Black
+break through on the left side with 3 and what follows, White aims to
+attack the Black stones on the lower side with 8.</p>
+
+<hr class="file">
+<div class="headers">Diagram 10<br>
+The Tesuji White Aims For</div>
+<p>Naturally Black rescues the key stones with the connection of 9. With
+White 10 and 12, keeping an eye on Black&#8217;s shortage of liberties,
+White sketches out a plan to defend the lower left and the left side
+effectively.</p>
+
+<hr class="page">
+<div class="page-number">147</div>
+<div class="headers">Diagram 11<br>
+White&#8217;s Expected Diagram</div>
+<p>When Black tries to escape with 13, White defends with 14 and what
+follows - the expected diagram for this whole sequence. Black&#8217;s shape
+on the lower side is broken up and the development looks painful, but -</p>
+
+<hr class="file">
+<div class="headers">Diagram 12<br>
+Sidestepping Simply</div>
+<p>Defending with Black 21 and 23 is good judgment. Because of the cut at
+<em>a</em>, Black can no longer connect in response to White 24, but if Black
+can play consecutive moves on the lower side with 25 and what follows,
+it is a result that is enough for Black on a whole-board basis.</p>
+
+<hr class="page">
+<div class="page-number">148</div>
+<div class="headers">Diagram 13<br>
+A Solid Defense</div>
+<p>To avoid the variations above, answering at White 2 is the fair
+outcome. Still, with Black 3 and what follows Black can look to strike
+at the weakness with <em>a</em> or to defend at <em>b</em>, so it is not bad for
+Black.</p>
+
+<hr class="file">
+<div class="headers">Diagram 14<br>
+A Severe Counterattack</div>
+<p>When White seals Black in with 8 and 10, Black defends the left side
+with 11 and what follows while striking at the weaknesses. The
+surrounding Black stones become a perfect formation - a fight that
+favors Black.</p>
+
+<hr class="page">
+<div class="page-number">149</div>
+<div class="headers">Diagram 15<br>
+How Black Defends Is Essential</div>
+<p>Instead of White 8 in the previous diagram, if White presses on the
+lower side with 1, the key point is for Black to defend the cutting
+point at <em>a</em> with 2 and what follows. It works indirectly to defend
+the left side.</p>
+
+<hr class="file">
+<div class="headers">Diagram 16<br>
+Sidestepping the Pursuit</div>
+<p>For example, if White stops Black with 5, Black 6 through 8 become
+sente, so Black can get to the good point of 12 first. Since Black can
+look to <em>a</em> and <em>b</em>, Black is satisfied.</p>
+
+<hr class="page">
+<div class="page-number">150</div>
+<div class="headers">Diagram 17<br>
+The Traditional Way of Fighting</div>
+<p>Until now, taking away White&#8217;s eye shape in the lower left with Black
+1 through 5 and then defending the left side was the standard method.
+However, since it leads to difficult variations, it cannot be
+recommended.</p>
+
+<hr class="file">
+<div class="headers">Diagram 18<br>
+A Difficult Ko Fight</div>
+<p>At the very moment Black tries to make sure of a base with 7, White 8
+is a severe counterattack. In response to Black 9, White forces a ko
+fight with 10 and what follows, drawing Black into a contest of who
+has studied more.</p>
+
+<hr class="page">
+<div class="page-number">151</div>
+<div class="headers">Diagram 19<br>
+Black Cannot Defend Everything</div>
+<p>Instead of Black 9 in the previous diagram, advancing into the left
+side with 1 and 3 lets White make <em>a</em> and <em>b</em> miai with 4, and Black
+collapses. Black&#8217;s cause for regret is finding it hard to sidestep
+lightly.</p>
+
+<hr class="file">
+<div class="headers">Diagram 20<br>
+The Merit of the Simple Plan</div>
+<p>With the simple plan of settling the shape with the triangled Black
+and White stones, being able to sidestep lightly with Black 2 and what
+follows is a big advantage. Since Black can aim at the forcing move at
+<em>a</em> and at the life and death at <em>b</em>, it is a result that favors
+Black.</p>
+
+<hr class="page">
+<div class="page-number">152</div>
+<div class="headers">Column 4</div>
+
+<hr class="file">
+<div class="headers">The Power of Trial and Error Is Your Strongest Weapon</div>
+<p>There must be no small number of players who complain, &quot;The game never
+goes the way the book or the video said it would.&quot; One reason is that
+no matter how much knowledge you pile up, it is meaningless unless you
+use it appropriately. Of the several remedies for this, the one I most
+want to recommend is to &quot;ask your opponent about what you don&#8217;t
+understand.&quot;</p>
+<p>Concretely, this means trying something out on your opponent in a real
+game to see how they respond, then trying that method yourself and
+refining it. Repeat this and the subsidiary variations get settled one
+at a time. Of course, one cannot rule out the possibility that the
+opponent&#8217;s response is a mistake, but since that experience too is
+part of the polishing, it is no problem.</p>
+<p>The key is &quot;don&#8217;t keep playing games with your brain switched off.&quot; It
+is important to make a habit of finding at least one thing you can
+improve in every game. A rough impression like &quot;this shape is
+dangerous, so let me defend&quot; or &quot;let me try this move&quot; is enough. And
+I would like to leave you with two important sayings.</p>
+<ul>
+<li>
+<p>A successful experience is not necessarily correct.</p>
+</li>
+<li>
+<p>Failure is the result of taking on something you had never attempted
+before.</p>
+</li>
+</ul>
+<p>If you hold on to this mindset, you should be able to build a loop in
+which you keep on growing!</p>
+
+<hr class="page">
+<div class="page-number">153</div>
+<div class="headers">Theme Diagram 6<br>
+Attack and Defense in the Fashionable Pincer</div>
+<p>The pincer of Black 1 is the modern mainstream technique. In response
+to White 2, Black&#8217;s intention is to cut with 3 and what follows and
+fight.</p>
+<p>The key to playing this formation is to keep the option of
+&quot;sacrificing the corner to build thickness.&quot; The basic policy is
+clear, and you should come to see what arrangement of stones is
+effective. There are many important tesuji here as well, so this is an
+area worth preparing thoroughly.</p>
+
+<hr class="page">
+<div class="page-number">154</div>
+<div class="headers">Diagram 1<br>
+White&#8217;s Aim</div>
+<p>The kosumi of White 1 is the way of answering that Black wants a
+countermeasure for. If Black defends at 2, then after White escapes
+with 3, White can aim at the Black stones in the lower right and the
+two Black stones in the center - a difficult fight for Black.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+A Thin Formation</div>
+<p>Instead of Black 2 in the previous diagram, sealing White in with 1
+means the pursuit does not continue after White 2. Black needs to
+defend the lower right with something like 3, and with White 4 and
+what follows White can look at <em>a</em> and <em>b</em>, so Black becomes thin.</p>
+
+<hr class="page">
+<div class="page-number">155</div>
+<div class="headers">Diagram 3<br>
+How to Seal White In</div>
+<p>Accordingly, Black 1, sealing White in while pressing the White stones
+on the right side, is a good move. If Black wants a simple conclusion,
+Black answers at 3 in response to White 2.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+An Even Result</div>
+<p>The clamp of White 4 is the tesuji. Black thickens the outside with 5
+and what follows, and matters come to a pause. Black builds thickness
+and White gains territory - a result that is close to even.</p>
+
+<hr class="page">
+<div class="page-number">156</div>
+<div class="headers">Diagram 5<br>
+A Powerful Plan Worth Trying</div>
+<p>Answering strongly with Black 1 and 3 is also powerful. With White 4,
+White can look at <em>a</em> and <em>b</em>, but Black has an exquisite move
+prepared that prevents both at once.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+An Exquisite Move on the First Line</div>
+<p>Exchanging Black 5 for White 6 and then sealing White in with 7 is a
+clever order of moves. With just one move of ingenuity, Black can
+break up White&#8217;s intention.</p>
+
+<hr class="page">
+<div class="page-number">157</div>
+<div class="headers">Diagram 7<br>
+Aji Left in the Corner</div>
+<p>If White comes back with 8 and what follows, Black thickens the right
+side with 13. If White erases Black&#8217;s resource at <em>a</em>, Black runs to a
+big point like <em>b</em> - enough for Black.</p>
+
+<hr class="file">
+<div class="headers">Diagram 8<br>
+Timing</div>
+<p>Instead of Black 13 in the previous diagram, playing 1 is too hasty.
+White limits Black&#8217;s framework on the right side with 4 - Black is
+dissatisfied. Since the White stones in the lower right cannot be
+captured right away, timing is important.</p>
+
+<hr class="page">
+<div class="page-number">158</div>
+<div class="headers">Diagram 9<br>
+Astonishing Tenacity</div>
+<p>When White comes to capture with 1, that Black can hang on with 2 is
+Black&#8217;s boast. In response to White 3, Black tries to escape with 4
+while extending Black&#8217;s liberties, aiming at the resource of taking
+the corner with <em>a</em>.</p>
+
+<hr class="file">
+<div class="headers">Diagram 10<br>
+A Fight on the Side</div>
+<p>If White tries to seal Black in with 5 and 7, Black seals White in
+with 8 and what follows while keeping an eye on the ko. Black
+sacrifices the entire lower side and aims for a trade.</p>
+
+<hr class="page">
+<div class="page-number">159</div>
+<div class="headers">Diagram 11<br>
+Black&#8217;s Expectation</div>
+<p>Even if White takes the ko back with 11 and 13, Black plays
+consecutive moves with 14 and what follows and is satisfied. With the
+seal-in on the right side and the profit in the upper left, Black
+recoups the loss on the lower side.</p>
+
+<hr class="file">
+<div class="headers">Diagram 12<br>
+Winning the Capturing Race</div>
+<p>Instead of White 5 in Diagram 10, if White plays 1, Black extends
+Black&#8217;s liberties with 2 through 14, and by taking away White&#8217;s eye
+shape in the lower right with 14, Black captures. Black&#8217;s profit is
+large - a result that favors Black.</p>
+
+<hr class="page">
+<div class="page-number">160</div>
+<div class="headers">Diagram 13<br>
+A Probing Tesuji</div>
+<p>If White presses the Black stones in the lower right with 1, Black
+resists with 2. In response to White 3, the clamp of Black 4, probing
+to see how the opponent will come out, is a good move.</p>
+
+<hr class="file">
+<div class="headers">Diagram 14<br>
+The Verdict Goes to Thickness</div>
+<p>If White separates Black with 5, Black sacrifices the Black stones in
+the lower right with 6 and what follows to thicken the outside. Black
+builds a framework on the right side and is in good shape.</p>
+
+<hr class="page">
+<div class="page-number">161</div>
+<div class="headers">Diagram 15<br>
+A Way Out on the Low Lines</div>
+<p>If White plays 1 instead of 5 in Diagram 14, Black takes away White&#8217;s
+eyes with 2 through 6. After White 7, Black is forced into a low
+position, but -</p>
+
+<hr class="file">
+<div class="headers">Diagram 16<br>
+Swallowing the Corner</div>
+<p>Extending Black&#8217;s liberties with 8 through 18 and then sealing White
+in with 20 is the good order of moves. In the ko fight in the lower
+right, Black has ko threats around <em>a</em>, so Black can fight.</p>
+
+<hr class="page">
+<div class="page-number">162</div>
+<div class="headers">Diagram 17<br>
+The Intention of the Kosumi</div>
+<p>If White stops Black&#8217;s advance with 2, Black&#8217;s aim is to press with
+the wedge of 3. White can consider resisting with <em>a</em> or <em>b</em>, but it
+resolves into variations that are not bad for Black.</p>
+
+<hr class="file">
+<div class="headers">Diagram 18<br>
+The Capturing Race Is a Seki</div>
+<p>In response to White&#8217;s resistance with 4 and 6, answering at Black 7
+is cool-headed. Even if White presses with 8 and what follows, Black
+11 makes a seki.</p>
+
+<hr class="page">
+<div class="page-number">163</div>
+<div class="headers">Diagram 19<br>
+A Simple Plan for Building Thickness</div>
+<p>Instead of White 4 in the previous diagram, if White resists with 1,
+Black takes away White&#8217;s eyes with 2 through 4. In response to White
+5, leaving the lower right alone and reinforcing the outside with
+Black 6 is simple.</p>
+
+<hr class="file">
+<div class="headers">Diagram 20<br>
+White Collapses</div>
+<p>If White answers at 7, the connection of Black 8 works. In response to
+White 9, Black seals White in with 10 and what follows while at the
+same time extending Black&#8217;s liberties - a success for Black. If White
+plays <em>a</em>, Black can hold with <em>b</em>.</p>
+
+<hr class="page">
+<div class="page-number">164</div>
+<div class="headers">Diagram 21<br>
+A Sacrifice Strategy</div>
+<p>If White tries to live in the lower right with 2, Black thickens the
+outside with 3. It looks as though the Black stones in the lower right
+will be captured after White 4, but -</p>
+
+<hr class="file">
+<div class="headers">Diagram 22<br>
+A Thick Plan</div>
+<p>Thickening with Black 5 through 11 is good judgment. Even if White
+takes control of the lower right with 12, Black can run to the big
+points with 13 and what follows - a development that is enough for
+Black.</p>
+
+<hr class="page">
+<div class="page-number">165</div>
+<div class="headers">Diagram 23<br>
+The Variation to Anticipate</div>
+<p>The variation Black wants to anticipate is White striking at the
+thinness on the outside with 1. Looking at <em>a</em> and <em>b</em> with White 5 is
+White&#8217;s aim.</p>
+
+<hr class="file">
+<div class="headers">Diagram 24<br>
+Miai</div>
+<p>If Black defends the lower side with 6, White applies pressure with 7
+and what follows. Since the White stones in the lower right are alive
+with <em>a</em> and <em>b</em> as miai, it is a difficult fight for Black.</p>
+
+<hr class="page">
+<div class="page-number">166</div>
+<div class="headers">Diagram 25<br>
+Black&#8217;s Countermeasure</div>
+<p>Accordingly, Black 1 is the way to break the position open and undo
+White&#8217;s intention. It looks as though White 2 and what follows will
+trace a development similar to the previous diagram, but -</p>
+
+<hr class="file">
+<div class="headers">Diagram 26<br>
+Winning the Capturing Race</div>
+<p>In response to White 10, Black wins the capturing race with 11 and
+what follows. The key point is that thanks to the exchange of the
+triangled Black stone for the triangled White stone, White&#8217;s eye in
+the lower right has been taken away.</p>
+
+<hr class="page">
+<div class="page-number">167</div>
+<div class="headers">Diagram 27<br>
+Leading to Miai</div>
+<p>Instead of White 12 in the previous diagram, if White resists with 1,
+living with Black 2 and what follows is solid. Since Black can look to
+<em>a</em> and <em>b</em>, this is a success for Black.</p>
+
+<hr class="file">
+<div class="headers">Diagram 28<br>
+Set Up to Defend Completely</div>
+<p>Instead of White 2 in Diagram 25, if White answers at 1, Black presses
+with 2 through 6. In response to White 7, Black aims at the White
+stones on the right side with 8 and what follows while making <em>a</em> and
+<em>b</em> miai - Black can fight.</p>
+
+<hr class="page">
+<div class="page-number">168</div>
+<div class="headers">Diagram 29<br>
+A Bold Answer</div>
+<p>When White moves out with 1, answering with Black 2 through 6 is the
+powerful response. Continuing, if White plays <em>a</em>, Black can hold with
+<em>b</em> and what follows.</p>
+
+<hr class="file">
+<div class="headers">Diagram 30<br>
+White&#8217;s Aim</div>
+<p>If White seals Black in with 7, Black extends their liberties with 8
+through 10. White 11 aims at both <em>a</em> and <em>b</em>, and it looks like a
+difficult fight for Black, but -</p>
+
+<hr class="page">
+<div class="page-number">169</div>
+<div class="headers">Diagram 31<br>
+An Exquisite Probe</div>
+<p>The attach of Black 12 is an exquisite move. In response to White 13,
+Black gains the leeway to turn to the lower right with 14. Thanks to
+the attach exchange, White&#8217;s seal-in at <em>a</em> is neutralized.</p>
+
+<hr class="file">
+<div class="headers">Diagram 32<br>
+Breaking Through the Encirclement</div>
+<p>Even if White presses with 15 through 19, breaking through the
+encirclement with 20 and what follows is Black&#8217;s boast. If White
+plays <em>a</em>, Black can escape with <em>b</em>.</p>
+
+<hr class="page">
+<div class="page-number">170</div>
+<div class="headers">Diagram 33<br>
+A Light Escape</div>
+<p>Instead of White 21 in the previous diagram, if White answers at 2,
+Black escapes with 3 and what follows. With the resource of capturing
+the White stones in the lower right and the aim of attacking the White
+stones on the right side in view, it is a fight that favors Black.</p>
+
+<hr class="file">
+<div class="headers">Diagram 34<br>
+Important Insurance</div>
+<p>In response to White 2, exchanging Black 3 for White 4 is essential.
+Black builds a formation that cannot be sealed in, thanks to the
+forcing move at <em>a</em>, and gets to 5 first - a success for Black.</p>
+
+<hr class="page">
+<div class="page-number">171</div>
+<div class="headers">Diagram 35<br>
+The Order of Moves for the Shinogi</div>
+<p>Instead of White 2 in the previous diagram, when White resists with 1,
+Black gets to the right side first with 2. In response to White 3, if
+Black makes <em>a</em> and <em>b</em> miai with 4 and what follows, Black can rescue
+the stones on the lower side.</p>
+
+<hr class="file">
+<div class="headers">Diagram 36<br>
+Checking the Capturing Race</div>
+<p>If White comes to capture with 2, Black can swallow up the White
+stones in the lower right with 3 and what follows. Even if White takes
+away Black&#8217;s eye with <em>a</em>, Black wins the capturing race by one move
+with <em>b</em> and what follows.</p>
+
+<hr class="page">
+<div class="page-number">172</div>
+<div class="headers">Column 5</div>
+
+<hr class="file">
+<div class="headers">How Go AI Is Changing the Art of Competition</div>
+<p>These days Go AI has become easy to use, and we live in an age when
+anyone can have a teacher of their own. Because it no longer depends
+on the environment around you, even the world&#8217;s top players say that
+&quot;the gap in strength has narrowed.&quot; Internet broadcasts display the
+AI&#8217;s win rate and the point margin, so anyone can tell which side
+stands better regardless of their own strength - another revolutionary
+advance.</p>
+<p>The biggest change of all is in &quot;the nature of competition.&quot; In the
+old days it was an age in which you could pull ahead through long
+years of experience or a flash of genius. Now, though, a few minutes
+of investigation with a Go AI will give you answers that took humans
+decades to reach. Of course, one cannot say those answers are always
+correct, but with a few exceptions it is common knowledge that they
+surpass human accuracy.</p>
+<p>The evolution of tactics and ways of thinking is on another order of
+magnitude as well. When things move quickly, a new move can appear in
+less than a week. The value of pursuing &quot;the truth of Go&quot; has gone
+down, and the weight placed on &quot;winning&quot; has gone up. In the age ahead
+of us, the key that decides the fate of a game is how well you can
+choose the &quot;tools&quot; that suit you from among the AI&#8217;s candidate moves
+and put them to use.</p>
+
+<hr class="page">
+<div class="page-number">173</div>
+<div class="headers">Theme Diagram 7<br>
+The Attach as a Countermeasure Against a Framework</div>
+<p>The attach of White 1 is one of the AlphaGo techniques. Its strength
+is that White can make shape freely, adapting to how the opponent
+comes out. It is often used when reducing the opponent&#8217;s position, and
+in the modern game it has become a standard method.</p>
+<p>Here I have summarized how White should respond to Black A through D.
+This technique is often used as a countermeasure against a
+framework.</p>
+
+<hr class="page">
+<div class="page-number">174</div>
+<div class="headers">Diagram 1<br>
+Prioritizing Speed</div>
+<p>If Black answers at 1, White builds a tenacious shape with 2 through
+6, and being able to run to a big point such as 8 afterward is
+White&#8217;s boast. The White stones in the lower right look precarious,
+but -</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+A Bright View of the Whole Board</div>
+<p>Rather than answering Black 9, occupying a big point with White 10 and
+what follows is good judgment. With an eye on activating the stones
+starting with <em>a</em>, White builds a framework in the upper left and has
+enough.</p>
+
+<hr class="page">
+<div class="page-number">175</div>
+<div class="headers">Diagram 3<br>
+Confirming the Remaining Aji</div>
+<p>Even if Black attacks at 1 instead of 11 in the previous diagram,
+White has the resource of hanging on with the ko starting with 2. If
+Black connects at <em>a</em>, White can aim at local life with <em>b</em>.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+Limiting the Framework</div>
+<p>If Black extends at 1, White limits the framework&#8217;s potential for
+expansion with 2 and what follows. White can aim at reducing with <em>a</em>
+through <em>c</em>, so this is a development that is not bad for White.</p>
+
+<hr class="page">
+<div class="page-number">176</div>
+<div class="headers">Diagram 5<br>
+Prepared for the Assault</div>
+<p>Black 1 is a commonly played way of answering. In response to White 2,
+Black separates White with 3 and what follows, but White has a
+resource prepared to overturn the adversity.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+A Tenacious Fighting Formation</div>
+<p>Moving out with White 8 is the starting point. In response to Black 9,
+if White reinforces with 10 and what follows and breaks into Black&#8217;s
+position on the lower side, the result is enough for White. If Black
+omits 15, White reduces greatly starting with <em>a</em>.</p>
+
+<hr class="page">
+<div class="page-number">177</div>
+<div class="headers">Diagram 7<br>
+The Idea of Switching Elsewhere</div>
+<p>If Black defends with 1 and 3 instead of 11 in the previous diagram,
+White makes shape on the right side with 4 and what follows. Keeping
+an eye on activating the lower-side stones, White heads for an
+invasion of the right side.</p>
+
+<hr class="file">
+<div class="headers">Diagram 8<br>
+Reducing the Framework in Sente</div>
+<p>In exchange for letting Black defend the right side and the lower side
+with 9 and 11, White reinforces the right side with 12 and what
+follows and gets to a big point first - enough for White.</p>
+
+<hr class="page">
+<div class="page-number">178</div>
+<div class="headers">Diagram 9<br>
+Making Profit Steadily</div>
+<p>If Black answers White 1 at 2, White reinforces the lower side with 3
+through 11. Even if Black takes control of the lower right with 12,
+White profits with 13 and has enough. Black <em>a</em> is met by erasing with
+White <em>b</em> and what follows.</p>
+
+<hr class="file">
+<div class="headers">Diagram 10<br>
+A Calm Resolution</div>
+<p>If Black plays 1 instead of 4 in the previous diagram, defending with
+White 2 is calm. Not only can White break into Black&#8217;s position on the
+lower side, White can also look at reducing the right side with <em>a</em> or
+<em>b</em>, so there is no need to hurry.</p>
+
+<hr class="page">
+<div class="page-number">179</div>
+<div class="headers">Diagram 11<br>
+Repelling the Assault</div>
+<p>When Black presses with 1 and 3 instead of 4 in Diagram 9, White holds
+firm with 4 and what follows. If Black seals White in with 9, White
+takes away an eye with the exchange of White 10 for Black 11, and then
+defends with 12.</p>
+
+<hr class="file">
+<div class="headers">Diagram 12<br>
+The Shinogi That Was Prepared</div>
+<p>In response to Black 13 and 15, answering with White 16 and what
+follows is the good move. With an eye on getting an eye at <em>a</em>, and
+looking at the aim of finishing off the Black stones in the lower
+right with <em>b</em> and what follows, White can rescue their own stones.</p>
+
+<hr class="page">
+<div class="page-number">180</div>
+<div class="headers">Diagram 13<br>
+A Solid Defense</div>
+<p>Black 1 and 3 are a mild way of answering. If White straightforwardly
+widens the space with 2 and what follows, Black&#8217;s severe attack does
+not continue.</p>
+
+<hr class="file">
+<div class="headers">Diagram 14<br>
+Light Shape-Making</div>
+<p>Even when Black presses with 5, White can make shape with 6 and what
+follows, so White is not pursued severely. White settles on a
+battlefield where the surroundings are all Black, so this is a
+progression that is not bad for White.</p>
+
+<hr class="page">
+<div class="page-number">181</div>
+<div class="headers">Diagram 15<br>
+A Whole-Board Development</div>
+<p>If Black attacks with 1 and 3 instead of 5 in the previous diagram,
+White reinforces with 4 and what follows. If Black defends the cutting
+point with 9, being able to get to a big point first with 10 or
+similar is White&#8217;s boast.</p>
+
+<hr class="file">
+<div class="headers">Diagram 16<br>
+An Elastic Shape</div>
+<p>The moment Black cuts with 11 and 13, White 14 is the good move,
+making shape by using the opponent&#8217;s strength. In response to Black
+15, White escapes with 16 while securing a base - a success for White.</p>
+
+<hr class="page">
+<div class="page-number">182</div>
+<div class="headers">Diagram 17<br>
+The Verdict Goes to Solid Profit</div>
+<p>In response to Black 1, biting into the corner with White 2 and what
+follows is promising. Even if Black expands at <em>a</em>, White has the
+resource of erasing the framework with <em>b</em> and what follows - a
+development in which White&#8217;s solid profit comes into its own.</p>
+
+<hr class="file">
+<div class="headers">Diagram 18<br>
+Nimble Stone Management</div>
+<p>If Black presses at 1 instead of 5 in the previous diagram, White 2
+probes how Black will answer. If Black cuts at 3, White settles the
+corner in sente with 4 through 8, then occupies the good point of 10 -
+enough for White.</p>
+
+<hr class="page">
+<div class="page-number">183</div>
+<div class="headers">Diagram 19<br>
+The Knack of Sacrificing</div>
+<p>The moment Black tries to settle things with 1 instead of 5 in the
+previous diagram, sacrificing with White 2 is bright. After White 8,
+the fight favors White, and White can recoup the loss in the corner.</p>
+
+<hr class="file">
+<div class="headers">Diagram 20<br>
+A Fight That Favors White</div>
+<p>Even if Black cuts the connection with 9, after White 10 and what
+follows, White cannot be attacked severely. The gains from reducing
+Black&#8217;s position on the lower side are large - a success for White.</p>
+
+<hr class="page">
+<div class="page-number">184</div>
+<div class="headers">Diagram 21<br>
+Emphasizing Profit</div>
+<p>When Black separates White forcibly with 1 through 5, reducing the
+corner with White 6 and what follows is solid. White has the resource
+of erasing at <em>a</em> or <em>b</em>, so Black&#8217;s framework does not come together
+on a large scale.</p>
+
+<hr class="file">
+<div class="headers">Diagram 22<br>
+Much the Same</div>
+<p>Even if Black answers at 1 here instead of Black 1 in the previous
+diagram,
+White&#8217;s policy of reducing the corner with 2 through 8 does not
+change. Black <em>a</em> is met by White <em>b</em> and what follows, leaving
+weaknesses behind, and White runs to a big point - satisfying for
+White.</p>
+
+<hr class="page">
+<div class="page-number">185</div>
+<div class="headers">Theme Diagram 8<br>
+The Endlessly Versatile Fifth-Line Technique</div>
+<p>In response to the approach of White 1, choosing the attach-and-pull
+joseki with Black 2 and what follows is the mainstream.</p>
+<p>After this, rather than heading for the right side, White often uses a
+new technique: playing 7 to see how the opponent comes out. To put it
+in a word, it is a way of deciding &quot;how far White should extend the
+right side.&quot; Let us look at the concrete ways of applying it.</p>
+
+<hr class="page">
+<div class="page-number">186</div>
+<div class="headers">Diagram 1<br>
+Expanding White&#8217;s Position</div>
+<p>If Black surrounds the lower side with 1, White keeps Black pressed
+down with 2 through 6. In this position, being able to expand the
+right side greatly with White 8 is White&#8217;s boast.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+Countering with a Framework</div>
+<p>In response to Black 9, White makes shape in the upper right with 10
+and what follows while expanding the right side - enough for White.
+Even if Black surrounds the lower side, White&#8217;s framework is large, so
+White can compete.</p>
+
+<hr class="page">
+<div class="page-number">187</div>
+<div class="headers">Diagram 3<br>
+Black&#8217;s Counterattack</div>
+<p>A progression in which Black counterattacks with 1 and what follows
+instead of 15 in the previous diagram is also conceivable. Black
+breaks into White&#8217;s position on the right side, and White&#8217;s plan looks
+as though it will collapse, but -</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+Flexible Stone Management</div>
+<p>Occupying the right side with White 8, with an eye on activating the
+stone at <em>a</em>, is a supple plan. In response to Black 9, White builds a
+position on the upper side with 10 and what follows - a progression
+that is not bad for White.</p>
+
+<hr class="page">
+<div class="page-number">188</div>
+<div class="headers">Diagram 5<br>
+Attack and Defense in the Double Approach</div>
+<p>If Black splits the right side with 1, White counters with the double
+approach of 2. Black 3 and what follows is the procedure for making
+shape, but in the present position things resolve in White&#8217;s favor.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+Black&#8217;s Intention</div>
+<p>In response to White 14, Black&#8217;s intention is to take the ko back with
+15 and what follows and make shape. However, White has prepared a plan
+to maneuver nimbly.</p>
+
+<hr class="page">
+<div class="page-number">189</div>
+<div class="headers">Diagram 7<br>
+The Plan After the Joseki</div>
+<p>Building a framework on the upper side with White 24 and what follows
+while reinforcing the right side is nimble. If even part of White&#8217;s
+sphere of influence becomes territory, White has a position that is
+at least equal.</p>
+
+<hr class="file">
+<div class="headers">Diagram 8<br>
+No Pursuit Possible</div>
+<p>Continuing from the previous diagram, even if Black pursues with 1,
+White can secure an eye with 2 and what follows. Black has obtained
+settled territory, but Black&#8217;s cause for regret is that this is a
+position in which it is hard to increase that territory.</p>
+
+<hr class="page">
+<div class="page-number">190</div>
+<div class="headers">Diagram 9<br>
+The Invasion White Is Aiming At</div>
+<p>When Black answers at 2, the knack is to defend solidly with White 3.
+The moment Black runs to a big point with 4 or similar, the invasion
+of White 5 is the aim.</p>
+
+<hr class="file">
+<div class="headers">Diagram 10<br>
+Expanding the Potential</div>
+<p>In response to Black 6, White limits the lower side with 7 and what
+follows while expanding White&#8217;s sphere of influence - satisfying for
+White. White&#8217;s position on the right side is stable, with an eye on
+defending at <em>a</em> or <em>b</em>.</p>
+
+<hr class="page">
+<div class="page-number">191</div>
+<div class="headers">Diagram 11<br>
+A Result That Favors White</div>
+<p>If Black counterattacks at 1 instead of 6 in the previous diagram,
+White swallows the two Black stones with 2 and what follows. The White
+stones on the right side look thin, but -</p>
+
+<hr class="file">
+<div class="headers">Diagram 12<br>
+A Pursuit That Is Nothing to Fear</div>
+<p>Even if Black invades at 7, White stabilizes with 8 and what follows
+and there is no problem. The profit White gains from swallowing the
+Black stones in the lower left outweighs the loss from the territory
+Black takes on the right side.</p>
+
+<hr class="page">
+<div class="page-number">192</div>
+<div class="headers">Diagram 13<br>
+A Natural Counterattack</div>
+<p>To avoid the variations up to now, counterattacking with Black 1 is a
+natural attitude. Advancing into the lower side with White 2 and then
+defending the right side with 6 is the flow of this technique.</p>
+
+<hr class="file">
+<div class="headers">Diagram 14<br>
+The Sabaki That Was Prepared</div>
+<p>In response to Black 7 as well, White defends carefully with 8. Even
+when Black attacks with 9, White can make shape with 10 and what
+follows. Next, Black needs to prevent White <em>a</em>.</p>
+
+<hr class="page">
+<div class="page-number">193</div>
+<div class="headers">Diagram 15<br>
+Defending Completely</div>
+<p>If Black defends while separating with 15 and 17, White settles with
+18 and what follows, making <em>a</em> and <em>b</em> miai. White completely
+withstands Black&#8217;s pursuit - a success for White.</p>
+
+<hr class="file">
+<div class="headers">Diagram 16<br>
+A Large Profit</div>
+<p>If Black splits the lower side with 1 instead of 15 in the previous
+diagram, White makes territory with 2 and what follows - enough for
+White. Later, White can aim at the resource starting with White <em>a</em>.</p>
+
+<hr class="page">
+<div class="page-number">194</div>
+<div class="headers">Diagram 17<br>
+A Head-On Confrontation</div>
+<p>Even if Black simply splits with 1, White&#8217;s answer at 2 does not
+change. In response to Black 3 and 5, White escapes on the lower side
+with 4 and what follows while aiming at the Black stones in the lower
+left.</p>
+
+<hr class="file">
+<div class="headers">Diagram 18<br>
+A Skillful Shinogi</div>
+<p>Connecting with Black 13 and 15 is the fair progression. After White
+16 sees how Black will answer, the diagonal attachment of White 18 is
+the tesuji. Black&#8217;s pursuit does not continue, so White succeeds.</p>
+
+<hr class="page">
+<div class="page-number">195</div>
+<div class="headers">Diagram 19<br>
+Proof of the Tesuji</div>
+<p>For example, if Black extends at 1, White pursues with 2. To prevent
+White <em>a</em>, Black has no choice but to come back with a move at 3, and
+White splits Black&#8217;s position with 4 and what follows - a fight that
+favors White.</p>
+
+<hr class="file">
+<div class="headers">Diagram 20<br>
+Nimble Stone Management</div>
+<p>Answering Black 1 would make the White stones on the lower side hard
+to sacrifice, so defending with White 2 is good judgment. In exchange
+for letting Black capture with 3, White makes territory with 4 -
+enough for White.</p>
+
+<hr class="page">
+<div class="page-number">196</div>
+<div class="headers">Diagram 21<br>
+A Countermeasure to the Counterattack</div>
+<p>If Black counterattacks at 1, White 2 becomes a severe move. If Black
+resists with 3 through 5, the cut of White 6 is the good move.</p>
+
+<hr class="file">
+<div class="headers">Diagram 22<br>
+A Fight That Favors White</div>
+<p>Black has no choice but to answer at 7, and White separates Black with
+8 and what follows while reinforcing the White stones everywhere - a
+fight that favors White. Black cannot omit defending the lower right.</p>
+
+<hr class="page">
+<div class="page-number">197</div>
+<div class="headers">Chapter 3<br>
+Opening Systems</div>
+
+<hr class="page">
+<div class="page-number">198</div>
+<div class="headers">Opening Systems Are Alive and Well</div>
+<p>With the arrival of Go AI, openings that fight with a particular
+arrangement of stones - the Kobayashi opening, the Chinese opening,
+the san-ren-sei - stopped being played. Because they can be countered
+by ways of playing that are all too simple, the players who had
+favored them lost heart.</p>
+<p>One top Korean professional has made the comment, &quot;A special technique
+is hard to use once you have used it.&quot; Indeed, that is because with Go
+AI a promising countermeasure can be worked out in a matter of
+minutes.</p>
+<p>Even in such an age, I will introduce two opening systems that have
+been revived by merging with the new techniques. In both of them the
+&quot;direct 3-3&quot; is the key. No difficult variations are needed, so you
+can relax.</p>
+<p>Precisely because the way they are used and the policy behind them are
+simple, they are openings that are not easily countered. You can get
+through the opening with a position at least close to even, so there
+is every reason to use them.</p>
+
+<hr class="page">
+<div class="page-number">199</div>
+<div class="headers">Theme Diagram 1<br>
+The New San-Ren-Sei System</div>
+<p>Here I will introduce a modern version of the san-ren-sei that anyone
+can master. Its distinguishing feature is &quot;using the attach-and-extend
+joseki with Black 2 and what follows in response to White&#8217;s approach
+at 1.&quot;</p>
+<p>Not only are there just two josekis to use, it is a strategy that
+works even at high-dan levels. With an easy-to-understand opening
+plan, it is a recommended opening that even kyu players can handle.</p>
+
+<hr class="page">
+<div class="page-number">200</div>
+<div class="headers">Diagram 1<br>
+A Plan to Enclose</div>
+<p>If White answers with 1 and 3, Black encloses the upper right with 4
+while defending the cutting point. It is a simple plan that combines a
+framework with profit.</p>
+
+<hr class="file">
+<div class="headers">Diagram 2<br>
+Profit First</div>
+<p>In response to White 5 as well, Black&#8217;s policy of enclosing with 6
+through 12 does not change. If White takes a stance with 13, it is
+simple for Black to settle the exchange of Black 14 for White 15 and
+then enter the 3-3 with 16.</p>
+
+<hr class="page">
+<div class="page-number">201</div>
+<div class="headers">Diagram 3<br>
+Systematizing the Opening</div>
+<p>If White builds thickness with 17 and what follows, Black repeats the
+same way of playing on the lower side with 26. Black makes the right
+side settled territory while seizing the initiative in the center,
+and is in good form.</p>
+
+<hr class="file">
+<div class="headers">Diagram 4<br>
+A One-Sided Offensive</div>
+<p>If White plays 1 instead of 15 in Diagram 2, keeping Black&#8217;s framework
+expansion in check, Black attacks the upper right with 2 and what
+follows while splitting the upper side. The surrounding Black stones
+are strong, so Black can attack one-sidedly.</p>
+
+<hr class="page">
+<div class="page-number">202</div>
+<div class="headers">Diagram 5<br>
+Accelerating the Framework&#8217;s Expansion</div>
+<p>If White takes a stance with 1, Black has no need to defend the
+cutting point and expands the framework with 2 and what follows. The
+push-and-cut of White <em>a</em> and what follows is no cause for worry.</p>
+
+<hr class="file">
+<div class="headers">Diagram 6<br>
+A Countermeasure to the Push-and-Cut</div>
+<p>If White cuts with 1 and what follows instead of White 3 in Diagram 5,
+Black responds by making <em>a</em> and <em>b</em> miai with 4. Because this
+countermeasure exists, Black does not need to answer.</p>
+
+<hr class="page">
+<div class="page-number">203</div>
+<div class="headers">Diagram 7<br>
+White&#8217;s Aim</div>
+<p>In response to White 6, Black swallows up the White stones in the
+upper right with 7. White 8 and what follows is a troublesome
+resistance, but Black has prepared a promising way to answer.</p>
+
+<hr class="file">
+<div class="headers">Diagram 8<br>
+An Important Move Order</div>
+<p>After settling Black 13 and 15, the wedge of Black 17 is the tesuji.
+Even if White makes a ko with 18 through 22, the forcing move at <em>a</em>
+is available, and being able to take the ko back is Black&#8217;s boast.</p>
+
+<hr class="page">
+<div class="page-number">204</div>
+<div class="headers">Diagram 9<br>
+The Verdict Goes to the Framework</div>
+<p>In response to White 1, Black should answer solidly at 2. After White
+3, Black expands the right-side framework with 4 and what follows - an
+excellent development.</p>
+
+<hr class="file">
+<div class="headers">Diagram 10<br>
+Charging into White&#8217;s Position</div>
+<p>If White plays 1 instead of 9 in the previous diagram, keeping Black&#8217;s
+right-side expansion in check, Black charges into the lower side with
+2. In response to White 3, Black goes to work on the White stones in
+the upper left with 4 and what follows.</p>
+
+<hr class="page">
+<div class="page-number">205</div>
+<div class="headers">Diagram 11<br>
+Black Makes Sabaki</div>
+<p>If White splits with 7 and 9, advancing into the corner with Black 10
+through 14 is a good move. In response to White <em>a</em>, Black breaks
+through with <em>b</em> and what follows and has enough.</p>
+
+<hr class="file">
+<div class="headers">Diagram 12<br>
+Seizing the Initiative</div>
+<p>If White cuts with 1 instead of 5 in Diagram 9, Black fights back
+powerfully with 2 and what follows while defending the upper right.
+With the aim of pursuing later at <em>a</em> or <em>b</em>, it is a fight that
+favors Black.</p>
+
+<hr class="page">
+<div class="page-number">206</div>
+<div class="headers">Diagram 13<br>
+A Countermeasure to the 3-3</div>
+<p>If White enters the 3-3 with 1, Black seals White in with 2 and what
+follows. Since Black <em>a</em> is forcing, the shape is thicker than it
+looks.</p>
+
+<hr class="file">
+<div class="headers">Diagram 14<br>
+A Sudden Death in the Corner</div>
+<p>For example, if White takes the upper side first with 1 through 3,
+Black can capture the White stones in the upper right with 4.
+Because this move exists, the area is one that White finds hard to
+touch.</p>
+
+<hr class="page">
+<div class="page-number">207</div>
+<div class="headers">Diagram 15<br>
+Leaving the Shape Undecided</div>
+<p>When White advances with 1 instead of White 3 in Diagram 13, it is
+simple for Black to expand the framework with 2 and what follows.
+Depending on the position, Black can choose to settle the shape with
+<em>a</em> or <em>b</em>.</p>
+
+<hr class="file">
+<div class="headers">Diagram 16<br>
+A Solid Resolution</div>
+<p>In response to White 7, making shape with Black 8 is a good move. If
+White defends with 9, Black thickens the outside with 10 and what
+follows, making <em>a</em> and <em>b</em> miai.</p>
+
+<hr class="page">
+<div class="page-number">208</div>
+<div class="headers">Diagram 17<br>
+A Simple Way of Answering</div>
+<p>The extension of White 1 is the modern technique. In response,
+answering with Black 2 and 4 is easy to understand. After White 5,
+Black straightforwardly expands the framework with 6 and what follows.</p>
+
+<hr class="file">
+<div class="headers">Diagram 18<br>
+A Clear Policy</div>
+<p>In response to White 11 and 13 as well, Black solidifying the right
+side with 14 and what follows does not change. Since Black can play
+either <em>a</em> or <em>b</em>, Black is not behind in the territorial balance.</p>
+
+<hr class="page">
+<div class="page-number">209</div>
+<div class="headers">Diagram 19<br>
+Where the Frameworks Meet</div>
+<p>If White takes the left side with 23, Black enters the 3-3 with 24.
+Through Black 34, Black limits White&#8217;s framework on the lower side
+while expanding the right side - satisfying for Black.</p>
+
+<hr class="file">
+<div class="headers">Diagram 20<br>
+No Need to Hurry</div>
+<p>If White expands with 1 and what follows instead of 27 in the previous
+diagram, it is enough for Black to solidify the right-side framework
+with 10. Black also has the resource of reducing with <em>a</em> and what
+follows, so there is no need to hurry.</p>
+
+<hr class="page">
+<div class="page-number">210</div>
+<div class="headers">Column 6<br>
+&#8220;The Sacrifice Mindset&#8221; - It Changes Once You Put It into Practice</div>
+<p>One of the reasons your strength stops improving is &quot;saving too many
+stones.&quot; Everyone must have had the experience at least once of
+ending up with so many burdensome stones that the position got out of
+hand. Of course, training your reading and building up your fighting
+power is one solution. But the fundamental solution is telling apart
+&quot;the stones you should save and the stones you should sacrifice.&quot;</p>
+<p>Concretely, it means &quot;comparing the stones you want to capture with
+the stones that will be captured.&quot; Simple as that sounds, in actual
+games most players push ahead with the greedy idea of capturing the
+opponent&#8217;s stones and saving their own as well. As a result they
+defeat themselves, and because their review focuses on the local
+fight, they never reach the fundamental solution and repeat the same
+mistake.</p>
+<p>Conversely, the better players are at fighting, the more they bring
+their full concentration to the moment they launch an attack. The
+point is to leave the opponent no room for choice and draw them into a
+one-sided fight. If you are the attacker you can seize the initiative
+in the fight, and if you are defending, you have already decided which
+stones to save, so no hesitation arises. Even high-dan players often
+fight by brute force, so if you can acquire &quot;the mindset of
+sacrificing,&quot; you can get ahead of your rivals.</p>
+
+</body>
+</html>
